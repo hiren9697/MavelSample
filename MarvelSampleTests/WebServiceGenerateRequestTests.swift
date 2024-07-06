@@ -10,11 +10,11 @@ import XCTest
 
 final class WebServiceGenerateRequestTests: XCTestCase {
 
-    var sut: APIService!
+    var sut: MockAPIService!
     
     override func setUp() {
         super.setUp()
-        sut = APIService()
+        sut = MockAPIService()
     }
     
     override func tearDown() {

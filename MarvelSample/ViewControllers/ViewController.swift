@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let service: APIServiceProtocol = APIService()
     var dataTask: URLSessionDataTask?
 
     override func viewDidLoad() {
@@ -20,7 +21,6 @@ class ViewController: UIViewController {
 extension ViewController {
    
     func makeAPICall() {
-        let service = APIService()
         let request = try! service.generateRequest(requestType: .get,
                                                    relativePath: APIEndpoints.characters.rawValue)
         dataTask = service.dataTask(request: request,
