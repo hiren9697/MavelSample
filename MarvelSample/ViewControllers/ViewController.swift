@@ -11,9 +11,32 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        makeAPICall()
     }
+}
 
-
+extension ViewController {
+    
+    func makeAPICall() {
+        let service = APIService()
+        let request = try! service.getRequest(requestType: .get,
+                                              headers: [:],
+                           queryParameters: [:],
+                           parameters: [:])
+        URLSession
+            .shared
+            .dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("error: \(error)")
+                }
+                if let response = response as? HTTPURLResponse {
+                    print("Status code: \(response.statusCode)")
+                }
+                if let data = data {
+                    let json = try! JSONSerialization.jsonObject(with: data)
+                    print("json: \(json)")
+                }
+            }.resume()
+    }
 }
 
