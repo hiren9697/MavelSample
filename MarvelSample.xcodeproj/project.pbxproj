@@ -30,6 +30,9 @@
 		87DDFDD72C394C420040621E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDD62C394C420040621E /* main.swift */; };
 		87DDFDD92C395A400040621E /* WalkthroughVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDD82C395A400040621E /* WalkthroughVC.swift */; };
 		87DDFDDB2C395C260040621E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFDDA2C395C260040621E /* README.md */; };
+		87DDFDDE2C395DB00040621E /* WalkthroughCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDDD2C395DB00040621E /* WalkthroughCC.swift */; };
+		87DDFDE12C3962400040621E /* ParentCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDE02C3962400040621E /* ParentCC.swift */; };
+		87DDFDE32C3962BE0040621E /* ParentTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDE22C3962BE0040621E /* ParentTC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		87DDFDD62C394C420040621E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		87DDFDD82C395A400040621E /* WalkthroughVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVC.swift; sourceTree = "<group>"; };
 		87DDFDDA2C395C260040621E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		87DDFDDD2C395DB00040621E /* WalkthroughCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughCC.swift; sourceTree = "<group>"; };
+		87DDFDE02C3962400040621E /* ParentCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentCC.swift; sourceTree = "<group>"; };
+		87DDFDE22C3962BE0040621E /* ParentTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentTC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,7 +171,7 @@
 		87DDFDB12C38FE820040621E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				87DDFDD82C395A400040621E /* WalkthroughVC.swift */,
+				87DDFDDC2C395D790040621E /* Walkthrough */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -219,6 +225,8 @@
 		87DDFDBD2C3902030040621E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				87DDFDE02C3962400040621E /* ParentCC.swift */,
+				87DDFDE22C3962BE0040621E /* ParentTC.swift */,
 				87DDFDC52C3915D50040621E /* Log.swift */,
 				87DDFDC02C39041F0040621E /* Error */,
 				87DDFDBC2C3901F80040621E /* Extensions */,
@@ -241,6 +249,15 @@
 				87DDFDD42C394B600040621E /* TestingSceneDelegate.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		87DDFDDC2C395D790040621E /* Walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				87DDFDD82C395A400040621E /* WalkthroughVC.swift */,
+				87DDFDDD2C395DB00040621E /* WalkthroughCC.swift */,
+			);
+			path = Walkthrough;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,10 +397,13 @@
 				87DDFDC22C3904290040621E /* NetworkError.swift in Sources */,
 				87DDFDC62C3915D50040621E /* Log.swift in Sources */,
 				87DDFDBF2C3902160040621E /* StringExtension.swift in Sources */,
+				87DDFDE12C3962400040621E /* ParentCC.swift in Sources */,
 				87DDFDB92C39008E0040621E /* APIEndpoints.swift in Sources */,
 				87DDFDB62C38FF120040621E /* Keys.swift in Sources */,
 				87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */,
+				87DDFDE32C3962BE0040621E /* ParentTC.swift in Sources */,
 				87DDFDBB2C3900CC0040621E /* APIService.swift in Sources */,
+				87DDFDDE2C395DB00040621E /* WalkthroughCC.swift in Sources */,
 				87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */,
 				87DDFDCA2C392CBB0040621E /* APIParameterName.swift in Sources */,
 				87DDFDC42C3904630040621E /* RequestType.swift in Sources */,
@@ -569,7 +589,7 @@
 				INFOPLIST_FILE = MarvelSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -601,7 +621,7 @@
 				INFOPLIST_FILE = MarvelSample/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
