@@ -9,4 +9,5 @@ import Foundation
 
 enum APIEndpoints: String {
     case base = "gateway.marvel.com"
+    case characters = "/v1/public/characters"
 }

@@ -11,11 +11,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Log.apiRequest("Hello there", shouldLogContext: false)
-        Log.apiResponse("Nice response")
-        Log.info("This is information")
-        Log.error("This is error")
-        // makeAPICall()
+        let request = try! APIService().generateRequest(requestType: .get,
+                                                        relativePath: "/v1/characters",
+                                                   headers: [:],
+                                                   queryParameters: [:],
+                                                   parameters: [:])
+        let components = NSURLComponents(string: request.url!.absoluteString)
+        let query = components?.queryItems
+        Log.info("Components: \(components!)")
+        Log.info("Query items: \(query!)")
     }
 }
 

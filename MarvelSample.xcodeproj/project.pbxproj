@@ -23,6 +23,8 @@
 		87DDFDC22C3904290040621E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC12C3904290040621E /* NetworkError.swift */; };
 		87DDFDC42C3904630040621E /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC32C3904630040621E /* RequestType.swift */; };
 		87DDFDC62C3915D50040621E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC52C3915D50040621E /* Log.swift */; };
+		87DDFDC82C391A5C0040621E /* WebServiceGenerateRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */; };
+		87DDFDCA2C392CBB0040621E /* APIParameterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC92C392CBB0040621E /* APIParameterName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		87DDFDC12C3904290040621E /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		87DDFDC32C3904630040621E /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
 		87DDFDC52C3915D50040621E /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceGenerateRequestTests.swift; sourceTree = "<group>"; };
+		87DDFDC92C392CBB0040621E /* APIParameterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameterName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				87DDFD912C38EDDB0040621E /* MarvelSampleTests.swift */,
+				87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */,
 			);
 			path = MarvelSampleTests;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				87DDFDB82C39008E0040621E /* APIEndpoints.swift */,
 				87DDFDBA2C3900CC0040621E /* APIService.swift */,
 				87DDFDC32C3904630040621E /* RequestType.swift */,
+				87DDFDC92C392CBB0040621E /* APIParameterName.swift */,
 			);
 			path = WebService;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 				87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */,
 				87DDFDBB2C3900CC0040621E /* APIService.swift in Sources */,
 				87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */,
+				87DDFDCA2C392CBB0040621E /* APIParameterName.swift in Sources */,
 				87DDFDC42C3904630040621E /* RequestType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87DDFD922C38EDDB0040621E /* MarvelSampleTests.swift in Sources */,
+				87DDFDC82C391A5C0040621E /* WebServiceGenerateRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
