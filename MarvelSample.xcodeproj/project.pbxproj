@@ -29,6 +29,7 @@
 		87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDD42C394B600040621E /* TestingSceneDelegate.swift */; };
 		87DDFDD72C394C420040621E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDD62C394C420040621E /* main.swift */; };
 		87DDFDD92C395A400040621E /* WalkthroughVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDD82C395A400040621E /* WalkthroughVC.swift */; };
+		87DDFDDB2C395C260040621E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFDDA2C395C260040621E /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		87DDFDD42C394B600040621E /* TestingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneDelegate.swift; sourceTree = "<group>"; };
 		87DDFDD62C394C420040621E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		87DDFDD82C395A400040621E /* WalkthroughVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVC.swift; sourceTree = "<group>"; };
+		87DDFDDA2C395C260040621E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				87DDFDAA2C38EFC40040621E /* MarvelSample.xctestplan */,
+				87DDFDDA2C395C260040621E /* README.md */,
 				87DDFD792C38EDDA0040621E /* MarvelSample */,
 				87DDFD902C38EDDB0040621E /* MarvelSampleTests */,
 				87DDFD9A2C38EDDB0040621E /* MarvelSampleUITests */,
@@ -344,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87DDFDDB2C395C260040621E /* README.md in Resources */,
 				87DDFD872C38EDDB0040621E /* LaunchScreen.storyboard in Resources */,
 				87DDFD842C38EDDB0040621E /* Assets.xcassets in Resources */,
 			);
