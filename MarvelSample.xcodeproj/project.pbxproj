@@ -27,6 +27,9 @@
 		87DDFDCA2C392CBB0040621E /* APIParameterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC92C392CBB0040621E /* APIParameterName.swift */; };
 		87DDFDCE2C393B080040621E /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDCD2C393B080040621E /* APIServiceProtocol.swift */; };
 		87DDFDD02C39412F0040621E /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDCF2C39412F0040621E /* MockAPIService.swift */; };
+		87DDFDD32C394B4E0040621E /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDD22C394B4E0040621E /* TestingAppDelegate.swift */; };
+		87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDD42C394B600040621E /* TestingSceneDelegate.swift */; };
+		87DDFDD72C394C420040621E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDD62C394C420040621E /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		87DDFDC92C392CBB0040621E /* APIParameterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameterName.swift; sourceTree = "<group>"; };
 		87DDFDCD2C393B080040621E /* APIServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProtocol.swift; sourceTree = "<group>"; };
 		87DDFDCF2C39412F0040621E /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
+		87DDFDD22C394B4E0040621E /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
+		87DDFDD42C394B600040621E /* TestingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneDelegate.swift; sourceTree = "<group>"; };
+		87DDFDD62C394C420040621E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,7 @@
 		87DDFD902C38EDDB0040621E /* MarvelSampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				87DDFDD12C394B250040621E /* Main */,
 				87DDFD912C38EDDB0040621E /* MarvelSampleTests.swift */,
 				87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */,
 				87DDFDCF2C39412F0040621E /* MockAPIService.swift */,
@@ -174,6 +181,7 @@
 		87DDFDB32C38FE920040621E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				87DDFDD62C394C420040621E /* main.swift */,
 				87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */,
 				87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */,
 			);
@@ -224,6 +232,15 @@
 				87DDFDC12C3904290040621E /* NetworkError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		87DDFDD12C394B250040621E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				87DDFDD22C394B4E0040621E /* TestingAppDelegate.swift */,
+				87DDFDD42C394B600040621E /* TestingSceneDelegate.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87DDFDCE2C393B080040621E /* APIServiceProtocol.swift in Sources */,
+				87DDFDD72C394C420040621E /* main.swift in Sources */,
 				87DDFD7F2C38EDDA0040621E /* ViewController.swift in Sources */,
 				87DDFDC22C3904290040621E /* NetworkError.swift in Sources */,
 				87DDFDC62C3915D50040621E /* Log.swift in Sources */,
@@ -377,6 +395,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				87DDFD922C38EDDB0040621E /* MarvelSampleTests.swift in Sources */,
+				87DDFDD32C394B4E0040621E /* TestingAppDelegate.swift in Sources */,
+				87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */,
 				87DDFDD02C39412F0040621E /* MockAPIService.swift in Sources */,
 				87DDFDC82C391A5C0040621E /* WebServiceGenerateRequestTests.swift in Sources */,
 			);
