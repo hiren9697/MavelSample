@@ -11,12 +11,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeAPICall()
+        Log.apiRequest("Hello there", shouldLogContext: false)
+        Log.apiResponse("Nice response")
+        Log.info("This is information")
+        Log.error("This is error")
+        // makeAPICall()
     }
 }
 
 extension ViewController {
-    
+   /*
     func makeAPICall() {
         let service = APIService()
         let request = try! service.getRequest(requestType: .get,
@@ -38,5 +42,6 @@ extension ViewController {
                 }
             }.resume()
     }
+    */
 }
 
