@@ -101,12 +101,11 @@
 		87DDFD792C38EDDA0040621E /* MarvelSample */ = {
 			isa = PBXGroup;
 			children = (
-				87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */,
-				87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */,
-				87DDFD7E2C38EDDA0040621E /* ViewController.swift */,
-				87DDFD802C38EDDA0040621E /* Main.storyboard */,
+				87DDFDB32C38FE920040621E /* Main */,
+				87DDFDB42C38FEA60040621E /* Configuration */,
+				87DDFDB22C38FE8C0040621E /* Storyboards */,
+				87DDFDB12C38FE820040621E /* ViewControllers */,
 				87DDFD832C38EDDB0040621E /* Assets.xcassets */,
-				87DDFD852C38EDDB0040621E /* LaunchScreen.storyboard */,
 				87DDFD882C38EDDB0040621E /* Info.plist */,
 			);
 			path = MarvelSample;
@@ -127,6 +126,39 @@
 				87DDFD9D2C38EDDB0040621E /* MarvelSampleUITestsLaunchTests.swift */,
 			);
 			path = MarvelSampleUITests;
+			sourceTree = "<group>";
+		};
+		87DDFDB12C38FE820040621E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				87DDFD7E2C38EDDA0040621E /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		87DDFDB22C38FE8C0040621E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				87DDFD802C38EDDA0040621E /* Main.storyboard */,
+				87DDFD852C38EDDB0040621E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		87DDFDB32C38FE920040621E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */,
+				87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		87DDFDB42C38FEA60040621E /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
