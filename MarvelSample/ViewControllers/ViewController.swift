@@ -8,44 +8,31 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var dataTask: URLSessionDataTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let request = try! APIService().generateRequest(requestType: .get,
-                                                        relativePath: "/v1/characters",
-                                                   headers: [:],
-                                                   queryParameters: [:],
-                                                   parameters: [:])
-        let components = NSURLComponents(string: request.url!.absoluteString)
-        let query = components?.queryItems
-        Log.info("Components: \(components!)")
-        Log.info("Query items: \(query!)")
+        makeAPICall()
     }
 }
 
 extension ViewController {
-   /*
+   
     func makeAPICall() {
         let service = APIService()
-        let request = try! service.getRequest(requestType: .get,
-                                              headers: [:],
-                           queryParameters: [:],
-                           parameters: [:])
-        URLSession
-            .shared
-            .dataTask(with: request) { data, response, error in
-                if let error = error {
-                    print("error: \(error)")
-                }
-                if let response = response as? HTTPURLResponse {
-                    print("Status code: \(response.statusCode)")
-                }
-                if let data = data {
-                    let json = try! JSONSerialization.jsonObject(with: data)
-                    print("json: \(json)")
-                }
-            }.resume()
+        let request = try! service.generateRequest(requestType: .get,
+                                                   relativePath: APIEndpoints.characters.rawValue)
+        dataTask = service.dataTask(request: request,
+                                        completion: { result in
+            switch result {
+            case .success(let json):
+                Log.info("Received json: \(json)")
+            case .failure(let error):
+                Log.info("Received error in API call: \(error)")
+            }
+        })
+        dataTask?.resume()
     }
-    */
+    
 }
-
