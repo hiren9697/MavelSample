@@ -1,0 +1,11 @@
+MarvelSample/project.xcworkspace
+MarvelSample.xcodeproj/xcuserdata
+MarvelSample.xcodeproj/project.xcworkspace/xcuserdata
+MarvelSample.xcodeproj/project.xcworkspace/MarvelSample.xcworkspace
+MarvelSample.xcworkspace/contents.xcworkspacedata
+MarvelSample.xcworkspace/xcuserdata
+MarvelSample.xcworkspace
+MarvelSample.xcworkspace/xcshareddata
+Pods
+*.DS_Store
+.DS_Store
