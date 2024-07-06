@@ -8,40 +8,31 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let service: APIServiceProtocol = APIService()
+    var dataTask: URLSessionDataTask?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Log.apiRequest("Hello there", shouldLogContext: false)
-        Log.apiResponse("Nice response")
-        Log.info("This is information")
-        Log.error("This is error")
-        // makeAPICall()
+        makeAPICall()
     }
 }
 
 extension ViewController {
-   /*
+   
     func makeAPICall() {
-        let service = APIService()
-        let request = try! service.getRequest(requestType: .get,
-                                              headers: [:],
-                           queryParameters: [:],
-                           parameters: [:])
-        URLSession
-            .shared
-            .dataTask(with: request) { data, response, error in
-                if let error = error {
-                    print("error: \(error)")
-                }
-                if let response = response as? HTTPURLResponse {
-                    print("Status code: \(response.statusCode)")
-                }
-                if let data = data {
-                    let json = try! JSONSerialization.jsonObject(with: data)
-                    print("json: \(json)")
-                }
-            }.resume()
+        let request = try! service.generateRequest(requestType: .get,
+                                                   relativePath: APIEndpoints.characters.rawValue)
+        dataTask = service.dataTask(request: request,
+                                        completion: { result in
+            switch result {
+            case .success(let json):
+                Log.info("Received json: \(json)")
+            case .failure(let error):
+                Log.info("Received error in API call: \(error)")
+            }
+        })
+        dataTask?.resume()
     }
-    */
+    
 }
-

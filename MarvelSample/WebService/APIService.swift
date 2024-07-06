@@ -7,51 +7,41 @@
 
 import Foundation
 
-class APIService {
+
+class APIService: APIServiceProtocol {
     
-    func generateRequest(requestType: RequestType,
-                         headers: [String: String],
-                         queryParameters: [String: String],
-                         parameters: [String: String]) throws -> URLRequest {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = APIEndpoints.base.rawValue
-        components.path = "/v1/public/characters"
-        
-        let timeStamp = "\(Date().timeIntervalSince1970)"
-        
-        let hash = (timeStamp + Keys.privateKey + Keys.publicKey).md5
-        
-        /// Add default query params
-        var queryParamsList: [URLQueryItem] = [
-            URLQueryItem(name: "apikey", value: Keys.publicKey),
-            URLQueryItem(name: "ts", value: timeStamp),
-            URLQueryItem(name: "hash", value: hash)
-        ]
-        
-        if !queryParameters.isEmpty {
-            queryParamsList.append(contentsOf: queryParameters.map { URLQueryItem(name: $0, value: $1) })
-        }
-        
-        components.queryItems = queryParamsList
-        
-        guard let url = components.url else { throw  NetworkError.invalidURL }
-        
-        var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = requestType.rawValue
-        
-        if !headers.isEmpty {
-            urlRequest.allHTTPHeaderFields = headers
-        }
-        
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        if !parameters.isEmpty {
-            urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters)
-        }
-        
-        //            Logger.networking.info("🚀 [REQUEST] [\(requestType.rawValue)] \(urlRequest, privacy: .private)")
-        
-        return urlRequest
+    func dataTask(request: URLRequest,
+                  completion: @escaping APICallHandler)-> URLSessionDataTask? {
+        return URLSession
+            .shared
+            .dataTask(with: request) { data, response, error in
+                if let error = error {
+                    Log.error("Error in API call: \(error)")
+                    completion(.failure(error))
+                    return
+                }
+                guard let response = response as? HTTPURLResponse else {
+                    Log.error("Couldn't receive HTTPURLResponse")
+                    completion(.failure(NetworkError.invalidResponse))
+                    return
+                }
+                guard response.statusCode == 200 else {
+                    Log.error("Invalid status code in API response: \(response.statusCode)")
+                    completion(.failure(NetworkError.incorrectStatusCode))
+                    return
+                }
+                guard let data = data else {
+                    Log.error("Received empty data from API response")
+                    completion(.failure(NetworkError.emptyData))
+                    return
+                }
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data)
+                    completion(.success(json))
+                } catch {
+                    Log.error("Error in parsing JSON: \(error)")
+                    completion(.failure(error))
+                }
+            }
     }
 }
