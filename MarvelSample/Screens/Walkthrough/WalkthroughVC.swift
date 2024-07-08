@@ -21,6 +21,25 @@ class WalkthroughVC: UIViewController {
                                 forCellWithReuseIdentifier: WalkthroughCC.name)
         return collectionView
     }()
+    let continueButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = AppColors.red
+        button.setTitle("Continue", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.layer.cornerRadius = 8
+        button.layer.masksToBounds = true
+        return button
+    }()
+    let pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.pageIndicatorTintColor = .white
+        pageControl.currentPageIndicatorTintColor = AppColors.red
+        return pageControl
+    }()
+    
+    let viewModel = WalkthroughVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +51,8 @@ class WalkthroughVC: UIViewController {
 extension WalkthroughVC {
     
     private func configureUI() {
+        view.backgroundColor = .black
+        collectionView.backgroundColor = .black
         // 1. CollectionView
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +63,30 @@ extension WalkthroughVC {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.reloadData()
+        // 2. Continue Button
+        continueButton.addTarget(self, action: #selector(continueTap), for: .touchUpInside)
+        view.addSubview(continueButton)
+        continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                constant: 30).isActive = true
+        continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                 constant: -30).isActive = true
+        continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                               constant: -80).isActive = true
+        continueButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        // 3. Page control
+        pageControl.numberOfPages = viewModel.items.count
+        view.addSubview(pageControl)
+        pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        pageControl.bottomAnchor.constraint(equalTo: continueButton.topAnchor,
+                                            constant: -20).isActive = true
+    }
+}
+
+// MARK: - Actions
+extension WalkthroughVC {
+    
+    @objc func continueTap(_ button: UIButton) {
+        
     }
 }
 
@@ -54,17 +99,14 @@ extension WalkthroughVC: UICollectionViewDelegate {
 extension WalkthroughVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        5
+        viewModel.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WalkthroughCC.name,
                                                       for: indexPath) as! WalkthroughCC
-        if indexPath.row % 2 == 0 {
-            cell.contentView.backgroundColor = .blue
-        } else {
-            cell.contentView.backgroundColor = .red
-        }
+        let itemViewModel = viewModel.items[indexPath.row]
+        cell.updateUI(viewModel: itemViewModel)
         return cell
     }
 }
