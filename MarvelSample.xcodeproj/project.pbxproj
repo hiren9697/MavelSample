@@ -261,10 +261,10 @@
 		87DDFDDC2C395D790040621E /* Walkthrough */ = {
 			isa = PBXGroup;
 			children = (
-				87DDFDE62C396D740040621E /* WalkthroughVM.swift */,
-				87DDFDD82C395A400040621E /* WalkthroughVC.swift */,
 				87DDFDE42C396BF70040621E /* WalkthroughItemVM.swift */,
 				87DDFDDD2C395DB00040621E /* WalkthroughCC.swift */,
+				87DDFDE62C396D740040621E /* WalkthroughVM.swift */,
+				87DDFDD82C395A400040621E /* WalkthroughVC.swift */,
 			);
 			path = Walkthrough;
 			sourceTree = "<group>";

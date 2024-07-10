@@ -6,6 +6,7 @@
 //
 
 import UIKit	
+import Combine
 
 // MARK: - VC
 class WalkthroughVC: UIViewController {
@@ -38,12 +39,47 @@ class WalkthroughVC: UIViewController {
         pageControl.currentPageIndicatorTintColor = AppColors.red
         return pageControl
     }()
+    var currentItem: Int? {
+        let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint)
+        return visibleIndexPath?.row
+    }
     
     let viewModel = WalkthroughVM()
+    private var bindings = Set<AnyCancellable>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        setupBindings()
+    }
+}
+
+// MARK: - Bindings
+extension WalkthroughVC {
+    
+    private func setupBindings() {
+        viewModel
+            .currentPage
+            .sink {[weak self] value in
+                guard let strongSelf = self else {
+                    return
+                }
+                // Update collection view
+                if strongSelf.currentItem != value {
+                    strongSelf.collectionView.scrollToItem(at: IndexPath(row: value,
+                                                              section: 0),
+                                                at: .centeredHorizontally,
+                                                animated: true)
+                }
+                // Update page control
+                strongSelf.pageControl.currentPage = value
+                // Update button title
+                strongSelf.continueButton.setTitle(strongSelf.viewModel.buttonTitle, for: .normal)
+                Log.info("Current page: \(value), title: \(strongSelf.viewModel.buttonTitle)")
+            }
+            .store(in: &bindings)
     }
 }
 
@@ -86,13 +122,20 @@ extension WalkthroughVC {
 extension WalkthroughVC {
     
     @objc func continueTap(_ button: UIButton) {
-        
+        viewModel.goToNextPage()
     }
 }
 
 // MARK: - Collection Delegate
 extension WalkthroughVC: UICollectionViewDelegate {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let currentItem = currentItem,
+           currentItem != viewModel.currentPage.value {
+            viewModel.currentPage.value = currentItem
+            Log.info("Current page updated: \(currentItem)")
+        }
+    }
 }
 
 // MARK: - Collection Datasource
