@@ -18,6 +18,7 @@ final class WalkthroughVCTests: XCTestCase {
         viewModel = WalkthroughVM()
         sut = WalkthroughVC(viewModel: viewModel)
         sut.loadViewIfNeeded()
+        sut.collectionView.reloadData()
     }
     
     override func tearDown() {
@@ -27,7 +28,21 @@ final class WalkthroughVCTests: XCTestCase {
     }
 }
 
-// MARK: - Test Cases
+// MARK: - Outlets and Actions
+extension WalkthroughVCTests {
+    
+    func test_outlets_shouldBeConnected() {
+        XCTAssertNotNil(sut.collectionView, "collectionView")
+        XCTAssertNotNil(sut.pageControl, "pageControl")
+        XCTAssertNotNil(sut.continueButton, "continueButton")
+    }
+    
+    func test_continueButtonAction_shouldBeConnected() {
+        
+    }
+}
+
+// MARK: - Collection View
 extension WalkthroughVCTests {
     
     func test_collectionViewDelegates_shouldBeConnected() {
@@ -79,5 +94,40 @@ extension WalkthroughVCTests {
                        UIImage(named: viewModel.items.last?.imageName ?? ""),
                        "background image")
         
+    }
+}
+
+// MARK: - Binding Tests
+extension WalkthroughVCTests {
+    
+    func test_pageControl_binding() {
+        XCTAssertEqual(sut.pageControl.currentPage, 0, "precondition")
+        viewModel.currentPage.value = 1
+        XCTAssertEqual(sut.pageControl.currentPage, viewModel.currentPage.value)
+        viewModel.currentPage.value = 2
+        XCTAssertEqual(sut.pageControl.currentPage, viewModel.currentPage.value)
+        viewModel.currentPage.value = viewModel.items.lastIndex
+        XCTAssertEqual(sut.pageControl.currentPage, viewModel.currentPage.value)
+    }
+    
+    func test_collectionView_binding() {
+        /*
+        Log.info(sut.collectionView.visibleCells)
+        XCTAssertEqual(sut.collectionView.indexPathsForVisibleItems,
+                       [IndexPath(row: 0, section: 0)],
+                       "precondition")
+         */
+    }
+    
+    func test_button_binding() {
+        XCTAssertEqual(sut.continueButton.title(for: .normal),
+                       "Continue",
+                       "precondition")
+        viewModel.currentPage.value = 2
+        XCTAssertEqual(sut.continueButton.title(for: .normal),
+                       viewModel.buttonTitle)
+        viewModel.currentPage.value = viewModel.items.lastIndex
+        XCTAssertEqual(sut.continueButton.title(for: .normal),
+                       viewModel.buttonTitle)
     }
 }

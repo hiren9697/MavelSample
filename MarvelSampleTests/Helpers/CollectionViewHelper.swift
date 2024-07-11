@@ -33,3 +33,8 @@ func didSelectRow(in collectionView: UICollectionView,
                          didSelectItemAt: IndexPath(row: row, section: section))
 }
 
+func indexPathsFor(items: [Int],
+                   section: Int = 0)-> [IndexPath] {
+    return items.map { IndexPath(item: $0, section: section) }
+}
+
