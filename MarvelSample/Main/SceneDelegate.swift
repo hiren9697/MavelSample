@@ -15,7 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Log.info("SCENE DELEGATE: Launching from production")
         guard let windoScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windoScene)
-        let walkthroughVC = WalkthroughVC(nibName: nil, bundle: nil)
+        let walkthroughVM = WalkthroughVM()
+        let walkthroughVC = WalkthroughVC(viewModel: walkthroughVM)
         window?.rootViewController = walkthroughVC
         window?.makeKeyAndVisible()
     }

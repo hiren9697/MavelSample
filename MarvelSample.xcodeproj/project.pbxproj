@@ -36,6 +36,10 @@
 		87DDFDE32C3962BE0040621E /* ParentTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDE22C3962BE0040621E /* ParentTC.swift */; };
 		87DDFDE52C396BF70040621E /* WalkthroughItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDE42C396BF70040621E /* WalkthroughItemVM.swift */; };
 		87DDFDE72C396D740040621E /* WalkthroughVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDE62C396D740040621E /* WalkthroughVM.swift */; };
+		87DFDCB22C3E2F9F0025C535 /* WalkthroughVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */; };
+		87DFDCB42C3E30BA0025C535 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB32C3E30BA0025C535 /* ArrayExtension.swift */; };
+		87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB52C3E35620025C535 /* TableViewHelpers.swift */; };
+		87DFDCB92C3E35920025C535 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB82C3E35920025C535 /* CollectionViewHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +94,10 @@
 		87DDFDE22C3962BE0040621E /* ParentTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentTC.swift; sourceTree = "<group>"; };
 		87DDFDE42C396BF70040621E /* WalkthroughItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughItemVM.swift; sourceTree = "<group>"; };
 		87DDFDE62C396D740040621E /* WalkthroughVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVM.swift; sourceTree = "<group>"; };
+		87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVCTests.swift; sourceTree = "<group>"; };
+		87DFDCB32C3E30BA0025C535 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		87DFDCB52C3E35620025C535 /* TableViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelpers.swift; sourceTree = "<group>"; };
+		87DFDCB82C3E35920025C535 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,10 +165,12 @@
 		87DDFD902C38EDDB0040621E /* MarvelSampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				87DFDCB72C3E356A0025C535 /* Helpers */,
+				87DFDCB02C3E2C9D0025C535 /* MockAndSubs */,
 				87DDFDD12C394B250040621E /* Main */,
 				87DDFD912C38EDDB0040621E /* MarvelSampleTests.swift */,
 				87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */,
-				87DDFDCF2C39412F0040621E /* MockAPIService.swift */,
+				87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */,
 			);
 			path = MarvelSampleTests;
 			sourceTree = "<group>";
@@ -224,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				87DDFDBE2C3902160040621E /* StringExtension.swift */,
+				87DFDCB32C3E30BA0025C535 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,6 +278,23 @@
 				87DDFDD82C395A400040621E /* WalkthroughVC.swift */,
 			);
 			path = Walkthrough;
+			sourceTree = "<group>";
+		};
+		87DFDCB02C3E2C9D0025C535 /* MockAndSubs */ = {
+			isa = PBXGroup;
+			children = (
+				87DDFDCF2C39412F0040621E /* MockAPIService.swift */,
+			);
+			path = MockAndSubs;
+			sourceTree = "<group>";
+		};
+		87DFDCB72C3E356A0025C535 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				87DFDCB52C3E35620025C535 /* TableViewHelpers.swift */,
+				87DFDCB82C3E35920025C535 /* CollectionViewHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +443,7 @@
 				87DDFDE32C3962BE0040621E /* ParentTC.swift in Sources */,
 				87DDFDBB2C3900CC0040621E /* APIService.swift in Sources */,
 				87DDFDDE2C395DB00040621E /* WalkthroughCC.swift in Sources */,
+				87DFDCB42C3E30BA0025C535 /* ArrayExtension.swift in Sources */,
 				87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */,
 				87DDFDE72C396D740040621E /* WalkthroughVM.swift in Sources */,
 				87DDFDCA2C392CBB0040621E /* APIParameterName.swift in Sources */,
@@ -427,7 +456,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				87DDFD922C38EDDB0040621E /* MarvelSampleTests.swift in Sources */,
+				87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */,
+				87DFDCB22C3E2F9F0025C535 /* WalkthroughVCTests.swift in Sources */,
 				87DDFDD32C394B4E0040621E /* TestingAppDelegate.swift in Sources */,
+				87DFDCB92C3E35920025C535 /* CollectionViewHelper.swift in Sources */,
 				87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */,
 				87DDFDD02C39412F0040621E /* MockAPIService.swift in Sources */,
 				87DDFDC82C391A5C0040621E /* WebServiceGenerateRequestTests.swift in Sources */,

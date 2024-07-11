@@ -28,22 +28,23 @@ class WalkthroughVM {
             return "Continue"
         }
     }
-    // @Published var buttonTitle: String = "Continue"
     
-    func goToNextPage() {
+    init() {
+        Log.create("Initialized: \(String(describing: self))")
+    }
+    
+    deinit {
+        Log.destroy("Deinitialized: \(String(describing: self))")
+    }
+}
+
+// MARK: - Helpers
+extension WalkthroughVM {
+    
+   func goToNextPage() {
         guard currentPage.value < (items.count - 1) else {
             return
         }
         currentPage.value += 1
-    }
-    
-//    func updateTitle() {
-//        buttonTitle = currentPage < items.lastIndex ? "Continue" : "Let's Start"
-//    }
-}
-
-extension Array {
-    var lastIndex: Int {
-        return count - 1
-    }
+    } 
 }

@@ -46,9 +46,23 @@ class WalkthroughVC: UIViewController {
         return visibleIndexPath?.row
     }
     
-    let viewModel = WalkthroughVM()
+    private let viewModel: WalkthroughVM
     private var bindings = Set<AnyCancellable>()
-
+    
+    init(viewModel: WalkthroughVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        Log.create("Initialized: \(String(describing: self))")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        Log.destroy("Deinitialized: \(String(describing: self))")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()

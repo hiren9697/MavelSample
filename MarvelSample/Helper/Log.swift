@@ -15,6 +15,8 @@ enum Log {
         case apiResponse
         case warning
         case error
+        case create
+        case destroy
         
         fileprivate var symbole: String {
             switch self {
@@ -23,6 +25,8 @@ enum Log {
             case .apiResponse: return "↘︎"
             case .warning: return "⚠️"
             case .error: return "🛑"
+            case .create: return "🟢"
+            case .destroy: return "🔥"
             }
         }
     }
@@ -143,6 +147,38 @@ extension Log {
                               function: function,
                               line: line)
         Log.handleLog(level: .error,
+                      content: content,
+                      shouldLogContext: shouldLogContext,
+                      context: context)
+    }
+    
+    public static func create(
+        _ content: Any...,
+        shouldLogContext: Bool = true,
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line
+    ) {
+        let context = Context(file: file,
+                              function: function,
+                              line: line)
+        Log.handleLog(level: .create,
+                      content: content,
+                      shouldLogContext: shouldLogContext,
+                      context: context)
+    }
+    
+    public static func destroy(
+        _ content: Any...,
+        shouldLogContext: Bool = true,
+        file: String = #file,
+        function: String = #function,
+        line: Int = #line
+    ) {
+        let context = Context(file: file,
+                              function: function,
+                              line: line)
+        Log.handleLog(level: .destroy,
                       content: content,
                       shouldLogContext: shouldLogContext,
                       context: context)
