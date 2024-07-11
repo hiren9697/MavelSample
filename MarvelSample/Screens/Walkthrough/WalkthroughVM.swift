@@ -23,7 +23,7 @@ class WalkthroughVM {
     var buttonTitle: String {
         Log.info("Button title, currnetPage: \(currentPage)")
         if currentPage.value == items.count - 1 {
-            return "Lets's Start"
+            return "Let's Start"
         } else {
             return "Continue"
         }
