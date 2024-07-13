@@ -10,6 +10,8 @@
 		872848682C42370E008C1ED0 /* TestableWalkthroughVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */; };
 		8728486A2C423870008C1ED0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848692C423870008C1ED0 /* Helpers.swift */; };
 		8728486C2C423A18008C1ED0 /* TestableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */; };
+		8728486F2C42587B008C1ED0 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728486E2C42587B008C1ED0 /* FlowManager.swift */; };
+		872848712C42594E008C1ED0 /* UserDefaultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848702C42594E008C1ED0 /* UserDefaultProtocol.swift */; };
 		874340CD2C3B8DFA0050FDCE /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874340CC2C3B8DFA0050FDCE /* AppColors.swift */; };
 		8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6582C40D02B000FAFEF /* TabBarController.swift */; };
 		8762B65E2C40D14B000FAFEF /* ComicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B65D2C40D14B000FAFEF /* ComicsVC.swift */; };
@@ -73,6 +75,8 @@
 		872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableWalkthroughVC.swift; sourceTree = "<group>"; };
 		872848692C423870008C1ED0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCollectionView.swift; sourceTree = "<group>"; };
+		8728486E2C42587B008C1ED0 /* FlowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
+		872848702C42594E008C1ED0 /* UserDefaultProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultProtocol.swift; sourceTree = "<group>"; };
 		874340CC2C3B8DFA0050FDCE /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		8762B6582C40D02B000FAFEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8762B65D2C40D14B000FAFEF /* ComicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsVC.swift; sourceTree = "<group>"; };
@@ -145,6 +149,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8728486D2C42585D008C1ED0 /* ParentClasses */ = {
+			isa = PBXGroup;
+			children = (
+				87DDFDE02C3962400040621E /* ParentCC.swift */,
+				87DDFDE22C3962BE0040621E /* ParentTC.swift */,
+			);
+			path = ParentClasses;
+			sourceTree = "<group>";
+		};
 		8762B65A2C40D120000FAFEF /* Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,14 +304,15 @@
 		87DDFDBD2C3902030040621E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				87DDFDE02C3962400040621E /* ParentCC.swift */,
-				87DDFDE22C3962BE0040621E /* ParentTC.swift */,
+				8762B6652C40D6E2000FAFEF /* Constants.swift */,
 				87DDFDC52C3915D50040621E /* Log.swift */,
 				874340CC2C3B8DFA0050FDCE /* AppColors.swift */,
 				8762B6632C40D569000FAFEF /* HelperFunctions.swift */,
+				872848702C42594E008C1ED0 /* UserDefaultProtocol.swift */,
+				8728486E2C42587B008C1ED0 /* FlowManager.swift */,
+				8728486D2C42585D008C1ED0 /* ParentClasses */,
 				87DDFDC02C39041F0040621E /* Error */,
 				87DDFDBC2C3901F80040621E /* Extensions */,
-				8762B6652C40D6E2000FAFEF /* Constants.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -488,6 +502,7 @@
 				87DDFDD92C395A400040621E /* WalkthroughVC.swift in Sources */,
 				87DDFDC22C3904290040621E /* NetworkError.swift in Sources */,
 				87DDFDC62C3915D50040621E /* Log.swift in Sources */,
+				872848712C42594E008C1ED0 /* UserDefaultProtocol.swift in Sources */,
 				87DDFDBF2C3902160040621E /* StringExtension.swift in Sources */,
 				8762B6662C40D6E2000FAFEF /* Constants.swift in Sources */,
 				8762B6602C40D16A000FAFEF /* CharactersVC.swift in Sources */,
@@ -507,6 +522,7 @@
 				8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */,
 				87DDFDCA2C392CBB0040621E /* APIParameterName.swift in Sources */,
 				87DDFDC42C3904630040621E /* RequestType.swift in Sources */,
+				8728486F2C42587B008C1ED0 /* FlowManager.swift in Sources */,
 				8762B6622C40D17B000FAFEF /* EventsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

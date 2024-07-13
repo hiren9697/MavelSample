@@ -15,23 +15,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Log.info("SCENE DELEGATE: Launching from production")
         guard let windoScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windoScene)
-        setInitialScreen()
-    }
-}
-
-// MARK: - Helper
-extension SceneDelegate {
-    
-    private func setInitialScreen() {
-        if UserDefaults.standard.bool(forKey: UserDefaultKeys.hasSeenWalkthrough) {
-            let tabBarController = TabBarController()
-            window?.rootViewController = tabBarController
-        } else {
-            let walkthroughVM = WalkthroughVM()
-            let walkthroughVC = WalkthroughVC(viewModel: walkthroughVM)
-            window?.rootViewController = walkthroughVC
-        }
-        window?.makeKeyAndVisible()
+        guard let window = self.window else { return }
+        App.flowManager = FlowManager(window: window,
+                                      userDefaults: UserDefaults.standard)
+        App.flowManager?.setRootViewController()
     }
 }
 

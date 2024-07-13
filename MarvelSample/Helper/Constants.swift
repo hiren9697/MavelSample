@@ -7,6 +7,10 @@
 
 import UIKit
 
+class App {
+    static var flowManager: FlowManager?
+}
+
 struct UserDefaultKeys {
     static let hasSeenWalkthrough = "hasSeenWalkthrough"
 }

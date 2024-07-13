@@ -42,16 +42,10 @@ class WalkthroughVM {
 extension WalkthroughVM {
     
     func goToNextPage() {
-        func navigateToTabBar() {
-            let tabBarVC = TabBarController()
-            currentSceneWindow()?.rootViewController = tabBarVC
-            // Save state
-            UserDefaults.standard.set(true, forKey: UserDefaultKeys.hasSeenWalkthrough)
-            UserDefaults.standard.synchronize()
-        }
         
         guard currentPage.value < (items.count - 1) else {
-            navigateToTabBar()
+            App.flowManager?.setSeenWalkthrough()
+            App.flowManager?.setRootViewController()
             return
         }
         currentPage.value += 1
