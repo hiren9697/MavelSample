@@ -116,12 +116,16 @@ extension WalkthroughVCTests {
     }
     
     func test_collectionView_binding() {
-        /*
-        Log.info(sut.collectionView.visibleCells)
-        XCTAssertEqual(sut.collectionView.indexPathsForVisibleItems,
-                       [IndexPath(row: 0, section: 0)],
+        guard let testableCollectionView = sut.collectionView as? TestableCollectionView else {
+            XCTFail("CollectionView is not TestableCollectionView")
+            return
+        }
+        XCTAssertEqual(testableCollectionView.testableScrolledIndexPath,
+                       IndexPath(row: 0, section: 0),
                        "precondition")
-         */
+        viewModel.goToNextPage()
+        XCTAssertEqual(testableCollectionView.testableScrolledIndexPath,
+                       IndexPath(row: 1, section: 0))
     }
     
     func test_button_binding() {

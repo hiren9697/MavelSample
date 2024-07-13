@@ -11,6 +11,7 @@ import Combine
 // MARK: - VC
 class WalkthroughVC: UIViewController {
     
+    /*
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -22,6 +23,8 @@ class WalkthroughVC: UIViewController {
                                 forCellWithReuseIdentifier: WalkthroughCC.name)
         return collectionView
     }()
+     */
+    var collectionView: UICollectionView
     let continueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -51,6 +54,10 @@ class WalkthroughVC: UIViewController {
     
     init(viewModel: WalkthroughVM) {
         self.viewModel = viewModel
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        self.collectionView = UICollectionView(frame: .zero,
+                                               collectionViewLayout: layout)
         super.init(nibName: nil, bundle: nil)
         Log.create("Initialized: \(String(describing: self))")
     }
@@ -112,6 +119,9 @@ extension WalkthroughVC {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.isPagingEnabled = true
+        collectionView.register(WalkthroughCC.self,
+                                forCellWithReuseIdentifier: WalkthroughCC.name)
         collectionView.reloadData()
         // 2. Continue Button
         continueButton.addTarget(self, action: #selector(continueTap), for: .touchUpInside)
