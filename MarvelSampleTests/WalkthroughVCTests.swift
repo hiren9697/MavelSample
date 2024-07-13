@@ -10,13 +10,13 @@ import XCTest
 
 final class WalkthroughVCTests: XCTestCase {
 
-    var sut: WalkthroughVC!
+    var sut: TestableWalkthroughVC!
     var viewModel: WalkthroughVM!
     
     override func setUp() {
         super.setUp()
         viewModel = WalkthroughVM()
-        sut = WalkthroughVC(viewModel: viewModel)
+        sut = TestableWalkthroughVC(viewModel: viewModel)
         sut.loadViewIfNeeded()
         sut.collectionView.reloadData()
     }
@@ -38,7 +38,12 @@ extension WalkthroughVCTests {
     }
     
     func test_continueButtonAction_shouldBeConnected() {
-        
+        var a = 0
+        sut.continueButtonClosure = {
+            a += 1
+        }
+        tap(sut.continueButton)
+        XCTAssertEqual(a, 1)
     }
 }
 

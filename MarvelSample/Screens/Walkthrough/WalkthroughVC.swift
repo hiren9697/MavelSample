@@ -46,7 +46,7 @@ class WalkthroughVC: UIViewController {
         return visibleIndexPath?.row
     }
     
-    private let viewModel: WalkthroughVM
+    let viewModel: WalkthroughVM
     private var bindings = Set<AnyCancellable>()
     
     init(viewModel: WalkthroughVM) {
