@@ -9,13 +9,13 @@ import UIKit
 
 class FlowManager {
     
-    let window: UIWindow
-    let userDefaults: UserDefaultProtocol
+    private let window: UIWindow
+    private let userDefaults: UserDefaultsProtocol
     var hasSeenWalkthrough: Bool {
         userDefaults.bool(forKey: UserDefaultKeys.hasSeenWalkthrough)
     }
     
-    init(window: UIWindow, userDefaults: UserDefaultProtocol) {
+    init(window: UIWindow, userDefaults: UserDefaultsProtocol) {
         self.window = window
         self.userDefaults = userDefaults
     }
@@ -39,7 +39,6 @@ class FlowManager {
             let walkthroughVM = WalkthroughVM()
             let walkthroughVC = WalkthroughVC(viewModel: walkthroughVM)
             window.rootViewController = walkthroughVC
-            window.makeKeyAndVisible()
         }
     }
 }

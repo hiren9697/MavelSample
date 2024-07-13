@@ -19,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         App.flowManager = FlowManager(window: window,
                                       userDefaults: UserDefaults.standard)
         App.flowManager?.setRootViewController()
+        window.makeKeyAndVisible()
     }
 }
 

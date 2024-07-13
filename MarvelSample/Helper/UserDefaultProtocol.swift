@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol UserDefaultProtocol {
+protocol UserDefaultsProtocol {
     func set(_ value: Bool, forKey defaultName: String)
     func bool(forKey defaultName: String) -> Bool
 }
 
-extension UserDefaults: UserDefaultProtocol {
+extension UserDefaults: UserDefaultsProtocol {
     
 }
