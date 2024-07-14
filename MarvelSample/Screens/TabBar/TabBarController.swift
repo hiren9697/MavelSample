@@ -23,7 +23,7 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupInitialUI()
         initializeViewControllers()
     }
 }
@@ -47,7 +47,12 @@ extension TabBarController {
         self.viewControllers = [comicsVC, charactersVC, eventsVC]
     }
     
-    private func setupUI() {
+    private func setupInitialUI() {
         self.tabBar.tintColor = AppColors.red
+        
+        let appearance = UITabBarAppearance()
+        appearance.configureWithDefaultBackground()
+        self.tabBar.standardAppearance = appearance
+        self.tabBar.scrollEdgeAppearance = appearance
     }
 }

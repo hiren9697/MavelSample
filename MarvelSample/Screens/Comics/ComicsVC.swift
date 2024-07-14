@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 // MARK: - VC
 class ComicsVC: ParentVC {
@@ -24,11 +25,12 @@ class ComicsVC: ParentVC {
         let extraWidth = itemSpace + (padding * 2)
         let remainingWidth = view.bounds.width - extraWidth
         let finalWidth = remainingWidth / 2
-        let height = finalWidth * 1.3
+        let height = finalWidth * 1.4
         return CGSize(width: finalWidth, height: height)
     }()
     
-    let viewModel: ComicsVM
+    private let viewModel: ComicsVM
+    private var bindings = Set<AnyCancellable>()
     
     init(viewModel: ComicsVM = ComicsVM()) {
         self.viewModel = viewModel
@@ -42,12 +44,13 @@ class ComicsVC: ParentVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         // showLoader()
-        // viewModel.fetchComics()
+        setupBindings()
+        viewModel.fetchComics()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView.reloadData()
+        // collectionView.reloadData()
     }
     
     override func setupInitialUI() {
@@ -64,7 +67,6 @@ class ComicsVC: ParentVC {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.reloadData()
-        collectionView.backgroundColor = .green
     }
 }
 
@@ -72,6 +74,20 @@ class ComicsVC: ParentVC {
 extension ComicsVC {
     
     
+}
+
+// MARK: - Bindings
+extension ComicsVC {
+   
+    private func setupBindings() {
+        viewModel
+            .comicItems
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: {[weak self] _ in
+                self?.collectionView.reloadData()
+            })
+            .store(in: &bindings)
+    }
 }
 
 // MARK: - Delegate
@@ -83,12 +99,13 @@ extension ComicsVC: UICollectionViewDelegate {
 extension ComicsVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return viewModel.comicItems.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComicItemCC.name,
                                                       for: indexPath) as! ComicItemCC
+        cell.updateUI(viewModel: viewModel.comicItems.value[indexPath.row])
         return cell
     }
 }

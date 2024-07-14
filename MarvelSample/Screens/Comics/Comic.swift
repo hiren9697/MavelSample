@@ -43,7 +43,7 @@ struct Comic {
         }
         let thumbnailPath = thumbnailDict.getStringValue(key: "path")
         let thumbnailExtension = thumbnailDict.getStringValue(key: "extension")
-        thumbnailURLString = thumbnailPath + thumbnailExtension
+        thumbnailURLString = thumbnailPath + "." + thumbnailExtension
         
     }
 }
