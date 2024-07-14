@@ -21,6 +21,8 @@
 		8762B6622C40D17B000FAFEF /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6612C40D17B000FAFEF /* EventsVC.swift */; };
 		8762B6642C40D569000FAFEF /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6632C40D569000FAFEF /* HelperFunctions.swift */; };
 		8762B6662C40D6E2000FAFEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6652C40D6E2000FAFEF /* Constants.swift */; };
+		8787F6F72C4399290022C518 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6F62C4399290022C518 /* TabBarVM.swift */; };
+		8787F6F92C4399320022C518 /* TabBarItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6F82C4399320022C518 /* TabBarItemVM.swift */; };
 		87B09B312C3F7DD30004F606 /* WalkthroughVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
@@ -88,6 +90,8 @@
 		8762B6612C40D17B000FAFEF /* EventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
 		8762B6632C40D569000FAFEF /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		8762B6652C40D6E2000FAFEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8787F6F62C4399290022C518 /* TabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVM.swift; sourceTree = "<group>"; };
+		8787F6F82C4399320022C518 /* TabBarItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemVM.swift; sourceTree = "<group>"; };
 		87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVMTests.swift; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -186,6 +190,16 @@
 			path = Comics;
 			sourceTree = "<group>";
 		};
+		8787F6F52C4399140022C518 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				8762B6582C40D02B000FAFEF /* TabBarController.swift */,
+				8787F6F62C4399290022C518 /* TabBarVM.swift */,
+				8787F6F82C4399320022C518 /* TabBarItemVM.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		87DDFD6E2C38EDDA0040621E = {
 			isa = PBXGroup;
 			children = (
@@ -250,11 +264,11 @@
 		87DDFDB12C38FE820040621E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8787F6F52C4399140022C518 /* TabBar */,
 				8762B65C2C40D131000FAFEF /* Comics */,
 				8762B65B2C40D129000FAFEF /* Characters */,
 				8762B65A2C40D120000FAFEF /* Events */,
 				87DDFDDC2C395D790040621E /* Walkthrough */,
-				8762B6582C40D02B000FAFEF /* TabBarController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -521,8 +535,10 @@
 				87DDFDE32C3962BE0040621E /* ParentTC.swift in Sources */,
 				87DDFDBB2C3900CC0040621E /* APIService.swift in Sources */,
 				8762B65E2C40D14B000FAFEF /* ComicsVC.swift in Sources */,
+				8787F6F92C4399320022C518 /* TabBarItemVM.swift in Sources */,
 				87DDFDDE2C395DB00040621E /* WalkthroughCC.swift in Sources */,
 				87DFDCB42C3E30BA0025C535 /* ArrayExtension.swift in Sources */,
+				8787F6F72C4399290022C518 /* TabBarVM.swift in Sources */,
 				87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */,
 				87DDFDE72C396D740040621E /* WalkthroughVM.swift in Sources */,
 				8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */,
