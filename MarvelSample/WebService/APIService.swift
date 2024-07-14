@@ -12,6 +12,7 @@ class APIService: APIServiceProtocol {
     
     func dataTask(request: URLRequest,
                   completion: @escaping APICallHandler)-> URLSessionDataTask? {
+        Log.apiRequest("request: \(request.printDescription)")
         return URLSession
             .shared
             .dataTask(with: request) { data, response, error in
@@ -35,8 +36,11 @@ class APIService: APIServiceProtocol {
                     completion(.failure(NetworkError.emptyData))
                     return
                 }
+                if let textResponse = data.prettyPrintedJSONString {
+                    Log.apiResponse(textResponse)
+                }
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data)
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
                     completion(.success(json))
                 } catch {
                     Log.error("Error in parsing JSON: \(error)")

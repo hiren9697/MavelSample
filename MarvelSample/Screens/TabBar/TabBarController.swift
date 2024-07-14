@@ -12,7 +12,7 @@ class TabBarController: UITabBarController {
     
     let viewModel: TabBarVM
     
-    init(viewModel: TabBarVM) {
+    init(viewModel: TabBarVM = TabBarVM()) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
