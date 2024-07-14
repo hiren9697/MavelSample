@@ -10,8 +10,17 @@ import UIKit
 // MARK: - VC
 class TabBarController: UITabBarController {
     
-    let viewModel = TabBarVM()
-
+    let viewModel: TabBarVM
+    
+    init(viewModel: TabBarVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

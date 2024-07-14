@@ -29,7 +29,7 @@ class FlowManager {
             guard !(window.rootViewController is TabBarController) else {
                 return
             }
-            let tabBarController = TabBarController()
+            let tabBarController = TabBarController(viewModel: TabBarVM())
             window.rootViewController = tabBarController
             window.makeKeyAndVisible()
         } else {

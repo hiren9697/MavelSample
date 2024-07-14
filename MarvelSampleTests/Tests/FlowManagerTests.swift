@@ -71,7 +71,7 @@ extension FlowManagerTests {
     }
     
     func test_setRootViewController_withTabBarControllerAsRoot_withSeenWalkthrough_shouldNotChangeRoot() {
-        let tabBarController = TabBarController()
+        let tabBarController = TabBarController(viewModel: TabBarVM())
         window.rootViewController = tabBarController
         sut.setSeenWalkthrough()
         sut.setRootViewController()

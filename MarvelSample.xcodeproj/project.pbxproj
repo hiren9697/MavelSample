@@ -23,6 +23,7 @@
 		8762B6662C40D6E2000FAFEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6652C40D6E2000FAFEF /* Constants.swift */; };
 		8787F6F72C4399290022C518 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6F62C4399290022C518 /* TabBarVM.swift */; };
 		8787F6F92C4399320022C518 /* TabBarItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6F82C4399320022C518 /* TabBarItemVM.swift */; };
+		8787F6FC2C439D770022C518 /* TabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6FB2C439D770022C518 /* TabBarTests.swift */; };
 		87B09B312C3F7DD30004F606 /* WalkthroughVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
@@ -92,6 +93,7 @@
 		8762B6652C40D6E2000FAFEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8787F6F62C4399290022C518 /* TabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVM.swift; sourceTree = "<group>"; };
 		8787F6F82C4399320022C518 /* TabBarItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemVM.swift; sourceTree = "<group>"; };
+		8787F6FB2C439D770022C518 /* TabBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarTests.swift; sourceTree = "<group>"; };
 		87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVMTests.swift; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +202,19 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		8787F6FA2C439C650022C518 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				87DDFD912C38EDDB0040621E /* MarvelSampleTests.swift */,
+				87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */,
+				87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */,
+				87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */,
+				872848722C425D72008C1ED0 /* FlowManagerTests.swift */,
+				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		87DDFD6E2C38EDDA0040621E = {
 			isa = PBXGroup;
 			children = (
@@ -243,11 +258,7 @@
 				87DFDCB72C3E356A0025C535 /* Helpers */,
 				87DFDCB02C3E2C9D0025C535 /* MockAndSubs */,
 				87DDFDD12C394B250040621E /* Main */,
-				87DDFD912C38EDDB0040621E /* MarvelSampleTests.swift */,
-				87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */,
-				87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */,
-				87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */,
-				872848722C425D72008C1ED0 /* FlowManagerTests.swift */,
+				8787F6FA2C439C650022C518 /* Tests */,
 			);
 			path = MarvelSampleTests;
 			sourceTree = "<group>";
@@ -556,6 +567,7 @@
 				87DDFD922C38EDDB0040621E /* MarvelSampleTests.swift in Sources */,
 				87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */,
 				87DFDCB22C3E2F9F0025C535 /* WalkthroughVCTests.swift in Sources */,
+				8787F6FC2C439D770022C518 /* TabBarTests.swift in Sources */,
 				87DDFDD32C394B4E0040621E /* TestingAppDelegate.swift in Sources */,
 				8728486A2C423870008C1ED0 /* Helpers.swift in Sources */,
 				87DFDCB92C3E35920025C535 /* CollectionViewHelper.swift in Sources */,
