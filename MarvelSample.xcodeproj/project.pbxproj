@@ -31,6 +31,7 @@
 		8787F7062C43C7960022C518 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7052C43C7960022C518 /* DictionaryExtension.swift */; };
 		8787F7082C43DA680022C518 /* ComicItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7072C43DA680022C518 /* ComicItemVM.swift */; };
 		8787F70A2C43DD810022C518 /* ParentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7092C43DD810022C518 /* ParentVC.swift */; };
+		8787F70D2C43E3830022C518 /* ComicItemCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F70B2C43E3830022C518 /* ComicItemCC.swift */; };
 		87B09B312C3F7DD30004F606 /* WalkthroughVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
@@ -108,6 +109,7 @@
 		8787F7052C43C7960022C518 /* DictionaryExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		8787F7072C43DA680022C518 /* ComicItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicItemVM.swift; sourceTree = "<group>"; };
 		8787F7092C43DD810022C518 /* ParentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentVC.swift; sourceTree = "<group>"; };
+		8787F70B2C43E3830022C518 /* ComicItemCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicItemCC.swift; sourceTree = "<group>"; };
 		87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVMTests.swift; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				8787F7032C43C6CE0022C518 /* Comic.swift */,
 				8787F7072C43DA680022C518 /* ComicItemVM.swift */,
 				8787F6FD2C43A8CD0022C518 /* ComicsVM.swift */,
+				8787F70B2C43E3830022C518 /* ComicItemCC.swift */,
 				8762B65D2C40D14B000FAFEF /* ComicsVC.swift */,
 			);
 			path = Comics;
@@ -568,6 +571,7 @@
 				8762B6642C40D569000FAFEF /* HelperFunctions.swift in Sources */,
 				87DDFDB92C39008E0040621E /* APIEndpoints.swift in Sources */,
 				87DDFDB62C38FF120040621E /* Keys.swift in Sources */,
+				8787F70D2C43E3830022C518 /* ComicItemCC.swift in Sources */,
 				87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */,
 				87DDFDE32C3962BE0040621E /* ParentTC.swift in Sources */,
 				87DDFDBB2C3900CC0040621E /* APIService.swift in Sources */,
