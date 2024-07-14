@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - VC
-class ComicsVC: UIViewController {
+class ComicsVC: ParentVC {
     
     let viewModel: ComicsVM
     
@@ -24,14 +24,17 @@ class ComicsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialUI()
-        viewModel.fetchComics()
+        showLoader()
+        // viewModel.fetchComics()
+    }
+    
+    override func setupInitialUI() {
+        super.setupInitialUI()
     }
 }
 
 // MARK: - UI Helper
 extension ComicsVC {
     
-    func setupInitialUI() {
-        view.backgroundColor = .white
-    }
+    
 }
