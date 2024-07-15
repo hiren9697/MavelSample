@@ -9,9 +9,9 @@ import UIKit
 
 class ParentCC: UICollectionViewCell {
     
-    static var name: String {
-        String(describing: self)
-    }
+//    static var name: String {
+//        String(describing: self)
+//    }
     
     override var reuseIdentifier: String? {
         Self.name

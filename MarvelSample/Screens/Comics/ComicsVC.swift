@@ -43,14 +43,13 @@ class ComicsVC: ParentVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // showLoader()
         setupBindings()
         viewModel.fetchComics()
+        // showLoader()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // collectionView.reloadData()
     }
     
     override func setupInitialUI() {
@@ -64,15 +63,23 @@ class ComicsVC: ParentVC {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.register(ComicItemCC.self,
                                 forCellWithReuseIdentifier: ComicItemCC.name)
+        collectionView.register(CollectionViewNextPageLoader.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: CollectionViewNextPageLoader.name)
+        collectionView.register(CollectionViewEmptyFooter.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: CollectionViewEmptyFooter.name)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.reloadData()
+        
+        // Loader
+        view.bringSubviewToFront(loaderContainer)
     }
 }
 
 // MARK: - UI Helper
 extension ComicsVC {
-    
     
 }
 
@@ -84,6 +91,26 @@ extension ComicsVC {
             .comicItems
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: {[weak self] _ in
+                self?.collectionView.reloadData()
+            })
+            .store(in: &bindings)
+        
+        viewModel
+            .fetchState
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: {[weak self] state in
+                switch state {
+                case .idle:
+                    self?.hideLoader()
+                case .initialLoading:
+                    self?.showLoader()
+                case .loadingNextPage:
+                    break
+                case .error(_):
+                    break
+                case .emptyData:
+                    break
+                }
                 self?.collectionView.reloadData()
             })
             .store(in: &bindings)
@@ -105,8 +132,39 @@ extension ComicsVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComicItemCC.name,
                                                       for: indexPath) as! ComicItemCC
-        cell.updateUI(viewModel: viewModel.comicItems.value[indexPath.row])
+        cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if viewModel.fetchState.value == .loadingNextPage {
+            return CGSize(width: collectionView.bounds.width,
+                      height: 50)
+        } else {
+            return CGSize.zero
+        }
+        
+//        return CGSize(width: collectionView.bounds.width,
+//                  height: 50)
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if viewModel.fetchState.value == .loadingNextPage {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+                                                                       withReuseIdentifier: CollectionViewNextPageLoader.name,
+                                                                       for: indexPath) as! CollectionViewNextPageLoader
+            view.activity.startAnimating()
+            return view
+        } else {
+            return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+                                                                   withReuseIdentifier: CollectionViewEmptyFooter.name,
+                                                                   for: indexPath) as! CollectionViewEmptyFooter
+            
+        }
+//        let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "NextPageLoader", for: indexPath) as! NextPageLoader
+//        view.activity.startAnimating()
+//        return view
     }
 }
 

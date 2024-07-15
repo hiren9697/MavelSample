@@ -58,7 +58,6 @@ extension APIServiceProtocol {
            !parameters.isEmpty {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: parameters)
         }
-        Log.apiRequest("Request: \(requestType.rawValue): \(urlRequest)")
         return urlRequest
     }
 }

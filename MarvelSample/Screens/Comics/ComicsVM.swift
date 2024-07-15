@@ -16,6 +16,25 @@ enum DataFetchState {
     case emptyData
 }
 
+extension DataFetchState: Equatable {
+    static func == (lhs: DataFetchState, rhs: DataFetchState) -> Bool {
+            switch (lhs, rhs) {
+            case (.initialLoading, .initialLoading):
+                return true
+            case (.loadingNextPage, .loadingNextPage):
+                return true
+            case (.idle, .idle):
+                return true
+            case (.emptyData, .emptyData):
+                return true
+            case (.error(let lhsError), .error(let rhsError)):
+                return true
+            default:
+                return false
+            }
+        }
+}
+
 class PaginationManager {
     let limit: Int
     var offset: Int = 0
@@ -40,7 +59,20 @@ class ComicsVM {
     var fetchState: CurrentValueSubject<DataFetchState, Never> = CurrentValueSubject(.idle)
     var comics: [Comic] = []
     var comicItems: CurrentValueSubject<[ComicItemVM], Never> = CurrentValueSubject([])
-    
+}
+
+// MARK: - Helper
+extension ComicsVM {
+    func itemVM(for row: Int)-> ComicItemVM {
+        if row == comicItems.value.lastIndex &&
+            paginationManager.hasMore &&
+            fetchComicsTask == nil &&
+            (fetchState.value != .loadingNextPage ||
+             fetchState.value != .initialLoading) {
+            fetchComics()
+        }
+        return comicItems.value[row]
+    }
 }
 
 // MARK: - API
@@ -76,8 +108,11 @@ extension ComicsVM {
             guard let data = dict["data"] as? NSDictionary else {
                 return
             }
-            paginationManager.offset = data.getIntValue(key: "offset")
+            guard let results = data["results"] as? [NSDictionary] else {
+                return
+            }
             paginationManager.total = data.getIntValue(key: "total")
+            paginationManager.offset += results.count
         }
         
         let queryParameters: [String: String] = [
@@ -89,6 +124,8 @@ extension ComicsVM {
             let request = try service.generateRequest(requestType: .get,
                                                       relativePath: APIEndpoints.comics.rawValue,
                                                       queryParameters: queryParameters)
+            fetchComicsTask?.cancel()
+            fetchComicsTask = nil
             fetchComicsTask = service.dataTask(request: request) {[weak self] result in
                 guard let strongSelf = self else {
                     return
@@ -110,7 +147,8 @@ extension ComicsVM {
                     strongSelf.fetchState.value = .error(error)
                 }
             }
-            fetchState.value = comics.isEmpty ? .loadingNextPage : .initialLoading
+            
+            fetchState.value = comics.isEmpty ? .initialLoading : .loadingNextPage
             fetchComicsTask?.resume()
         } catch {
             Log.error("Encountered error in generating request: \(error)")
