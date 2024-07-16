@@ -156,6 +156,6 @@ extension ComicsVM {
             fetchState.value = .error(error)
         }
          */
-        fetchState.value = .emptyData
+        fetchState.value = .error(NetworkError.emptyData)
     }
 }

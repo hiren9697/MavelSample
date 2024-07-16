@@ -28,6 +28,7 @@ class ComicsVC: ParentVC {
         let height = finalWidth * 1.4
         return CGSize(width: finalWidth, height: height)
     }()
+    let invalidDataItemSize: CGSize = CGSize(width: 250, height: 300)
     
     private let viewModel: ComicsVM
     private var bindings = Set<AnyCancellable>()
@@ -65,6 +66,8 @@ class ComicsVC: ParentVC {
                                 forCellWithReuseIdentifier: ComicItemCC.name)
         collectionView.register(EmptyCC.self,
                                 forCellWithReuseIdentifier: EmptyCC.name)
+        collectionView.register(ErrorCC.self,
+                                forCellWithReuseIdentifier: ErrorCC.name)
         collectionView.register(CollectionViewNextPageLoader.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: CollectionViewNextPageLoader.name)
@@ -133,9 +136,7 @@ extension ComicsVC: UICollectionViewDataSource {
             return 0
         case .loadingNextPage, .idle:
             return viewModel.comicItems.value.count
-        case .error(_):
-            return 0
-        case .emptyData:
+        case .emptyData, .error(_):
             return 1
         }
     }
@@ -150,11 +151,14 @@ extension ComicsVC: UICollectionViewDataSource {
             cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
             return cell
         case .error(_):
-            return UICollectionViewCell()
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ErrorCC.name,
+                                                          for: indexPath) as! ErrorCC
+            cell.titleLabel.text = "Error in fetching Comics"
+            return cell
         case .emptyData:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyCC.name,
                                                           for: indexPath) as! EmptyCC
-            cell.titleLabel.text = "Couldn't find any comic"
+            cell.titleLabel.text = "Couldn't find any Comic"
             return cell
         }
         
@@ -216,7 +220,7 @@ extension ComicsVC: UICollectionViewDelegateFlowLayout {
         case .initialLoading:
             return .zero
         case .error(_), .emptyData:
-            return CGSize(width: 250, height: 300)
+            return invalidDataItemSize
         case .loadingNextPage, .idle:
             return itemSize
         }
