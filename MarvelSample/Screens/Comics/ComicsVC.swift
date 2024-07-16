@@ -63,6 +63,8 @@ class ComicsVC: ParentVC {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.register(ComicItemCC.self,
                                 forCellWithReuseIdentifier: ComicItemCC.name)
+        collectionView.register(EmptyCC.self,
+                                forCellWithReuseIdentifier: EmptyCC.name)
         collectionView.register(CollectionViewNextPageLoader.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: CollectionViewNextPageLoader.name)
@@ -126,45 +128,61 @@ extension ComicsVC: UICollectionViewDelegate {
 extension ComicsVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.comicItems.value.count
+        switch viewModel.fetchState.value {
+        case .initialLoading:
+            return 0
+        case .loadingNextPage, .idle:
+            return viewModel.comicItems.value.count
+        case .error(_):
+            return 0
+        case .emptyData:
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComicItemCC.name,
-                                                      for: indexPath) as! ComicItemCC
-        cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
-        return cell
+        switch viewModel.fetchState.value {
+        case .initialLoading:
+            return UICollectionViewCell()
+        case .loadingNextPage, .idle:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComicItemCC.name,
+                                                          for: indexPath) as! ComicItemCC
+            cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
+            return cell
+        case .error(_):
+            return UICollectionViewCell()
+        case .emptyData:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyCC.name,
+                                                          for: indexPath) as! EmptyCC
+            cell.titleLabel.text = "Couldn't find any comic"
+            return cell
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        if viewModel.fetchState.value == .loadingNextPage {
+        switch viewModel.fetchState.value {
+        case .initialLoading, .error(_), .emptyData:
+            return .zero
+        case .loadingNextPage, .idle:
             return CGSize(width: collectionView.bounds.width,
                       height: 50)
-        } else {
-            return CGSize.zero
         }
-        
-//        return CGSize(width: collectionView.bounds.width,
-//                  height: 50)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if viewModel.fetchState.value == .loadingNextPage {
+        switch viewModel.fetchState.value {
+        case .initialLoading, .error(_), .emptyData, .idle:
+            return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+                                                                   withReuseIdentifier: CollectionViewEmptyFooter.name,
+                                                                   for: indexPath) as! CollectionViewEmptyFooter
+        case .loadingNextPage:
             let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
                                                                        withReuseIdentifier: CollectionViewNextPageLoader.name,
                                                                        for: indexPath) as! CollectionViewNextPageLoader
             view.activity.startAnimating()
             return view
-        } else {
-            return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
-                                                                   withReuseIdentifier: CollectionViewEmptyFooter.name,
-                                                                   for: indexPath) as! CollectionViewEmptyFooter
-            
         }
-//        let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "NextPageLoader", for: indexPath) as! NextPageLoader
-//        view.activity.startAnimating()
-//        return view
     }
 }
 
@@ -172,11 +190,21 @@ extension ComicsVC: UICollectionViewDataSource {
 extension ComicsVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        itemSpace
+        switch viewModel.fetchState.value {
+        case .initialLoading, .error(_), .emptyData:
+            return .leastNonzeroMagnitude
+        case .loadingNextPage, .idle:
+            return itemSpace
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        lineSpace
+        switch viewModel.fetchState.value {
+        case .initialLoading, .error(_), .emptyData:
+            return .leastNonzeroMagnitude
+        case .loadingNextPage, .idle:
+            return lineSpace
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -184,6 +212,14 @@ extension ComicsVC: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        itemSize
+        switch viewModel.fetchState.value {
+        case .initialLoading:
+            return .zero
+        case .error(_), .emptyData:
+            return CGSize(width: 250, height: 300)
+        case .loadingNextPage, .idle:
+            return itemSize
+        }
+        
     }
 }

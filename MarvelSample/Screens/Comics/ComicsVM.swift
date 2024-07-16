@@ -79,6 +79,7 @@ extension ComicsVM {
 extension ComicsVM {
     
     func fetchComics() {
+        /*
         func parseComics(json: Any) {
             guard let dict = json as? NSDictionary else {
                 return
@@ -154,5 +155,7 @@ extension ComicsVM {
             Log.error("Encountered error in generating request: \(error)")
             fetchState.value = .error(error)
         }
+         */
+        fetchState.value = .emptyData
     }
 }
