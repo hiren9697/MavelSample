@@ -110,13 +110,17 @@ extension ComicsVC {
                 case .initialLoading:
                     self?.showLoader()
                 case .loadingNextPage:
+                    self?.hideLoader()
                     break
                 case .error(_):
+                    self?.hideLoader()
+                    self?.collectionView.reloadData()
                     break
                 case .emptyData:
+                    self?.hideLoader()
+                    self?.collectionView.reloadData()
                     break
                 }
-                self?.collectionView.reloadData()
             })
             .store(in: &bindings)
     }
