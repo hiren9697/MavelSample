@@ -51,8 +51,7 @@ class ComicsVC: ParentVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBindings()
-        viewModel.fetchComics()
-        // showLoader()
+        viewModel.fetchComicsFirstPage()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -97,7 +96,7 @@ class ComicsVC: ParentVC {
 extension ComicsVC {
     
     @objc func refresh() {
-        
+        viewModel.reloadComics()
     }
 }
 
@@ -119,18 +118,26 @@ extension ComicsVC {
             .sink(receiveValue: {[weak self] state in
                 switch state {
                 case .idle:
+                    self?.refreshControl.endRefreshing()
                     self?.hideLoader()
                 case .initialLoading:
                     self?.showLoader()
+                    self?.refreshControl.endRefreshing()
                 case .loadingNextPage:
+                    self?.hideLoader()
+                    self?.refreshControl.endRefreshing()
+                    break
+                case .reload:
                     self?.hideLoader()
                     break
                 case .error(_):
                     self?.hideLoader()
+                    self?.refreshControl.endRefreshing()
                     self?.collectionView.reloadData()
                     break
                 case .emptyData:
                     self?.hideLoader()
+                    self?.refreshControl.endRefreshing()
                     self?.collectionView.reloadData()
                     break
                 }
@@ -151,7 +158,7 @@ extension ComicsVC: UICollectionViewDataSource {
         switch viewModel.fetchState.value {
         case .initialLoading:
             return 0
-        case .loadingNextPage, .idle:
+        case .loadingNextPage, .idle, .reload:
             return viewModel.comicItems.value.count
         case .emptyData, .error(_):
             return 1
@@ -162,7 +169,7 @@ extension ComicsVC: UICollectionViewDataSource {
         switch viewModel.fetchState.value {
         case .initialLoading:
             return UICollectionViewCell()
-        case .loadingNextPage, .idle:
+        case .loadingNextPage, .idle, .reload:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComicItemCC.name,
                                                           for: indexPath) as! ComicItemCC
             cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
@@ -185,7 +192,7 @@ extension ComicsVC: UICollectionViewDataSource {
         switch viewModel.fetchState.value {
         case .initialLoading, .error(_), .emptyData:
             return .zero
-        case .loadingNextPage, .idle:
+        case .loadingNextPage, .idle, .reload:
             return CGSize(width: collectionView.bounds.width,
                       height: 50)
         }
@@ -193,7 +200,7 @@ extension ComicsVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch viewModel.fetchState.value {
-        case .initialLoading, .error(_), .emptyData, .idle:
+        case .initialLoading, .error(_), .emptyData, .idle, .reload:
             return collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
                                                                    withReuseIdentifier: CollectionViewEmptyFooter.name,
                                                                    for: indexPath) as! CollectionViewEmptyFooter
@@ -214,7 +221,7 @@ extension ComicsVC: UICollectionViewDelegateFlowLayout {
         switch viewModel.fetchState.value {
         case .initialLoading, .error(_), .emptyData:
             return .leastNonzeroMagnitude
-        case .loadingNextPage, .idle:
+        case .loadingNextPage, .idle, .reload:
             return itemSpace
         }
     }
@@ -223,7 +230,7 @@ extension ComicsVC: UICollectionViewDelegateFlowLayout {
         switch viewModel.fetchState.value {
         case .initialLoading, .error(_), .emptyData:
             return .leastNonzeroMagnitude
-        case .loadingNextPage, .idle:
+        case .loadingNextPage, .idle, .reload:
             return lineSpace
         }
     }
@@ -238,7 +245,7 @@ extension ComicsVC: UICollectionViewDelegateFlowLayout {
             return .zero
         case .error(_), .emptyData:
             return invalidDataItemSize
-        case .loadingNextPage, .idle:
+        case .loadingNextPage, .idle, .reload:
             return itemSize
         }
         

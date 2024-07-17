@@ -8,49 +8,6 @@
 import UIKit
 import Combine
 
-enum DataFetchState {
-    case initialLoading
-    case loadingNextPage
-    case idle
-    case error(Error)
-    case emptyData
-}
-
-extension DataFetchState: Equatable {
-    static func == (lhs: DataFetchState, rhs: DataFetchState) -> Bool {
-            switch (lhs, rhs) {
-            case (.initialLoading, .initialLoading):
-                return true
-            case (.loadingNextPage, .loadingNextPage):
-                return true
-            case (.idle, .idle):
-                return true
-            case (.emptyData, .emptyData):
-                return true
-            case (.error(_), .error(_)):
-                return true
-            default:
-                return false
-            }
-        }
-}
-
-class PaginationManager {
-    let limit: Int
-    var offset: Int = 0
-    var total: Int? = nil
-    var hasMore: Bool {
-        guard let total = total else {
-            return true
-        }
-        return offset < total
-    }
-    
-    init(limit: Int = 10) {
-        self.limit = limit
-    }
-}
-
 // MARK: - VM
 class ComicsVM {
     let paginationManager = PaginationManager()
@@ -69,7 +26,7 @@ extension ComicsVM {
             fetchComicsTask == nil &&
             (fetchState.value != .loadingNextPage ||
              fetchState.value != .initialLoading) {
-            fetchComics()
+            fetchComicsNextPage()
         }
         return comicItems.value[row]
     }
@@ -78,8 +35,22 @@ extension ComicsVM {
 // MARK: - API
 extension ComicsVM {
     
-    func fetchComics() {
-        /*
+    func fetchComicsFirstPage() {
+        fetchState.value = .initialLoading
+        fetchComics()
+    }
+    
+    func fetchComicsNextPage() {
+        fetchState.value = .loadingNextPage
+        fetchComics()
+    }
+    
+    func reloadComics() {
+        fetchState.value = .reload
+        fetchComics()
+    }
+    
+    private func fetchComics() {
         func parseComics(json: Any) {
             guard let dict = json as? NSDictionary else {
                 return
@@ -116,6 +87,12 @@ extension ComicsVM {
             paginationManager.offset += results.count
         }
         
+        if fetchState.value == .reload {
+            comics.removeAll()
+            comicItems.value.removeAll()
+            paginationManager.reload()
+        }
+        
         let queryParameters: [String: String] = [
             "limit": "\(paginationManager.limit)",
             "offset": "\(paginationManager.offset)"
@@ -148,13 +125,10 @@ extension ComicsVM {
                     strongSelf.fetchState.value = .error(error)
                 }
             }
-            fetchState.value = comics.isEmpty ? .initialLoading : .loadingNextPage
             fetchComicsTask?.resume()
         } catch {
             Log.error("Encountered error in generating request: \(error)")
             fetchState.value = .error(error)
         }
-         */
-        fetchState.value = .emptyData
     }
 }
