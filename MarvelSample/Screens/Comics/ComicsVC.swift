@@ -16,7 +16,13 @@ class ComicsVC: ParentVC {
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.alwaysBounceVertical = true
         return collectionView
+    }()
+    let refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = AppColors.red
+        return refreshControl
     }()
     let itemSpace: CGFloat = 10
     let lineSpace: CGFloat = 10
@@ -80,12 +86,19 @@ class ComicsVC: ParentVC {
         
         // Loader
         view.bringSubviewToFront(loaderContainer)
+        
+        // Refresh Control
+        collectionView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
 }
 
 // MARK: - UI Helper
 extension ComicsVC {
     
+    @objc func refresh() {
+        
+    }
 }
 
 // MARK: - Bindings

@@ -27,7 +27,7 @@ extension DataFetchState: Equatable {
                 return true
             case (.emptyData, .emptyData):
                 return true
-            case (.error(let lhsError), .error(let rhsError)):
+            case (.error(_), .error(_)):
                 return true
             default:
                 return false
@@ -79,6 +79,7 @@ extension ComicsVM {
 extension ComicsVM {
     
     func fetchComics() {
+        /*
         func parseComics(json: Any) {
             guard let dict = json as? NSDictionary else {
                 return
@@ -153,5 +154,7 @@ extension ComicsVM {
             Log.error("Encountered error in generating request: \(error)")
             fetchState.value = .error(error)
         }
+         */
+        fetchState.value = .emptyData
     }
 }
