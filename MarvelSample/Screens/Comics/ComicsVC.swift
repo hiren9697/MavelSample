@@ -105,7 +105,7 @@ extension ComicsVC {
    
     private func setupBindings() {
         viewModel
-            .comicItems
+            .listItems
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: {[weak self] _ in
                 self?.collectionView.reloadData()
@@ -159,7 +159,7 @@ extension ComicsVC: UICollectionViewDataSource {
         case .initialLoading:
             return 0
         case .loadingNextPage, .idle, .reload:
-            return viewModel.comicItems.value.count
+            return viewModel.listItems.value.count
         case .emptyData, .error(_):
             return 1
         }
