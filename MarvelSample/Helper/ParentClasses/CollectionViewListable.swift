@@ -15,12 +15,12 @@ class BaseListViewModel<T, U> {
     var fetchState: CurrentValueSubject<DataFetchState, Never> = CurrentValueSubject(.idle)
     var data: [T] = []
     var listItems: CurrentValueSubject<[U], Never> = CurrentValueSubject([])
-    // Variable need to override
-    var emptyDataTitle: String {
-        "Must be overridden by subclass"
-    }
-    var errorTitle: String {
-        "Must be overridden by subclass"
+    let emptyDataTitle: String
+    let errorTitle: String
+    
+    init(emptyDataTitle: String, errorTitle: String) {
+        self.emptyDataTitle = emptyDataTitle
+        self.errorTitle = errorTitle
     }
     
     // MARK: - Helper

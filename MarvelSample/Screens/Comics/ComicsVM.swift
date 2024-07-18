@@ -10,11 +10,9 @@ import Combine
 
 class ComicsVM: BaseListViewModel<Comic, ComicItemVM> {
     
-    override var emptyDataTitle: String {
-        "Couldn't find any comic"
-    }
-    override var errorTitle: String {
-       "Error in fetching comics" 
+    init() {
+        super.init(emptyDataTitle: "Couldn't find any comic",
+                   errorTitle: "Error in fetching comics")
     }
     
     override func parseData(json: Any) {
