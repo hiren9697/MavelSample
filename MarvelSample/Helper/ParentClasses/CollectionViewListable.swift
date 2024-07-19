@@ -8,46 +8,48 @@
 import UIKit
 import Combine
 
-class BaseListViewModel<T, U> {
-    let paginationManager = PaginationManager()
-    let service = APIService()
-    var fetchDataTask: URLSessionDataTask?
+class BaseListVM<T, U>: APIDataListable {
+    // Protocol variables
     var fetchState: CurrentValueSubject<DataFetchState, Never> = CurrentValueSubject(.idle)
-    var data: [T] = []
-    var listItems: CurrentValueSubject<[U], Never> = CurrentValueSubject([])
+    var data: Array<T> = []
+    var listItems: CurrentValueSubject<Array<U>, Never> = CurrentValueSubject([])
+    // Other variables
+    let service = APIService()
+    let paginationManager: PaginationManager = PaginationManager()
     let emptyDataTitle: String
     let errorTitle: String
+    var fetchDataTask: URLSessionDataTask?
     
     init(emptyDataTitle: String, errorTitle: String) {
         self.emptyDataTitle = emptyDataTitle
         self.errorTitle = errorTitle
     }
     
-    // MARK: - Helper
-    func itemVM(for row: Int)-> U {
+    // Protocol functions
+    func itemVM(for row: Int) -> U {
         if row == listItems.value.lastIndex &&
             paginationManager.hasMore &&
             fetchDataTask == nil &&
             (fetchState.value != .loadingNextPage ||
              fetchState.value != .initialLoading) {
-            fetchComicsNextPage()
+            fetchNextPage()
         }
         return listItems.value[row]
     }
     
-    // MARK: - API
-    func fetchComicsFirstPage() {
+    func fetchInitialData() {
         fetchState.value = .initialLoading
         fetchData()
     }
     
-    func fetchComicsNextPage() {
-        fetchState.value = .loadingNextPage
+    func reloadData() {
+        fetchState.value = .reload
         fetchData()
     }
     
-    func reloadComics() {
-        fetchState.value = .reload
+    // Other functions
+    func fetchNextPage() {
+        fetchState.value = .loadingNextPage
         fetchData()
     }
     
@@ -55,7 +57,7 @@ class BaseListViewModel<T, U> {
         fatalError("Must be overridden")
     }
     
-    private func fetchData() {
+    func fetchData() {
         // 1. Helper functions
         func parsePaginationDate(json: Any) {
             guard let dict = json as? NSDictionary else {

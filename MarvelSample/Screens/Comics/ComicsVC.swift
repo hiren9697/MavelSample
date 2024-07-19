@@ -9,8 +9,15 @@ import UIKit
 import Combine
 
 // MARK: - VC
-class ComicsVC: ParentVC {
+class ComicsVC<ViewModel: APIDataListable>:
+    ParentVC,
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout
+where ViewModel.Data == Comic,
+      ViewModel.ItemVM == ComicItemVM {
     
+    // MARK: UI Components
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero,
@@ -24,6 +31,8 @@ class ComicsVC: ParentVC {
         refreshControl.tintColor = AppColors.red
         return refreshControl
     }()
+    
+    // MARK: - Variables
     let itemSpace: CGFloat = 10
     let lineSpace: CGFloat = 10
     let padding: CGFloat = 20
@@ -35,11 +44,11 @@ class ComicsVC: ParentVC {
         return CGSize(width: finalWidth, height: height)
     }()
     let invalidDataItemSize: CGSize = CGSize(width: 250, height: 300)
-    
-    private let viewModel: ComicsVM
+    private let viewModel: ViewModel
     private var bindings = Set<AnyCancellable>()
     
-    init(viewModel: ComicsVM = ComicsVM()) {
+    // MARK: - Life cycle
+    init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -50,14 +59,16 @@ class ComicsVC: ParentVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupInitialUI()
         setupBindings()
-        viewModel.fetchComicsFirstPage()
+        viewModel.fetchInitialData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
+    // MARK: - UI helper methods
     override func setupInitialUI() {
         super.setupInitialUI()
         
@@ -88,21 +99,16 @@ class ComicsVC: ParentVC {
         
         // Refresh Control
         collectionView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        
+        
     }
-}
-
-// MARK: - UI Helper
-extension ComicsVC {
     
-    @objc func refresh() {
-        viewModel.reloadComics()
+    @objc func handleRefresh() {
+        viewModel.reloadData()
     }
-}
-
-// MARK: - Bindings
-extension ComicsVC {
-   
+    
+    // MARK: - Binding
     private func setupBindings() {
         viewModel
             .listItems
@@ -144,16 +150,8 @@ extension ComicsVC {
             })
             .store(in: &bindings)
     }
-}
-
-// MARK: - Delegate
-extension ComicsVC: UICollectionViewDelegate {
     
-}
-
-// MARK: - DataSource
-extension ComicsVC: UICollectionViewDataSource {
-    
+    // MARK: - CollectionView Datasource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch viewModel.fetchState.value {
         case .initialLoading:
@@ -194,7 +192,7 @@ extension ComicsVC: UICollectionViewDataSource {
             return .zero
         case .loadingNextPage, .idle, .reload:
             return CGSize(width: collectionView.bounds.width,
-                      height: 50)
+                          height: 50)
         }
     }
     
@@ -212,11 +210,13 @@ extension ComicsVC: UICollectionViewDataSource {
             return view
         }
     }
-}
-
-// MARK: - Delegate FlowLayout
-extension ComicsVC: UICollectionViewDelegateFlowLayout {
     
+    // MARK: - CollectionView Delegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
+    // MARK: - CollectionView FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         switch viewModel.fetchState.value {
         case .initialLoading, .error(_), .emptyData:
@@ -248,6 +248,5 @@ extension ComicsVC: UICollectionViewDelegateFlowLayout {
         case .loadingNextPage, .idle, .reload:
             return itemSize
         }
-        
     }
 }

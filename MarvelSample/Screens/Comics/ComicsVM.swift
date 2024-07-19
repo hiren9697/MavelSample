@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ComicsVM: BaseListViewModel<Comic, ComicItemVM> {
+class ComicsVM: BaseListVM<Comic, ComicItemVM> {
     
     init() {
         super.init(emptyDataTitle: "Couldn't find any comic",

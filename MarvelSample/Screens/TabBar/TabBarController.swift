@@ -32,7 +32,7 @@ class TabBarController: UITabBarController {
 extension TabBarController {
    
     private func initializeViewControllers() {
-        let comicsVC = ComicsVC()
+        let comicsVC = ComicsVC(viewModel: ComicsVM())
         comicsVC.tabBarItem = UITabBarItem(title: viewModel.comicsTabItemVM.title,
                                            image: viewModel.comicsTabItemVM.image,
                                            selectedImage: viewModel.comicsTabItemVM.selectedImage)
