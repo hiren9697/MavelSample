@@ -14,6 +14,8 @@
 		8717F2442C4B9CEE007FC501 /* TestableDataItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */; };
 		8717F2462C4B9D01007FC501 /* TestableAPIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */; };
 		8717F2482C4B9D21007FC501 /* TestableCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */; };
+		872557272C4D378700373000 /* ComicsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872557262C4D378700373000 /* ComicsVCTests.swift */; };
+		8725572B2C4D49CC00373000 /* ComicExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8725572A2C4D49CC00373000 /* ComicExtension.swift */; };
 		872848682C42370E008C1ED0 /* TestableWalkthroughVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */; };
 		8728486A2C423870008C1ED0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848692C423870008C1ED0 /* Helpers.swift */; };
 		8728486C2C423A18008C1ED0 /* TestableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */; };
@@ -109,6 +111,8 @@
 		8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataItemVM.swift; sourceTree = "<group>"; };
 		8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableAPIDataListable.swift; sourceTree = "<group>"; };
 		8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCollectionCell.swift; sourceTree = "<group>"; };
+		872557262C4D378700373000 /* ComicsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsVCTests.swift; sourceTree = "<group>"; };
+		8725572A2C4D49CC00373000 /* ComicExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicExtension.swift; sourceTree = "<group>"; };
 		872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableWalkthroughVC.swift; sourceTree = "<group>"; };
 		872848692C423870008C1ED0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCollectionView.swift; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 				872848722C425D72008C1ED0 /* FlowManagerTests.swift */,
 				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
 				8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */,
+				872557262C4D378700373000 /* ComicsVCTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -486,6 +491,7 @@
 				8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */,
 				8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */,
 				8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */,
+				8725572A2C4D49CC00373000 /* ComicExtension.swift */,
 			);
 			path = MockAndSubs;
 			sourceTree = "<group>";
@@ -812,7 +818,9 @@
 				8728486C2C423A18008C1ED0 /* TestableCollectionView.swift in Sources */,
 				87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */,
 				8717F23E2C4B785C007FC501 /* BaseCollectionVCTests.swift in Sources */,
+				872557272C4D378700373000 /* ComicsVCTests.swift in Sources */,
 				872848752C425DC1008C1ED0 /* TestableUserDefaults.swift in Sources */,
+				8725572B2C4D49CC00373000 /* ComicExtension.swift in Sources */,
 				8717F2462C4B9D01007FC501 /* TestableAPIDataListable.swift in Sources */,
 				8717F2402C4B7B7D007FC501 /* TestableBaseCollectionVC.swift in Sources */,
 				87DDFDD02C39412F0040621E /* MockAPIService.swift in Sources */,

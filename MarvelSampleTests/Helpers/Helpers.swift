@@ -7,6 +7,7 @@
 
 import UIKit
 import XCTest
+@testable import MarvelSample
 
 func verifyMethodCalledOnce(methodName: String,
                             callCount: Int,
@@ -74,3 +75,5 @@ func putInViewHeirarchy(_ vc: UIViewController) {
     let window = UIWindow()
     window.addSubview(vc.view)
 }
+
+
