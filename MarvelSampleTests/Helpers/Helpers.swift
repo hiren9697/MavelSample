@@ -62,6 +62,10 @@ func tap(_ barButton: UIBarButtonItem) {
     _ = barButton.target?.perform(barButton.action, with: nil)
 }
 
+func triggerRefresh(_ refreshControl: UIRefreshControl) {
+    refreshControl.sendActions(for: .valueChanged)
+}
+
 func executeRunLoop() {
     RunLoop.current.run(until: Date())
 }

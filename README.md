@@ -7,3 +7,7 @@ Icons credit
 
 1. Empty box: Ghozi Muhtarom - Flaticon - https://www.flaticon.com/free-icons/empty
 
+
+# Notes:
+- Not used '.receive(on: DispatchQueue.main)' operator with subscribers, Because facing issues in unit tests, Instead used function 'gauranteeMainThread(:)'
+

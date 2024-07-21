@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		096E184F947C682C421B1E54 /* Pods_MarvelSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC679DD7A94402DCC877E44 /* Pods_MarvelSampleTests.framework */; };
+		8717F23E2C4B785C007FC501 /* BaseCollectionVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */; };
+		8717F2402C4B7B7D007FC501 /* TestableBaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F23F2C4B7B7D007FC501 /* TestableBaseCollectionVC.swift */; };
+		8717F2422C4B9CD8007FC501 /* TestableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2412C4B9CD8007FC501 /* TestableData.swift */; };
+		8717F2442C4B9CEE007FC501 /* TestableDataItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */; };
+		8717F2462C4B9D01007FC501 /* TestableAPIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */; };
+		8717F2482C4B9D21007FC501 /* TestableCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */; };
 		872848682C42370E008C1ED0 /* TestableWalkthroughVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */; };
 		8728486A2C423870008C1ED0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848692C423870008C1ED0 /* Helpers.swift */; };
 		8728486C2C423A18008C1ED0 /* TestableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */; };
 		8728486F2C42587B008C1ED0 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728486E2C42587B008C1ED0 /* FlowManager.swift */; };
 		872848712C42594E008C1ED0 /* UserDefaultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848702C42594E008C1ED0 /* UserDefaultProtocol.swift */; };
-		872848732C425D72008C1ED0 /* FlowManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848722C425D72008C1ED0 /* FlowManagerTests.swift */; };
 		872848752C425DC1008C1ED0 /* TestableUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848742C425DC1008C1ED0 /* TestableUserDefaults.swift */; };
 		874340CD2C3B8DFA0050FDCE /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874340CC2C3B8DFA0050FDCE /* AppColors.swift */; };
 		8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6582C40D02B000FAFEF /* TabBarController.swift */; };
@@ -28,7 +33,6 @@
 		877957CB2C475312009A8D8B /* CollectionViewListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877957CA2C475312009A8D8B /* CollectionViewListable.swift */; };
 		8787F6F72C4399290022C518 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6F62C4399290022C518 /* TabBarVM.swift */; };
 		8787F6F92C4399320022C518 /* TabBarItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6F82C4399320022C518 /* TabBarItemVM.swift */; };
-		8787F6FC2C439D770022C518 /* TabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6FB2C439D770022C518 /* TabBarTests.swift */; };
 		8787F6FE2C43A8CD0022C518 /* ComicsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6FD2C43A8CD0022C518 /* ComicsVM.swift */; };
 		8787F7002C43C1D40022C518 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6FF2C43C1D40022C518 /* DataExtension.swift */; };
 		8787F7022C43C69C0022C518 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7012C43C69C0022C518 /* URLRequestExtension.swift */; };
@@ -40,13 +44,11 @@
 		8787F7102C43FB9C0022C518 /* CollectionViewNextPageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F70F2C43FB9C0022C518 /* CollectionViewNextPageLoader.swift */; };
 		8787F7132C44D2AA0022C518 /* UICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7122C44D2AA0022C518 /* UICollectionReusableView.swift */; };
 		8787F7152C44D3840022C518 /* CollectionViewEmptyFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7142C44D3840022C518 /* CollectionViewEmptyFooter.swift */; };
-		87B09B312C3F7DD30004F606 /* WalkthroughVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */; };
 		87B39B392C49FB9600FC792E /* APIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B39B382C49FB9600FC792E /* APIDataListable.swift */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
 		87DDFD842C38EDDB0040621E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFD832C38EDDB0040621E /* Assets.xcassets */; };
 		87DDFD872C38EDDB0040621E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFD852C38EDDB0040621E /* LaunchScreen.storyboard */; };
-		87DDFD922C38EDDB0040621E /* MarvelSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD912C38EDDB0040621E /* MarvelSampleTests.swift */; };
 		87DDFD9C2C38EDDB0040621E /* MarvelSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD9B2C38EDDB0040621E /* MarvelSampleUITests.swift */; };
 		87DDFD9E2C38EDDB0040621E /* MarvelSampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD9D2C38EDDB0040621E /* MarvelSampleUITestsLaunchTests.swift */; };
 		87DDFDB62C38FF120040621E /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDB52C38FF120040621E /* Keys.swift */; };
@@ -56,7 +58,6 @@
 		87DDFDC22C3904290040621E /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC12C3904290040621E /* NetworkError.swift */; };
 		87DDFDC42C3904630040621E /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC32C3904630040621E /* RequestType.swift */; };
 		87DDFDC62C3915D50040621E /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC52C3915D50040621E /* Log.swift */; };
-		87DDFDC82C391A5C0040621E /* WebServiceGenerateRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */; };
 		87DDFDCA2C392CBB0040621E /* APIParameterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC92C392CBB0040621E /* APIParameterName.swift */; };
 		87DDFDCE2C393B080040621E /* APIServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDCD2C393B080040621E /* APIServiceProtocol.swift */; };
 		87DDFDD02C39412F0040621E /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDCF2C39412F0040621E /* MockAPIService.swift */; };
@@ -70,7 +71,6 @@
 		87DDFDE32C3962BE0040621E /* ParentTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDE22C3962BE0040621E /* ParentTC.swift */; };
 		87DDFDE52C396BF70040621E /* WalkthroughItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDE42C396BF70040621E /* WalkthroughItemVM.swift */; };
 		87DDFDE72C396D740040621E /* WalkthroughVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDE62C396D740040621E /* WalkthroughVM.swift */; };
-		87DFDCB22C3E2F9F0025C535 /* WalkthroughVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */; };
 		87DFDCB42C3E30BA0025C535 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB32C3E30BA0025C535 /* ArrayExtension.swift */; };
 		87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB52C3E35620025C535 /* TableViewHelpers.swift */; };
 		87DFDCB92C3E35920025C535 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB82C3E35920025C535 /* CollectionViewHelper.swift */; };
@@ -103,6 +103,12 @@
 		082E47E27D233D88E0E64306 /* Pods-MarvelSampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelSampleTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelSampleTests/Pods-MarvelSampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		57EB12B184176C749841DAEC /* Pods-MarvelSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelSampleTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelSampleTests/Pods-MarvelSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B6D083E181A39060F459EFE /* Pods_MarvelSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVCTests.swift; sourceTree = "<group>"; };
+		8717F23F2C4B7B7D007FC501 /* TestableBaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableBaseCollectionVC.swift; sourceTree = "<group>"; };
+		8717F2412C4B9CD8007FC501 /* TestableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableData.swift; sourceTree = "<group>"; };
+		8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataItemVM.swift; sourceTree = "<group>"; };
+		8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableAPIDataListable.swift; sourceTree = "<group>"; };
+		8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCollectionCell.swift; sourceTree = "<group>"; };
 		872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableWalkthroughVC.swift; sourceTree = "<group>"; };
 		872848692C423870008C1ED0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCollectionView.swift; sourceTree = "<group>"; };
@@ -283,6 +289,7 @@
 				87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */,
 				872848722C425D72008C1ED0 /* FlowManagerTests.swift */,
 				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
+				8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -474,6 +481,11 @@
 				872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */,
 				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
 				872848742C425DC1008C1ED0 /* TestableUserDefaults.swift */,
+				8717F23F2C4B7B7D007FC501 /* TestableBaseCollectionVC.swift */,
+				8717F2412C4B9CD8007FC501 /* TestableData.swift */,
+				8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */,
+				8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */,
+				8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */,
 			);
 			path = MockAndSubs;
 			sourceTree = "<group>";
@@ -792,20 +804,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87DDFD922C38EDDB0040621E /* MarvelSampleTests.swift in Sources */,
 				87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */,
-				87DFDCB22C3E2F9F0025C535 /* WalkthroughVCTests.swift in Sources */,
-				8787F6FC2C439D770022C518 /* TabBarTests.swift in Sources */,
 				87DDFDD32C394B4E0040621E /* TestingAppDelegate.swift in Sources */,
+				8717F2422C4B9CD8007FC501 /* TestableData.swift in Sources */,
 				8728486A2C423870008C1ED0 /* Helpers.swift in Sources */,
 				87DFDCB92C3E35920025C535 /* CollectionViewHelper.swift in Sources */,
 				8728486C2C423A18008C1ED0 /* TestableCollectionView.swift in Sources */,
 				87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */,
+				8717F23E2C4B785C007FC501 /* BaseCollectionVCTests.swift in Sources */,
 				872848752C425DC1008C1ED0 /* TestableUserDefaults.swift in Sources */,
-				87B09B312C3F7DD30004F606 /* WalkthroughVMTests.swift in Sources */,
+				8717F2462C4B9D01007FC501 /* TestableAPIDataListable.swift in Sources */,
+				8717F2402C4B7B7D007FC501 /* TestableBaseCollectionVC.swift in Sources */,
 				87DDFDD02C39412F0040621E /* MockAPIService.swift in Sources */,
-				872848732C425D72008C1ED0 /* FlowManagerTests.swift in Sources */,
-				87DDFDC82C391A5C0040621E /* WebServiceGenerateRequestTests.swift in Sources */,
+				8717F2482C4B9D21007FC501 /* TestableCollectionCell.swift in Sources */,
+				8717F2442C4B9CEE007FC501 /* TestableDataItemVM.swift in Sources */,
 				872848682C42370E008C1ED0 /* TestableWalkthroughVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DataFetchState {
+public enum DataFetchState {
     case initialLoading
     case loadingNextPage
     case idle
@@ -17,7 +17,7 @@ enum DataFetchState {
 }
 
 extension DataFetchState: Equatable {
-    static func == (lhs: DataFetchState, rhs: DataFetchState) -> Bool {
+    public static func == (lhs: DataFetchState, rhs: DataFetchState) -> Bool {
             switch (lhs, rhs) {
             case (.initialLoading, .initialLoading):
                 return true

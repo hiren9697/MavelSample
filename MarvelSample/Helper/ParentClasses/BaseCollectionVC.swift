@@ -112,40 +112,41 @@ where ViewModel.Data == Data,
     private func setupBindings() {
         viewModel
             .listItems
-            .receive(on: DispatchQueue.main)
             .sink(receiveValue: {[weak self] _ in
-                self?.collectionView.reloadData()
+                gauranteeMainThread {[weak self] in
+                    self?.collectionView.reloadData()
+                }
             })
             .store(in: &bindings)
         
         viewModel
             .fetchState
-            .receive(on: DispatchQueue.main)
             .sink(receiveValue: {[weak self] state in
-                switch state {
-                case .idle:
-                    self?.refreshControl.endRefreshing()
-                    self?.hideLoader()
-                case .initialLoading:
-                    self?.showLoader()
-                    self?.refreshControl.endRefreshing()
-                case .loadingNextPage:
-                    self?.hideLoader()
-                    self?.refreshControl.endRefreshing()
-                    break
-                case .reload:
-                    self?.hideLoader()
-                    break
-                case .error(_):
-                    self?.hideLoader()
-                    self?.refreshControl.endRefreshing()
+                gauranteeMainThread {[weak self] in
+                    switch state {
+                    case .idle:
+                        self?.refreshControl.endRefreshing()
+                        self?.hideLoader()
+                    case .initialLoading:
+                        self?.showLoader()
+                        self?.refreshControl.endRefreshing()
+                    case .loadingNextPage:
+                        self?.hideLoader()
+                        self?.refreshControl.endRefreshing()
+                        break
+                    case .reload:
+                        self?.hideLoader()
+                        break
+                    case .error(_):
+                        self?.hideLoader()
+                        self?.refreshControl.endRefreshing()
+                        break
+                    case .emptyData:
+                        self?.hideLoader()
+                        self?.refreshControl.endRefreshing()
+                        break
+                    }
                     self?.collectionView.reloadData()
-                    break
-                case .emptyData:
-                    self?.hideLoader()
-                    self?.refreshControl.endRefreshing()
-                    self?.collectionView.reloadData()
-                    break
                 }
             })
             .store(in: &bindings)
@@ -185,6 +186,15 @@ where ViewModel.Data == Data,
     }
     
     // MARK: - CollectionView Datasource
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        switch viewModel.fetchState.value {
+        case .initialLoading:
+            return 0
+        default:
+            return 1
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch viewModel.fetchState.value {
         case .initialLoading:
@@ -206,22 +216,22 @@ where ViewModel.Data == Data,
         case .error(_):
             return dequeueErrorCell(at: indexPath)
         case .emptyData:
-            return dequeueErrorCell(at: indexPath)
+            return dequeueEmptyDataCell(at: indexPath)
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         switch viewModel.fetchState.value {
-        case .initialLoading, .error(_), .emptyData:
+        case .initialLoading, .error(_), .emptyData, .idle, .reload:
             return .zero
-        case .loadingNextPage, .idle, .reload:
+        case .loadingNextPage:
             return CGSize(width: collectionView.bounds.width,
                           height: 50)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        Log.info("Footer: Element kind: \(kind), at indexPath: \(indexPath)")
         switch viewModel.fetchState.value {
         case .initialLoading, .error(_), .emptyData, .idle, .reload:
             return deququeEmptyFooterView(indexPath: indexPath)
