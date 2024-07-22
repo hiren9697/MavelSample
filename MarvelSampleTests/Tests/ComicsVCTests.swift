@@ -39,6 +39,28 @@ extension ComicsVCTests {
         let lastCell = cellForRow(in: sut.collectionView, row: viewModel.listItems.value.count - 1)
         XCTAssertTrue(lastCell is ComicItemCC, "lastCell is not ComicItemCC")
     }
+    
+    func test_cellForRow_withFilledData_updatesUIIfCell() {
+        addListItemsWithIdleModeInViewModel()
+        guard let zerothCell = cellForRow(in: sut.collectionView, row: 0) as? ComicItemCC else {
+            XCTFail("Dequed zeroth cell is not ComicItemCC")
+            return
+        }
+        XCTAssertEqual(zerothCell.titleLabel.text,
+                       "Zeroth comic title")
+        guard let firstCell = cellForRow(in: sut.collectionView, row: 1) as? ComicItemCC else {
+            XCTFail("Dequed first cell is not ComicItemCC")
+            return
+        }
+        XCTAssertEqual(firstCell.titleLabel.text,
+                       "First comic title")
+        guard let lastCell = cellForRow(in: sut.collectionView, row: viewModel.listItems.value.lastIndex) as? ComicItemCC else {
+            XCTFail("Dequed last cell is not ComicItemCC")
+            return
+        }
+        XCTAssertEqual(lastCell.titleLabel.text,
+                       "Third comic title")
+    }
 }
 
 // MARK: - Helper
@@ -52,8 +74,8 @@ extension ComicsVCTests {
                                      descriptionText: "First comic description")!),
             ComicItemVM(comic: Comic(title: "Second comic title",
                                      descriptionText: "Third comic description")!),
-            ComicItemVM(comic: Comic(title: "Fourth comic title",
-                                     descriptionText: "Fourth comic description")!),
+            ComicItemVM(comic: Comic(title: "Third comic title",
+                                     descriptionText: "Third comic description")!),
         ]
     }
 }
