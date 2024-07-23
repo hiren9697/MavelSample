@@ -10,13 +10,13 @@ import XCTest
 
 final class ComicsVCTests: XCTestCase {
     
-    var sut: ComicsVC!
-    var viewModel: ComicsVM!
+    var sut: TestableComicsVC!
+    var viewModel: TestableComicsVM!
     
     override func setUp() {
         super.setUp()
-        viewModel = ComicsVM()
-        sut = ComicsVC(viewModel: viewModel)
+        viewModel = TestableComicsVM()
+        sut = TestableComicsVC(viewModel: viewModel)
         sut.loadViewIfNeeded()
     }
     

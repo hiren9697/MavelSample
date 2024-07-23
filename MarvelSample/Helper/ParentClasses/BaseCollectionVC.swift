@@ -55,7 +55,7 @@ where ViewModel.Data == Data,
         registerCollectionViewOtherCellsAndHeaderFooter()
         setupCollectionView()
         setupBindings()
-        viewModel.fetchInitialData()
+        fetchInitialData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -102,6 +102,10 @@ where ViewModel.Data == Data,
         // Refresh Control
         collectionView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+    }
+    
+    func fetchInitialData() {
+        viewModel.fetchInitialData()
     }
     
     @objc func handleRefresh() {

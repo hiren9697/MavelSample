@@ -9,19 +9,16 @@ import UIKit
 import Combine
 @testable import MarvelSample
 
-
-
-
-
-
-
-
-
 class TestableChildCollectionVC: BaseCollectionVC<TestableData,
                                  TestableDataItemVM,
                                  TestableAPIDataListable> {
     // MARK: - Closure Variables for tests
     var refreshHandler: (()-> Void)?
+    
+    // MARK: - Overridden method
+    override func fetchInitialData() {
+        // Do nothing
+    }
     
     // MARK: - Cell methods
     override func registerCollectionViewDataCell() {
