@@ -47,7 +47,15 @@
 		87B39B392C49FB9600FC792E /* APIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B39B382C49FB9600FC792E /* APIDataListable.swift */; };
 		87BFD3312C4F45D70071CC21 /* TestableComicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BFD3302C4F45D70071CC21 /* TestableComicsVC.swift */; };
 		87BFD3352C4F4E670071CC21 /* TestableComicsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */; };
-		87BFD3392C4F50A20071CC21 /* FlowManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848722C425D72008C1ED0 /* FlowManagerTests.swift */; };
+		87C43EE92C509650000B32AE /* TestableFlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C43EE82C509650000B32AE /* TestableFlowManager.swift */; };
+		87C43EEA2C50A015000B32AE /* WebServiceGenerateRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */; };
+		87C43EEB2C50A036000B32AE /* WalkthroughVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */; };
+		87C43EEC2C50A044000B32AE /* WalkthroughVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */; };
+		87C43EED2C50A051000B32AE /* FlowManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848722C425D72008C1ED0 /* FlowManagerTests.swift */; };
+		87C43EEE2C50A07F000B32AE /* TabBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6FB2C439D770022C518 /* TabBarTests.swift */; };
+		87C43EEF2C50A0A9000B32AE /* BaseCollectionVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */; };
+		87C43EF02C50A0B9000B32AE /* ComicsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872557262C4D378700373000 /* ComicsVCTests.swift */; };
+		87C43EF22C50AC41000B32AE /* ComicItemCCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2F3452C4DF5FE00CB06DF /* ComicItemCCTests.swift */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
 		87DDFD842C38EDDB0040621E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFD832C38EDDB0040621E /* Assets.xcassets */; };
@@ -151,6 +159,7 @@
 		87B39B382C49FB9600FC792E /* APIDataListable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataListable.swift; sourceTree = "<group>"; };
 		87BFD3302C4F45D70071CC21 /* TestableComicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableComicsVC.swift; sourceTree = "<group>"; };
 		87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableComicsVM.swift; sourceTree = "<group>"; };
+		87C43EE82C509650000B32AE /* TestableFlowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableFlowManager.swift; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -499,6 +508,7 @@
 				8725572A2C4D49CC00373000 /* ComicExtension.swift */,
 				87BFD3302C4F45D70071CC21 /* TestableComicsVC.swift */,
 				87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */,
+				87C43EE82C509650000B32AE /* TestableFlowManager.swift */,
 			);
 			path = MockAndSubs;
 			sourceTree = "<group>";
@@ -818,23 +828,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */,
+				87C43EEF2C50A0A9000B32AE /* BaseCollectionVCTests.swift in Sources */,
 				87DDFDD32C394B4E0040621E /* TestingAppDelegate.swift in Sources */,
 				8717F2422C4B9CD8007FC501 /* TestableData.swift in Sources */,
 				8728486A2C423870008C1ED0 /* Helpers.swift in Sources */,
 				87DFDCB92C3E35920025C535 /* CollectionViewHelper.swift in Sources */,
 				87BFD3312C4F45D70071CC21 /* TestableComicsVC.swift in Sources */,
 				8728486C2C423A18008C1ED0 /* TestableCollectionView.swift in Sources */,
+				87C43EE92C509650000B32AE /* TestableFlowManager.swift in Sources */,
 				87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */,
+				87C43EED2C50A051000B32AE /* FlowManagerTests.swift in Sources */,
+				87C43EEA2C50A015000B32AE /* WebServiceGenerateRequestTests.swift in Sources */,
 				872848752C425DC1008C1ED0 /* TestableUserDefaults.swift in Sources */,
-				87BFD3392C4F50A20071CC21 /* FlowManagerTests.swift in Sources */,
 				8725572B2C4D49CC00373000 /* ComicExtension.swift in Sources */,
+				87C43EEC2C50A044000B32AE /* WalkthroughVMTests.swift in Sources */,
 				8717F2462C4B9D01007FC501 /* TestableAPIDataListable.swift in Sources */,
+				87C43EF02C50A0B9000B32AE /* ComicsVCTests.swift in Sources */,
 				8717F2402C4B7B7D007FC501 /* TestableBaseCollectionVC.swift in Sources */,
 				87BFD3352C4F4E670071CC21 /* TestableComicsVM.swift in Sources */,
 				87DDFDD02C39412F0040621E /* MockAPIService.swift in Sources */,
 				8717F2482C4B9D21007FC501 /* TestableCollectionCell.swift in Sources */,
 				8717F2442C4B9CEE007FC501 /* TestableDataItemVM.swift in Sources */,
+				87C43EEE2C50A07F000B32AE /* TabBarTests.swift in Sources */,
 				872848682C42370E008C1ED0 /* TestableWalkthroughVC.swift in Sources */,
+				87C43EF22C50AC41000B32AE /* ComicItemCCTests.swift in Sources */,
+				87C43EEB2C50A036000B32AE /* WalkthroughVCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

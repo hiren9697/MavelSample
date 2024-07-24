@@ -235,7 +235,6 @@ where ViewModel.Data == Data,
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        Log.info("Footer: Element kind: \(kind), at indexPath: \(indexPath)")
         switch viewModel.fetchState.value {
         case .initialLoading, .error(_), .emptyData, .idle, .reload:
             return deququeEmptyFooterView(indexPath: indexPath)
