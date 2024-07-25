@@ -17,24 +17,20 @@ final class ComicItemCCTests: XCTestCase {
         super.setUp()
         sut = ComicItemCC()
         sut.layoutIfNeeded()
+        sut.layoutSubviews()
     }
     
-    func test_imageView_isInViewHierarchy() {
+    func test_components_isInViewHierarchy() {
         Log.info(sut.imageView)
-        // XCTAssertEqual(sut.imageView.superview, sut.contentView)
+        XCTAssertEqual(sut.containerView.superview, sut.contentView)
+        XCTAssertEqual(sut.imageView.superview, sut.containerView)
+        XCTAssertEqual(sut.titleLabel.superview, sut.containerView)
     }
-
-    private func addListItemsWithIdleModeInViewModel(viewModel: ComicsVM) {
-        viewModel.fetchState.value = .idle
-        viewModel.listItems.value = [
-            ComicItemVM(comic: Comic(title: "Zeroth comic title",
-                                     descriptionText: "Zeroth comic description")!),
-            ComicItemVM(comic: Comic(title: "First comic title",
-                                     descriptionText: "First comic description")!),
-            ComicItemVM(comic: Comic(title: "Second comic title",
-                                     descriptionText: "Third comic description")!),
-            ComicItemVM(comic: Comic(title: "Third comic title",
-                                     descriptionText: "Third comic description")!),
-        ]
+    
+    func test_cellUpdatesUI_fromViewModel() {
+        let viewModel = ComicItemVM(comic: Comic(title: "Zeroth comic title",
+                                                 descriptionText: "Zeroth comic description")!)
+        sut.updateUI(viewModel: viewModel)
+        XCTAssertEqual(sut.titleLabel.text, viewModel.title)
     }
 }
