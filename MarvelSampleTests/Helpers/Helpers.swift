@@ -76,4 +76,24 @@ func putInViewHeirarchy(_ vc: UIViewController) {
     window.addSubview(vc.view)
 }
 
+func verifyMethodCalledOnce(method: String,
+                            callCount: Int,
+                            describedArguments: @autoclosure ()-> String,
+                            file: StaticString,
+                            line: UInt)-> Bool {
+    if callCount == 0 {
+        XCTFail("Wanted but not invoked \(method)",
+                file: file,
+                line: line)
+        return false
+    } else if callCount > 1 {
+        XCTFail("Wanted one time, but called \(callCount) times, \(method) with \(describedArguments())",
+                file: file,
+                line: line)
+        return false
+    } else {
+        return true
+    }
+}
+
 

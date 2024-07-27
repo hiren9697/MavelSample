@@ -11,7 +11,8 @@ import Combine
 class ComicsVM: BaseListVM<Comic, ComicItemVM> {
     
     init() {
-        super.init(emptyDataTitle: "Couldn't find any comic",
+        super.init(endPoint: APIEndpoints.comics.rawValue,
+                   emptyDataTitle: "Couldn't find any comic",
                    errorTitle: "Error in fetching comics")
     }
     

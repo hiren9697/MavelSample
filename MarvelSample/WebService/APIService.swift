@@ -9,6 +9,11 @@ import Foundation
 
 
 class APIService: APIServiceProtocol {
+    let requestGenerator: APIRequestGenerator
+    
+    init(requestGenerator: APIRequestGenerator) {
+        self.requestGenerator = requestGenerator
+    }
     
     func dataTask(request: URLRequest,
                   completion: @escaping APICallHandler)-> URLSessionDataTask? {

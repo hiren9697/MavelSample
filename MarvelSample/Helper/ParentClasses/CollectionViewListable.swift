@@ -14,13 +14,19 @@ class BaseListVM<T, U>: APIDataListable {
     var data: Array<T> = []
     var listItems: CurrentValueSubject<Array<U>, Never> = CurrentValueSubject([])
     // Other variables
-    let service = APIService()
+    let service: APIServiceProtocol
     let paginationManager: PaginationManager = PaginationManager()
+    let endPoint: String
     let emptyDataTitle: String
     let errorTitle: String
     var fetchDataTask: URLSessionDataTask?
     
-    init(emptyDataTitle: String, errorTitle: String) {
+    init(endPoint: String,
+         service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator()),
+         emptyDataTitle: String,
+         errorTitle: String) {
+        self.endPoint = endPoint
+        self.service = service
         self.emptyDataTitle = emptyDataTitle
         self.errorTitle = errorTitle
     }
@@ -57,6 +63,28 @@ class BaseListVM<T, U>: APIDataListable {
         fatalError("Must be overridden")
     }
     
+    func generateRequest(timestampDate: Date? = nil)throws -> URLRequest {
+        let queryParameters: [String: String] = [
+            "limit": "\(paginationManager.limit)",
+            "offset": "\(paginationManager.offset)"
+        ]
+        // Generate request with supplied timestamp
+        if let timestampDate = timestampDate {
+            return try service
+                .requestGenerator
+                .generateRequestWithHash(requestType: .get,
+                                         relativePath: endPoint,
+                                         queryParameters: queryParameters,
+                                         timestampDate: timestampDate)
+        }
+        // Generate request without supplying timestamp
+        return try service
+            .requestGenerator
+            .generateRequestWithHash(requestType: .get,
+                                     relativePath: endPoint,
+                                     queryParameters: queryParameters)
+    }
+    
     func fetchData() {
         // 1. Helper functions
         func parsePaginationDate(json: Any) {
@@ -85,14 +113,9 @@ class BaseListVM<T, U>: APIDataListable {
             listItems.value.removeAll()
             paginationManager.reload()
         }
-        let queryParameters: [String: String] = [
-            "limit": "\(paginationManager.limit)",
-            "offset": "\(paginationManager.offset)"
-        ]
+        
         do {
-            let request = try service.generateRequest(requestType: .get,
-                                                      relativePath: APIEndpoints.comics.rawValue,
-                                                      queryParameters: queryParameters)
+            let request = try generateRequest()
             fetchDataTask?.cancel()
             fetchDataTask = nil
             fetchDataTask = service.dataTask(request: request) {[weak self] result in

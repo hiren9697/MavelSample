@@ -14,7 +14,7 @@ final class WebServiceGenerateRequestTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = MockAPIService()
+        sut = MockAPIService(requestGenerator: APIRequestGenerator())
     }
     
     override func tearDown() {
@@ -113,11 +113,13 @@ extension WebServiceGenerateRequestTests {
                          parameters: [String: String]? = nil,
                          line: UInt = #line) -> URLRequest? {
         do {
-            return try sut.generateRequest(requestType: requestType,
-                                           relativePath: relativePath,
-                                           headers: headers,
-                                           queryParameters: queryParameters,
-                                           parameters: parameters)
+            return try sut
+                .requestGenerator
+                .generateRequestWithHash(requestType: requestType,
+                                         relativePath: relativePath,
+                                         headers: headers,
+                                         queryParameters: queryParameters,
+                                         parameters: parameters)
         } catch {
             XCTFail("GenerateRequest failed: \(error)", line: line)
             return nil

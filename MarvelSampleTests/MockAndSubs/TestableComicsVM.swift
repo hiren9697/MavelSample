@@ -10,7 +10,7 @@ import Foundation
 
 class TestableComicsVM: ComicsVM {
     
-    override func itemVM(for row: Int) -> ComicItemVM {
-        return listItems.value[row]
+    override func fetchNextPage() {
+        // Do nothing
     }
 }
