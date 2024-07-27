@@ -63,6 +63,10 @@
 		8787F7132C44D2AA0022C518 /* UICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7122C44D2AA0022C518 /* UICollectionReusableView.swift */; };
 		8787F7152C44D3840022C518 /* CollectionViewEmptyFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7142C44D3840022C518 /* CollectionViewEmptyFooter.swift */; };
 		87B39B392C49FB9600FC792E /* APIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B39B382C49FB9600FC792E /* APIDataListable.swift */; };
+		87CBC51F2C54FEB5007AB863 /* ComicVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */; };
+		87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */; };
+		87CBC5282C5540D4007AB863 /* ComicsListError.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5272C5540D4007AB863 /* ComicsListError.json */; };
+		87CBC52A2C554179007AB863 /* ComicsListEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5292C554179007AB863 /* ComicsListEmpty.json */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
 		87DDFD842C38EDDB0040621E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFD832C38EDDB0040621E /* Assets.xcassets */; };
@@ -171,6 +175,10 @@
 		87BFD3302C4F45D70071CC21 /* TestableComicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableComicsVC.swift; sourceTree = "<group>"; };
 		87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableComicsVM.swift; sourceTree = "<group>"; };
 		87C43EE82C509650000B32AE /* TestableFlowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableFlowManager.swift; sourceTree = "<group>"; };
+		87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicVMTests.swift; sourceTree = "<group>"; };
+		87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ComicsListSuccess.json; sourceTree = "<group>"; };
+		87CBC5272C5540D4007AB863 /* ComicsListError.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ComicsListError.json; sourceTree = "<group>"; };
+		87CBC5292C554179007AB863 /* ComicsListEmpty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ComicsListEmpty.json; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -399,8 +407,19 @@
 				87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */,
 				872557262C4D378700373000 /* ComicsVCTests.swift */,
 				87A2F3452C4DF5FE00CB06DF /* ComicItemCCTests.swift */,
+				87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */,
 			);
 			path = Comic;
+			sourceTree = "<group>";
+		};
+		87CBC5202C550E8D007AB863 /* JSONs */ = {
+			isa = PBXGroup;
+			children = (
+				87CBC5292C554179007AB863 /* ComicsListEmpty.json */,
+				87CBC5272C5540D4007AB863 /* ComicsListError.json */,
+				87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */,
+			);
+			path = JSONs;
 			sourceTree = "<group>";
 		};
 		87DDFD6E2C38EDDA0040621E = {
@@ -445,6 +464,7 @@
 		87DDFD902C38EDDB0040621E /* MarvelSampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				87CBC5202C550E8D007AB863 /* JSONs */,
 				87CBC5182C54E9FF007AB863 /* ProductionExtension */,
 				87CBC5172C54E9C8007AB863 /* CommonTestable */,
 				87DFDCB72C3E356A0025C535 /* Helpers */,
@@ -724,6 +744,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87CBC5282C5540D4007AB863 /* ComicsListError.json in Resources */,
+				87CBC52A2C554179007AB863 /* ComicsListEmpty.json in Resources */,
+				87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,6 +937,7 @@
 				871F60B62C51F4D800AD6821 /* TestableData.swift in Sources */,
 				873EE2142C5347F100E3E74D /* TabBarTests.swift in Sources */,
 				871F60B32C51F4D800AD6821 /* MockAPIService.swift in Sources */,
+				87CBC51F2C54FEB5007AB863 /* ComicVMTests.swift in Sources */,
 				871F60B92C51F4D800AD6821 /* TestableWalkthroughVC.swift in Sources */,
 				874F8EE52C5485B500D1AA77 /* TestableAPIRequestGenerator.swift in Sources */,
 				871F60BE2C51F4D800AD6821 /* TestableComicsVC.swift in Sources */,
@@ -1163,14 +1187,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hiren.MarvelSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1184,14 +1210,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hiren.MarvelSampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
