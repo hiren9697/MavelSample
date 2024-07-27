@@ -313,14 +313,12 @@
 			children = (
 				87DDFD912C38EDDB0040621E /* MarvelSampleTests.swift */,
 				87DDFDC72C391A5C0040621E /* WebServiceGenerateRequestTests.swift */,
-				87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */,
-				87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */,
-				872848722C425D72008C1ED0 /* FlowManagerTests.swift */,
 				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
-				8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */,
-				872557262C4D378700373000 /* ComicsVCTests.swift */,
-				87A2F3452C4DF5FE00CB06DF /* ComicItemCCTests.swift */,
-				871F60B12C51D79400AD6821 /* BaseListVMTests.swift */,
+				87CBC51D2C54F1EB007AB863 /* Comic */,
+				87CBC51C2C54F1AE007AB863 /* BaseListVM */,
+				87CBC51B2C54F188007AB863 /* BaseCollectionVC */,
+				87CBC51A2C54F0FE007AB863 /* FlowManager */,
+				87CBC5192C54F0C3007AB863 /* Walkthrough */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -336,23 +334,15 @@
 			path = CommonUI;
 			sourceTree = "<group>";
 		};
-		87CBC5172C54E9C8007AB863 /* Testable */ = {
+		87CBC5172C54E9C8007AB863 /* CommonTestable */ = {
 			isa = PBXGroup;
 			children = (
-				872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */,
-				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
-				8717F23F2C4B7B7D007FC501 /* TestableBaseCollectionVC.swift */,
 				8717F2412C4B9CD8007FC501 /* TestableData.swift */,
 				8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */,
-				8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */,
-				8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */,
 				87BFD3302C4F45D70071CC21 /* TestableComicsVC.swift */,
-				87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */,
-				87C43EE82C509650000B32AE /* TestableFlowManager.swift */,
-				871F60AF2C51D44C00AD6821 /* TestableBaseListVM.swift */,
 				874F8EE42C5485B500D1AA77 /* TestableAPIRequestGenerator.swift */,
 			);
-			path = Testable;
+			path = CommonTestable;
 			sourceTree = "<group>";
 		};
 		87CBC5182C54E9FF007AB863 /* ProductionExtension */ = {
@@ -361,6 +351,56 @@
 				8725572A2C4D49CC00373000 /* ComicExtension.swift */,
 			);
 			path = ProductionExtension;
+			sourceTree = "<group>";
+		};
+		87CBC5192C54F0C3007AB863 /* Walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */,
+				872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */,
+				87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */,
+			);
+			path = Walkthrough;
+			sourceTree = "<group>";
+		};
+		87CBC51A2C54F0FE007AB863 /* FlowManager */ = {
+			isa = PBXGroup;
+			children = (
+				87C43EE82C509650000B32AE /* TestableFlowManager.swift */,
+				872848722C425D72008C1ED0 /* FlowManagerTests.swift */,
+			);
+			path = FlowManager;
+			sourceTree = "<group>";
+		};
+		87CBC51B2C54F188007AB863 /* BaseCollectionVC */ = {
+			isa = PBXGroup;
+			children = (
+				8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */,
+				8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */,
+				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
+				8717F23F2C4B7B7D007FC501 /* TestableBaseCollectionVC.swift */,
+				8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */,
+			);
+			path = BaseCollectionVC;
+			sourceTree = "<group>";
+		};
+		87CBC51C2C54F1AE007AB863 /* BaseListVM */ = {
+			isa = PBXGroup;
+			children = (
+				871F60AF2C51D44C00AD6821 /* TestableBaseListVM.swift */,
+				871F60B12C51D79400AD6821 /* BaseListVMTests.swift */,
+			);
+			path = BaseListVM;
+			sourceTree = "<group>";
+		};
+		87CBC51D2C54F1EB007AB863 /* Comic */ = {
+			isa = PBXGroup;
+			children = (
+				87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */,
+				872557262C4D378700373000 /* ComicsVCTests.swift */,
+				87A2F3452C4DF5FE00CB06DF /* ComicItemCCTests.swift */,
+			);
+			path = Comic;
 			sourceTree = "<group>";
 		};
 		87DDFD6E2C38EDDA0040621E = {
@@ -406,7 +446,7 @@
 			isa = PBXGroup;
 			children = (
 				87CBC5182C54E9FF007AB863 /* ProductionExtension */,
-				87CBC5172C54E9C8007AB863 /* Testable */,
+				87CBC5172C54E9C8007AB863 /* CommonTestable */,
 				87DFDCB72C3E356A0025C535 /* Helpers */,
 				87DFDCB02C3E2C9D0025C535 /* TestDoubles */,
 				87DDFDD12C394B250040621E /* Main */,
