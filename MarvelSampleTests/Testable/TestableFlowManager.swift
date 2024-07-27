@@ -8,6 +8,7 @@
 import UIKit
 @testable import MarvelSample
 
+/// Sub-class of FlowManager which uses testable sub-classes of view controller and view models instead of production classes
 class TestableFlowManager: FlowManager {
     override func initializeTabBarController()-> TabBarController {
         // Initialize TabBar Item ViewModels

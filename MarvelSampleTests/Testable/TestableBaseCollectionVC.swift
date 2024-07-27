@@ -9,6 +9,10 @@ import UIKit
 import Combine
 @testable import MarvelSample
 
+/// Subclass of 'BaseCollectionVC' with filled generics
+/// This class is used to test BaseCollectionVC
+/// As subclass of BaseCollectionVC must override some methods and must fill generics
+/// Used in BaseCollectionVCTests
 class TestableChildCollectionVC: BaseCollectionVC<TestableData,
                                  TestableDataItemVM,
                                  TestableAPIDataListable> {

@@ -12,12 +12,12 @@ final class FlowManagerTests: XCTestCase {
 
     var sut: TestableFlowManager!
     var window: UIWindow!
-    var testableUserDefaults: TestableUserDefaults!
+    var testableUserDefaults: FakeUserDefaults!
     
     override func setUp() {
         super.setUp()
         window = UIWindow()
-        testableUserDefaults = TestableUserDefaults()
+        testableUserDefaults = FakeUserDefaults()
         sut = TestableFlowManager(window: window,
                                   userDefaults: testableUserDefaults)
     }

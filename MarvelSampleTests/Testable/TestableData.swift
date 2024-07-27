@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// A dummy data class used to fill space
+/// Used in TestableBaseCollectionVc, TestableDataItemVM, TestableAPIDataListable, TestableBaseLisVM...
 class TestableData {
     let id: String = UUID().uuidString
     let text: String

@@ -8,7 +8,7 @@
 import UIKit
 @testable import MarvelSample
 
-
+/// A dummy class of collection view cell used to fill space in TestableBaseCollectionVC
 class TestableCollectionCell: ParentCC {
     let textLabel: UILabel = {
         let label = UILabel()

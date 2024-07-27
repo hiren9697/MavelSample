@@ -9,6 +9,7 @@ import Foundation
 import Combine
 @testable import MarvelSample
 
+/// A dummy class used to fill space in TestableBaseCollectionVC
 class TestableAPIDataListable: APIDataListable {
     var fetchState: CurrentValueSubject<DataFetchState, Never> = CurrentValueSubject(.idle)
     var data: Array<TestableData> = []
