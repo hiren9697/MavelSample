@@ -8,11 +8,18 @@
 import UIKit
 import Combine
 
-class BaseListVM<T, U>: APIDataListable {
+
+/// Base class for view model class that makes API call and list data
+/// Provides state variables for and listItems, which view controller can subscribe
+/// Provides generic functionality related to list screen like pagination, reloaod, show error or empty data view
+/// Subclass must fill two generic types: 1. Data actual data class, 2. ListItemVM: view models class for liste items
+/// Subclass must override method 'parseData(json:)', This class calls this method on successful API call to parse received JSON
+/// On intializing object of this class, endPoint, titles for empty and error view must be provided, Optionally API service can be also provided, Injecting API service is very helful in test cases
+class BaseListVM<Data, ListItemVM>: APIDataListable {
     // Protocol variables
     var fetchState: CurrentValueSubject<DataFetchState, Never> = CurrentValueSubject(.idle)
-    var data: Array<T> = []
-    var listItems: CurrentValueSubject<Array<U>, Never> = CurrentValueSubject([])
+    var data: Array<Data> = []
+    var listItems: CurrentValueSubject<Array<ListItemVM>, Never> = CurrentValueSubject([])
     // Other variables
     let service: APIServiceProtocol
     let paginationManager: PaginationManager = PaginationManager()
@@ -32,7 +39,7 @@ class BaseListVM<T, U>: APIDataListable {
     }
     
     // Protocol functions
-    func itemVM(for row: Int) -> U {
+    func itemVM(for row: Int) -> ListItemVM {
         if row == listItems.value.lastIndex &&
             paginationManager.hasMore &&
             fetchDataTask == nil &&
@@ -63,6 +70,8 @@ class BaseListVM<T, U>: APIDataListable {
         fatalError("Must be overridden")
     }
     
+    /// Reason the logic to generate query parameters is in specific function outside of 'fetchData' function, is to help test cases uses this function to generate requests and compare that request with MockAPIService
+    /// - Returns: Query parameters regarding pagination
     func getQueryParametersToFetchData()-> [String: String] {
         let queryParameters: [String: String] = [
             "limit": "\(paginationManager.limit)",
@@ -71,24 +80,12 @@ class BaseListVM<T, U>: APIDataListable {
         return queryParameters
     }
     
-    func generateRequest(timestampDate: Date? = nil)throws -> URLRequest {
-        // Generate request with supplied timestamp
-        if let timestampDate = timestampDate {
-            return try service
-                .requestGenerator
-                .generateRequestWithHash(requestType: .get,
-                                         relativePath: endPoint,
-                                         queryParameters: getQueryParametersToFetchData(),
-                                         timestampDate: timestampDate)
-        }
-        // Generate request without supplying timestamp
-        return try service
-            .requestGenerator
-            .generateRequestWithHash(requestType: .get,
-                                     relativePath: endPoint,
-                                     queryParameters: getQueryParametersToFetchData())
-    }
-    
+    /// This is most important function of this class and performs below actions:
+    /// 1. Manages pagination, array of list view model and list of data according to fetchState before making API call
+    /// 2. Generates URLRequest
+    /// 3. Makes API call using generated request
+    /// 4. In case of success parses JSON, pagination data and actual data, actual data is parsed with function 'parsePaginationDate(json:)', which needs to be override by subclass and then updates fetchState based on received data
+    /// 5. In case of failure updates fetchStatus to error
     func fetchData() {
         // 1. Helper functions
         func parsePaginationDate(json: Any) {
@@ -117,9 +114,12 @@ class BaseListVM<T, U>: APIDataListable {
             listItems.value.removeAll()
             paginationManager.reload()
         }
-        
         do {
-            let request = try generateRequest()
+            let request = try service
+                .requestGenerator
+                .generateRequestWithHash(requestType: .get,
+                                         relativePath: endPoint,
+                                         queryParameters: getQueryParametersToFetchData())
             fetchDataTask?.cancel()
             fetchDataTask = nil
             fetchDataTask = service.dataTask(request: request) {[weak self] result in

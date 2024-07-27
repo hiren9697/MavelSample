@@ -9,6 +9,16 @@ import Foundation
 
 class APIRequestGenerator {
     
+    /// Generates URLRequest with given components
+    /// - Parameters:
+    ///   - requestType: HTTP method type
+    ///   - relativePath: Endpoint of request
+    ///   - headers: HTTP headers
+    ///   - queryParameters: Query parameters of URL
+    ///   - parameters: HTTP body parameters
+    ///   - timestampDate: Timestamp to be used to generate hash, Most use of this method in production code doesn't pass timestamp,
+    ///   But unit test uses this frequently, To compare two requests unit test methos passes same time stamp in requests
+    /// - Returns: URLRequest
     func generateRequestWithHash(requestType: RequestType,
                                  relativePath: String,
                                  headers: [String: String]? = nil,

@@ -27,11 +27,13 @@ final class BaseListVMTests: XCTestCase {
     
     override func tearDown() {
         sut = nil
+        service = nil
+        apiRequestGenerator = nil
         super.tearDown()
     }
 }
 
-// MARK: - Test Cases
+// MARK: - ListItem Tests
 extension BaseListVMTests {
     
     func test_listItem_returnsCorrectListItemVM() {
@@ -43,23 +45,22 @@ extension BaseListVMTests {
         let lastVM = sut.itemVM(for: 6)
         XCTAssertEqual(lastVM.text, "Sixth")
     }
+    
+    func test_onFetchingLiastItemVM_fetchingNextPage() {
+        addListItemViewModels()
+        XCTAssertEqual(service.dataTaskCallCount, 0, "Precondition")
+        _ = sut.itemVM(for: 6)
+        _ = service.dataTaskWasCalledOnce(file: #file, line: #line)
+    }
 }
 
-// MARK: - API calling function test
+// MARK: - Data fetch function tests
 extension BaseListVMTests {
     
     func test_fetchInitialData_makesAPIRequestOneTime() throws {
-        let request = try service
-            .requestGenerator
-            .generateRequestWithHash(requestType: RequestType.get,
-                                     relativePath: APIEndpoints.comics.rawValue,
-                                     queryParameters: sut.getQueryParametersToFetchData(),
-                                     timestampDate: timestampDate)
+        XCTAssertEqual(service.dataTaskCallCount, 0, "Precondition")
         sut.fetchInitialData()
-        service
-            .verifyDataTask(with: request,
-                            file: #file,
-                            line: #line)
+        _ = service.dataTaskWasCalledOnce(file: #file, line: #line)
     }
     
     func test_fetchInitialData_changesFetchStatus_toInitialLoading() {
@@ -68,17 +69,9 @@ extension BaseListVMTests {
     }
     
     func test_reloadData_makesAPIRequestOneTime() throws {
-        let request = try service
-            .requestGenerator
-            .generateRequestWithHash(requestType: RequestType.get,
-                                     relativePath: APIEndpoints.comics.rawValue,
-                                     queryParameters: sut.getQueryParametersToFetchData(),
-                                     timestampDate: timestampDate)
+        XCTAssertEqual(service.dataTaskCallCount, 0, "Precondition")
         sut.reloadData()
-        service
-            .verifyDataTask(with: request,
-                            file: #file,
-                            line: #line)
+        _ = service.dataTaskWasCalledOnce(file: #file, line: #line)
     }
     
     func test_reloadData_changesFetchStatus_toInitialLoading() {
@@ -87,22 +80,40 @@ extension BaseListVMTests {
     }
     
     func test_loadingNextPage_makesAPIRequestOneTime() throws {
+        XCTAssertEqual(service.dataTaskCallCount, 0, "Precondition")
+        sut.fetchNextPage()
+        _ = service.dataTaskWasCalledOnce(file: #file, line: #line)
+    }
+    
+    func test_loadingNextPage_changesFetchStatus_toInitialLoading() {
+        sut.fetchNextPage()
+        XCTAssertEqual(sut.fetchState.value, .loadingNextPage)
+    }
+    
+    func test_fetchData_makingAPICallWithCorrectRequest() throws {
         let request = try service
             .requestGenerator
             .generateRequestWithHash(requestType: RequestType.get,
                                      relativePath: APIEndpoints.comics.rawValue,
                                      queryParameters: sut.getQueryParametersToFetchData(),
                                      timestampDate: timestampDate)
-        sut.fetchNextPage()
+        sut.fetchData()
         service
             .verifyDataTask(with: request,
                             file: #file,
                             line: #line)
     }
+}
+
+// MARK: - Helper method tests
+extension BaseListVMTests {
     
-    func test_loadingNextPage_changesFetchStatus_toInitialLoading() {
-        sut.fetchNextPage()
-        XCTAssertEqual(sut.fetchState.value, .loadingNextPage)
+    func test_getQueryParameters_givesCorrectParameters() {
+        let queryParameters: [String: String] = [
+            "limit": "\(sut.paginationManager.limit)",
+            "offset": "\(sut.paginationManager.offset)"
+        ]
+        XCTAssertEqual(sut.getQueryParametersToFetchData(), queryParameters)
     }
 }
 
