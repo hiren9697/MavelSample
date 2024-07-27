@@ -43,24 +43,66 @@ extension BaseListVMTests {
         let lastVM = sut.itemVM(for: 6)
         XCTAssertEqual(lastVM.text, "Sixth")
     }
+}
+
+// MARK: - API calling function test
+extension BaseListVMTests {
     
     func test_fetchInitialData_makesAPIRequestOneTime() throws {
-        let queryparameters: [String: String] = [
-            "limit": "\(sut.paginationManager.limit)",
-            "offset": "\(sut.paginationManager.offset)"
-        ]
         let request = try service
             .requestGenerator
             .generateRequestWithHash(requestType: RequestType.get,
                                      relativePath: APIEndpoints.comics.rawValue,
-                                     queryParameters: queryparameters,
+                                     queryParameters: sut.getQueryParametersToFetchData(),
                                      timestampDate: timestampDate)
         sut.fetchInitialData()
         service
             .verifyDataTask(with: request,
                             file: #file,
                             line: #line)
-        
+    }
+    
+    func test_fetchInitialData_changesFetchStatus_toInitialLoading() {
+        sut.fetchInitialData()
+        XCTAssertEqual(sut.fetchState.value, .initialLoading)
+    }
+    
+    func test_reloadData_makesAPIRequestOneTime() throws {
+        let request = try service
+            .requestGenerator
+            .generateRequestWithHash(requestType: RequestType.get,
+                                     relativePath: APIEndpoints.comics.rawValue,
+                                     queryParameters: sut.getQueryParametersToFetchData(),
+                                     timestampDate: timestampDate)
+        sut.reloadData()
+        service
+            .verifyDataTask(with: request,
+                            file: #file,
+                            line: #line)
+    }
+    
+    func test_reloadData_changesFetchStatus_toInitialLoading() {
+        sut.reloadData()
+        XCTAssertEqual(sut.fetchState.value, .reload)
+    }
+    
+    func test_loadingNextPage_makesAPIRequestOneTime() throws {
+        let request = try service
+            .requestGenerator
+            .generateRequestWithHash(requestType: RequestType.get,
+                                     relativePath: APIEndpoints.comics.rawValue,
+                                     queryParameters: sut.getQueryParametersToFetchData(),
+                                     timestampDate: timestampDate)
+        sut.fetchNextPage()
+        service
+            .verifyDataTask(with: request,
+                            file: #file,
+                            line: #line)
+    }
+    
+    func test_loadingNextPage_changesFetchStatus_toInitialLoading() {
+        sut.fetchNextPage()
+        XCTAssertEqual(sut.fetchState.value, .loadingNextPage)
     }
 }
 

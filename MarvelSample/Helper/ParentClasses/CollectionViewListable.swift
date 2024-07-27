@@ -63,18 +63,22 @@ class BaseListVM<T, U>: APIDataListable {
         fatalError("Must be overridden")
     }
     
-    func generateRequest(timestampDate: Date? = nil)throws -> URLRequest {
+    func getQueryParametersToFetchData()-> [String: String] {
         let queryParameters: [String: String] = [
             "limit": "\(paginationManager.limit)",
             "offset": "\(paginationManager.offset)"
         ]
+        return queryParameters
+    }
+    
+    func generateRequest(timestampDate: Date? = nil)throws -> URLRequest {
         // Generate request with supplied timestamp
         if let timestampDate = timestampDate {
             return try service
                 .requestGenerator
                 .generateRequestWithHash(requestType: .get,
                                          relativePath: endPoint,
-                                         queryParameters: queryParameters,
+                                         queryParameters: getQueryParametersToFetchData(),
                                          timestampDate: timestampDate)
         }
         // Generate request without supplying timestamp
@@ -82,7 +86,7 @@ class BaseListVM<T, U>: APIDataListable {
             .requestGenerator
             .generateRequestWithHash(requestType: .get,
                                      relativePath: endPoint,
-                                     queryParameters: queryParameters)
+                                     queryParameters: getQueryParametersToFetchData())
     }
     
     func fetchData() {
