@@ -32,24 +32,6 @@ func verifyMethodCalledOnce(methodName: String,
     }
 }
 
-func verifyMethodNeverCalled(methodName: String,
-                             callCount: Int,
-                             describedArguments: @autoclosure ()-> String,
-                             file: StaticString,
-                             line: UInt) {
-    let times = callCount == 1 ? "time" : "times"
-    if callCount > 0 {
-        let message = """
-                      Never wanted but was called: \(times),
-                      method: \(methodName),
-                      with: \(describedArguments())
-                      """
-        XCTFail(message,
-                file: file,
-                line: line)
-    }
-}
-
 func systemItem(for barButtonItem: UIBarButtonItem)-> UIBarButtonItem.SystemItem {
     let systemItemNumber = barButtonItem.value(forKey: "systemItem") as! Int
     return UIBarButtonItem.SystemItem(rawValue: systemItemNumber)!
@@ -91,24 +73,5 @@ func loadJSON(fileName: String)-> Any? {
     }
 }
 
-func verifyMethodCalledOnce(method: String,
-                            callCount: Int,
-                            describedArguments: @autoclosure ()-> String,
-                            file: StaticString,
-                            line: UInt)-> Bool {
-    if callCount == 0 {
-        XCTFail("Wanted but not invoked \(method)",
-                file: file,
-                line: line)
-        return false
-    } else if callCount > 1 {
-        XCTFail("Wanted one time, but called \(callCount) times, \(method) with \(describedArguments())",
-                file: file,
-                line: line)
-        return false
-    } else {
-        return true
-    }
-}
 
 

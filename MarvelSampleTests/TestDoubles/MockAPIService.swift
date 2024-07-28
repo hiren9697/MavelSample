@@ -40,7 +40,7 @@ extension MockAPIService {
     ///   - line: Line from which this method is called
     /// - Returns: True if only one request call was made, false otherwise
     func dataTaskWasCalledOnce(file: StaticString, line: UInt)-> Bool {
-        verifyMethodCalledOnce(method: "dataTask(with:completionHandler",
+        verifyMethodCalledOnce(methodName: "dataTask(with:completionHandler",
                                callCount: dataTaskCallCount,
                                describedArguments: "request: \(dataTaskArgsRequest)",
                                file: file,

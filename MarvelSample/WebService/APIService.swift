@@ -7,21 +7,22 @@
 
 import Foundation
 
-
 class APIService: APIServiceProtocol {
     let requestGenerator: APIRequestGenerator
+    let session: URLSessionProtocol
     
-    init(requestGenerator: APIRequestGenerator) {
+    init(requestGenerator: APIRequestGenerator,
+         session: URLSessionProtocol = URLSession.shared) {
         self.requestGenerator = requestGenerator
+        self.session = session
     }
     
     func dataTask(request: URLRequest,
                   completion: @escaping APICallHandler)-> URLSessionDataTask? {
-        func logErrorJSON(data: Data?) {
+        @Sendable func logErrorJSON(data: Data?) {
             guard let data = data else {
                 return
             }
-            let string = String(data: data, encoding: .utf8)
             let message = """
                           API ERROR JSON:
                           URL: \(String(describing: request.url?.absoluteString)),
@@ -31,8 +32,7 @@ class APIService: APIServiceProtocol {
         }
         
         Log.apiRequest("request: \(request.printDescription)")
-        return URLSession
-            .shared
+        return session
             .dataTask(with: request) { data, response, error in
                 if let error = error {
                     Log.error("Error in API call: \(error)")
