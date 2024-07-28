@@ -76,6 +76,21 @@ func putInViewHeirarchy(_ vc: UIViewController) {
     window.addSubview(vc.view)
 }
 
+func loadJSON(fileName: String)-> Any? {
+    guard let pathString = Bundle(for: MarvelSampleTests.self).path(forResource: fileName, ofType: "json") else {
+        return nil
+    }
+    let url = URL(filePath: pathString)
+    let data = try! Data(contentsOf: url)
+    do {
+        let anyObject = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
+        return anyObject
+    } catch {
+        Log.error("Error in searlizing ComicsListEmpty JSON: \(error)")
+        return nil
+    }
+}
+
 func verifyMethodCalledOnce(method: String,
                             callCount: Int,
                             describedArguments: @autoclosure ()-> String,

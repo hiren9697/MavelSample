@@ -29,24 +29,23 @@ final class ComicsVMTests: XCTestCase {
 // MARK: - Test cases
 extension ComicsVMTests {
     func test_parseJSON_withSuccessResponse_shouldSetExactNumberOfObject() {
-        let successJSON = loadSuccessJSON()
-        guard successJSON != nil else {
+        guard let json = loadJSON(fileName: "ComicsListSuccess") else {
             XCTFail("Found JSON nil")
             return
         }
         sut.fetchData()
-        service.completionArgs.last?(.success(successJSON!))
+        service.completionArgs.last?(.success(json))
         XCTAssertEqual(sut.data.count, 9, "Value in data array is not as expected")
         XCTAssertEqual(sut.listItems.value.count, 9, "Value in listItems not as expected")
     }
     
     func test_parseJSON_withSuccessResponse_firstDataObjectShouldHaveCorrectData() {
-        guard let successJSON = loadSuccessJSON() else {
+        guard let json = loadJSON(fileName: "ComicsListSuccess") else {
             XCTFail("Found JSON nil")
             return
         }
         sut.fetchData()
-        service.completionArgs.last?(.success(successJSON))
+        service.completionArgs.last?(.success(json))
         guard let firstData = sut.data.first else {
             XCTFail("Precondition: First element of data is nil")
             return
@@ -60,12 +59,12 @@ extension ComicsVMTests {
     }
     
     func test_parseJSON_withSuccessResponse_firstListItemVMObjectShouldHaveCorrectData() {
-        guard let successJSON = loadSuccessJSON() else {
+        guard let json = loadJSON(fileName: "ComicsListSuccess") else {
             XCTFail("Found JSON nil")
             return
         }
         sut.fetchData()
-        service.completionArgs.last?(.success(successJSON))
+        service.completionArgs.last?(.success(json))
         guard let firstData = sut.listItems.value.first else {
             XCTFail("Precondition: First element of data is nil")
             return
@@ -75,60 +74,42 @@ extension ComicsVMTests {
     }
     
     func test_parseJSON_withEmptyResponse_shouldHanldeEmptyData() {
-        guard let successJSON = loadEmptyJSON() else {
+        guard let json = loadJSON(fileName: "EmptyList") else {
             XCTFail("Found JSON nil")
             return
         }
         sut.fetchData()
-        service.completionArgs.last?(.success(successJSON))
+        service.completionArgs.last?(.success(json))
         XCTAssertEqual(sut.fetchState.value, .emptyData)
     }
-}
-
-// MARK: - Helper
-extension ComicsVMTests {
-    private func loadSuccessJSON()-> Any? {
-        guard let pathString = Bundle(for: type(of: self)).path(forResource: "ComicsListSuccess", ofType: "json") else {
-            fatalError("ComicsListSuccess.json not found")
+    
+    func test_parseJSON_withJSONWithoutResultKey_shouldHanldeEmptyData() {
+        guard let json = loadJSON(fileName: "WithoutResultKey") else {
+            XCTFail("Found JSON nil")
+            return
         }
-        let url = URL(filePath: pathString)
-        let data = try! Data(contentsOf: url)
-        do {
-            let anyObject = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
-            return anyObject
-        } catch {
-            Log.error("Error in searlizing ComicsListSuccess JSON: \(error)")
-            return nil
-        }
+        sut.fetchData()
+        service.completionArgs.last?(.success(json))
+        XCTAssertEqual(sut.fetchState.value, .emptyData)
     }
     
-    private func loadErrorJSON()-> Any? {
-        guard let pathString = Bundle(for: type(of: self)).path(forResource: "ComicsListError", ofType: "json") else {
-            fatalError("ComicsListError.json not found")
+    func test_parseJSON_withJSONWithoutDataKey_shouldHanldeEmptyData() {
+        guard let json = loadJSON(fileName: "WithoutDataKey") else {
+            XCTFail("Found JSON nil")
+            return
         }
-        let url = URL(filePath: pathString)
-        let data = try! Data(contentsOf: url)
-        do {
-            let anyObject = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
-            return anyObject
-        } catch {
-            Log.error("Error in searlizing ComicsListError JSON: \(error)")
-            return nil
-        }
+        sut.fetchData()
+        service.completionArgs.last?(.success(json))
+        XCTAssertEqual(sut.fetchState.value, .emptyData)
     }
     
-    private func loadEmptyJSON()-> Any? {
-        guard let pathString = Bundle(for: type(of: self)).path(forResource: "ComicsListEmpty", ofType: "json") else {
-            fatalError("ComicsListEmpty.json not found")
+    func test_parseJSON_withNonDictionaryJSON_shouldHanldeEmptyData() {
+        guard let json = loadJSON(fileName: "NonDictionary") else {
+            XCTFail("Found JSON nil")
+            return
         }
-        let url = URL(filePath: pathString)
-        let data = try! Data(contentsOf: url)
-        do {
-            let anyObject = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
-            return anyObject
-        } catch {
-            Log.error("Error in searlizing ComicsListEmpty JSON: \(error)")
-            return nil
-        }
+        sut.fetchData()
+        service.completionArgs.last?(.success(json))
+        XCTAssertEqual(sut.fetchState.value, .emptyData)
     }
 }
