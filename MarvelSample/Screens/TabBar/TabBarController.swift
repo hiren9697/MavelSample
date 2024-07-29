@@ -9,11 +9,13 @@ import UIKit
 
 // MARK: - VC
 class TabBarController: UITabBarController {
-    
     let viewModel: TabBarVM
+    let arrViewController: [UIViewController]
     
-    init(viewModel: TabBarVM = TabBarVM()) {
+    init(viewModel: TabBarVM,
+         viewControllers: [UIViewController]) {
         self.viewModel = viewModel
+        self.arrViewController = viewControllers
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,29 +26,13 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialUI()
-        initializeViewControllers()
+        setupViewControllers()
+        setupTabBars()
     }
 }
 
 // MARK: - Helper
 extension TabBarController {
-   
-    private func initializeViewControllers() {
-        let comicsVC = ComicsVC()
-        comicsVC.tabBarItem = UITabBarItem(title: viewModel.comicsTabItemVM.title,
-                                           image: viewModel.comicsTabItemVM.image,
-                                           selectedImage: viewModel.comicsTabItemVM.selectedImage)
-        let charactersVC = CharactersVC()
-        charactersVC.tabBarItem = UITabBarItem(title: viewModel.charactersTabItemVM.title,
-                                               image: viewModel.charactersTabItemVM.image,
-                                               selectedImage: viewModel.charactersTabItemVM.selectedImage)
-        let eventsVC = EventsVC()
-        eventsVC.tabBarItem = UITabBarItem(title: viewModel.eventsTabItemVM.title,
-                                           image: viewModel.eventsTabItemVM.image,
-                                           selectedImage: viewModel.eventsTabItemVM.selectedImage)
-        self.viewControllers = [comicsVC, charactersVC, eventsVC]
-    }
-    
     private func setupInitialUI() {
         self.tabBar.tintColor = AppColors.red
         
@@ -54,5 +40,24 @@ extension TabBarController {
         appearance.configureWithDefaultBackground()
         self.tabBar.standardAppearance = appearance
         self.tabBar.scrollEdgeAppearance = appearance
+    }
+    
+    private func setupViewControllers() {
+        setViewControllers(arrViewController, animated: false)
+    }
+   
+    private func setupTabBars() {
+        guard let viewControllers = viewControllers,
+              viewControllers.count == viewModel.tabBarItemVMs.count else {
+            Log.error("Mismatched number of viewControllers: \(String(describing: viewControllers?.count)) and number of tabBar view models: \(viewModel.tabBarItemVMs.count)")
+            return
+        }
+        for index in viewControllers.indices {
+            let viewController = viewControllers[index]
+            let tabBarVM = viewModel.tabBarItemVMs[index]
+            viewController.tabBarItem = UITabBarItem(title: tabBarVM.title,
+                                                     image: tabBarVM.image,
+                                                     selectedImage: tabBarVM.selectedImage)
+        }
     }
 }

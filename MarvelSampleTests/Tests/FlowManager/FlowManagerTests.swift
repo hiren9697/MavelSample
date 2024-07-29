@@ -10,15 +10,16 @@ import XCTest
 
 final class FlowManagerTests: XCTestCase {
 
-    var sut: FlowManager!
+    var sut: TestableFlowManager!
     var window: UIWindow!
-    var testableUserDefaults: TestableUserDefaults!
+    var testableUserDefaults: FakeUserDefaults!
     
     override func setUp() {
         super.setUp()
         window = UIWindow()
-        testableUserDefaults = TestableUserDefaults()
-        sut = FlowManager(window: window, userDefaults: testableUserDefaults)
+        testableUserDefaults = FakeUserDefaults()
+        sut = TestableFlowManager(window: window,
+                                  userDefaults: testableUserDefaults)
     }
     
     override func tearDown() {
@@ -71,7 +72,7 @@ extension FlowManagerTests {
     }
     
     func test_setRootViewController_withTabBarControllerAsRoot_withSeenWalkthrough_shouldNotChangeRoot() {
-        let tabBarController = TabBarController(viewModel: TabBarVM())
+        let tabBarController = sut.initializeTabBarController()
         window.rootViewController = tabBarController
         sut.setSeenWalkthrough()
         sut.setRootViewController()

@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import MarvelSample
-/*
+
 final class MarvelSampleTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -34,4 +34,4 @@ final class MarvelSampleTests: XCTestCase {
     }
 
 }
-*/
+

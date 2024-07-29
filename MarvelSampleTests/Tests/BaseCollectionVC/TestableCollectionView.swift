@@ -7,6 +7,9 @@
 
 import UIKit
 
+/// I wrote this class, because in testing I was not getting accurate value for visibleCells
+/// 'testableScrolledIndexPath' contains last indexPath on which scrollToItem was called and I use it to test
+/// Used in TestableWalkthroughVC
 class TestableCollectionView: UICollectionView {
     
     var testableScrolledIndexPath: IndexPath?

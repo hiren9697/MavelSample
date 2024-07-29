@@ -8,7 +8,7 @@
 import UIKit
 @testable import MarvelSample
 
-class TestableUserDefaults: UserDefaultsProtocol {
+class FakeUserDefaults: UserDefaultsProtocol {
     
     var values: [String: Any] = [:]
     

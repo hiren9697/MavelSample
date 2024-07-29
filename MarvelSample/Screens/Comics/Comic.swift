@@ -27,6 +27,8 @@ struct Comic {
         URL(string: thumbnailURLString)
     }
     
+    
+    
     init?(dict: NSDictionary) {
         id = dict.getStringValue(key: "id")
         pages = dict.getIntValue(key: "pageCount")
@@ -58,5 +60,19 @@ extension Comic: CustomStringConvertible {
                modified: \(modifiedDateText),
                thumbnail: \(thumbnailURLString)
                """
+    }
+    
+    init(id: String,
+         pages: Int,
+         descriptionText: String,
+         title: String,
+         modifiedDate: Date?,
+         thumbnailURLString: String) {
+        self.id = id
+        self.pages = pages
+        self.descriptionText = descriptionText
+        self.title = title
+        self.modifiedDate = modifiedDate
+        self.thumbnailURLString = thumbnailURLString
     }
 }

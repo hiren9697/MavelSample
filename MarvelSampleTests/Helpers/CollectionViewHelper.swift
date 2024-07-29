@@ -7,6 +7,12 @@
 
 import UIKit
 
+func numberOfSections(in collectionView: UICollectionView)-> Int? {
+    collectionView
+        .dataSource?
+        .numberOfSections?(in: collectionView)
+}
+
 func numberOfRows(in collectionView: UICollectionView,
                   section: Int = 0)-> Int? {
     collectionView
@@ -22,6 +28,27 @@ func cellForRow(in collectionView: UICollectionView,
         .dataSource?
         .collectionView(collectionView,
                         cellForItemAt: IndexPath(row: row, section: section))
+}
+
+func referenceSizeForFooterView(in collectionView: UICollectionView)-> CGSize? {
+    let collectionViewLayout = collectionView.collectionViewLayout
+    guard let delegateFlowLayout = collectionView.delegate as? UICollectionViewDelegateFlowLayout else {
+        return nil
+    }
+    let size = delegateFlowLayout.collectionView?(collectionView,
+                                                  layout: collectionViewLayout,
+                                                  referenceSizeForFooterInSection: 0)
+    return size
+}
+
+func footer(in collectionView: UICollectionView,
+            row: Int = 0,
+            section: Int = 0)-> UICollectionReusableView? {
+    collectionView
+        .dataSource?
+        .collectionView?(collectionView,
+                         viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionFooter,
+                         at: IndexPath(row: row, section: section))
 }
 
 func didSelectRow(in collectionView: UICollectionView,
