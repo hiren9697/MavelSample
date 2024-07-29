@@ -11,7 +11,7 @@ import Combine
 class ComicsVM: BaseListVM<Comic, ComicItemVM> {
     
     init(service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator())) {
-        super.init(endPoint: APIEndpoints.comics.rawValue + "123",
+        super.init(endPoint: APIEndpoints.comics.rawValue,
                    service: service,
                    emptyDataTitle: "Couldn't find any comic",
                    errorTitle: "Error in fetching comics")

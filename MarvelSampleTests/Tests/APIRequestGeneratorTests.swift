@@ -8,13 +8,13 @@
 import XCTest
 @testable import MarvelSample
 
-final class WebServiceGenerateRequestTests: XCTestCase {
+final class APIRequestGeneratorTests: XCTestCase {
 
-    var sut: MockAPIService!
+    var sut: APIRequestGenerator!
     
     override func setUp() {
         super.setUp()
-        sut = MockAPIService(requestGenerator: APIRequestGenerator())
+        sut = APIRequestGenerator()
     }
     
     override func tearDown() {
@@ -24,7 +24,7 @@ final class WebServiceGenerateRequestTests: XCTestCase {
 }
 
 // MARK: - TestCases
-extension WebServiceGenerateRequestTests {
+extension APIRequestGeneratorTests {
    
     func test_generateRequest_withRequestTypeGet_shouldHaveGetMethod() {
         let type: RequestType = .get
@@ -104,7 +104,7 @@ extension WebServiceGenerateRequestTests {
 }
 
 // MARK: - Helper
-extension WebServiceGenerateRequestTests {
+extension APIRequestGeneratorTests {
     
     func generateRequest(requestType: RequestType,
                          relativePath: String = "",
@@ -114,7 +114,6 @@ extension WebServiceGenerateRequestTests {
                          line: UInt = #line) -> URLRequest? {
         do {
             return try sut
-                .requestGenerator
                 .generateRequestWithHash(requestType: requestType,
                                          relativePath: relativePath,
                                          headers: headers,
