@@ -7,6 +7,7 @@
 
 import UIKit
 import XCTest
+@testable import MarvelSample
 
 func verifyMethodCalledOnce(methodName: String,
                             callCount: Int,
@@ -31,24 +32,6 @@ func verifyMethodCalledOnce(methodName: String,
     }
 }
 
-func verifyMethodNeverCalled(methodName: String,
-                             callCount: Int,
-                             describedArguments: @autoclosure ()-> String,
-                             file: StaticString,
-                             line: UInt) {
-    let times = callCount == 1 ? "time" : "times"
-    if callCount > 0 {
-        let message = """
-                      Never wanted but was called: \(times),
-                      method: \(methodName),
-                      with: \(describedArguments())
-                      """
-        XCTFail(message,
-                file: file,
-                line: line)
-    }
-}
-
 func systemItem(for barButtonItem: UIBarButtonItem)-> UIBarButtonItem.SystemItem {
     let systemItemNumber = barButtonItem.value(forKey: "systemItem") as! Int
     return UIBarButtonItem.SystemItem(rawValue: systemItemNumber)!
@@ -62,6 +45,10 @@ func tap(_ barButton: UIBarButtonItem) {
     _ = barButton.target?.perform(barButton.action, with: nil)
 }
 
+func triggerRefresh(_ refreshControl: UIRefreshControl) {
+    refreshControl.sendActions(for: .valueChanged)
+}
+
 func executeRunLoop() {
     RunLoop.current.run(until: Date())
 }
@@ -70,3 +57,21 @@ func putInViewHeirarchy(_ vc: UIViewController) {
     let window = UIWindow()
     window.addSubview(vc.view)
 }
+
+func loadJSON(fileName: String)-> Any? {
+    guard let pathString = Bundle(for: MarvelSampleTests.self).path(forResource: fileName, ofType: "json") else {
+        return nil
+    }
+    let url = URL(filePath: pathString)
+    let data = try! Data(contentsOf: url)
+    do {
+        let anyObject = try JSONSerialization.jsonObject(with: data, options: [.fragmentsAllowed])
+        return anyObject
+    } catch {
+        Log.error("Error in searlizing ComicsListEmpty JSON: \(error)")
+        return nil
+    }
+}
+
+
+

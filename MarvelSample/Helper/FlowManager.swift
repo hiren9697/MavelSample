@@ -29,7 +29,7 @@ class FlowManager {
             guard !(window.rootViewController is TabBarController) else {
                 return
             }
-            let tabBarController = TabBarController(viewModel: TabBarVM())
+            let tabBarController = initializeTabBarController()
             window.rootViewController = tabBarController
             window.makeKeyAndVisible()
         } else {
@@ -40,5 +40,29 @@ class FlowManager {
             let walkthroughVC = WalkthroughVC(viewModel: walkthroughVM)
             window.rootViewController = walkthroughVC
         }
+    }
+    
+    func initializeTabBarController()-> TabBarController {
+        // Initialize TabBar Item ViewModels
+        let tabBarItemVMs = [
+            TabBarItemVM(title: "Comics",
+                         image: UIImage(systemName: "book")!,
+                         selectedImage: UIImage(systemName: "book.fill")!),
+            TabBarItemVM(title: "Characters",
+                         image: UIImage(systemName: "person")!,
+                         selectedImage: UIImage(systemName: "person.fill")!),
+            TabBarItemVM(title: "Events",
+                         image: UIImage(systemName: "person.3.sequence")!,
+                         selectedImage: UIImage(systemName: "person.3.sequence.fill")!),
+        ]
+        // Initialize ViewControllers
+        let comicsVC = ComicsVC(viewModel: ComicsVM())
+        let charactersVC = CharactersVC()
+        let eventsVC = EventsVC()
+        let viewControllers = [comicsVC, charactersVC, eventsVC]
+        // Initialize TabBar
+        let tabBarVM = TabBarVM(tabBarItemVMs: tabBarItemVMs)
+        return TabBarController(viewModel: tabBarVM,
+                                viewControllers: viewControllers)
     }
 }

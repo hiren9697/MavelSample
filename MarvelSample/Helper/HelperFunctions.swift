@@ -16,3 +16,11 @@ func currentSceneWindow()-> UIWindow? {
     }
     return sceneDelegate.window
 }
+
+func gauranteeMainThread(_ work: @escaping ()-> Void) {
+    if Thread.isMainThread {
+        work()
+    } else {
+        DispatchQueue.main.async(execute: work)
+    }
+}

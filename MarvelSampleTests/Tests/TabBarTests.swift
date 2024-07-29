@@ -15,9 +15,7 @@ final class TabBarTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        viewModel = TabBarVM()
-        sut = TabBarController(viewModel: viewModel)
-        sut.loadViewIfNeeded()
+        setupThreeViewController()
     }
     
     override func tearDown() {
@@ -27,67 +25,97 @@ final class TabBarTests: XCTestCase {
     }
 }
 
-// MARK: - Tests
+// MARK: - Setup Helper
+extension TabBarTests {
+    
+    private func setupThreeViewController() {
+        // TabBar Item VMs
+        let tabBarItemVMs = [
+            TabBarItemVM(title: "Comics",
+                         image: UIImage(systemName: "book")!,
+                         selectedImage: UIImage(systemName: "book.fill")!),
+            TabBarItemVM(title: "Characters",
+                         image: UIImage(systemName: "person")!,
+                         selectedImage: UIImage(systemName: "person.fill")!),
+            TabBarItemVM(title: "Events",
+                         image: UIImage(systemName: "person.3.sequence")!,
+                         selectedImage: UIImage(systemName: "person.3.sequence.fill")!)
+        ]
+        // ViewControllers
+        let viewControllers: [UIViewController] = [
+            TestableComicsVC(viewModel: TestableComicsVM()),
+            CharactersVC(),
+            EventsVC()
+        ]
+        // TabBar Controller
+        viewModel = TabBarVM(tabBarItemVMs: tabBarItemVMs)
+        sut = TabBarController(viewModel: viewModel,
+                               viewControllers: viewControllers)
+        sut.loadViewIfNeeded()
+    }
+}
+
+// MARK: - Tests with Three ViewControllers
 extension TabBarTests {
     
     func test_numberOfViewControllers() {
-        XCTAssertEqual(sut.viewControllers?.count, 3)
-    }
-    
-    func test_sequenceOfViewControllers() {
-        XCTAssertTrue(sut.viewControllers?.first is ComicsVC,
-        "First ViewController should be ComicsVC")
-        XCTAssertTrue(sut.viewControllers![1] is CharactersVC,
-        "Second ViewController should be CharactersVC")
-        XCTAssertTrue(sut.viewControllers![2] is EventsVC,
-        "Third ViewController should be EventsVC")
-    }
-    
-    func test_comicsTabItemInformation() {
-        guard let firstVC = sut.viewControllers?.first else {
-            XCTFail("First ViewController is nil")
+        guard let viewControllers = sut.viewControllers else {
+            XCTFail("Precondition: Found viewControllers nil")
             return
         }
-        XCTAssertEqual(firstVC.tabBarItem.title,
-                       viewModel.comicsTabItemVM.title,
-                       "Title")
-        XCTAssertEqual(firstVC.tabBarItem.image,
-                       viewModel.comicsTabItemVM.image,
-                       "Image")
-        XCTAssertEqual(firstVC.tabBarItem.selectedImage,
-                       viewModel.comicsTabItemVM.selectedImage,
-                       "Selected Image")
+        XCTAssertEqual(sut.viewControllers!.count, viewModel.tabBarItemVMs.count)
     }
     
-    func test_charactersTabItemInformation() {
-        guard let secondVC = sut.viewControllers?[1] else {
-            XCTFail("Second ViewController is nil")
+    func test_viewControllerSequence() {
+        guard let viewControllers = sut.viewControllers else {
+            XCTFail("Precondition: Found viewControllers nil")
             return
         }
-        XCTAssertEqual(secondVC.tabBarItem.title,
-                       viewModel.charactersTabItemVM.title,
-                       "Title")
-        XCTAssertEqual(secondVC.tabBarItem.image,
-                       viewModel.charactersTabItemVM.image,
-                       "Image")
-        XCTAssertEqual(secondVC.tabBarItem.selectedImage,
-                       viewModel.charactersTabItemVM.selectedImage,
-                       "Selected Image")
+        XCTAssertEqual(viewControllers, sut.arrViewController)
     }
     
-    func test_eventsTabItemInformation() {
-        guard let thirdVC = sut.viewControllers?[2] else {
-            XCTFail("Third ViewController is nil")
+    func test_firstViewController_tabInformation() {
+        guard let viewControllers = sut.viewControllers else {
+            XCTFail("Precondition: Found viewControllers nil")
             return
         }
-        XCTAssertEqual(thirdVC.tabBarItem.title,
-                       viewModel.eventsTabItemVM.title,
-                       "Title")
-        XCTAssertEqual(thirdVC.tabBarItem.image,
-                       viewModel.eventsTabItemVM.image,
-                       "Image")
-        XCTAssertEqual(thirdVC.tabBarItem.selectedImage,
-                       viewModel.eventsTabItemVM.selectedImage,
-                       "Selected Image")
+        let vc = viewControllers.first!
+        let tabBarItemVM = viewModel.tabBarItemVMs.first!
+        compareTabItemInformation(viewController: vc,
+                                  tabBarItemVM: tabBarItemVM)
     }
+    
+    func test_secondViewController_tabInformation() {
+        guard let viewControllers = sut.viewControllers else {
+            XCTFail("Precondition: Found viewControllers nil")
+            return
+        }
+        let vc = viewControllers[1]
+        let tabBarItemVM = viewModel.tabBarItemVMs[1]
+        compareTabItemInformation(viewController: vc,
+                                  tabBarItemVM: tabBarItemVM)
+    }
+    
+    func test_thirdViewController_tabInformation() {
+        guard let viewControllers = sut.viewControllers else {
+            XCTFail("Precondition: Found viewControllers nil")
+            return
+        }
+        let vc = viewControllers[2]
+        let tabBarItemVM = viewModel.tabBarItemVMs[2]
+        compareTabItemInformation(viewController: vc,
+                                  tabBarItemVM: tabBarItemVM)
+    }
+}
+
+// MARK: - Helper
+extension TabBarTests {
+    
+    private func compareTabItemInformation(viewController vc: UIViewController,
+                                           tabBarItemVM vm: TabBarItemVM) {
+        XCTAssertEqual(vc.tabBarItem.title, vm.title)
+        XCTAssertEqual(vc.tabBarItem.image, vm.image)
+        XCTAssertEqual(vc.tabBarItem.selectedImage, vm.selectedImage)
+    }
+    
 }
