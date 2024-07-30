@@ -75,6 +75,10 @@
 		8787F7102C43FB9C0022C518 /* CollectionViewNextPageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F70F2C43FB9C0022C518 /* CollectionViewNextPageLoader.swift */; };
 		8787F7132C44D2AA0022C518 /* UICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7122C44D2AA0022C518 /* UICollectionReusableView.swift */; };
 		8787F7152C44D3840022C518 /* CollectionViewEmptyFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7142C44D3840022C518 /* CollectionViewEmptyFooter.swift */; };
+		878DD4A62C586F0D006896C6 /* CharactersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DD4A52C586F0D006896C6 /* CharactersVCTests.swift */; };
+		878DD4A82C586F94006896C6 /* TestableCharactersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DD4A72C586F94006896C6 /* TestableCharactersVC.swift */; };
+		878DD4AA2C586FDE006896C6 /* TestableCharactersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DD4A92C586FDE006896C6 /* TestableCharactersVM.swift */; };
+		878DD4AC2C587208006896C6 /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DD4AB2C587208006896C6 /* CharacterExtension.swift */; };
 		87B39B392C49FB9600FC792E /* APIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B39B382C49FB9600FC792E /* APIDataListable.swift */; };
 		87CBC51F2C54FEB5007AB863 /* ComicVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */; };
 		87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */; };
@@ -194,6 +198,10 @@
 		8787F70F2C43FB9C0022C518 /* CollectionViewNextPageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewNextPageLoader.swift; sourceTree = "<group>"; };
 		8787F7122C44D2AA0022C518 /* UICollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionReusableView.swift; sourceTree = "<group>"; };
 		8787F7142C44D3840022C518 /* CollectionViewEmptyFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewEmptyFooter.swift; sourceTree = "<group>"; };
+		878DD4A52C586F0D006896C6 /* CharactersVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVCTests.swift; sourceTree = "<group>"; };
+		878DD4A72C586F94006896C6 /* TestableCharactersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCharactersVC.swift; sourceTree = "<group>"; };
+		878DD4A92C586FDE006896C6 /* TestableCharactersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCharactersVM.swift; sourceTree = "<group>"; };
+		878DD4AB2C587208006896C6 /* CharacterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterExtension.swift; sourceTree = "<group>"; };
 		87A2F3452C4DF5FE00CB06DF /* ComicItemCCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicItemCCTests.swift; sourceTree = "<group>"; };
 		87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVMTests.swift; sourceTree = "<group>"; };
 		87B39B382C49FB9600FC792E /* APIDataListable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataListable.swift; sourceTree = "<group>"; };
@@ -352,6 +360,7 @@
 				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
 				877B481E2C5625C3001A6E5A /* APIServiceTests.swift */,
 				87CBC51D2C54F1EB007AB863 /* Comic */,
+				878DD4A42C586EFA006896C6 /* Character */,
 				87CBC51C2C54F1AE007AB863 /* BaseListVM */,
 				87CBC51B2C54F188007AB863 /* BaseCollectionVC */,
 				87CBC51A2C54F0FE007AB863 /* FlowManager */,
@@ -371,6 +380,16 @@
 			path = CommonUI;
 			sourceTree = "<group>";
 		};
+		878DD4A42C586EFA006896C6 /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				878DD4A52C586F0D006896C6 /* CharactersVCTests.swift */,
+				878DD4A72C586F94006896C6 /* TestableCharactersVC.swift */,
+				878DD4A92C586FDE006896C6 /* TestableCharactersVM.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
 		87CBC5172C54E9C8007AB863 /* CommonTestable */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				8725572A2C4D49CC00373000 /* ComicExtension.swift */,
+				878DD4AB2C587208006896C6 /* CharacterExtension.swift */,
 			);
 			path = ProductionExtension;
 			sourceTree = "<group>";
@@ -968,12 +988,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878DD4AC2C587208006896C6 /* CharacterExtension.swift in Sources */,
 				877B48362C563D0D001A6E5A /* DummyNetworkError.swift in Sources */,
 				877B48272C562CD4001A6E5A /* ComicsVCTests.swift in Sources */,
 				877B48292C562CD9001A6E5A /* TestableBaseListVM.swift in Sources */,
 				877B481B2C5613E3001A6E5A /* MarvelSampleTests.swift in Sources */,
 				87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */,
 				871F60B82C51F4D800AD6821 /* ComicExtension.swift in Sources */,
+				878DD4A62C586F0D006896C6 /* CharactersVCTests.swift in Sources */,
 				87DDFDD32C394B4E0040621E /* TestingAppDelegate.swift in Sources */,
 				871F60BB2C51F4D800AD6821 /* TestableDataItemVM.swift in Sources */,
 				877B48242C562CCD001A6E5A /* APIRequestGeneratorTests.swift in Sources */,
@@ -989,6 +1011,7 @@
 				871F60B32C51F4D800AD6821 /* MockAPIService.swift in Sources */,
 				877B482A2C562CD9001A6E5A /* BaseListVMTests.swift in Sources */,
 				87CBC51F2C54FEB5007AB863 /* ComicVMTests.swift in Sources */,
+				878DD4AA2C586FDE006896C6 /* TestableCharactersVM.swift in Sources */,
 				877B482E2C562CE0001A6E5A /* BaseCollectionVCTests.swift in Sources */,
 				877B482D2C562CE0001A6E5A /* TestableBaseCollectionVC.swift in Sources */,
 				874F8EE52C5485B500D1AA77 /* TestableAPIRequestGenerator.swift in Sources */,
@@ -1002,6 +1025,7 @@
 				871F60B52C51F4D800AD6821 /* FakeUserDefaults.swift in Sources */,
 				877B481F2C5625C3001A6E5A /* APIServiceTests.swift in Sources */,
 				877B48312C562CE5001A6E5A /* TestableFlowManager.swift in Sources */,
+				878DD4A82C586F94006896C6 /* TestableCharactersVC.swift in Sources */,
 				87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

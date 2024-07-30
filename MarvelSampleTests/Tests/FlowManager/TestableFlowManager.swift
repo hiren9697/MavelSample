@@ -25,7 +25,7 @@ class TestableFlowManager: FlowManager {
         ]
         // Initialize ViewControllers
         let comicsVC = TestableComicsVC(viewModel: TestableComicsVM())
-        let charactersVC = CharactersVC()
+        let charactersVC = CharactersVC(viewModel: TestableCharactersVM())
         let eventsVC = EventsVC()
         let viewControllers = [comicsVC, charactersVC, eventsVC]
         // Initialize TabBar
