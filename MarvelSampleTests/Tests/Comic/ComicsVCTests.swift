@@ -34,7 +34,7 @@ extension ComicsVCTests {
         addListItemsWithIdleModeInViewModel()
         let zerothCell = cellForRow(in: sut.collectionView, row: 0)
         XCTAssertTrue(zerothCell is ComicItemCC, "zerothCell is not ComicItemCC")
-        let firstCell = cellForRow(in: sut.collectionView, row: 0)
+        let firstCell = cellForRow(in: sut.collectionView, row: 1)
         XCTAssertTrue(firstCell is ComicItemCC, "firstCell is not ComicItemCC")
         let lastCell = cellForRow(in: sut.collectionView, row: viewModel.listItems.value.count - 1)
         XCTAssertTrue(lastCell is ComicItemCC, "lastCell is not ComicItemCC")

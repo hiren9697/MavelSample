@@ -1,17 +1,15 @@
 //
-//  Comic.swift
+//  Character.swift
 //  MarvelSample
 //
-//  Created by Hirenkumar Fadadu on 14/07/24.
+//  Created by Hirenkumar Fadadu on 29/07/24.
 //
 
 import Foundation
 
-struct Comic {
+struct Character {
     let id: String
-    let pages: Int
-    let descriptionText: String
-    let title: String
+    let name: String
     let modifiedDate: Date?
     let thumbnailURLString: String
     
@@ -29,9 +27,7 @@ struct Comic {
     
     init?(dict: NSDictionary) {
         id = dict.getStringValue(key: "id")
-        pages = dict.getIntValue(key: "pageCount")
-        descriptionText = dict.getStringValue(key: "description")
-        title = dict.getStringValue(key: "title")
+        name = dict.getStringValue(key: "name")
         // Date
         let dateText = dict.getStringValue(key: "modified")
         let dateFormatter = DateFormatter()
@@ -48,30 +44,25 @@ struct Comic {
     }
 }
 
-extension Comic: CustomStringConvertible {
+extension Character: CustomStringConvertible {
     
     var description: String {
         return """
                id: \(id),
-               title: \(title),
-               description: \(descriptionText),
-               pages: \(pages),
+               name: \(name),
                modified: \(modifiedDateText),
                thumbnail: \(thumbnailURLString)
                """
     }
     
 //    init(id: String,
-//         pages: Int,
-//         descriptionText: String,
-//         title: String,
+//         name: String,
 //         modifiedDate: Date?,
 //         thumbnailURLString: String) {
 //        self.id = id
-//        self.pages = pages
-//        self.descriptionText = descriptionText
-//        self.title = title
+//        self.name = name
 //        self.modifiedDate = modifiedDate
 //        self.thumbnailURLString = thumbnailURLString
 //    }
 }
+

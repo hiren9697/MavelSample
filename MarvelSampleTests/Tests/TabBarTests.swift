@@ -44,7 +44,7 @@ extension TabBarTests {
         // ViewControllers
         let viewControllers: [UIViewController] = [
             TestableComicsVC(viewModel: TestableComicsVM()),
-            CharactersVC(),
+            TestableCharactersVC(viewModel: TestableCharactersVM()),
             EventsVC()
         ]
         // TabBar Controller
