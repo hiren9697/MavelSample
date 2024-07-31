@@ -30,6 +30,7 @@ class EventsVM: BaseListVM<Event, EventItemVM> {
         for item in results {
             if let event = Event(dict: item) {
                 newEvents.append(event)
+                Log.info(event)
                 newEventItems.append(EventItemVM(event: event))
             }
         }
