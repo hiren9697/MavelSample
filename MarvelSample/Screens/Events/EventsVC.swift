@@ -17,7 +17,7 @@ class EventsVC: BaseTableVC<EventsVM> {
     override func dequeueCell(at indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EventItemTC.name,
                                                  for: indexPath) as! EventItemTC
-        // cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
+        cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
         return cell
     }
     
