@@ -12,8 +12,10 @@ import Foundation
 class TestableData {
     let id: String = UUID().uuidString
     let text: String
+    let description: String
     
-    init(text: String) {
+    init(text: String, description: String) {
         self.text = text
+        self.description = description
     }
 }

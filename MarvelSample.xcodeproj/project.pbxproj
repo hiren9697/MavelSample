@@ -121,6 +121,10 @@
 		87DFDCB42C3E30BA0025C535 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB32C3E30BA0025C535 /* ArrayExtension.swift */; };
 		87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB52C3E35620025C535 /* TableViewHelpers.swift */; };
 		87DFDCB92C3E35920025C535 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB82C3E35920025C535 /* CollectionViewHelper.swift */; };
+		87E38E802C5C6DAA00473B5B /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E7F2C5C6DAA00473B5B /* BaseTableVC.swift */; };
+		87E38E842C5C6E6300473B5B /* EventsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E832C5C6E6300473B5B /* EventsVCTests.swift */; };
+		87E38E862C5C6E9400473B5B /* TestableEventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */; };
+		87E38E882C5C6EF000473B5B /* TestableEventsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */; };
 		87F74E9F2C45F57200D90377 /* EmptyCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F74E9E2C45F57200D90377 /* EmptyCC.swift */; };
 		87F74EA12C45FE8600D90377 /* ErrorCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F74EA02C45FE8600D90377 /* ErrorCC.swift */; };
 		B6EA853A5B51372D4D9E2487 /* Pods_MarvelSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6D083E181A39060F459EFE /* Pods_MarvelSample.framework */; };
@@ -268,6 +272,10 @@
 		87DFDCB32C3E30BA0025C535 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		87DFDCB52C3E35620025C535 /* TableViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelpers.swift; sourceTree = "<group>"; };
 		87DFDCB82C3E35920025C535 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
+		87E38E7F2C5C6DAA00473B5B /* BaseTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
+		87E38E832C5C6E6300473B5B /* EventsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVCTests.swift; sourceTree = "<group>"; };
+		87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEventsVC.swift; sourceTree = "<group>"; };
+		87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEventsVM.swift; sourceTree = "<group>"; };
 		87F74E9E2C45F57200D90377 /* EmptyCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCC.swift; sourceTree = "<group>"; };
 		87F74EA02C45FE8600D90377 /* ErrorCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCC.swift; sourceTree = "<group>"; };
 		8A960A3B4DDF68F5C67C84C6 /* Pods-MarvelSample-MarvelSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelSample-MarvelSampleUITests.release.xcconfig"; path = "Target Support Files/Pods-MarvelSample-MarvelSampleUITests/Pods-MarvelSample-MarvelSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -384,12 +392,14 @@
 				87DDFDC72C391A5C0040621E /* APIRequestGeneratorTests.swift */,
 				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
 				877B481E2C5625C3001A6E5A /* APIServiceTests.swift */,
-				87CBC51D2C54F1EB007AB863 /* Comic */,
-				878DD4A42C586EFA006896C6 /* Character */,
 				87CBC51C2C54F1AE007AB863 /* BaseListVM */,
 				87CBC51B2C54F188007AB863 /* BaseCollectionVC */,
+				87E38E812C5C6DC100473B5B /* BaseTableVC */,
 				87CBC51A2C54F0FE007AB863 /* FlowManager */,
 				87CBC5192C54F0C3007AB863 /* Walkthrough */,
+				87CBC51D2C54F1EB007AB863 /* Comic */,
+				878DD4A42C586EFA006896C6 /* Character */,
+				87E38E822C5C6DE100473B5B /* Event */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -699,6 +709,24 @@
 				877B48352C563D0D001A6E5A /* DummyNetworkError.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		87E38E812C5C6DC100473B5B /* BaseTableVC */ = {
+			isa = PBXGroup;
+			children = (
+				87E38E7F2C5C6DAA00473B5B /* BaseTableVC.swift */,
+			);
+			path = BaseTableVC;
+			sourceTree = "<group>";
+		};
+		87E38E822C5C6DE100473B5B /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				87E38E832C5C6E6300473B5B /* EventsVCTests.swift */,
+				87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */,
+				87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		C3E25CB3335D2AE645D10396 /* Frameworks */ = {
@@ -1027,12 +1055,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87E38E802C5C6DAA00473B5B /* BaseTableVC.swift in Sources */,
 				878DD4AC2C587208006896C6 /* CharacterExtension.swift in Sources */,
 				877B48362C563D0D001A6E5A /* DummyNetworkError.swift in Sources */,
 				877B48272C562CD4001A6E5A /* ComicsVCTests.swift in Sources */,
+				87E38E862C5C6E9400473B5B /* TestableEventsVC.swift in Sources */,
 				877B48292C562CD9001A6E5A /* TestableBaseListVM.swift in Sources */,
 				877B481B2C5613E3001A6E5A /* MarvelSampleTests.swift in Sources */,
 				87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */,
+				87E38E842C5C6E6300473B5B /* EventsVCTests.swift in Sources */,
 				871F60B82C51F4D800AD6821 /* ComicExtension.swift in Sources */,
 				878DD4A62C586F0D006896C6 /* CharactersVCTests.swift in Sources */,
 				87DDFDD32C394B4E0040621E /* TestingAppDelegate.swift in Sources */,
@@ -1053,6 +1084,7 @@
 				87CBC51F2C54FEB5007AB863 /* ComicVMTests.swift in Sources */,
 				878DD4AA2C586FDE006896C6 /* TestableCharactersVM.swift in Sources */,
 				877B482E2C562CE0001A6E5A /* BaseCollectionVCTests.swift in Sources */,
+				87E38E882C5C6EF000473B5B /* TestableEventsVM.swift in Sources */,
 				877B482D2C562CE0001A6E5A /* TestableBaseCollectionVC.swift in Sources */,
 				874F8EE52C5485B500D1AA77 /* TestableAPIRequestGenerator.swift in Sources */,
 				877B48302C562CE5001A6E5A /* FlowManagerTests.swift in Sources */,

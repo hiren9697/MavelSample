@@ -18,6 +18,6 @@ class TestableAPIDataListable: APIDataListable {
     func fetchInitialData() {}
     func reloadData() {}
     func itemVM(for: Int) -> TestableDataItemVM {
-        TestableDataItemVM(text: "Hello")
+        TestableDataItemVM(text: "Hello", description: "Hello description")
     }
 }

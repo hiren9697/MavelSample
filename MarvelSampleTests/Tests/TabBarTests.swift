@@ -45,7 +45,7 @@ extension TabBarTests {
         let viewControllers: [UIViewController] = [
             TestableComicsVC(viewModel: TestableComicsVM()),
             TestableCharactersVC(viewModel: TestableCharactersVM()),
-            EventsVC()
+            TestableEventsVC(viewModel: TestableEventsVM())
         ]
         // TabBar Controller
         viewModel = TabBarVM(tabBarItemVMs: tabBarItemVMs)
@@ -117,5 +117,4 @@ extension TabBarTests {
         XCTAssertEqual(vc.tabBarItem.image, vm.image)
         XCTAssertEqual(vc.tabBarItem.selectedImage, vm.selectedImage)
     }
-    
 }

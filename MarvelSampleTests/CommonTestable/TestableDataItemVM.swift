@@ -10,8 +10,10 @@ import Foundation
 /// A dummy class written to fill space in TestableAPIDataListable, TestableBaseListVM and TestableChildCollectionVC
 class TestableDataItemVM {
     let text: String
+    let description: String
     
-    init(text: String) {
+    init(text: String, description: String) {
         self.text = text
+        self.description = description
     }
 }
