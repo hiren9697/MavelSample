@@ -7,6 +7,12 @@
 
 import UIKit
 
+func numberOfSections(in tableView: UITableView)-> Int? {
+    tableView
+        .dataSource?
+        .numberOfSections?(in: tableView)
+}
+
 func numberOfRows(in tableView: UITableView,
                   section: Int = 0)-> Int? {
     tableView
@@ -33,3 +39,15 @@ func didSelectRow(in tableView: UITableView,
                      didSelectRowAt: IndexPath(row: row, section: section))
 }
 
+func footerViewHeight(in tableView: UITableView, section: Int = 0)-> CGFloat? {
+    let height = tableView.delegate?.tableView?(tableView, heightForFooterInSection: section)
+    return height
+}
+
+func footer(in tableView: UITableView,
+            section: Int = 0)-> UIView? {
+    let footer = tableView
+        .delegate?
+        .tableView?(tableView, viewForFooterInSection: section)
+    return footer
+}

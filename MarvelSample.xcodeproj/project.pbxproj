@@ -48,7 +48,7 @@
 		877B482A2C562CD9001A6E5A /* BaseListVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871F60B12C51D79400AD6821 /* BaseListVMTests.swift */; };
 		877B482B2C562CE0001A6E5A /* TestableCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */; };
 		877B482C2C562CE0001A6E5A /* TestableAPIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */; };
-		877B482D2C562CE0001A6E5A /* TestableBaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F23F2C4B7B7D007FC501 /* TestableBaseCollectionVC.swift */; };
+		877B482D2C562CE0001A6E5A /* TestableChildCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F23F2C4B7B7D007FC501 /* TestableChildCollectionVC.swift */; };
 		877B482E2C562CE0001A6E5A /* BaseCollectionVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */; };
 		877B482F2C562CE0001A6E5A /* TestableCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */; };
 		877B48302C562CE5001A6E5A /* FlowManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848722C425D72008C1ED0 /* FlowManagerTests.swift */; };
@@ -121,11 +121,12 @@
 		87DFDCB42C3E30BA0025C535 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB32C3E30BA0025C535 /* ArrayExtension.swift */; };
 		87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB52C3E35620025C535 /* TableViewHelpers.swift */; };
 		87DFDCB92C3E35920025C535 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB82C3E35920025C535 /* CollectionViewHelper.swift */; };
-		87E38E802C5C6DAA00473B5B /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E7F2C5C6DAA00473B5B /* BaseTableVC.swift */; };
+		87E38E802C5C6DAA00473B5B /* BaseTableVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E7F2C5C6DAA00473B5B /* BaseTableVCTests.swift */; };
 		87E38E842C5C6E6300473B5B /* EventsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E832C5C6E6300473B5B /* EventsVCTests.swift */; };
 		87E38E862C5C6E9400473B5B /* TestableEventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */; };
 		87E38E882C5C6EF000473B5B /* TestableEventsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */; };
 		87E38E8A2C5C7F7700473B5B /* TestableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E892C5C7F7700473B5B /* TestableTableCell.swift */; };
+		87E38E8C2C5C824400473B5B /* TestableChildTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E8B2C5C824400473B5B /* TestableChildTableVC.swift */; };
 		87F74E9F2C45F57200D90377 /* EmptyCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F74E9E2C45F57200D90377 /* EmptyCC.swift */; };
 		87F74EA12C45FE8600D90377 /* ErrorCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F74EA02C45FE8600D90377 /* ErrorCC.swift */; };
 		B6EA853A5B51372D4D9E2487 /* Pods_MarvelSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6D083E181A39060F459EFE /* Pods_MarvelSample.framework */; };
@@ -156,7 +157,7 @@
 		57EB12B184176C749841DAEC /* Pods-MarvelSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelSampleTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelSampleTests/Pods-MarvelSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B6D083E181A39060F459EFE /* Pods_MarvelSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVCTests.swift; sourceTree = "<group>"; };
-		8717F23F2C4B7B7D007FC501 /* TestableBaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableBaseCollectionVC.swift; sourceTree = "<group>"; };
+		8717F23F2C4B7B7D007FC501 /* TestableChildCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableChildCollectionVC.swift; sourceTree = "<group>"; };
 		8717F2412C4B9CD8007FC501 /* TestableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableData.swift; sourceTree = "<group>"; };
 		8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataItemVM.swift; sourceTree = "<group>"; };
 		8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableAPIDataListable.swift; sourceTree = "<group>"; };
@@ -273,11 +274,12 @@
 		87DFDCB32C3E30BA0025C535 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		87DFDCB52C3E35620025C535 /* TableViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelpers.swift; sourceTree = "<group>"; };
 		87DFDCB82C3E35920025C535 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
-		87E38E7F2C5C6DAA00473B5B /* BaseTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
+		87E38E7F2C5C6DAA00473B5B /* BaseTableVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVCTests.swift; sourceTree = "<group>"; };
 		87E38E832C5C6E6300473B5B /* EventsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVCTests.swift; sourceTree = "<group>"; };
 		87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEventsVC.swift; sourceTree = "<group>"; };
 		87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEventsVM.swift; sourceTree = "<group>"; };
 		87E38E892C5C7F7700473B5B /* TestableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableTableCell.swift; sourceTree = "<group>"; };
+		87E38E8B2C5C824400473B5B /* TestableChildTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableChildTableVC.swift; sourceTree = "<group>"; };
 		87F74E9E2C45F57200D90377 /* EmptyCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCC.swift; sourceTree = "<group>"; };
 		87F74EA02C45FE8600D90377 /* ErrorCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCC.swift; sourceTree = "<group>"; };
 		8A960A3B4DDF68F5C67C84C6 /* Pods-MarvelSample-MarvelSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelSample-MarvelSampleUITests.release.xcconfig"; path = "Target Support Files/Pods-MarvelSample-MarvelSampleUITests/Pods-MarvelSample-MarvelSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -476,7 +478,7 @@
 				8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */,
 				8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */,
 				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
-				8717F23F2C4B7B7D007FC501 /* TestableBaseCollectionVC.swift */,
+				8717F23F2C4B7B7D007FC501 /* TestableChildCollectionVC.swift */,
 				8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */,
 			);
 			path = BaseCollectionVC;
@@ -716,8 +718,9 @@
 		87E38E812C5C6DC100473B5B /* BaseTableVC */ = {
 			isa = PBXGroup;
 			children = (
-				87E38E7F2C5C6DAA00473B5B /* BaseTableVC.swift */,
 				87E38E892C5C7F7700473B5B /* TestableTableCell.swift */,
+				87E38E8B2C5C824400473B5B /* TestableChildTableVC.swift */,
+				87E38E7F2C5C6DAA00473B5B /* BaseTableVCTests.swift */,
 			);
 			path = BaseTableVC;
 			sourceTree = "<group>";
@@ -1058,10 +1061,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87E38E802C5C6DAA00473B5B /* BaseTableVC.swift in Sources */,
+				87E38E802C5C6DAA00473B5B /* BaseTableVCTests.swift in Sources */,
 				878DD4AC2C587208006896C6 /* CharacterExtension.swift in Sources */,
 				877B48362C563D0D001A6E5A /* DummyNetworkError.swift in Sources */,
 				877B48272C562CD4001A6E5A /* ComicsVCTests.swift in Sources */,
+				87E38E8C2C5C824400473B5B /* TestableChildTableVC.swift in Sources */,
 				87E38E862C5C6E9400473B5B /* TestableEventsVC.swift in Sources */,
 				877B48292C562CD9001A6E5A /* TestableBaseListVM.swift in Sources */,
 				877B481B2C5613E3001A6E5A /* MarvelSampleTests.swift in Sources */,
@@ -1089,7 +1093,7 @@
 				878DD4AA2C586FDE006896C6 /* TestableCharactersVM.swift in Sources */,
 				877B482E2C562CE0001A6E5A /* BaseCollectionVCTests.swift in Sources */,
 				87E38E882C5C6EF000473B5B /* TestableEventsVM.swift in Sources */,
-				877B482D2C562CE0001A6E5A /* TestableBaseCollectionVC.swift in Sources */,
+				877B482D2C562CE0001A6E5A /* TestableChildCollectionVC.swift in Sources */,
 				874F8EE52C5485B500D1AA77 /* TestableAPIRequestGenerator.swift in Sources */,
 				877B48302C562CE5001A6E5A /* FlowManagerTests.swift in Sources */,
 				877B48212C562956001A6E5A /* URLSessionSpy.swift in Sources */,
