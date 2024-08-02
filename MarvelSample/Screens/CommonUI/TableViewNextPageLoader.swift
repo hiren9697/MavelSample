@@ -12,6 +12,7 @@ class TableViewNextPageLoader: UITableViewHeaderFooterView {
     let activity: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView()
         activity.color = AppColors.red
+        activity.hidesWhenStopped = true
         return activity
     }()
     
@@ -32,9 +33,18 @@ class TableViewNextPageLoader: UITableViewHeaderFooterView {
         return stack
     }()
     
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        setupInitialUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        setupInitialUI()
+        // HsetupInitialUI()
     }
     
 //    override var intrinsicContentSize: CGSize {
@@ -48,6 +58,14 @@ class TableViewNextPageLoader: UITableViewHeaderFooterView {
         titleLabel.text = "Loading next page"
         titleLabel.layoutSubviews()
         stack.layoutSubviews()
+    }
+    
+    public func startAnimating() {
+        activity.startAnimating()
+    }
+    
+    public func stopAnimating() {
+        activity.stopAnimating()
     }
     
 //    public func show() {

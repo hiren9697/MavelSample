@@ -11,7 +11,7 @@ import Combine
 class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UITableViewDataSource {
     // MARK: - UI Components
     let tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -98,6 +98,17 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         viewModel.reloadData()
     }
     
+    private func hideLoadingComponents() {
+        refreshControl.endRefreshing()
+        hideLoader()
+        stopNextPageLoaderAnimating()
+    }
+    
+    private func stopNextPageLoaderAnimating() {
+        let nextPageLoader = getNextPageLoadingFooterView()
+        nextPageLoader.stopAnimating()
+    }
+    
     // MARK: - Binding
     private func setupBindings() {
         viewModel
@@ -115,25 +126,24 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
                 gauranteeMainThread {[weak self] in
                     switch state {
                     case .idle:
-                        self?.refreshControl.endRefreshing()
-                        self?.hideLoader()
+                        self?.hideLoadingComponents()
                     case .initialLoading:
                         self?.showLoader()
                         self?.refreshControl.endRefreshing()
+                        self?.stopNextPageLoaderAnimating()
                     case .loadingNextPage:
                         self?.hideLoader()
                         self?.refreshControl.endRefreshing()
                         break
                     case .reload:
                         self?.hideLoader()
+                        self?.stopNextPageLoaderAnimating()
                         break
                     case .error(_):
-                        self?.hideLoader()
-                        self?.refreshControl.endRefreshing()
+                        self?.hideLoadingComponents()
                         break
                     case .emptyData:
-                        self?.hideLoader()
-                        self?.refreshControl.endRefreshing()
+                        self?.hideLoadingComponents()
                         break
                     }
                     self?.tableView.reloadData()
@@ -161,11 +171,8 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         return cell
     }
     
-    func getNextPageLoadingFooterView()-> UIView? {
-        TableViewNextPageLoader(frame: CGRect(x: 0,
-                                              y: 0,
-                                              width: tableView.frame.width,
-                                              height: 50))
+    func getNextPageLoadingFooterView()-> TableViewNextPageLoader {
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: "TableViewNextPageLoader") as! TableViewNextPageLoader
     }
     
     // MARK: - TableView Datasource
@@ -203,7 +210,7 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         switch viewModel.fetchState.value {
         case .initialLoading, .error(_), .emptyData, .idle, .reload:
             return 0
@@ -217,7 +224,9 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         case .initialLoading, .error(_), .emptyData, .idle, .reload:
             return nil
         case .loadingNextPage:
-            return getNextPageLoadingFooterView()
+            let view = getNextPageLoadingFooterView()
+            view.startAnimating()
+            return view
         }
     }
     

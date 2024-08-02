@@ -13,9 +13,6 @@ class EventItemTC: ParentTC {
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        // view.layer.cornerRadius = 5
-        // view.layer.borderWidth = 1
-        // view.layer.borderColor = UIColor.lightGray.cgColor
         return view
     }()
     let iconImageView: UIImageView = {
