@@ -157,13 +157,13 @@ extension BaseCollectionVCTests {
     
     func test_fetchState_idle_shouldShowItemsInSectionSameAsDataInViewModel() {
         viewModel.fetchState.value = DataFetchState.idle
-        viewModel.listItems.value = [TestableDataItemVM(text: "0", description: "Zeroth description")]
+        viewModel.listItems.value = [TestableDataItemVM(text: "0")]
         XCTAssertEqual(numberOfRows(in: sut.collectionView),
                        viewModel.listItems.value.count)
-        viewModel.listItems.value.append(TestableDataItemVM(text: "1", description: "First description"))
+        viewModel.listItems.value.append(TestableDataItemVM(text: "1"))
         XCTAssertEqual(numberOfRows(in: sut.collectionView),
                        viewModel.listItems.value.count)
-        let array = Array(repeating: TestableDataItemVM(text: "2", description: "Second description"), count: 20)
+        let array = Array(repeating: TestableDataItemVM(text: "2"), count: 20)
         viewModel.listItems.value.append(contentsOf: array)
         XCTAssertEqual(numberOfRows(in: sut.collectionView),
                        viewModel.listItems.value.count)
@@ -239,11 +239,11 @@ extension BaseCollectionVCTests {
     private func addListItemsWithIdleModeInViewModel() {
         viewModel.fetchState.value = .idle
         viewModel.listItems.value = [
-            TestableDataItemVM(text: "0", description: "Zeroth description"),
-            TestableDataItemVM(text: "1", description: "First description"),
-            TestableDataItemVM(text: "2", description: "Second description"),
-            TestableDataItemVM(text: "3", description: "Third description"),
-            TestableDataItemVM(text: "4", description: "Fourth description")
+            TestableDataItemVM(text: "0"),
+            TestableDataItemVM(text: "1"),
+            TestableDataItemVM(text: "2"),
+            TestableDataItemVM(text: "3"),
+            TestableDataItemVM(text: "4")
         ]
     }
 }

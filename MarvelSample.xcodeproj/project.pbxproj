@@ -125,6 +125,7 @@
 		87E38E842C5C6E6300473B5B /* EventsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E832C5C6E6300473B5B /* EventsVCTests.swift */; };
 		87E38E862C5C6E9400473B5B /* TestableEventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */; };
 		87E38E882C5C6EF000473B5B /* TestableEventsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */; };
+		87E38E8A2C5C7F7700473B5B /* TestableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E892C5C7F7700473B5B /* TestableTableCell.swift */; };
 		87F74E9F2C45F57200D90377 /* EmptyCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F74E9E2C45F57200D90377 /* EmptyCC.swift */; };
 		87F74EA12C45FE8600D90377 /* ErrorCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F74EA02C45FE8600D90377 /* ErrorCC.swift */; };
 		B6EA853A5B51372D4D9E2487 /* Pods_MarvelSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B6D083E181A39060F459EFE /* Pods_MarvelSample.framework */; };
@@ -276,6 +277,7 @@
 		87E38E832C5C6E6300473B5B /* EventsVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVCTests.swift; sourceTree = "<group>"; };
 		87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEventsVC.swift; sourceTree = "<group>"; };
 		87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEventsVM.swift; sourceTree = "<group>"; };
+		87E38E892C5C7F7700473B5B /* TestableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableTableCell.swift; sourceTree = "<group>"; };
 		87F74E9E2C45F57200D90377 /* EmptyCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCC.swift; sourceTree = "<group>"; };
 		87F74EA02C45FE8600D90377 /* ErrorCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCC.swift; sourceTree = "<group>"; };
 		8A960A3B4DDF68F5C67C84C6 /* Pods-MarvelSample-MarvelSampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelSample-MarvelSampleUITests.release.xcconfig"; path = "Target Support Files/Pods-MarvelSample-MarvelSampleUITests/Pods-MarvelSample-MarvelSampleUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -715,6 +717,7 @@
 			isa = PBXGroup;
 			children = (
 				87E38E7F2C5C6DAA00473B5B /* BaseTableVC.swift */,
+				87E38E892C5C7F7700473B5B /* TestableTableCell.swift */,
 			);
 			path = BaseTableVC;
 			sourceTree = "<group>";
@@ -1072,6 +1075,7 @@
 				877B482F2C562CE0001A6E5A /* TestableCollectionCell.swift in Sources */,
 				878DD4AE2C587B5A006896C6 /* CharacterVMTests.swift in Sources */,
 				877B482B2C562CE0001A6E5A /* TestableCollectionView.swift in Sources */,
+				87E38E8A2C5C7F7700473B5B /* TestableTableCell.swift in Sources */,
 				8728486A2C423870008C1ED0 /* Helpers.swift in Sources */,
 				877B48342C562CEA001A6E5A /* TestableWalkthroughVC.swift in Sources */,
 				877B482C2C562CE0001A6E5A /* TestableAPIDataListable.swift in Sources */,

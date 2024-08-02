@@ -122,40 +122,26 @@ extension BaseListVMTests {
     
     func addListItemViewModels() {
         let viewModels: [TestableDataItemVM] = [
-            TestableDataItemVM(text: "Zeroth",
-                               description: "Zeroth description"),
-            TestableDataItemVM(text: "First",
-                               description: "First description"),
-            TestableDataItemVM(text: "Second",
-                              description: "Second description"),
-            TestableDataItemVM(text: "Third",
-                              description: "Third description"),
-            TestableDataItemVM(text: "Fourth",
-                              description: "Fourth description"),
-            TestableDataItemVM(text: "Fifth",
-                              description: "Fifth description"),
-            TestableDataItemVM(text: "Sixth",
-                              description: "Sixth description"),
+            TestableDataItemVM(text: "Zeroth"),
+            TestableDataItemVM(text: "First"),
+            TestableDataItemVM(text: "Second"),
+            TestableDataItemVM(text: "Third"),
+            TestableDataItemVM(text: "Fourth"),
+            TestableDataItemVM(text: "Fifth"),
+            TestableDataItemVM(text: "Sixth"),
         ]
         sut.listItems.value = viewModels
     }
     
     func addData() {
         let data: [TestableData] = [
-            TestableData(text: "Zeroth",
-                         description: "Zeroth description"),
-            TestableData(text: "First",
-                        description: "First description"),
-            TestableData(text: "Second",
-                         description: "Second description"),
-            TestableData(text: "Third",
-                         description: "Third description"),
-            TestableData(text: "Fourth",
-                         description: "Fourth description"),
-            TestableData(text: "Fifth",
-                         description: "Fifth description"),
-            TestableData(text: "Sixth",
-                         description: "Sixth description"),
+            TestableData(text: "Zeroth"),
+            TestableData(text: "First"),
+            TestableData(text: "Second"),
+            TestableData(text: "Third"),
+            TestableData(text: "Fourth"),
+            TestableData(text: "Fifth"),
+            TestableData(text: "Sixth")
         ]
         sut.data = data
     }
