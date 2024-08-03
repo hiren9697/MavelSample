@@ -30,7 +30,8 @@ class FlowManager {
                 return
             }
             let tabBarController = initializeTabBarController()
-            window.rootViewController = tabBarController
+            let navigationController = UINavigationController(rootViewController: tabBarController)
+            window.rootViewController = navigationController
             window.makeKeyAndVisible()
         } else {
             guard !(window.rootViewController is WalkthroughVC) else {

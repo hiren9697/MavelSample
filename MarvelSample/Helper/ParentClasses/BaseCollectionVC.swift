@@ -243,9 +243,14 @@ where ViewModel.Data == Data,
         }
     }
     
+    // MARK: - Delegate helper
+    func collectionViewDidSelect(indexPath: IndexPath) {
+       fatalError("Subclass must override this method")
+    }
+    
     // MARK: - CollectionView Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+       collectionViewDidSelect(indexPath: indexPath)
     }
     
     // MARK: - FlowLayout Helper

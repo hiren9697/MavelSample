@@ -24,7 +24,7 @@ class ComicsVC: BaseCollectionVC<Comic,
         return CGSize(width: finalWidth, height: height)
     }()
     
-    // MARK: - Cell methods
+    // MARK: - Datasource methods
     override func registerCollectionViewDataCell() {
         collectionView.register(ComicItemCC.self,
                                 forCellWithReuseIdentifier: ComicItemCC.name)
@@ -35,6 +35,12 @@ class ComicsVC: BaseCollectionVC<Comic,
                                            for: indexPath) as! ComicItemCC
         cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
         return cell
+    }
+    
+    // MARK: - Delegate method
+    override func collectionViewDidSelect(indexPath: IndexPath) {
+        navigationController?.pushViewController(ComicDetailVC(),
+                                                 animated: true)
     }
     
     // MARK: - CollectionView FlowLayout
