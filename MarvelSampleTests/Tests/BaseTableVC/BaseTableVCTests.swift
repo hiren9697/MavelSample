@@ -1,30 +1,30 @@
 //
-//  BaseCollectionVCTests.swift
+//  BaseTableVC.swift
 //  MarvelSampleTests
 //
-//  Created by Hirenkumar Fadadu on 20/07/24.
+//  Created by Hirenkumar Fadadu on 02/08/24.
 //
 
 import XCTest
 @testable import MarvelSample
 
 /// Uses TestableAPIDataListable as view model, Need to change properties of view model manually to perform changes
-/// Uses TestableChildCollectionVC to fill space
+/// Uses TestableChildTableVC to fill space
 /// Tests:
-/// 1. UI components: Refresh control, CollectionView, Loader view
-/// 2. Number of sections collectionView shows with different states
+/// 1. UI components: Refresh control, TableView, Loader view
+/// 2. Number of sections tableview shows with different states
 /// 3. Loader visibility with different states
 /// 4. Number and types of cells dequed in different states
 /// 5. Next page loader visibility in different states
-final class BaseCollectionVCTests: XCTestCase {
+final class BaseTableVCTests: XCTestCase {
     
-    var sut: TestableChildCollectionVC!
+    var sut: TestableChildTableVC!
     var viewModel: TestableAPIDataListable!
     
     override func setUp() {
         super.setUp()
         viewModel = TestableAPIDataListable()
-        sut = TestableChildCollectionVC(viewModel: viewModel)
+        sut = TestableChildTableVC(viewModel: viewModel)
         putInViewHeirarchy(sut)
         sut.loadViewIfNeeded()
     }
@@ -37,28 +37,28 @@ final class BaseCollectionVCTests: XCTestCase {
 }
 
 // MARK: - 1. UI Components
-extension BaseCollectionVCTests {
+extension BaseTableVCTests {
     
     func test_correctViewModelObject() {
         XCTAssertTrue(sut.viewModel === viewModel, "viewModel object is different")
     }
     
-    func test_collectionView_delegateDatasourceNotNil() {
-        XCTAssertNotNil(sut.collectionView.delegate, "Delegate")
-        XCTAssertNotNil(sut.collectionView.dataSource, "Datasource")
+    func test_tableView_delegateDatasourceNotNil() {
+        XCTAssertNotNil(sut.tableView.delegate, "Delegate")
+        XCTAssertNotNil(sut.tableView.dataSource, "Datasource")
     }
     
-    func test_collectionView_isInViewHierarchy() {
-        XCTAssertEqual(sut.collectionView.superview, sut.view)
+    func test_tableView_isInViewHierarchy() {
+        XCTAssertEqual(sut.tableView.superview, sut.view)
     }
     
-    func test_orderOf_collectionViewAndLoader() {
-        XCTAssertEqual(sut.view.subviews.first, sut.collectionView)
+    func test_orderOf_tableViewAndLoader() {
+        XCTAssertEqual(sut.view.subviews.first, sut.tableView)
         XCTAssertEqual(sut.view.subviews[1], sut.loaderContainer)
     }
     
-    func test_collectionView_hasRefreshControl() {
-        XCTAssertEqual(sut.refreshControl.superview, sut.collectionView)
+    func test_tableView_hasRefreshControl() {
+        XCTAssertEqual(sut.refreshControl.superview, sut.tableView)
     }
     
     func test_refreshController_hasTarget() {
@@ -71,42 +71,42 @@ extension BaseCollectionVCTests {
     }
 }
 
-// MARK: - 2. CollectionView Sections
-extension BaseCollectionVCTests {
+// MARK: - 2. TableView Sections
+extension BaseTableVCTests {
     func test_fetchState_initialLoading_shouldShowZeroCollectionViewSections() {
         viewModel.fetchState.value = DataFetchState.initialLoading
-        let numberOfSections = numberOfSections(in: sut.collectionView)
+        let numberOfSections = numberOfSections(in: sut.tableView)
         XCTAssertEqual(numberOfSections, 0)
     }
     
     func test_fetchState_idle_shouldShowOneCollectionViewSections() {
         viewModel.fetchState.value = DataFetchState.idle
-        XCTAssertEqual(numberOfSections(in: sut.collectionView), 1)
+        XCTAssertEqual(numberOfSections(in: sut.tableView), 1)
     }
     
     func test_fetchState_emptyData_shouldShowOneCollectionViewSections() {
         viewModel.fetchState.value = DataFetchState.emptyData
-        XCTAssertEqual(numberOfSections(in: sut.collectionView), 1)
+        XCTAssertEqual(numberOfSections(in: sut.tableView), 1)
     }
     
     func test_fetchState_error_shouldShowOneCollectionViewSections() {
         viewModel.fetchState.value = DataFetchState.error(NetworkError.invalidURL)
-        XCTAssertEqual(numberOfSections(in: sut.collectionView), 1)
+        XCTAssertEqual(numberOfSections(in: sut.tableView), 1)
     }
     
     func test_fetchState_loadingNextPage_shouldShowOneCollectionViewSections() {
         viewModel.fetchState.value = DataFetchState.loadingNextPage
-        XCTAssertEqual(numberOfSections(in: sut.collectionView), 1)
+        XCTAssertEqual(numberOfSections(in: sut.tableView), 1)
     }
     
     func test_fetchState_reload_shouldShowOneCollectionViewSections() {
         viewModel.fetchState.value = DataFetchState.reload
-        XCTAssertEqual(numberOfSections(in: sut.collectionView), 1)
+        XCTAssertEqual(numberOfSections(in: sut.tableView), 1)
     }
 }
 
 // MARK: - 3. Loader
-extension BaseCollectionVCTests {
+extension BaseTableVCTests {
     func test_fetchState_initialLoading_shouldShowLoader() {
         viewModel.fetchState.value = DataFetchState.initialLoading
         XCTAssertFalse(sut.loaderContainer.isHidden, "Loader is not visible")
@@ -157,92 +157,92 @@ extension BaseCollectionVCTests {
 }
 
 // MARK: - 4. Number and type of cell
-extension BaseCollectionVCTests {
+extension BaseTableVCTests {
     func test_fetchState_initialLoading_shouldShowZeroItemsInSection() {
         viewModel.fetchState.value = DataFetchState.initialLoading
-        XCTAssertEqual(numberOfRows(in: sut.collectionView), 0)
+        XCTAssertEqual(numberOfRows(in: sut.tableView), 0)
     }
     
     func test_fetchState_idle_shouldShowItemsInSectionSameAsDataInViewModel() {
         viewModel.fetchState.value = DataFetchState.idle
         viewModel.listItems.value = [TestableDataItemVM(text: "0")]
-        XCTAssertEqual(numberOfRows(in: sut.collectionView),
+        XCTAssertEqual(numberOfRows(in: sut.tableView),
                        viewModel.listItems.value.count)
         viewModel.listItems.value.append(TestableDataItemVM(text: "1"))
-        XCTAssertEqual(numberOfRows(in: sut.collectionView),
+        XCTAssertEqual(numberOfRows(in: sut.tableView),
                        viewModel.listItems.value.count)
         let array = Array(repeating: TestableDataItemVM(text: "2"), count: 20)
         viewModel.listItems.value.append(contentsOf: array)
-        XCTAssertEqual(numberOfRows(in: sut.collectionView),
+        XCTAssertEqual(numberOfRows(in: sut.tableView),
                        viewModel.listItems.value.count)
         
     }
     
     func test_fetchState_idle_shouldDequeCorrectCollectionViewCell() {
         addListItemsWithIdleModeInViewModel()
-        let cell = cellForRow(in: sut.collectionView, row: 0)
-        XCTAssertTrue(cell is TestableCollectionCell,
-                      "cell is not TestableCollectionCell")
+        let cell = cellForRow(in: sut.tableView, row: 0)
+        XCTAssertTrue(cell is TestableTableCell,
+                      "cell is not TestableTableCell")
     }
     
     func test_fetchState_emptyData_shouldDequeueCorrectCollectionViewCell() {
         viewModel.fetchState.value = .emptyData
-        let cell = cellForRow(in: sut.collectionView, row: 0)
-        XCTAssertTrue(cell is EmptyCC,
-                      "cell is not EmptyCC")
+        let cell = cellForRow(in: sut.tableView, row: 0)
+        XCTAssertTrue(cell is EmptyTC,
+                      "cell is not EmptyTC")
     }
     
     func test_fetchState_error_shouldDequeueCorrectCollectionViewCell() {
         viewModel.fetchState.value = .error(NetworkError.invalidURL)
-        let cell = cellForRow(in: sut.collectionView, row: 0)
-        XCTAssertTrue(cell is ErrorCC,
-                      "cell is not ErrorCC")
+        let cell = cellForRow(in: sut.tableView, row: 0)
+        XCTAssertTrue(cell is ErrorTC,
+                      "cell is not ErrorTC")
     }
 }
 
 // MARK: - 5. Next page loader
-extension BaseCollectionVCTests {
+extension BaseTableVCTests {
     func test_fetchState_initialLoading_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .initialLoading
-        let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertEqual(footerReferenceSize, .zero)
+        let footerHeight = footerViewHeight(in: sut.tableView)
+        XCTAssertEqual(footerHeight, .zero)
     }
     
     func test_fetchState_idle_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .idle
-        let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertEqual(footerReferenceSize, .zero)
+        let footerHeight = footerViewHeight(in: sut.tableView)
+        XCTAssertEqual(footerHeight, .zero)
     }
     
     func test_fetchState_emptyData_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .emptyData
-        let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertEqual(footerReferenceSize, .zero)
+        let footerHeight = footerViewHeight(in: sut.tableView)
+        XCTAssertEqual(footerHeight, .zero)
     }
     
     func test_fetchState_error_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .error(NetworkError.invalidURL)
-        let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertEqual(footerReferenceSize, .zero)
+        let footerHeight = footerViewHeight(in: sut.tableView)
+        XCTAssertEqual(footerHeight, .zero)
     }
     
     func test_fetchState_reloading_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .reload
-        let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertEqual(footerReferenceSize, .zero)
+        let footerHeight = footerViewHeight(in: sut.tableView)
+        XCTAssertEqual(footerHeight, .zero)
     }
     
     func test_fetchState_loadingNext_shouldShowNextPageLoader() {
         addListItemsWithIdleModeInViewModel()
         viewModel.fetchState.value = .loadingNextPage
-        sut.collectionView.reloadData()
-        let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertNotEqual(footerReferenceSize, .zero)
+        sut.tableView.reloadData()
+        let footerHeight = footerViewHeight(in: sut.tableView)
+        XCTAssertNotEqual(footerHeight, .zero)
     }
 }
 
 // MARK: - Helper
-extension BaseCollectionVCTests {
+extension BaseTableVCTests {
     
     private func addListItemsWithIdleModeInViewModel() {
         viewModel.fetchState.value = .idle

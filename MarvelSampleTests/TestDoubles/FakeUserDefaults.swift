@@ -8,6 +8,7 @@
 import UIKit
 @testable import MarvelSample
 
+/// Class used to mimic user default behaviour
 class FakeUserDefaults: UserDefaultsProtocol {
     
     var values: [String: Any] = [:]

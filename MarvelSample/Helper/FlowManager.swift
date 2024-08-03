@@ -58,7 +58,7 @@ class FlowManager {
         // Initialize ViewControllers
         let comicsVC = ComicsVC(viewModel: ComicsVM())
         let charactersVC = CharactersVC(viewModel: CharactersVM())
-        let eventsVC = EventsVC()
+        let eventsVC = EventsVC(viewModel: EventsVM())
         let viewControllers = [comicsVC, charactersVC, eventsVC]
         // Initialize TabBar
         let tabBarVM = TabBarVM(tabBarItemVMs: tabBarItemVMs)

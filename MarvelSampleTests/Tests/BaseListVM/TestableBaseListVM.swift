@@ -8,7 +8,7 @@
 import Foundation
 @testable import MarvelSample
 
-/// Sub-class of BaseLisVM, Written to fill generics
+/// Sub-class of BaseLisVM, Written to fill generics, as BaseListVM is designed as abstract class
 class TestableBaseListVM: BaseListVM<TestableData,
                           TestableDataItemVM> {
     

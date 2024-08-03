@@ -9,6 +9,7 @@ import UIKit
 @testable import MarvelSample
 
 /// Sub-class of FlowManager which uses testable sub-classes of view controller and view models instead of production classes
+/// Production classes makes API call on loading view of view controller, which we don't want to happen in testing
 class TestableFlowManager: FlowManager {
     override func initializeTabBarController()-> TabBarController {
         // Initialize TabBar Item ViewModels
@@ -25,8 +26,8 @@ class TestableFlowManager: FlowManager {
         ]
         // Initialize ViewControllers
         let comicsVC = TestableComicsVC(viewModel: TestableComicsVM())
-        let charactersVC = CharactersVC(viewModel: TestableCharactersVM())
-        let eventsVC = EventsVC()
+        let charactersVC = TestableCharactersVC(viewModel: TestableCharactersVM())
+        let eventsVC = TestableEventsVC(viewModel: TestableEventsVM())
         let viewControllers = [comicsVC, charactersVC, eventsVC]
         // Initialize TabBar
         let tabBarVM = TabBarVM(tabBarItemVMs: tabBarItemVMs)
