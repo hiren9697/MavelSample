@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-
+/// Designed as abstract class, must be sub-classed
 /// Base class for view model class that makes API call and list data
 /// Provides state variables for and listItems, which view controller can subscribe
 /// Provides generic functionality related to list screen like pagination, reloaod, show error or empty data view

@@ -10,9 +10,8 @@ import Combine
 @testable import MarvelSample
 
 /// Subclass of 'BaseTableVC' with filled generics
-/// This class is used to test BaseTableVC
+/// This class is used to test BaseTableVC, in BaseTableVCTests
 /// As subclass of BaseTableVC must override some methods and must fill generics
-/// Used in BaseTableVCTests
 class TestableChildTableVC: BaseTableVC<TestableAPIDataListable> {
     // MARK: - Closure Variables for tests
     var refreshHandler: (()-> Void)?

@@ -8,6 +8,14 @@
 import XCTest
 @testable import MarvelSample
 
+/// Uses TestableAPIDataListable as view model, Need to change properties of view model manually to perform changes
+/// Uses TestableChildCollectionVC to fill space
+/// Tests:
+/// 1. UI components: Refresh control, CollectionView, Loader view
+/// 2. Number of sections collectionView shows with different states
+/// 3. Loader visibility with different states
+/// 4. Number and types of cells dequed in different states
+/// 5. Next page loader visibility in different states
 final class BaseCollectionVCTests: XCTestCase {
     
     var sut: TestableChildCollectionVC!
@@ -28,7 +36,7 @@ final class BaseCollectionVCTests: XCTestCase {
     }
 }
 
-// MARK: - UI Components
+// MARK: - 1. UI Components
 extension BaseCollectionVCTests {
     
     func test_correctViewModelObject() {
@@ -63,7 +71,7 @@ extension BaseCollectionVCTests {
     }
 }
 
-// MARK: - CollectionView Sections
+// MARK: - 2. CollectionView Sections
 extension BaseCollectionVCTests {
     func test_fetchState_initialLoading_shouldShowZeroCollectionViewSections() {
         viewModel.fetchState.value = DataFetchState.initialLoading
@@ -97,7 +105,7 @@ extension BaseCollectionVCTests {
     }
 }
 
-// MARK: - Loader
+// MARK: - 3. Loader
 extension BaseCollectionVCTests {
     func test_fetchState_initialLoading_shouldShowLoader() {
         viewModel.fetchState.value = DataFetchState.initialLoading
@@ -148,7 +156,7 @@ extension BaseCollectionVCTests {
     }
 }
 
-// MARK: - Number and type of cell
+// MARK: - 4. Number and type of cell
 extension BaseCollectionVCTests {
     func test_fetchState_initialLoading_shouldShowZeroItemsInSection() {
         viewModel.fetchState.value = DataFetchState.initialLoading
@@ -192,7 +200,7 @@ extension BaseCollectionVCTests {
     }
 }
 
-// MARK: - Next page loader
+// MARK: - 5. Next page loader
 extension BaseCollectionVCTests {
     func test_fetchState_initialLoading_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .initialLoading

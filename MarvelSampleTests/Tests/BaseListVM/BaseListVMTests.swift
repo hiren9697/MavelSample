@@ -8,6 +8,13 @@
 import XCTest
 @testable import MarvelSample
 
+/// Uses TestableBaseListVM as SUT, as BaseListVM is designed as abstract class
+/// Uses MockAPIService to mimic api call behaviour
+/// Uses TestableAPIRequestGenerator, see description of 'TestableAPIRequestGenerator', to know why this class exist
+/// Tests:
+/// 1. List item view model
+/// 2. Various data fetch methods updates fetch state
+/// 3. Helper methods
 final class BaseListVMTests: XCTestCase {
 
     var sut: TestableBaseListVM!
@@ -33,7 +40,7 @@ final class BaseListVMTests: XCTestCase {
     }
 }
 
-// MARK: - ListItem Tests
+// MARK: - 1. ListItem Tests
 extension BaseListVMTests {
     
     func test_listItem_returnsCorrectListItemVM() {
@@ -54,7 +61,7 @@ extension BaseListVMTests {
     }
 }
 
-// MARK: - Data fetch function tests
+// MARK: - 2. Data fetch function tests
 extension BaseListVMTests {
     
     func test_fetchInitialData_makesAPIRequestOneTime() throws {
@@ -105,7 +112,7 @@ extension BaseListVMTests {
     }
 }
 
-// MARK: - Helper method tests
+// MARK: - 3. Helper method tests
 extension BaseListVMTests {
     
     func test_getQueryParameters_givesCorrectParameters() {
