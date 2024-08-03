@@ -31,7 +31,6 @@ class CharactersVM: BaseListVM<Character, CharacterItemVM> {
         var newCharacterItems: [CharacterItemVM] = []
         for item in results {
             if let character = Character(dict: item) {
-                Log.info(character)
                 newCharacters.append(character)
                 newCharacterItems.append(CharacterItemVM(character: character))
             }

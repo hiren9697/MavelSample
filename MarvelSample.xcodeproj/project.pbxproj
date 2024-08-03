@@ -51,7 +51,6 @@
 		877B482D2C562CE0001A6E5A /* TestableChildCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F23F2C4B7B7D007FC501 /* TestableChildCollectionVC.swift */; };
 		877B482E2C562CE0001A6E5A /* BaseCollectionVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */; };
 		877B482F2C562CE0001A6E5A /* TestableCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */; };
-		877B48302C562CE5001A6E5A /* FlowManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848722C425D72008C1ED0 /* FlowManagerTests.swift */; };
 		877B48312C562CE5001A6E5A /* TestableFlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C43EE82C509650000B32AE /* TestableFlowManager.swift */; };
 		877B48322C562CEA001A6E5A /* WalkthroughVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */; };
 		877B48332C562CEA001A6E5A /* WalkthroughVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */; };
@@ -90,6 +89,8 @@
 		878FC08E2C59E46A00779669 /* TableViewNextPageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FC08D2C59E46A00779669 /* TableViewNextPageLoader.swift */; };
 		878FC0902C59E50900779669 /* UITableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FC08F2C59E50900779669 /* UITableViewHeaderFooterView.swift */; };
 		87AEA1BD2C5DE1CB0027C8E9 /* ComicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEA1BC2C5DE1CB0027C8E9 /* ComicDetailVC.swift */; };
+		87AEA1C02C5E49380027C8E9 /* TestableComicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEA1BF2C5E49380027C8E9 /* TestableComicDetailVC.swift */; };
+		87AEA1C22C5E497D0027C8E9 /* ComicDetailVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */; };
 		87B39B392C49FB9600FC792E /* APIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B39B382C49FB9600FC792E /* APIDataListable.swift */; };
 		87CBC51F2C54FEB5007AB863 /* ComicVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */; };
 		87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */; };
@@ -231,6 +232,8 @@
 		878FC08F2C59E50900779669 /* UITableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewHeaderFooterView.swift; sourceTree = "<group>"; };
 		87A2F3452C4DF5FE00CB06DF /* ComicItemCCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicItemCCTests.swift; sourceTree = "<group>"; };
 		87AEA1BC2C5DE1CB0027C8E9 /* ComicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailVC.swift; sourceTree = "<group>"; };
+		87AEA1BF2C5E49380027C8E9 /* TestableComicDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableComicDetailVC.swift; sourceTree = "<group>"; };
+		87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailVCTests.swift; sourceTree = "<group>"; };
 		87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughVMTests.swift; sourceTree = "<group>"; };
 		87B39B382C49FB9600FC792E /* APIDataListable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataListable.swift; sourceTree = "<group>"; };
 		87BFD3302C4F45D70071CC21 /* TestableComicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableComicsVC.swift; sourceTree = "<group>"; };
@@ -404,6 +407,7 @@
 				87CBC51A2C54F0FE007AB863 /* FlowManager */,
 				87CBC5192C54F0C3007AB863 /* Walkthrough */,
 				87CBC51D2C54F1EB007AB863 /* Comic */,
+				87AEA1BE2C5E491E0027C8E9 /* ComicDetail */,
 				878DD4A42C586EFA006896C6 /* Character */,
 				87E38E822C5C6DE100473B5B /* Event */,
 			);
@@ -439,6 +443,15 @@
 			isa = PBXGroup;
 			children = (
 				87AEA1BC2C5DE1CB0027C8E9 /* ComicDetailVC.swift */,
+			);
+			path = ComicDetail;
+			sourceTree = "<group>";
+		};
+		87AEA1BE2C5E491E0027C8E9 /* ComicDetail */ = {
+			isa = PBXGroup;
+			children = (
+				87AEA1BF2C5E49380027C8E9 /* TestableComicDetailVC.swift */,
+				87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */,
 			);
 			path = ComicDetail;
 			sourceTree = "<group>";
@@ -1093,6 +1106,7 @@
 				877B482B2C562CE0001A6E5A /* TestableCollectionView.swift in Sources */,
 				87E38E8A2C5C7F7700473B5B /* TestableTableCell.swift in Sources */,
 				8728486A2C423870008C1ED0 /* Helpers.swift in Sources */,
+				87AEA1C02C5E49380027C8E9 /* TestableComicDetailVC.swift in Sources */,
 				877B48342C562CEA001A6E5A /* TestableWalkthroughVC.swift in Sources */,
 				877B482C2C562CE0001A6E5A /* TestableAPIDataListable.swift in Sources */,
 				874F8EE72C548B4800D1AA77 /* URLHelper.swift in Sources */,
@@ -1107,7 +1121,6 @@
 				87E38E882C5C6EF000473B5B /* TestableEventsVM.swift in Sources */,
 				877B482D2C562CE0001A6E5A /* TestableChildCollectionVC.swift in Sources */,
 				874F8EE52C5485B500D1AA77 /* TestableAPIRequestGenerator.swift in Sources */,
-				877B48302C562CE5001A6E5A /* FlowManagerTests.swift in Sources */,
 				877B48212C562956001A6E5A /* URLSessionSpy.swift in Sources */,
 				877B48262C562CD4001A6E5A /* TestableComicsVM.swift in Sources */,
 				877B48282C562CD4001A6E5A /* ComicItemCCTests.swift in Sources */,
@@ -1117,6 +1130,7 @@
 				871F60B52C51F4D800AD6821 /* FakeUserDefaults.swift in Sources */,
 				877B481F2C5625C3001A6E5A /* APIServiceTests.swift in Sources */,
 				877B48312C562CE5001A6E5A /* TestableFlowManager.swift in Sources */,
+				87AEA1C22C5E497D0027C8E9 /* ComicDetailVCTests.swift in Sources */,
 				878DD4A82C586F94006896C6 /* TestableCharactersVC.swift in Sources */,
 				87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */,
 			);
