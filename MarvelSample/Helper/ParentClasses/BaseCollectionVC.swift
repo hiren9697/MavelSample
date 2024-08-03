@@ -55,7 +55,7 @@ where ViewModel.Data == Data,
         registerCollectionViewOtherCellsAndHeaderFooter()
         setupCollectionView()
         setupBindings()
-        // fetchInitialData()
+        fetchInitialData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
