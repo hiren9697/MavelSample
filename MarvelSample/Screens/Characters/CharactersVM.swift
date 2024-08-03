@@ -10,7 +10,8 @@ import Foundation
 class CharactersVM: BaseListVM<Character, CharacterItemVM> {
     
     init(service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator())) {
-        super.init(endPoint: APIEndpoints.characters.rawValue,
+        super.init(navigationTitle: "Characters",
+                   endPoint: APIEndpoints.characters.rawValue,
                    service: service,
                    emptyDataTitle: "Couldn't find any characters",
                    errorTitle: "Error in fetching characters")

@@ -90,6 +90,12 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Navigation title
+        tabBarController?.title = viewModel.navigationTitle
+    }
+    
     func fetchInitialData() {
         viewModel.fetchInitialData()
     }

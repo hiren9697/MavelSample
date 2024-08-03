@@ -17,6 +17,7 @@ import Combine
 /// On intializing object of this class, endPoint, titles for empty and error view must be provided, Optionally API service can be also provided, Injecting API service is very helful in test cases
 class BaseListVM<Data, ListItemVM>: APIDataListable {
     // Protocol variables
+    let navigationTitle: String?
     var fetchState: CurrentValueSubject<DataFetchState, Never> = CurrentValueSubject(.idle)
     var data: Array<Data> = []
     var listItems: CurrentValueSubject<Array<ListItemVM>, Never> = CurrentValueSubject([])
@@ -28,10 +29,12 @@ class BaseListVM<Data, ListItemVM>: APIDataListable {
     let errorTitle: String
     var fetchDataTask: URLSessionDataTask?
     
-    init(endPoint: String,
+    init(navigationTitle: String? = nil,
+         endPoint: String,
          service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator()),
          emptyDataTitle: String,
          errorTitle: String) {
+        self.navigationTitle = navigationTitle
         self.endPoint = endPoint
         self.service = service
         self.emptyDataTitle = emptyDataTitle
