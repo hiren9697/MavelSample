@@ -60,18 +60,4 @@ extension Comic: CustomStringConvertible {
                thumbnail: \(thumbnailURLString)
                """
     }
-    
-//    init(id: String,
-//         pages: Int,
-//         descriptionText: String,
-//         title: String,
-//         modifiedDate: Date?,
-//         thumbnailURLString: String) {
-//        self.id = id
-//        self.pages = pages
-//        self.descriptionText = descriptionText
-//        self.title = title
-//        self.modifiedDate = modifiedDate
-//        self.thumbnailURLString = thumbnailURLString
-//    }
 }

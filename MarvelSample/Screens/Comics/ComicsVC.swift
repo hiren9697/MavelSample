@@ -39,7 +39,8 @@ class ComicsVC: BaseCollectionVC<Comic,
     
     // MARK: - Delegate method
     override func collectionViewDidSelect(indexPath: IndexPath) {
-        navigationController?.pushViewController(ComicDetailVC(),
+        let comicDetailVM = viewModel.getComicDetailVM(for: indexPath.row)
+        navigationController?.pushViewController(ComicDetailVC(viewModel: comicDetailVM),
                                                  animated: true)
     }
     

@@ -39,4 +39,10 @@ class ComicsVM: BaseListVM<Comic, ComicItemVM> {
         self.data.append(contentsOf: newComics)
         listItems.value.append(contentsOf: newComicItems)
     }
+    
+    func getComicDetailVM(for index: Int)-> ComicDetailVM {
+        let comic = data[index]
+        let viewModel = ComicDetailVM(comic: comic)
+        return viewModel
+    }
 }

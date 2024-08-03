@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ComicDetailVC: ParentVC {
     
@@ -43,6 +44,20 @@ class ComicDetailVC: ParentVC {
         view.clipsToBounds = true
         return view
     }()
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.text = "Hello there, how are you?, I am really well, what about you?"
+        return label
+    }()
+    let descriptionLabelContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
+        return view
+    }()
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,11 +67,23 @@ class ComicDetailVC: ParentVC {
         return stackView
     }()
     
+    let viewModel: ComicDetailVM
+    
+    init(viewModel: ComicDetailVM) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()
         setupInitialUI()
+        fillData()
     }
     
     // MARK: - UI method(s)
@@ -82,6 +109,13 @@ class ComicDetailVC: ParentVC {
         titleLabel.topAnchor.constraint(equalTo: titleLabelContainer.topAnchor, constant: 10).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: titleLabelContainer.bottomAnchor, constant: -10).isActive = true
         stackView.addArrangedSubview(titleLabelContainer)
+        // Description
+        descriptionLabelContainer.addSubview(descriptionLabel)
+        descriptionLabel.leadingAnchor.constraint(equalTo: descriptionLabelContainer.leadingAnchor, constant: 20).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: descriptionLabelContainer.trailingAnchor, constant: -20).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: descriptionLabelContainer.topAnchor, constant: 10).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: descriptionLabelContainer.bottomAnchor, constant: -10).isActive = true
+        stackView.addArrangedSubview(descriptionLabelContainer)
         // StackView
         scrollView.addSubview(stackView)
         stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor).isActive = true
@@ -93,6 +127,13 @@ class ComicDetailVC: ParentVC {
     
     override func setupInitialUI() {
         super.setupInitialUI()
+    }
+    
+    // MARK: - Helper
+    private func fillData() {
+        imageView.kf.setImage(with: viewModel.thumbnailURL)
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.description
     }
 }
 
