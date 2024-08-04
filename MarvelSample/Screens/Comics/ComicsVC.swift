@@ -26,13 +26,13 @@ class ComicsVC: BaseCollectionVC<Comic,
     
     // MARK: - Datasource methods
     override func registerCollectionViewDataCell() {
-        collectionView.register(ComicItemCC.self,
-                                forCellWithReuseIdentifier: ComicItemCC.name)
+        collectionView.register(ThumbnailTitleCC<ComicItemVM>.self,
+                                forCellWithReuseIdentifier: ThumbnailTitleCC<ComicItemVM>.name)
     }
     
     override func dequeueCell(at indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ComicItemCC.name,
-                                           for: indexPath) as! ComicItemCC
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<ComicItemVM>.name,
+                                           for: indexPath) as! ThumbnailTitleCC<ComicItemVM>
         cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
         return cell
     }

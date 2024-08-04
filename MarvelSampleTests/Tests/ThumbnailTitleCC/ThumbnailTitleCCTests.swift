@@ -1,21 +1,23 @@
 //
-//  ComicItemCCTests.swift
+//  ThumbnailTitleCC.swift
 //  MarvelSampleTests
 //
-//  Created by Hirenkumar Fadadu on 22/07/24.
+//  Created by Hirenkumar Fadadu on 04/08/24.
 //
 
 import XCTest
 @testable import MarvelSample
 
-final class ComicItemCCTests: XCTestCase {
+final class ThumbnailTitleCCTests: XCTestCase {
 
-    var sut: ComicItemCC!
-    var viewModel: ComicItemVM!
+    var sut: ThumbnailTitleCC<TestableThumbnailTitleData>!
+    var viewModel: TestableThumbnailTitleData!
     
     override func setUp() {
         super.setUp()
-        sut = ComicItemCC()
+        viewModel = TestableThumbnailTitleData(title: "This is just a testing title",
+                                               thumbnailURL: URL(string: "https://www.google.com"))
+        sut = ThumbnailTitleCC()
         sut.layoutIfNeeded()
         sut.layoutSubviews()
     }
@@ -28,8 +30,6 @@ final class ComicItemCCTests: XCTestCase {
     }
     
     func test_cellUpdatesUI_fromViewModel() {
-        let viewModel = ComicItemVM(comic: Comic(title: "Zeroth comic title",
-                                                 descriptionText: "Zeroth comic description")!)
         sut.updateUI(viewModel: viewModel)
         XCTAssertEqual(sut.titleLabel.text, viewModel.title)
     }

@@ -1,15 +1,14 @@
 //
-//  ComicItemCC.swift
+//  ThumbnailTitleTC.swift
 //  MarvelSample
 //
-//  Created by Hirenkumar Fadadu on 14/07/24.
+//  Created by Hirenkumar Fadadu on 04/08/24.
 //
 
 import UIKit
-import Kingfisher
 
-class ComicItemCC: ParentCC {
-
+class ThumbnailTitleCC<ViewModel: ThumbnailTitleData>: ParentCC {
+    
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +34,7 @@ class ComicItemCC: ParentCC {
         return label
     }()
     
-    var viewModel: ComicItemVM?
+    var viewModel: ViewModel?
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -44,7 +43,7 @@ class ComicItemCC: ParentCC {
 }
 
 // MARK: - UI Helper
-extension ComicItemCC {
+extension ThumbnailTitleCC {
     
     private func setupUIInitial() {
         contentView.addSubview(containerView)
@@ -65,7 +64,7 @@ extension ComicItemCC {
         titleLabel.heightAnchor.constraint(equalToConstant: 34).isActive = true
     }
     
-    func updateUI(viewModel: ComicItemVM) {
+    func updateUI(viewModel: ViewModel) {
         self.viewModel = viewModel
         titleLabel.text = viewModel.title
         imageView.contentMode = .scaleAspectFit

@@ -36,29 +36,29 @@ extension ComicsVCTests {
     func test_cellForRow_withFilledData_dequesCorrectTypeOfCell() {
         addListItemsWithIdleModeInViewModel()
         let zerothCell = cellForRow(in: sut.collectionView, row: 0)
-        XCTAssertTrue(zerothCell is ComicItemCC, "zerothCell is not ComicItemCC")
+        XCTAssertTrue(zerothCell is ThumbnailTitleCC<ComicItemVM>, "zerothCell is not ThumbnailTitleCC<ComicItemVM>")
         let firstCell = cellForRow(in: sut.collectionView, row: 1)
-        XCTAssertTrue(firstCell is ComicItemCC, "firstCell is not ComicItemCC")
+        XCTAssertTrue(firstCell is ThumbnailTitleCC<ComicItemVM>, "firstCell is not ThumbnailTitleCC<ComicItemVM>")
         let lastCell = cellForRow(in: sut.collectionView, row: viewModel.listItems.value.count - 1)
-        XCTAssertTrue(lastCell is ComicItemCC, "lastCell is not ComicItemCC")
+        XCTAssertTrue(lastCell is ThumbnailTitleCC<ComicItemVM>, "lastCell is not ThumbnailTitleCC<ComicItemVM>")
     }
     
     func test_cellForRow_withFilledData_updatesUIIfCell() {
         addListItemsWithIdleModeInViewModel()
-        guard let zerothCell = cellForRow(in: sut.collectionView, row: 0) as? ComicItemCC else {
-            XCTFail("Dequed zeroth cell is not ComicItemCC")
+        guard let zerothCell = cellForRow(in: sut.collectionView, row: 0) as? ThumbnailTitleCC<ComicItemVM> else {
+            XCTFail("Dequed zeroth cell is not ThumbnailTitleCC<ComicItemVM>")
             return
         }
         XCTAssertEqual(zerothCell.titleLabel.text,
                        "Zeroth comic title")
-        guard let firstCell = cellForRow(in: sut.collectionView, row: 1) as? ComicItemCC else {
-            XCTFail("Dequed first cell is not ComicItemCC")
+        guard let firstCell = cellForRow(in: sut.collectionView, row: 1) as? ThumbnailTitleCC<ComicItemVM> else {
+            XCTFail("Dequed first cell is not ThumbnailTitleCC<ComicItemVM>")
             return
         }
         XCTAssertEqual(firstCell.titleLabel.text,
                        "First comic title")
-        guard let lastCell = cellForRow(in: sut.collectionView, row: viewModel.listItems.value.lastIndex) as? ComicItemCC else {
-            XCTFail("Dequed last cell is not ComicItemCC")
+        guard let lastCell = cellForRow(in: sut.collectionView, row: viewModel.listItems.value.lastIndex) as? ThumbnailTitleCC<ComicItemVM> else {
+            XCTFail("Dequed last cell is not ThumbnailTitleCC<ComicItemVM>")
             return
         }
         XCTAssertEqual(lastCell.titleLabel.text,
