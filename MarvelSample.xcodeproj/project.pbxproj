@@ -28,7 +28,6 @@
 		8762B6622C40D17B000FAFEF /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6612C40D17B000FAFEF /* EventsVC.swift */; };
 		8762B6642C40D569000FAFEF /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6632C40D569000FAFEF /* HelperFunctions.swift */; };
 		8762B6662C40D6E2000FAFEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6652C40D6E2000FAFEF /* Constants.swift */; };
-		876782D92C5F4E1E001E5AFE /* CDCharacterItemCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876782D82C5F4E1E001E5AFE /* CDCharacterItemCC.swift */; };
 		876782DB2C5F6D78001E5AFE /* ThumbnailTitleCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876782DA2C5F6D78001E5AFE /* ThumbnailTitleCC.swift */; };
 		876782DD2C5F6DFC001E5AFE /* ThumbnailTitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876782DC2C5F6DFC001E5AFE /* ThumbnailTitleData.swift */; };
 		876A7F682C48B73E000A286D /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A7F672C48B73E000A286D /* BaseCollectionVC.swift */; };
@@ -65,6 +64,7 @@
 		878246A32C5740A300A6250C /* CharactersListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 878246A22C5740A300A6250C /* CharactersListSuccess.json */; };
 		8783B3CB2C5F77C300D06829 /* ThumbnailTitleCCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8783B3CA2C5F77C300D06829 /* ThumbnailTitleCCTests.swift */; };
 		8783B3CD2C5F8E5D00D06829 /* TestableThumbnailTitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8783B3CC2C5F8E5D00D06829 /* TestableThumbnailTitleData.swift */; };
+		8783B3CF2C5F95C600D06829 /* CDCharacterItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8783B3CE2C5F95C600D06829 /* CDCharacterItemVM.swift */; };
 		8787F6F72C4399290022C518 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6F62C4399290022C518 /* TabBarVM.swift */; };
 		8787F6F92C4399320022C518 /* TabBarItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6F82C4399320022C518 /* TabBarItemVM.swift */; };
 		8787F6FE2C43A8CD0022C518 /* ComicsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F6FD2C43A8CD0022C518 /* ComicsVM.swift */; };
@@ -189,7 +189,6 @@
 		8762B6612C40D17B000FAFEF /* EventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
 		8762B6632C40D569000FAFEF /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		8762B6652C40D6E2000FAFEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		876782D82C5F4E1E001E5AFE /* CDCharacterItemCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCharacterItemCC.swift; sourceTree = "<group>"; };
 		876782DA2C5F6D78001E5AFE /* ThumbnailTitleCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTitleCC.swift; sourceTree = "<group>"; };
 		876782DC2C5F6DFC001E5AFE /* ThumbnailTitleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTitleData.swift; sourceTree = "<group>"; };
 		876A7F672C48B73E000A286D /* BaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
@@ -210,6 +209,7 @@
 		878246A22C5740A300A6250C /* CharactersListSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CharactersListSuccess.json; sourceTree = "<group>"; };
 		8783B3CA2C5F77C300D06829 /* ThumbnailTitleCCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTitleCCTests.swift; sourceTree = "<group>"; };
 		8783B3CC2C5F8E5D00D06829 /* TestableThumbnailTitleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableThumbnailTitleData.swift; sourceTree = "<group>"; };
+		8783B3CE2C5F95C600D06829 /* CDCharacterItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCharacterItemVM.swift; sourceTree = "<group>"; };
 		8787F6F62C4399290022C518 /* TabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVM.swift; sourceTree = "<group>"; };
 		8787F6F82C4399320022C518 /* TabBarItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemVM.swift; sourceTree = "<group>"; };
 		8787F6FB2C439D770022C518 /* TabBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarTests.swift; sourceTree = "<group>"; };
@@ -386,7 +386,6 @@
 				8787F7072C43DA680022C518 /* ComicItemVM.swift */,
 				8787F6FD2C43A8CD0022C518 /* ComicsVM.swift */,
 				8762B65D2C40D14B000FAFEF /* ComicsVC.swift */,
-				876782D82C5F4E1E001E5AFE /* CDCharacterItemCC.swift */,
 			);
 			path = Comics;
 			sourceTree = "<group>";
@@ -461,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				87AEA1BC2C5DE1CB0027C8E9 /* ComicDetailVC.swift */,
+				8783B3CE2C5F95C600D06829 /* CDCharacterItemVM.swift */,
 			);
 			path = ComicDetail;
 			sourceTree = "<group>";
@@ -1050,6 +1050,7 @@
 				87DDFDBF2C3902160040621E /* StringExtension.swift in Sources */,
 				8787F7062C43C7960022C518 /* DictionaryExtension.swift in Sources */,
 				8762B6662C40D6E2000FAFEF /* Constants.swift in Sources */,
+				8783B3CF2C5F95C600D06829 /* CDCharacterItemVM.swift in Sources */,
 				8762B6602C40D16A000FAFEF /* CharactersVC.swift in Sources */,
 				878FC08A2C59DC7200779669 /* ErrorTC.swift in Sources */,
 				87DDFDE12C3962400040621E /* ParentCC.swift in Sources */,
@@ -1079,7 +1080,6 @@
 				878FC0862C59D90400779669 /* BaseTableVC.swift in Sources */,
 				876782DD2C5F6DFC001E5AFE /* ThumbnailTitleData.swift in Sources */,
 				8787F70A2C43DD810022C518 /* ParentVC.swift in Sources */,
-				876782D92C5F4E1E001E5AFE /* CDCharacterItemCC.swift in Sources */,
 				8787F7082C43DA680022C518 /* ComicItemVM.swift in Sources */,
 				87DDFDDE2C395DB00040621E /* WalkthroughCC.swift in Sources */,
 				878DD4B22C588E04006896C6 /* Event.swift in Sources */,

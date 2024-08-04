@@ -166,8 +166,8 @@ class ComicDetailVC: ParentVC {
     override func setupInitialUI() {
         super.setupInitialUI()
         // Character collectionView
-        charactersCollectionView.register(CDCharacterItemCC.self,
-                                          forCellWithReuseIdentifier: CDCharacterItemCC.name)
+        charactersCollectionView.register(ThumbnailTitleCC<CDCharacterItemVM>.self,
+                                          forCellWithReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name)
         charactersCollectionView.delegate = self
         charactersCollectionView.dataSource = self
         charactersCollectionView.reloadData()
@@ -214,8 +214,8 @@ extension ComicDetailVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case charactersCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CDCharacterItemCC.name,
-                                                          for: indexPath) as! CDCharacterItemCC
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name,
+                                                          for: indexPath) as! ThumbnailTitleCC<CDCharacterItemVM>
             return cell
         default: return UICollectionViewCell()
         }

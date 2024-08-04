@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Data need to be provided to ThumbnailTitleCC
 protocol ThumbnailTitleData {
     var title: String { get }
     var thumbnailURL: URL? { get }
