@@ -29,6 +29,8 @@
 		8762B6642C40D569000FAFEF /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6632C40D569000FAFEF /* HelperFunctions.swift */; };
 		8762B6662C40D6E2000FAFEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6652C40D6E2000FAFEF /* Constants.swift */; };
 		876782D92C5F4E1E001E5AFE /* CDCharacterItemCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876782D82C5F4E1E001E5AFE /* CDCharacterItemCC.swift */; };
+		876782DB2C5F6D78001E5AFE /* ThumbnailTitleCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876782DA2C5F6D78001E5AFE /* ThumbnailTitleCC.swift */; };
+		876782DD2C5F6DFC001E5AFE /* ThumbnailTitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876782DC2C5F6DFC001E5AFE /* ThumbnailTitleData.swift */; };
 		876A7F682C48B73E000A286D /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A7F672C48B73E000A286D /* BaseCollectionVC.swift */; };
 		877957C72C474FC4009A8D8B /* FetchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877957C62C474FC4009A8D8B /* FetchState.swift */; };
 		877957C92C474FF0009A8D8B /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877957C82C474FF0009A8D8B /* PaginationManager.swift */; };
@@ -189,6 +191,8 @@
 		8762B6632C40D569000FAFEF /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		8762B6652C40D6E2000FAFEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		876782D82C5F4E1E001E5AFE /* CDCharacterItemCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCharacterItemCC.swift; sourceTree = "<group>"; };
+		876782DA2C5F6D78001E5AFE /* ThumbnailTitleCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTitleCC.swift; sourceTree = "<group>"; };
+		876782DC2C5F6DFC001E5AFE /* ThumbnailTitleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTitleData.swift; sourceTree = "<group>"; };
 		876A7F672C48B73E000A286D /* BaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
 		877957C62C474FC4009A8D8B /* FetchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchState.swift; sourceTree = "<group>"; };
 		877957C82C474FF0009A8D8B /* PaginationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
@@ -348,6 +352,7 @@
 				876A7F672C48B73E000A286D /* BaseCollectionVC.swift */,
 				87B39B382C49FB9600FC792E /* APIDataListable.swift */,
 				878FC0852C59D90400779669 /* BaseTableVC.swift */,
+				876782DC2C5F6DFC001E5AFE /* ThumbnailTitleData.swift */,
 			);
 			path = ParentClasses;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 				878FC0872C59DC6B00779669 /* EmptyTC.swift */,
 				878FC0892C59DC7200779669 /* ErrorTC.swift */,
 				878FC08D2C59E46A00779669 /* TableViewNextPageLoader.swift */,
+				876782DA2C5F6D78001E5AFE /* ThumbnailTitleCC.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -1059,6 +1065,7 @@
 				87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */,
 				87DDFDE32C3962BE0040621E /* ParentTC.swift in Sources */,
 				87DDFDBB2C3900CC0040621E /* APIService.swift in Sources */,
+				876782DB2C5F6D78001E5AFE /* ThumbnailTitleCC.swift in Sources */,
 				877B48232C562995001A6E5A /* URLSessionProtocol.swift in Sources */,
 				8762B65E2C40D14B000FAFEF /* ComicsVC.swift in Sources */,
 				878FC0882C59DC6B00779669 /* EmptyTC.swift in Sources */,
@@ -1067,6 +1074,7 @@
 				87F74EA12C45FE8600D90377 /* ErrorCC.swift in Sources */,
 				878246A12C573C0600A6250C /* CharacterItemTC.swift in Sources */,
 				878FC0862C59D90400779669 /* BaseTableVC.swift in Sources */,
+				876782DD2C5F6DFC001E5AFE /* ThumbnailTitleData.swift in Sources */,
 				8787F70A2C43DD810022C518 /* ParentVC.swift in Sources */,
 				876782D92C5F4E1E001E5AFE /* CDCharacterItemCC.swift in Sources */,
 				8787F7082C43DA680022C518 /* ComicItemVM.swift in Sources */,

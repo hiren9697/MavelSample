@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct ComicItemVM {
+struct ComicItemVM: ThumbnailTitleData {
     let title: String
     let thumbnailURL: URL?
     
