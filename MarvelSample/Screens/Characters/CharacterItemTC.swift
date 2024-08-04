@@ -7,6 +7,7 @@
 
 import UIKit
 
+/*
 class CharacterItemCC: ParentCC {
     
     let containerView: UIView = {
@@ -80,3 +81,4 @@ extension CharacterItemCC {
         })
     }
 }
+*/

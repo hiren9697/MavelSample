@@ -35,32 +35,32 @@ extension CharactersVCTests {
     func test_cellForRow_withFilledData_dequesCorrectTypeOfCell() {
         addListItemsWithIdleModeInViewModel()
         let zerothCell = cellForRow(in: sut.collectionView, row: 0)
-        XCTAssertTrue(zerothCell is CharacterItemCC, "zerothCell is not CharacterItemCC")
+        XCTAssertTrue(zerothCell is ThumbnailTitleCC<CharacterItemVM>, "zerothCell is not ThumbnailTitleCC<CharacterItemVM>")
         let firstCell = cellForRow(in: sut.collectionView, row: 1)
-        XCTAssertTrue(firstCell is CharacterItemCC, "firstCell is not CharacterItemCC")
+        XCTAssertTrue(firstCell is ThumbnailTitleCC<CharacterItemVM>, "firstCell is not ThumbnailTitleCC<CharacterItemVM>")
         let lastCell = cellForRow(in: sut.collectionView, row: viewModel.listItems.value.count - 1)
-        XCTAssertTrue(lastCell is CharacterItemCC, "lastCell is not CharacterItemCC")
+        XCTAssertTrue(lastCell is ThumbnailTitleCC<CharacterItemVM>, "lastCell is not ThumbnailTitleCC<CharacterItemVM>")
     }
     
     func test_cellForRow_withFilledData_updatesUIIfCell() {
         addListItemsWithIdleModeInViewModel()
-        guard let zerothCell = cellForRow(in: sut.collectionView, row: 0) as? CharacterItemCC else {
-            XCTFail("Dequed zeroth cell is not CharacterItemCC")
+        guard let zerothCell = cellForRow(in: sut.collectionView, row: 0) as? ThumbnailTitleCC<CharacterItemVM> else {
+            XCTFail("Dequed zeroth cell is not ThumbnailTitleCC<CharacterItemVM>")
             return
         }
-        XCTAssertEqual(zerothCell.nameLabel.text,
+        XCTAssertEqual(zerothCell.titleLabel.text,
                        "Zeroth character name")
-        guard let firstCell = cellForRow(in: sut.collectionView, row: 1) as? CharacterItemCC else {
-            XCTFail("Dequed first cell is not CharacterItemCC")
+        guard let firstCell = cellForRow(in: sut.collectionView, row: 1) as? ThumbnailTitleCC<CharacterItemVM> else {
+            XCTFail("Dequed first cell is not ThumbnailTitleCC<CharacterItemVM>")
             return
         }
-        XCTAssertEqual(firstCell.nameLabel.text,
+        XCTAssertEqual(firstCell.titleLabel.text,
                        "First character name")
-        guard let lastCell = cellForRow(in: sut.collectionView, row: viewModel.listItems.value.lastIndex) as? CharacterItemCC else {
-            XCTFail("Dequed last cell is not CharacterItemCC")
+        guard let lastCell = cellForRow(in: sut.collectionView, row: viewModel.listItems.value.lastIndex) as? ThumbnailTitleCC<CharacterItemVM> else {
+            XCTFail("Dequed last cell is not ThumbnailTitleCC<CharacterItemVM>")
             return
         }
-        XCTAssertEqual(lastCell.nameLabel.text,
+        XCTAssertEqual(lastCell.titleLabel.text,
                        "Third character name")
     }
 }

@@ -26,13 +26,13 @@ class CharactersVC: BaseCollectionVC<Character,
     
     // MARK: - Cell methods
     override func registerCollectionViewDataCell() {
-        collectionView.register(CharacterItemCC.self,
-                                forCellWithReuseIdentifier: CharacterItemCC.name)
+        collectionView.register(ThumbnailTitleCC<CharacterItemVM>.self,
+                                forCellWithReuseIdentifier: ThumbnailTitleCC<CharacterItemVM>.name)
     }
     
     override func dequeueCell(at indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterItemCC.name,
-                                           for: indexPath) as! CharacterItemCC
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CharacterItemVM>.name,
+                                           for: indexPath) as! ThumbnailTitleCC<CharacterItemVM>
         cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
         return cell
     }

@@ -67,7 +67,7 @@ extension CharactersVMTests {
             XCTFail("Precondition: First element of data is nil")
             return
         }
-        XCTAssertEqual(firstData.name, "3-D Man", "name")
+        XCTAssertEqual(firstData.title, "3-D Man", "name")
         XCTAssertEqual(firstData.thumbnailURL, URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg"), "thumbnailURL")
     }
     

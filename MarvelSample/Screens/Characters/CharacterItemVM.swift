@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct CharacterItemVM {
-    let name: String
+struct CharacterItemVM: ThumbnailTitleData {
+    let title: String
     let thumbnailURL: URL?
     
     init(character: Character) {
-        name = character.name
+        title = character.name
         thumbnailURL = character.thumbnailURL
     }
 }

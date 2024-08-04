@@ -8,6 +8,7 @@
 import XCTest
 @testable import MarvelSample
 
+/*
 final class ComicItemCCTests: XCTestCase {
 
     var sut: ComicItemCC!
@@ -34,3 +35,4 @@ final class ComicItemCCTests: XCTestCase {
         XCTAssertEqual(sut.titleLabel.text, viewModel.title)
     }
 }
+*/
