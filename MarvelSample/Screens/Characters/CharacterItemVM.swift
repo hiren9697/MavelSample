@@ -8,6 +8,7 @@
 import Foundation
 
 struct CharacterItemVM: ThumbnailTitleData {
+    var loadingState: ListItemLoadingState? = nil
     let title: String
     let thumbnailURL: URL?
     

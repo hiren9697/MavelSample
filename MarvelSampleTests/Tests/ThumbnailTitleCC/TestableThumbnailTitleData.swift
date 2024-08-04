@@ -9,6 +9,7 @@ import Foundation
 @testable import MarvelSample
 
 class TestableThumbnailTitleData: ThumbnailTitleData {
+    var loadingState: ListItemLoadingState? = nil
     let title: String
     let thumbnailURL: URL?
     

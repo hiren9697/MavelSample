@@ -8,6 +8,7 @@
 import UIKit
 
 struct ComicItemVM: ThumbnailTitleData {
+    var loadingState: ListItemLoadingState? = nil
     let title: String
     let thumbnailURL: URL?
     

@@ -26,7 +26,7 @@ class FlowManager {
     
     func setRootViewController() {
         if hasSeenWalkthrough {
-            
+           ///*
             guard !(window.rootViewController is TabBarController) else {
                 return
             }
@@ -34,8 +34,8 @@ class FlowManager {
             let navigationController = UINavigationController(rootViewController: tabBarController)
             window.rootViewController = navigationController
             window.makeKeyAndVisible()
-             
-            // window.rootViewController = ComicDetailVC(viewModel: ComicDetailVM())
+            //*/
+            //window.rootViewController = ComicDetailVC(viewModel: ComicDetailVM())
         } else {
             guard !(window.rootViewController is WalkthroughVC) else {
                 return

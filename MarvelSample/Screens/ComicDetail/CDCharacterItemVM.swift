@@ -9,6 +9,7 @@ import Foundation
 
 /// Data for character collection view cell in Comic detail
 class CDCharacterItemVM: ThumbnailTitleData {
+    var loadingState: ListItemLoadingState? = .loading
     let title: String
     let thumbnailURL: URL?
     

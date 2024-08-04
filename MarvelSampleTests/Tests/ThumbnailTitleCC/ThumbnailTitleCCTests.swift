@@ -25,8 +25,10 @@ final class ThumbnailTitleCCTests: XCTestCase {
     func test_components_isInViewHierarchy() {
         Log.info(sut.imageView)
         XCTAssertEqual(sut.containerView.superview, sut.contentView)
-        XCTAssertEqual(sut.imageView.superview, sut.containerView)
-        XCTAssertEqual(sut.titleLabel.superview, sut.containerView)
+        XCTAssertEqual(sut.dataContainerView.superview, sut.containerView)
+        XCTAssertEqual(sut.imageView.superview, sut.dataContainerView)
+        XCTAssertEqual(sut.titleLabel.superview, sut.dataContainerView)
+        XCTAssertEqual(sut.loader.superview, sut.containerView)
     }
     
     func test_cellUpdatesUI_fromViewModel() {

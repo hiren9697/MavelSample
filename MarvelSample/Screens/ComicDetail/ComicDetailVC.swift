@@ -216,6 +216,8 @@ extension ComicDetailVC: UICollectionViewDataSource {
         case charactersCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name,
                                                           for: indexPath) as! ThumbnailTitleCC<CDCharacterItemVM>
+            cell.updateUI(viewModel: CDCharacterItemVM(title: "This is demo",
+                                                       thumbnailURL: URL(string: "https://www.google.com")))
             return cell
         default: return UICollectionViewCell()
         }
