@@ -49,8 +49,6 @@ where ViewModel.Data == Data,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupInitialUI()
-        setupConstraints()
         registerCollectionViewDataCell()
         registerCollectionViewOtherCellsAndHeaderFooter()
         setupCollectionView()
@@ -62,12 +60,29 @@ where ViewModel.Data == Data,
         super.viewDidAppear(animated)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Navigation title
+        tabBarController?.title = viewModel.navigationTitle
+    }
+    
     // MARK: - UI helper methods
-    func setupConstraints() {
+    override func setupConstraints() {
+        super.setupConstraints()
+        view.addSubview(collectionView)
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    override func setupInitialUI() {
+        super.setupInitialUI()
+        // Loader
+        view.bringSubviewToFront(loaderContainer)
+        // Refresh Control
+        collectionView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }
     
     func setupCollectionView() {
@@ -91,23 +106,6 @@ where ViewModel.Data == Data,
         collectionView.register(CollectionViewEmptyFooter.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: CollectionViewEmptyFooter.name)
-    }
-    
-    override func setupInitialUI() {
-        super.setupInitialUI()
-        // CollectionView
-        view.addSubview(collectionView)
-        // Loader
-        view.bringSubviewToFront(loaderContainer)
-        // Refresh Control
-        collectionView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Navigation title
-        tabBarController?.title = viewModel.navigationTitle
     }
     
     func fetchInitialData() {

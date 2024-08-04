@@ -115,7 +115,8 @@ class ComicDetailVC: ParentVC {
     }
     
     // MARK: - UI method(s)
-    private func setupConstraints() {
+    override func setupConstraints() {
+        super.setupConstraints()
         // ScrollView
         view.addSubview(scrollView)
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true

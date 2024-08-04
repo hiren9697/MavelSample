@@ -37,8 +37,6 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupInitialUI()
-        setupConstraints()
         registerTableViewDataCell()
         registerTableViewOtherCellsAndHeaderFooter()
         setupCollectionView()
@@ -46,16 +44,33 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         fetchInitialData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // Navigation title
+        tabBarController?.title = viewModel.navigationTitle
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
     // MARK: - UI helper methods
-    func setupConstraints() {
+    override func setupConstraints() {
+        super.setupConstraints()
+        view.addSubview(tableView)
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    override func setupInitialUI() {
+        super.setupInitialUI()
+        // Loader
+        view.bringSubviewToFront(loaderContainer)
+        // Refresh Control
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
     }
     
     func setupCollectionView() {
@@ -77,23 +92,6 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
                            forCellReuseIdentifier: ErrorTC.name)
         tableView.register(TableViewNextPageLoader.self,
                            forHeaderFooterViewReuseIdentifier: TableViewNextPageLoader.name)
-    }
-    
-    override func setupInitialUI() {
-        super.setupInitialUI()
-        // CollectionView
-        view.addSubview(tableView)
-        // Loader
-        view.bringSubviewToFront(loaderContainer)
-        // Refresh Control
-        tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Navigation title
-        tabBarController?.title = viewModel.navigationTitle
     }
     
     func fetchInitialData() {
