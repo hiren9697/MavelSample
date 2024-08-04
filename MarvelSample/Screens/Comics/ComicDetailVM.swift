@@ -17,4 +17,10 @@ class ComicDetailVM {
         description = comic.descriptionText
         thumbnailURL = comic.thumbnailURL
     }
+    
+    init() {
+        title = "Hello there, this is a title"
+        description = "Hello there, this is just a description"
+        thumbnailURL = URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/c/80/5e3d7536c8ada.jpg")!
+    }
 }
