@@ -33,7 +33,7 @@ class CharactersVC: BaseCollectionVC<Character,
     override func dequeueCell(at indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CharacterItemVM>.name,
                                            for: indexPath) as! ThumbnailTitleCC<CharacterItemVM>
-        cell.updateUI(viewModel: viewModel.itemVM(for: indexPath.row))
+        cell.update(viewModel: viewModel.itemVM(for: indexPath.row))
         return cell
     }
     

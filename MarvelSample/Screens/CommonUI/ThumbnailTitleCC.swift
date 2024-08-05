@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 class ThumbnailTitleCC<ViewModel: ThumbnailTitleData>: ParentCC {
     
+    // MARK: - UI Components
     /// Main view child of contentView
     /// Holds all UI components
     let containerView: UIView = {
@@ -50,11 +52,23 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleData>: ParentCC {
         return label
     }()
     
+    // MARK: - Variables
     var viewModel: ViewModel?
+    private var bindings = Set<AnyCancellable>()
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    // MARK: - Life cycle
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupUIInitial()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bindings.removeAll()
     }
 }
 
@@ -96,7 +110,31 @@ extension ThumbnailTitleCC {
         loader.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
     }
     
-    func updateUI(viewModel: ViewModel) {
+    func update(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        setupBinding()
+        updateUIBasedOnFetchState()
+        fetchDataIfRequired()
+    }
+    
+    private func setupBinding() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        guard let dataFetchState = viewModel.dataFetchState else {
+            return
+        }
+        dataFetchState
+            .sink {[weak self] state in
+                self?.updateUIBasedOnFetchState()
+            }
+            .store(in: &bindings)
+    }
+    
+    private func updateUIBasedOnFetchState() {
+        guard let viewModel = viewModel else {
+            return
+        }
         // Helper methods
         func showLoaderAndHideUIComponents() {
             loader.startAnimating()
@@ -105,6 +143,10 @@ extension ThumbnailTitleCC {
         func hideLoaderAndShowUIComponents() {
             loader.stopAnimating()
             dataContainerView.isHidden = false
+        }
+        func hideEverything() {
+            loader.stopAnimating()
+            dataContainerView.isHidden = true
         }
         func setData() {
             titleLabel.text = viewModel.title
@@ -122,12 +164,14 @@ extension ThumbnailTitleCC {
         }
         // Logic
         self.viewModel = viewModel
-        guard let loadingState = viewModel.loadingState else {
+        guard let loadingState = viewModel.dataFetchState else {
             setData()
             hideLoaderAndShowUIComponents()
             return
         }
-        switch loadingState {
+        switch loadingState.value {
+        case .notStarted:
+            hideEverything()
         case .loading:
             showLoaderAndHideUIComponents()
         case .loaded:
@@ -135,6 +179,18 @@ extension ThumbnailTitleCC {
             hideLoaderAndShowUIComponents()
         case .failed:
             break
+        }
+    }
+    
+    private func fetchDataIfRequired() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        guard let dataFetchState = viewModel.dataFetchState else {
+            return
+        }
+        if dataFetchState.value == .notStarted {
+            viewModel.fetchData()
         }
     }
 }

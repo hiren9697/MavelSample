@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 enum ListItemLoadingState {
+    case notStarted
     case loading
     case loaded
     case failed
@@ -15,7 +17,9 @@ enum ListItemLoadingState {
 
 /// Data need to be provided to ThumbnailTitleCC
 protocol ThumbnailTitleData {
-    var loadingState: ListItemLoadingState? { get set }
+    var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? { get set }
     var title: String { get }
     var thumbnailURL: URL? { get }
+    
+    func fetchData()
 }

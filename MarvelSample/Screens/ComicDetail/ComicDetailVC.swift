@@ -205,7 +205,7 @@ extension ComicDetailVC: UICollectionViewDelegate {
 extension ComicDetailVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == charactersCollectionView {
-           return 20
+           return 1
         } else {
             return 0
         }
@@ -216,8 +216,9 @@ extension ComicDetailVC: UICollectionViewDataSource {
         case charactersCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name,
                                                           for: indexPath) as! ThumbnailTitleCC<CDCharacterItemVM>
-            cell.updateUI(viewModel: CDCharacterItemVM(title: "This is demo",
-                                                       thumbnailURL: URL(string: "https://www.google.com")))
+//            cell.updateUI(viewModel: CDCharacterItemVM(title: "This is demo",
+//                                                       thumbnailURL: URL(string: "https://www.google.com")))
+            cell.update(viewModel: viewModel.getCharacterItemVM(for: indexPath.row))
             return cell
         default: return UICollectionViewCell()
         }
