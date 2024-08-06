@@ -32,7 +32,7 @@ final class ThumbnailTitleCCTests: XCTestCase {
     }
     
     func test_cellUpdatesUI_fromViewModel() {
-        sut.updateUI(viewModel: viewModel)
+        sut.update(viewModel: viewModel)
         XCTAssertEqual(sut.titleLabel.text, viewModel.title)
     }
 }

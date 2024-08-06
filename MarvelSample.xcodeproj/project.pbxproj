@@ -98,6 +98,8 @@
 		87CBC51F2C54FEB5007AB863 /* ComicVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */; };
 		87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */; };
 		87CBC52A2C554179007AB863 /* EmptyList.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5292C554179007AB863 /* EmptyList.json */; };
+		87D568082C61A2F400D95280 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D568072C61A2F400D95280 /* JSONParser.swift */; };
+		87D5680A2C61A3CB00D95280 /* JSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D568092C61A3CB00D95280 /* JSONParserTests.swift */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
 		87DDFD842C38EDDB0040621E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFD832C38EDDB0040621E /* Assets.xcassets */; };
@@ -248,6 +250,8 @@
 		87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicVMTests.swift; sourceTree = "<group>"; };
 		87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ComicsListSuccess.json; sourceTree = "<group>"; };
 		87CBC5292C554179007AB863 /* EmptyList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmptyList.json; sourceTree = "<group>"; };
+		87D568072C61A2F400D95280 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		87D568092C61A3CB00D95280 /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -426,6 +430,7 @@
 				87AEA1BE2C5E491E0027C8E9 /* ComicDetail */,
 				878DD4A42C586EFA006896C6 /* Character */,
 				87E38E822C5C6DE100473B5B /* Event */,
+				87D568092C61A3CB00D95280 /* JSONParserTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -547,12 +552,12 @@
 		87CBC5202C550E8D007AB863 /* JSONs */ = {
 			isa = PBXGroup;
 			children = (
-				878246A22C5740A300A6250C /* CharactersListSuccess.json */,
 				877B481C2C5616A1001A6E5A /* NonDictionary.json */,
-				877B48182C560F4D001A6E5A /* WithoutResultKey.json */,
-				877B48162C560F25001A6E5A /* WithoutDataKey.json */,
 				877B48122C5608F7001A6E5A /* Error.json */,
+				877B48162C560F25001A6E5A /* WithoutDataKey.json */,
+				877B48182C560F4D001A6E5A /* WithoutResultKey.json */,
 				87CBC5292C554179007AB863 /* EmptyList.json */,
+				878246A22C5740A300A6250C /* CharactersListSuccess.json */,
 				87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */,
 			);
 			path = JSONs;
@@ -702,6 +707,7 @@
 				8728486D2C42585D008C1ED0 /* ParentClasses */,
 				87DDFDC02C39041F0040621E /* Error */,
 				87DDFDBC2C3901F80040621E /* Extensions */,
+				87D568072C61A2F400D95280 /* JSONParser.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1040,6 +1046,7 @@
 				87AEA1BD2C5DE1CB0027C8E9 /* ComicDetailVC.swift in Sources */,
 				87DDFDD72C394C420040621E /* main.swift in Sources */,
 				87DDFDD92C395A400040621E /* WalkthroughVC.swift in Sources */,
+				87D568082C61A2F400D95280 /* JSONParser.swift in Sources */,
 				8787F6FE2C43A8CD0022C518 /* ComicsVM.swift in Sources */,
 				878DD4B42C588EE0006896C6 /* EventItemVM.swift in Sources */,
 				8787F7002C43C1D40022C518 /* DataExtension.swift in Sources */,
@@ -1140,6 +1147,7 @@
 				878DD4AA2C586FDE006896C6 /* TestableCharactersVM.swift in Sources */,
 				877B482E2C562CE0001A6E5A /* BaseCollectionVCTests.swift in Sources */,
 				87E38E882C5C6EF000473B5B /* TestableEventsVM.swift in Sources */,
+				87D5680A2C61A3CB00D95280 /* JSONParserTests.swift in Sources */,
 				877B482D2C562CE0001A6E5A /* TestableChildCollectionVC.swift in Sources */,
 				874F8EE52C5485B500D1AA77 /* TestableAPIRequestGenerator.swift in Sources */,
 				877B48212C562956001A6E5A /* URLSessionSpy.swift in Sources */,
