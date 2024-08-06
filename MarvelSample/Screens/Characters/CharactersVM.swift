@@ -18,13 +18,7 @@ class CharactersVM: BaseListVM<Character, CharacterItemVM> {
     }
     
     override func parseData(json: Any) {
-        guard let dict = json as? NSDictionary else {
-            return
-        }
-        guard let data = dict["data"] as? NSDictionary else {
-            return
-        }
-        guard let results = data["results"] as? [NSDictionary] else {
+        guard let results = JSONParser().parseListJSON(json) else {
             return
         }
         var newCharacters: [Character] = []
