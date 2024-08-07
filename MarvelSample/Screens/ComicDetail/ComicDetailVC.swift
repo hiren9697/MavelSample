@@ -213,6 +213,7 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name,
                                                           for: indexPath) as! ThumbnailTitleCC<CDCharacterItemVM>
             cell.update(viewModel: viewModel.getCharacterItemVM(for: indexPath.row))
+            // Print characters of 
             return cell
         default: return UICollectionViewCell()
         }

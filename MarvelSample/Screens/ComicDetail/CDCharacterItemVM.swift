@@ -85,8 +85,11 @@ class CDCharacterItemVM: ThumbnailTitleData {
     }
     
     func fetchData() {
-        if character == nil {
-            // makeRequestToFetchData()
+        guard let dataFetchState = dataFetchState else {
+            return
+        }
+        if character == nil && dataFetchState.value == .notStarted {
+            makeRequestToFetchData()
         }
     }
 }
