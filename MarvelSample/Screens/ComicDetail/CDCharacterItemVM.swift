@@ -89,7 +89,7 @@ class CDCharacterItemVM: ThumbnailTitleData {
             return
         }
         if character == nil && dataFetchState.value == .notStarted {
-            makeRequestToFetchData()
+            // makeRequestToFetchData()
         }
     }
 }

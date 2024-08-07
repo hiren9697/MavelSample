@@ -58,6 +58,14 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
         view.clipsToBounds = true
         return view
     }()
+    let charactersTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor.gray
+        label.text = "Characters"
+        return label
+    }()
     let charactersCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -187,6 +195,7 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
         imageView.kf.setImage(with: viewModel.thumbnailURL)
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
+        descriptionLabelContainer.isHidden = descriptionLabel.text!.isEmpty
     }
     
     // MARK: - Collection Delegate
