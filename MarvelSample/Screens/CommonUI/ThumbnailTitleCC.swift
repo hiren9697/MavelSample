@@ -18,7 +18,7 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleData>: ParentCC {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 5
         view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.lightGray.cgColor
+        view.layer.borderColor = AppColors.lightGray.cgColor
         return view
     }()
     let loader: UIActivityIndicatorView = {
@@ -108,6 +108,8 @@ extension ThumbnailTitleCC {
         containerView.addSubview(loader)
         loader.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         loader.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        
+        // contentView.backgroundColor = .lightGray
     }
     
     func update(viewModel: ViewModel) {
@@ -125,6 +127,7 @@ extension ThumbnailTitleCC {
             return
         }
         dataFetchState
+            .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
                 self?.updateUIBasedOnFetchState()
             }

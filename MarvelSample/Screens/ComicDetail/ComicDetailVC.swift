@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ComicDetailVC: ParentVC {
+class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     // MARK: - UI Components
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -61,6 +61,7 @@ class ComicDetailVC: ParentVC {
     let charactersCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.estimatedItemSize = .zero
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,13 +84,21 @@ class ComicDetailVC: ParentVC {
     
     // MARK: - Variables
     let viewModel: ComicDetailVM
-    let itemSpace: CGFloat = 10
-    let lineSpace: CGFloat = 0
-    let padding: CGFloat = 20
+    let itemSpace: CGFloat = 0
+    let lineSpace: CGFloat = 10
+    let gridHorizontalPadding: CGFloat = 20
+    let gridVerticalPadding: CGFloat = 5
     lazy var itemSize: CGSize = {
         let width = view.bounds.width / 3
         let height = width * 1.3
         return CGSize(width: width, height: height)
+    }()
+    lazy var horizontalGridHeight: CGFloat = {
+        let itemHeight = itemSize.height
+        let collectionViewTopBottomConstraintHeight: CGFloat = 5 * 2
+        let collectionViewSectionPadding = gridVerticalPadding * 2
+        let totalHeight = itemHeight + collectionViewTopBottomConstraintHeight + collectionViewSectionPadding
+        return totalHeight
     }()
     
     init(viewModel: ComicDetailVM) {
@@ -146,13 +155,13 @@ class ComicDetailVC: ParentVC {
         descriptionLabel.bottomAnchor.constraint(equalTo: descriptionLabelContainer.bottomAnchor, constant: -10).isActive = true
         stackView.addArrangedSubview(descriptionLabelContainer)
         // Characters
-        charactersContainer.heightAnchor.constraint(equalToConstant: itemSize.height).isActive = true
-        charactersContainer.backgroundColor = .blue
+        charactersContainer.heightAnchor.constraint(equalToConstant: horizontalGridHeight).isActive = true
         charactersContainer.addSubview(charactersCollectionView)
-        charactersCollectionView.leadingAnchor.constraint(equalTo: charactersContainer.leadingAnchor, constant: 20).isActive = true
-        charactersCollectionView.trailingAnchor.constraint(equalTo: charactersContainer.trailingAnchor, constant: -20).isActive = true
-        charactersCollectionView.topAnchor.constraint(equalTo: charactersContainer.topAnchor, constant: 5).isActive = true
-        charactersCollectionView.bottomAnchor.constraint(equalTo: charactersContainer.bottomAnchor, constant: -5).isActive = true
+        charactersCollectionView.leadingAnchor.constraint(equalTo: charactersContainer.leadingAnchor, constant: 0).isActive = true
+        charactersCollectionView.trailingAnchor.constraint(equalTo: charactersContainer.trailingAnchor, constant: 0).isActive = true
+        charactersCollectionView.topAnchor.constraint(equalTo: charactersContainer.topAnchor, constant: 10).isActive = true
+        charactersCollectionView.bottomAnchor.constraint(equalTo: charactersContainer.bottomAnchor, constant: -10).isActive = true
+        // charactersContainer.backgroundColor = .blue
         stackView.addArrangedSubview(charactersContainer)
         // StackView
         scrollView.addSubview(stackView)
@@ -181,17 +190,6 @@ class ComicDetailVC: ParentVC {
     }
     
     // MARK: - Collection Delegate
-    
-    
-    // MARK: - Collection Datasource
-    
-    
-    
-    
-}
-
-// MARK: - CollectionView Delegate
-extension ComicDetailVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case charactersCollectionView:
@@ -199,13 +197,11 @@ extension ComicDetailVC: UICollectionViewDelegate {
         default: break
         }
     }
-}
-
-// MARK: - CollectionView DataSource
-extension ComicDetailVC: UICollectionViewDataSource {
+    
+    // MARK: - Collection Datasource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == charactersCollectionView {
-           return 1
+            return viewModel.characterIDs.count
         } else {
             return 0
         }
@@ -216,31 +212,31 @@ extension ComicDetailVC: UICollectionViewDataSource {
         case charactersCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name,
                                                           for: indexPath) as! ThumbnailTitleCC<CDCharacterItemVM>
-//            cell.updateUI(viewModel: CDCharacterItemVM(title: "This is demo",
-//                                                       thumbnailURL: URL(string: "https://www.google.com")))
             cell.update(viewModel: viewModel.getCharacterItemVM(for: indexPath.row))
             return cell
         default: return UICollectionViewCell()
         }
     }
-}
-
-// MARK: - Collection DelegateFlowLayout
-extension ComicDetailVC: UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - CollectionView Delegate FlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        .leastNonzeroMagnitude
+        itemSpace
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        .leastNonzeroMagnitude
+        lineSpace
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        .zero
+        UIEdgeInsets(top: gridVerticalPadding,
+                     left: gridHorizontalPadding,
+                     bottom: gridVerticalPadding,
+                     right: gridHorizontalPadding)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return itemSize
     }
 }
+
 

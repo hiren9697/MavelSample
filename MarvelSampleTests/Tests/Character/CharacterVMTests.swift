@@ -9,7 +9,6 @@ import XCTest
 @testable import MarvelSample
 
 final class CharactersVMTests: XCTestCase {
-
     var sut: CharactersVM!
     var service: MockAPIService!
     

@@ -16,6 +16,7 @@ class CDCharacterItemVM: ThumbnailTitleData {
     var characterID: String?
     let service = APIService(requestGenerator: APIRequestGenerator())
     var dataFetchTask: URLSessionDataTask?
+    var character: Character?
     
     init(title: String, thumbnailURL: URL?) {
         self.title = title
@@ -29,9 +30,27 @@ class CDCharacterItemVM: ThumbnailTitleData {
     }
     
     private func makeRequestToFetchData() {
-        
-        func parseJSON() {
-            
+        // Helper function
+        func parseJSON(_ json: Any) {
+            // Parse JSON
+            guard let results = JSONParser().parseListJSON(json) else {
+                dataFetchState?.value = .failed
+                return
+            }
+            guard let characterDictionary = results.first else {
+                dataFetchState?.value = .failed
+                return
+            }
+            guard let character = Character(dict: characterDictionary) else {
+                dataFetchState?.value = .failed
+                return
+            }
+            self.character = character
+            // Update Display data
+            title = character.name
+            thumbnailURL = character.thumbnailURL
+            // Update state
+            dataFetchState?.value = .loaded
         }
         
         guard let characterID = characterID else {
@@ -40,15 +59,17 @@ class CDCharacterItemVM: ThumbnailTitleData {
         guard dataFetchTask == nil else {
             return
         }
+        // API Call
         do {
             let request = try service.requestGenerator.generateRequestWithHash(requestType: .get,
                                                                                relativePath: APIEndpoints.characters.rawValue + "/\(characterID)")
-            dataFetchTask = service.dataTask(request: request) { result in
+            dataFetchTask = service.dataTask(request: request) {[weak self] result in
                 switch result {
                 case .success(let json):
+                    parseJSON(json)
                     break
                 case .failure(let error):
-                    break
+                    self?.dataFetchState?.value = .failed
                 }
             }
             dataFetchTask?.resume()
@@ -58,13 +79,14 @@ class CDCharacterItemVM: ThumbnailTitleData {
                 dataFetchState = CurrentValueSubject(.notStarted)
                 dataFetchState?.value = .loading
             }
-            
         } catch {
             Log.error("Error in generating character detail request: \(error)")
         }
     }
     
     func fetchData() {
-        makeRequestToFetchData()
+        if character == nil {
+            // makeRequestToFetchData()
+        }
     }
 }
