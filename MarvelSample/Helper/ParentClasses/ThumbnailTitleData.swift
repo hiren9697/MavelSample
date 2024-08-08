@@ -23,3 +23,10 @@ protocol ThumbnailTitleData {
     
     func fetchData()
 }
+
+
+protocol HorizontalGridData {
+    var title: String { get }
+    var data: Array<ThumbnailTitleData> { get set }
+}
+

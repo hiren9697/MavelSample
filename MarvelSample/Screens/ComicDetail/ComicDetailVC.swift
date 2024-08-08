@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class ComicDetailVC: ParentVC {
     // MARK: - UI Components
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -58,29 +58,32 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
         view.clipsToBounds = true
         return view
     }()
-    let charactersTitleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.textColor = UIColor.gray
-        label.text = "Characters"
-        return label
+    lazy var characterCollectionView: ThumbnailTitleHorizontalGridView =  {
+        ThumbnailTitleHorizontalGridView(viewModel: CharactersGridData(data: viewModel.characterItemVMs))
     }()
-    let charactersCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = .zero
-        let collectionView = UICollectionView(frame: .zero,
-                                              collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
-    }()
-    let charactersContainer: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.clipsToBounds = true
-        return view
-    }()
+//    let charactersTitleLabel: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.font = UIFont.systemFont(ofSize: 16)
+//        label.textColor = UIColor.gray
+//        label.text = "Characters"
+//        return label
+//    }()
+//    let charactersCollectionView: UICollectionView = {
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        layout.estimatedItemSize = .zero
+//        let collectionView = UICollectionView(frame: .zero,
+//                                              collectionViewLayout: layout)
+//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        return collectionView
+//    }()
+//    let charactersContainer: UIView = {
+//        let view = UIView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.clipsToBounds = true
+//        return view
+//    }()
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -128,7 +131,7 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        charactersCollectionView.reloadData()
+        // charactersCollectionView.reloadData()
     }
     
     // MARK: - UI method(s)
@@ -162,6 +165,7 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
         descriptionLabel.topAnchor.constraint(equalTo: descriptionLabelContainer.topAnchor, constant: 10).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: descriptionLabelContainer.bottomAnchor, constant: -10).isActive = true
         stackView.addArrangedSubview(descriptionLabelContainer)
+        /*
         // Characters
         charactersContainer.heightAnchor.constraint(equalToConstant: horizontalGridHeight).isActive = true
         charactersContainer.addSubview(charactersCollectionView)
@@ -171,6 +175,9 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
         charactersCollectionView.bottomAnchor.constraint(equalTo: charactersContainer.bottomAnchor, constant: -10).isActive = true
         // charactersContainer.backgroundColor = .blue
         stackView.addArrangedSubview(charactersContainer)
+         */
+        characterCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(characterCollectionView)
         // StackView
         scrollView.addSubview(stackView)
         stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor).isActive = true
@@ -178,16 +185,21 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
         stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor).isActive = true
         stackView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
     }
     
     override func setupInitialUI() {
         super.setupInitialUI()
+        /*
         // Character collectionView
         charactersCollectionView.register(ThumbnailTitleCC<CDCharacterItemVM>.self,
                                           forCellWithReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name)
         charactersCollectionView.delegate = self
         charactersCollectionView.dataSource = self
         charactersCollectionView.reloadData()
+         */
     }
     
     // MARK: - Helper
@@ -197,7 +209,7 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
         descriptionLabel.text = viewModel.description
         descriptionLabelContainer.isHidden = descriptionLabel.text!.isEmpty
     }
-    
+    /*
     // MARK: - Collection Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
@@ -247,6 +259,7 @@ class ComicDetailVC: ParentVC, UICollectionViewDelegate, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return itemSize
     }
+     */
 }
 
 
