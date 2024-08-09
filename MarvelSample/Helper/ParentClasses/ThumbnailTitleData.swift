@@ -26,7 +26,18 @@ protocol ThumbnailTitleData {
 
 
 protocol HorizontalGridData {
+    associatedtype GridItemData: ThumbnailTitleData
     var title: String { get }
-    var data: Array<ThumbnailTitleData> { get set }
+    var data: Array<GridItemData> { get set }
 }
 
+final class CharactersGridData: HorizontalGridData {
+    let title: String
+    var data: [CDCharacterItemVM]
+    
+    init(title: String = "Characters",
+         data: [CDCharacterItemVM]) {
+        self.title = title
+        self.data = data
+    }
+}

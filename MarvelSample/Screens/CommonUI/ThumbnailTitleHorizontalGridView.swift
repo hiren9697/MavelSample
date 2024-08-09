@@ -7,17 +7,11 @@
 
 import UIKit
 
-
-class CharactersGridData: HorizontalGridData {
-    let title: String = "Characters"
-    var data: [ThumbnailTitleData]
-    
-    init(data: [ThumbnailTitleData]) {
-        self.data = data
-    }
-}
-
-final class ThumbnailTitleHorizontalGridView: UIView {
+final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalGridData>:
+    UIView,
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout {
     // MARK: - UI Components
     let containerView: UIView = {
         let view = UIView()
@@ -78,9 +72,9 @@ final class ThumbnailTitleHorizontalGridView: UIView {
         return totalHeight
     }()
     
-    var viewModel: HorizontalGridData
+    var viewModel: ViewModel
     
-    init(viewModel: HorizontalGridData) {
+    init(viewModel: ViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         setupConstraints()
@@ -95,11 +89,8 @@ final class ThumbnailTitleHorizontalGridView: UIView {
         super.updateConstraints()
         setupConstraints()
     }
-}
-
-// MARK: - UI Helper methods
-extension ThumbnailTitleHorizontalGridView {
     
+    // MARK: - UI Helper methods
     private func setupConstraints() {
         // Container view
         self.addSubview(containerView)
@@ -147,15 +138,13 @@ extension ThumbnailTitleHorizontalGridView {
 //        self.collectionViewContainer.backgroundColor = .blue
 //        stackView.backgroundColor = .yellow
     }
-}
-
-// MARK: - CollectionView Delegate
-extension ThumbnailTitleHorizontalGridView: UICollectionViewDelegate {
     
-}
-
-// MARK: - CollectionView Datasource
-extension ThumbnailTitleHorizontalGridView: UICollectionViewDataSource {
+    // MARK: - CollectionView Delegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
+    // MARK: - CollectionView Datasource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.data.count
     }
@@ -166,11 +155,8 @@ extension ThumbnailTitleHorizontalGridView: UICollectionViewDataSource {
         cell.update(viewModel: viewModel.data[indexPath.row] as! CDCharacterItemVM)
         return cell
     }
-}
-
-// MARK: - CollectionView DelegateFlowLayout
-extension ThumbnailTitleHorizontalGridView: UICollectionViewDelegateFlowLayout {
     
+    // MARK: - CollectionView DelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         itemSpace
     }
