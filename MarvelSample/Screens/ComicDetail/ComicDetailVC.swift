@@ -59,32 +59,9 @@ class ComicDetailVC: ParentVC {
         return view
     }()
     lazy var characterCollectionView: ThumbnailTitleHorizontalGridView =  {
-        ThumbnailTitleHorizontalGridView(viewModel: CharactersGridData(data: viewModel.characterItemVMs))
+        ThumbnailTitleHorizontalGridView(viewModel: CharactersGridData(data: viewModel.characterIDs.map { CDCharacterItemVM(characterID: $0) }))
     }()
-//    let charactersTitleLabel: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.font = UIFont.systemFont(ofSize: 16)
-//        label.textColor = UIColor.gray
-//        label.text = "Characters"
-//        return label
-//    }()
-//    let charactersCollectionView: UICollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        layout.estimatedItemSize = .zero
-//        let collectionView = UICollectionView(frame: .zero,
-//                                              collectionViewLayout: layout)
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
-//        return collectionView
-//    }()
-//    let charactersContainer: UIView = {
-//        let view = UIView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.clipsToBounds = true
-//        return view
-//    }()
-    let stackView: UIStackView = {
+   let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -165,17 +142,7 @@ class ComicDetailVC: ParentVC {
         descriptionLabel.topAnchor.constraint(equalTo: descriptionLabelContainer.topAnchor, constant: 10).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: descriptionLabelContainer.bottomAnchor, constant: -10).isActive = true
         stackView.addArrangedSubview(descriptionLabelContainer)
-        /*
-        // Characters
-        charactersContainer.heightAnchor.constraint(equalToConstant: horizontalGridHeight).isActive = true
-        charactersContainer.addSubview(charactersCollectionView)
-        charactersCollectionView.leadingAnchor.constraint(equalTo: charactersContainer.leadingAnchor, constant: 0).isActive = true
-        charactersCollectionView.trailingAnchor.constraint(equalTo: charactersContainer.trailingAnchor, constant: 0).isActive = true
-        charactersCollectionView.topAnchor.constraint(equalTo: charactersContainer.topAnchor, constant: 10).isActive = true
-        charactersCollectionView.bottomAnchor.constraint(equalTo: charactersContainer.bottomAnchor, constant: -10).isActive = true
-        // charactersContainer.backgroundColor = .blue
-        stackView.addArrangedSubview(charactersContainer)
-         */
+        // Character collection view
         characterCollectionView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(characterCollectionView)
         // StackView
@@ -192,14 +159,6 @@ class ComicDetailVC: ParentVC {
     
     override func setupInitialUI() {
         super.setupInitialUI()
-        /*
-        // Character collectionView
-        charactersCollectionView.register(ThumbnailTitleCC<CDCharacterItemVM>.self,
-                                          forCellWithReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name)
-        charactersCollectionView.delegate = self
-        charactersCollectionView.dataSource = self
-        charactersCollectionView.reloadData()
-         */
     }
     
     // MARK: - Helper
@@ -209,57 +168,6 @@ class ComicDetailVC: ParentVC {
         descriptionLabel.text = viewModel.description
         descriptionLabelContainer.isHidden = descriptionLabel.text!.isEmpty
     }
-    /*
-    // MARK: - Collection Delegate
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch collectionView {
-        case charactersCollectionView:
-            break
-        default: break
-        }
-    }
-    
-    // MARK: - Collection Datasource
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == charactersCollectionView {
-            return viewModel.characterIDs.count
-        } else {
-            return 0
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch collectionView {
-        case charactersCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name,
-                                                          for: indexPath) as! ThumbnailTitleCC<CDCharacterItemVM>
-            cell.update(viewModel: viewModel.getCharacterItemVM(for: indexPath.row))
-            // Print characters of 
-            return cell
-        default: return UICollectionViewCell()
-        }
-    }
-    
-    // MARK: - CollectionView Delegate FlowLayout
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        itemSpace
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        lineSpace
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        UIEdgeInsets(top: gridVerticalPadding,
-                     left: gridHorizontalPadding,
-                     bottom: gridVerticalPadding,
-                     right: gridHorizontalPadding)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return itemSize
-    }
-     */
 }
 
 

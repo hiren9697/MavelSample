@@ -10,9 +10,11 @@ import Combine
 
 /// Data for character collection view cell in Comic detail
 class CDCharacterItemVM: ThumbnailTitleData {
+    // Protocol variables
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = CurrentValueSubject(.notStarted)
     var title: String
     var thumbnailURL: URL?
+    // Other variables
     var characterID: String?
     let service = APIService(requestGenerator: APIRequestGenerator())
     var dataFetchTask: URLSessionDataTask?
