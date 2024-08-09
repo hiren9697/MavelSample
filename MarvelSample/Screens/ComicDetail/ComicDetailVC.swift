@@ -59,7 +59,7 @@ class ComicDetailVC: ParentVC {
         return view
     }()
     lazy var characterCollectionView: ThumbnailTitleHorizontalGridView =  {
-        ThumbnailTitleHorizontalGridView(viewModel: CharactersGridData(data: viewModel.characterIDs.map { CDCharacterItemVM(characterID: $0) }))
+        ThumbnailTitleHorizontalGridView(viewModel: CharactersGridData(data: viewModel.characterIDs.map { CDCharacterItemVM(modelID: $0) }))
     }()
    let stackView: UIStackView = {
         let stackView = UIStackView()

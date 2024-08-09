@@ -96,6 +96,7 @@
 		87AEA1C02C5E49380027C8E9 /* TestableComicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEA1BF2C5E49380027C8E9 /* TestableComicDetailVC.swift */; };
 		87AEA1C22C5E497D0027C8E9 /* ComicDetailVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */; };
 		87B39B392C49FB9600FC792E /* APIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B39B382C49FB9600FC792E /* APIDataListable.swift */; };
+		87C78FD32C65C04A00E9C8D7 /* BaseThumbnailTitleFetchableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C78FD22C65C04A00E9C8D7 /* BaseThumbnailTitleFetchableVM.swift */; };
 		87CBC51F2C54FEB5007AB863 /* ComicVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */; };
 		87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */; };
 		87CBC52A2C554179007AB863 /* EmptyList.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5292C554179007AB863 /* EmptyList.json */; };
@@ -249,6 +250,7 @@
 		87BFD3302C4F45D70071CC21 /* TestableComicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableComicsVC.swift; sourceTree = "<group>"; };
 		87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableComicsVM.swift; sourceTree = "<group>"; };
 		87C43EE82C509650000B32AE /* TestableFlowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableFlowManager.swift; sourceTree = "<group>"; };
+		87C78FD22C65C04A00E9C8D7 /* BaseThumbnailTitleFetchableVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseThumbnailTitleFetchableVM.swift; sourceTree = "<group>"; };
 		87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicVMTests.swift; sourceTree = "<group>"; };
 		87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ComicsListSuccess.json; sourceTree = "<group>"; };
 		87CBC5292C554179007AB863 /* EmptyList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmptyList.json; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				87B39B382C49FB9600FC792E /* APIDataListable.swift */,
 				878FC0852C59D90400779669 /* BaseTableVC.swift */,
 				876782DC2C5F6DFC001E5AFE /* ThumbnailTitleData.swift */,
+				87C78FD22C65C04A00E9C8D7 /* BaseThumbnailTitleFetchableVM.swift */,
 			);
 			path = ParentClasses;
 			sourceTree = "<group>";
@@ -1099,6 +1102,7 @@
 				8787F6F72C4399290022C518 /* TabBarVM.swift in Sources */,
 				877957C72C474FC4009A8D8B /* FetchState.swift in Sources */,
 				87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */,
+				87C78FD32C65C04A00E9C8D7 /* BaseThumbnailTitleFetchableVM.swift in Sources */,
 				87DDFDE72C396D740040621E /* WalkthroughVM.swift in Sources */,
 				8787F7152C44D3840022C518 /* CollectionViewEmptyFooter.swift in Sources */,
 				8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */,

@@ -8,9 +8,9 @@
 import UIKit
 import Combine
 
-struct ComicItemVM: ThumbnailTitleData {
+struct ComicItemVM: ThumbnailTitleItemViewModelData {
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = nil
-    let title: String
+    let title: String?
     let thumbnailURL: URL?
     
     init(comic: Comic) {

@@ -16,9 +16,9 @@ enum ListItemLoadingState {
 }
 
 /// Data need to be provided to ThumbnailTitleCC
-protocol ThumbnailTitleData {
+protocol ThumbnailTitleItemViewModelData {
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? { get set }
-    var title: String { get }
+    var title: String? { get }
     var thumbnailURL: URL? { get }
     
     func fetchData()
@@ -26,9 +26,9 @@ protocol ThumbnailTitleData {
 
 
 protocol HorizontalGridData {
-    associatedtype GridItemData: ThumbnailTitleData
+    associatedtype ItemViewModel: ThumbnailTitleItemViewModelData
     var title: String { get }
-    var data: Array<GridItemData> { get set }
+    var data: Array<ItemViewModel> { get set }
 }
 
 final class CharactersGridData: HorizontalGridData {

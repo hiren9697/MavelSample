@@ -8,9 +8,9 @@
 import Foundation
 import Combine
 
-struct CharacterItemVM: ThumbnailTitleData {
+struct CharacterItemVM: ThumbnailTitleItemViewModelData {
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = nil
-    let title: String
+    let title: String?
     let thumbnailURL: URL?
     
     init(character: Character) {

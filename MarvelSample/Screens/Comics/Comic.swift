@@ -15,6 +15,7 @@ struct Comic {
     let modifiedDate: Date?
     let thumbnailURLString: String
     let characterIDs: [String]
+    let creatorIDs: [String]
     
     var modifiedDateText: String {
         guard let modifiedDate = modifiedDate else {
@@ -55,7 +56,25 @@ struct Comic {
             newCharacterIDs.append(id)
         }
         self.characterIDs = newCharacterIDs
-//        characterURIPaths = characterItems.map { $0.getStringValue(key: "resourceURI") }
+        // Creators
+        guard let creatorDict = dict["creators"] as? NSDictionary else {
+            return nil
+        }
+        guard let creatorItems = creatorDict["items"] as? [NSDictionary] else {
+            return nil
+        }
+        var newCreatorIDs: [String] = []
+        for item in creatorItems {
+            let urlPath = item.getStringValue(key: "resourceURI")
+            guard let url = URL(string: urlPath) else {
+                continue
+            }
+            guard let id = url.pathComponents.last else {
+                continue
+            }
+            newCreatorIDs.append(id)
+        }
+        self.creatorIDs = newCreatorIDs
         // Other
         id = dict.getStringValue(key: "id")
         pages = dict.getIntValue(key: "pageCount")
