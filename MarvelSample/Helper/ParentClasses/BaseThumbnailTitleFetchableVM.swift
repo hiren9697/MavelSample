@@ -70,13 +70,16 @@ class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModelData {
         guard let modelID = modelID else {
             return
         }
+        guard let endPoint = endPoint else {
+            return
+        }
         guard dataFetchTask == nil else {
             return
         }
         // API Call
         do {
             let request = try service.requestGenerator.generateRequestWithHash(requestType: .get,
-                                                                               relativePath: APIEndpoints.characters.rawValue + "/\(modelID)")
+                                                                               relativePath: endPoint + "/\(modelID)")
             dataFetchTask = service.dataTask(request: request) {[weak self] result in
                 switch result {
                 case .success(let json):

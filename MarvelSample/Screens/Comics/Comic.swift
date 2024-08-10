@@ -99,6 +99,8 @@ extension Comic: CustomStringConvertible {
                modified: \(modifiedDateText),
                thumbnail: \(thumbnailURLString)
                characterIDs: \(characterIDs)
+               creatorIDs: \(creatorIDs)
                """
     }
 }
+

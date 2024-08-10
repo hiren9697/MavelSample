@@ -28,6 +28,7 @@ class ComicsVM: BaseListVM<Comic, ComicItemVM> {
             if let comic = Comic(dict: item) {
                 newComics.append(comic)
                 newComicItems.append(ComicItemVM(comic: comic))
+                // Log.info(comic)
             }
         }
         self.data.append(contentsOf: newComics)

@@ -127,16 +127,11 @@ final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalGridData>:
         // Title
         titleLabel.text = viewModel.title
         // CollectionView
-        collectionView.register(ThumbnailTitleCC<CDCharacterItemVM>.self,
-                                          forCellWithReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name)
+        collectionView.register(ThumbnailTitleCC<ViewModel.ItemViewModel>.self,
+                                forCellWithReuseIdentifier: ThumbnailTitleCC<ViewModel.ItemViewModel>.name)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.reloadData()
-        
-//        collectionView.backgroundColor = .red
-//        self.backgroundColor = .black
-//        self.collectionViewContainer.backgroundColor = .blue
-//        stackView.backgroundColor = .yellow
     }
     
     // MARK: - CollectionView Delegate
@@ -150,9 +145,9 @@ final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalGridData>:
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CDCharacterItemVM>.name,
-                                                      for: indexPath) as! ThumbnailTitleCC<CDCharacterItemVM>
-        cell.update(viewModel: viewModel.data[indexPath.row] as! CDCharacterItemVM)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<ViewModel.ItemViewModel>.name,
+                                                      for: indexPath) as! ThumbnailTitleCC<ViewModel.ItemViewModel>
+        cell.update(viewModel: viewModel.data[indexPath.row])
         return cell
     }
     

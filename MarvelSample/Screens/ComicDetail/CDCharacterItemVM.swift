@@ -29,3 +29,4 @@ class CDCharacterItemVM: BaseThumbnailTitleFetchableVM<Character> {
         return (model.name, model.thumbnailURL)
     }
 }
+
