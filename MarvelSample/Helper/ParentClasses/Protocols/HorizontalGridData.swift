@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol HorizontalGridData {
     associatedtype ItemViewModel: ThumbnailTitleItemViewModelData
