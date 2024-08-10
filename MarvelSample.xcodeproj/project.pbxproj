@@ -27,6 +27,9 @@
 		8745958C2C67096C00A29444 /* HorizontalThumbnailTitleGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8745958B2C67096C00A29444 /* HorizontalThumbnailTitleGridViewModel.swift */; };
 		8745958E2C67099C00A29444 /* CharactersGridData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8745958D2C67099C00A29444 /* CharactersGridData.swift */; };
 		874595902C6709A900A29444 /* CreatorGridData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8745958F2C6709A900A29444 /* CreatorGridData.swift */; };
+		874595942C672E3C00A29444 /* ComicDetailVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */; };
+		874595972C672E9B00A29444 /* HorizontalThumbnailTitleGridViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874595962C672E9B00A29444 /* HorizontalThumbnailTitleGridViewTests.swift */; };
+		874595992C6733B400A29444 /* TestableHorizontalThumbnailTitleGridVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874595982C6733B400A29444 /* TestableHorizontalThumbnailTitleGridVM.swift */; };
 		874F8EE52C5485B500D1AA77 /* TestableAPIRequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874F8EE42C5485B500D1AA77 /* TestableAPIRequestGenerator.swift */; };
 		874F8EE72C548B4800D1AA77 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874F8EE62C548B4800D1AA77 /* URLHelper.swift */; };
 		8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6582C40D02B000FAFEF /* TabBarController.swift */; };
@@ -100,7 +103,6 @@
 		879858CC2C6314F6000D942A /* ThumbnailTitleHorizontalGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879858CB2C6314F6000D942A /* ThumbnailTitleHorizontalGridView.swift */; };
 		87AEA1BD2C5DE1CB0027C8E9 /* ComicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEA1BC2C5DE1CB0027C8E9 /* ComicDetailVC.swift */; };
 		87AEA1C02C5E49380027C8E9 /* TestableComicDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEA1BF2C5E49380027C8E9 /* TestableComicDetailVC.swift */; };
-		87AEA1C22C5E497D0027C8E9 /* ComicDetailVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */; };
 		87B39B392C49FB9600FC792E /* APIDataListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B39B382C49FB9600FC792E /* APIDataListable.swift */; };
 		87C78FD32C65C04A00E9C8D7 /* BaseThumbnailTitleFetchableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C78FD22C65C04A00E9C8D7 /* BaseThumbnailTitleFetchableVM.swift */; };
 		87CBC51F2C54FEB5007AB863 /* ComicVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */; };
@@ -198,6 +200,8 @@
 		8745958B2C67096C00A29444 /* HorizontalThumbnailTitleGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalThumbnailTitleGridViewModel.swift; sourceTree = "<group>"; };
 		8745958D2C67099C00A29444 /* CharactersGridData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersGridData.swift; sourceTree = "<group>"; };
 		8745958F2C6709A900A29444 /* CreatorGridData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatorGridData.swift; sourceTree = "<group>"; };
+		874595962C672E9B00A29444 /* HorizontalThumbnailTitleGridViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalThumbnailTitleGridViewTests.swift; sourceTree = "<group>"; };
+		874595982C6733B400A29444 /* TestableHorizontalThumbnailTitleGridVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableHorizontalThumbnailTitleGridVM.swift; sourceTree = "<group>"; };
 		874F8EE42C5485B500D1AA77 /* TestableAPIRequestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableAPIRequestGenerator.swift; sourceTree = "<group>"; };
 		874F8EE62C548B4800D1AA77 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		8762B6582C40D02B000FAFEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -401,6 +405,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		874595952C672E6500A29444 /* HorizontalThumbnailTitleGridView */ = {
+			isa = PBXGroup;
+			children = (
+				874595962C672E9B00A29444 /* HorizontalThumbnailTitleGridViewTests.swift */,
+				874595982C6733B400A29444 /* TestableHorizontalThumbnailTitleGridVM.swift */,
+			);
+			path = HorizontalThumbnailTitleGridView;
+			sourceTree = "<group>";
+		};
 		8762B65A2C40D120000FAFEF /* Events */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +483,7 @@
 				87CBC51A2C54F0FE007AB863 /* FlowManager */,
 				87CBC5192C54F0C3007AB863 /* Walkthrough */,
 				87CBC51D2C54F1EB007AB863 /* Comic */,
+				874595952C672E6500A29444 /* HorizontalThumbnailTitleGridView */,
 				87AEA1BE2C5E491E0027C8E9 /* ComicDetail */,
 				878DD4A42C586EFA006896C6 /* Character */,
 				87E38E822C5C6DE100473B5B /* Event */,
@@ -1191,6 +1205,8 @@
 				87E38E8A2C5C7F7700473B5B /* TestableTableCell.swift in Sources */,
 				8728486A2C423870008C1ED0 /* Helpers.swift in Sources */,
 				87AEA1C02C5E49380027C8E9 /* TestableComicDetailVC.swift in Sources */,
+				874595942C672E3C00A29444 /* ComicDetailVCTests.swift in Sources */,
+				874595972C672E9B00A29444 /* HorizontalThumbnailTitleGridViewTests.swift in Sources */,
 				877B48342C562CEA001A6E5A /* TestableWalkthroughVC.swift in Sources */,
 				877B482C2C562CE0001A6E5A /* TestableAPIDataListable.swift in Sources */,
 				874F8EE72C548B4800D1AA77 /* URLHelper.swift in Sources */,
@@ -1214,8 +1230,8 @@
 				871F60B52C51F4D800AD6821 /* FakeUserDefaults.swift in Sources */,
 				877B481F2C5625C3001A6E5A /* APIServiceTests.swift in Sources */,
 				877B48312C562CE5001A6E5A /* TestableFlowManager.swift in Sources */,
-				87AEA1C22C5E497D0027C8E9 /* ComicDetailVCTests.swift in Sources */,
 				878DD4A82C586F94006896C6 /* TestableCharactersVC.swift in Sources */,
+				874595992C6733B400A29444 /* TestableHorizontalThumbnailTitleGridVM.swift in Sources */,
 				87DDFDD52C394B600040621E /* TestingSceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

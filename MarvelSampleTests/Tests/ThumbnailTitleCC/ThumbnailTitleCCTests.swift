@@ -10,13 +10,13 @@ import XCTest
 
 final class ThumbnailTitleCCTests: XCTestCase {
 
-    var sut: ThumbnailTitleCC<TestableThumbnailTitleData>!
-    var viewModel: TestableThumbnailTitleData!
+    var sut: ThumbnailTitleCC<TestableThumbnailTitleVM>!
+    var viewModel: TestableThumbnailTitleVM!
     
     override func setUp() {
         super.setUp()
-        viewModel = TestableThumbnailTitleData(title: "This is just a testing title",
-                                               thumbnailURL: URL(string: "https://www.google.com"))
+        viewModel = TestableThumbnailTitleVM(title: "This is just a testing title",
+                                             thumbnailURL: URL(string: "https://www.google.com"))
         sut = ThumbnailTitleCC()
         sut.layoutIfNeeded()
         sut.layoutSubviews()

@@ -29,14 +29,8 @@ extension Comic {
             "creators" : [
               "returned" : 1,
               "collectionURI" : "http://gateway.marvel.com/v1/public/comics/82967/creators",
-              "items" : [
-                [
-                  "name" : "Jim Nausedas",
-                  "resourceURI" : "http://gateway.marvel.com/v1/public/creators/10021",
-                  "role" : "editor"
-                ]
-              ],
-              "available" : 1
+              "items" : [],
+              "available" : 0
             ],
         ]
         let nsDictinary = dictionary as NSDictionary
