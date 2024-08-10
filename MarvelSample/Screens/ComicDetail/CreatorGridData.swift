@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CreatorGridData: HorizontalGridData {
+final class CreatorGridVM: HorizontalThumbnailTitleGridViewModel {
     let title: String
     var data: [CDCreatorItemVM]
     

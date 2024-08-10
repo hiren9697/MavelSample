@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 
-protocol HorizontalGridData {
-    associatedtype ItemViewModel: ThumbnailTitleItemViewModelData
+protocol HorizontalThumbnailTitleGridViewModel {
+    associatedtype ItemViewModel: ThumbnailTitleItemViewModel
     var title: String { get }
     var data: Array<ItemViewModel> { get set }
 }

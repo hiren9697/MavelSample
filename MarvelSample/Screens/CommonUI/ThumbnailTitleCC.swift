@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModelData>: ParentCC {
+class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
     
     // MARK: - UI Components
     /// Main view child of contentView

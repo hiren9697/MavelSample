@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CharactersGridData: HorizontalGridData {
+final class CharactersGridVM: HorizontalThumbnailTitleGridViewModel {
     let title: String
     var data: [CDCharacterItemVM]
     

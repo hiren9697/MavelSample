@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalGridData>:
+final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitleGridViewModel>:
     UIView,
     UICollectionViewDelegate,
     UICollectionViewDataSource,

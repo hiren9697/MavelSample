@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 /// Base class that provides common functionality for lazy fetchable thumbnail title view model class
-class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModelData {
+class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModel {
     // Protocol variables
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = CurrentValueSubject(.notStarted)
     var title: String?
