@@ -14,9 +14,12 @@ class TestableThumbnailTitleVM: ThumbnailTitleItemViewModel {
     let title: String?
     let thumbnailURL: URL?
     
-    init(title: String, thumbnailURL: URL?) {
+    init(title: String,
+         thumbnailURL: URL?,
+         dataFetchState: CurrentValueSubject<MarvelSample.ListItemLoadingState, Never>?) {
         self.title = title
         self.thumbnailURL = thumbnailURL
+        self.dataFetchState = dataFetchState
     }
     
     func fetchData() {
