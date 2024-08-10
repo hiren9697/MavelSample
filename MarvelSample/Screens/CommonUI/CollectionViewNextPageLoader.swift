@@ -37,10 +37,6 @@ class CollectionViewNextPageLoader: UICollectionReusableView {
         setupInitialUI()
     }
     
-//    override var intrinsicContentSize: CGSize {
-//        return CGSize(width: Geometry.screenWidth, height: 60)
-//    }
-    
     private func setupInitialUI() {
         addSubview(stack)
         stack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
@@ -49,32 +45,6 @@ class CollectionViewNextPageLoader: UICollectionReusableView {
         titleLabel.layoutSubviews()
         stack.layoutSubviews()
     }
-    
-//    public func show() {
-//        activity.startAnimating()
-//        stack.isHidden = true
-//        layoutIfNeeded()
-//        UIView.animate(withDuration: 0.2,
-//                       delay: 0,
-//                       options: .curveEaseInOut) {[weak self] in
-//            guard let strongSelf = self else { return }
-//            strongSelf.stack.isHidden = false
-//            strongSelf.layoutSubviews()
-//        } completion: { _ in }
-//
-//    }
-//    
-//    public func hide() {
-//        UIView.animate(withDuration: 0.2,
-//                       delay: 0,
-//                       options: .curveEaseInOut) {[weak self] in
-//            guard let strongSelf = self else { return }
-//            strongSelf.stack.isHidden = false
-//            strongSelf.layoutIfNeeded()
-//        } completion: {[weak self] _ in
-//            self?.activity.stopAnimating()
-//        }
-//    }
     
     public func updateText(text: String) {
         titleLabel.text = text
