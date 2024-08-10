@@ -9,9 +9,9 @@ import Foundation
 import Combine
 @testable import MarvelSample
 
-class TestableThumbnailTitleData: ThumbnailTitleData {
+class TestableThumbnailTitleData: ThumbnailTitleItemViewModel {
     var dataFetchState: CurrentValueSubject<MarvelSample.ListItemLoadingState, Never>?
-    let title: String
+    let title: String?
     let thumbnailURL: URL?
     
     init(title: String, thumbnailURL: URL?) {
