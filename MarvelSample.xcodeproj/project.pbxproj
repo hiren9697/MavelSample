@@ -675,6 +675,7 @@
 		87DDFDB12C38FE820040621E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8728486D2C42585D008C1ED0 /* ParentClasses */,
 				8787F7112C44D1E20022C518 /* CommonUI */,
 				8787F6F52C4399140022C518 /* TabBar */,
 				8762B65C2C40D131000FAFEF /* Comics */,
@@ -752,10 +753,9 @@
 				877957C62C474FC4009A8D8B /* FetchState.swift */,
 				874595872C67094F00A29444 /* ListItemLoadingState.swift */,
 				877957C82C474FF0009A8D8B /* PaginationManager.swift */,
-				8728486D2C42585D008C1ED0 /* ParentClasses */,
+				87D568072C61A2F400D95280 /* JSONParser.swift */,
 				87DDFDC02C39041F0040621E /* Error */,
 				87DDFDBC2C3901F80040621E /* Extensions */,
-				87D568072C61A2F400D95280 /* JSONParser.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
