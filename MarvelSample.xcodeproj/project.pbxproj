@@ -462,6 +462,7 @@
 				87DDFDC72C391A5C0040621E /* APIRequestGeneratorTests.swift */,
 				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
 				877B481E2C5625C3001A6E5A /* APIServiceTests.swift */,
+				87D568092C61A3CB00D95280 /* JSONParserTests.swift */,
 				87CBC51C2C54F1AE007AB863 /* BaseListVM */,
 				87CBC51B2C54F188007AB863 /* BaseCollectionVC */,
 				8783B3C92C5F77A900D06829 /* ThumbnailTitleCC */,
@@ -472,7 +473,6 @@
 				87AEA1BE2C5E491E0027C8E9 /* ComicDetail */,
 				878DD4A42C586EFA006896C6 /* Character */,
 				87E38E822C5C6DE100473B5B /* Event */,
-				87D568092C61A3CB00D95280 /* JSONParserTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";

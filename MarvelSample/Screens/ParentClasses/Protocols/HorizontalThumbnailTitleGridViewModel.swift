@@ -11,5 +11,6 @@ import Combine
 protocol HorizontalThumbnailTitleGridViewModel {
     associatedtype ItemViewModel: ThumbnailTitleItemViewModel
     var title: String { get }
+    var emptyDataTitle: String { get }
     var data: Array<ItemViewModel> { get set }
 }

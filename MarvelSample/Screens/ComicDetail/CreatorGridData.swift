@@ -9,11 +9,14 @@ import Foundation
 
 final class CreatorGridVM: HorizontalThumbnailTitleGridViewModel {
     let title: String
+    let emptyDataTitle: String
     var data: [CDCreatorItemVM]
     
     init(title: String = "Creators",
+         emptyDataTitle: String = "Couln't found any creator",
          data: [CDCreatorItemVM]) {
         self.title = title
+        self.emptyDataTitle = emptyDataTitle
         self.data = data
     }
 }

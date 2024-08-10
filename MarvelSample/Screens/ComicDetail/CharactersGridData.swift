@@ -9,11 +9,14 @@ import Foundation
 
 final class CharactersGridVM: HorizontalThumbnailTitleGridViewModel {
     let title: String
+    let emptyDataTitle: String
     var data: [CDCharacterItemVM]
     
     init(title: String = "Characters",
+         emptyDataTitle: String = "Couln't found any character",
          data: [CDCharacterItemVM]) {
         self.title = title
+        self.emptyDataTitle = emptyDataTitle
         self.data = data
     }
 }

@@ -45,6 +45,18 @@ final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitle
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    let emptyDataContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let emptyDataLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = .lightGray
+        return label
+    }()
     let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,6 +91,7 @@ final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitle
         super.init(frame: .zero)
         setupConstraints()
         setupInitialUI()
+        updateDataState()
     }
     
     required init?(coder: NSCoder) {
@@ -121,6 +134,15 @@ final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitle
         stackView.addArrangedSubview(titleLabelContainer)
         // Collection view container
         stackView.addArrangedSubview(collectionViewContainer)
+        // Empty data label
+        emptyDataContainer.addSubview(emptyDataLabel)
+        emptyDataLabel.leadingAnchor.constraint(greaterThanOrEqualTo: emptyDataContainer.leadingAnchor, constant: 20).isActive = true
+        emptyDataLabel.trailingAnchor.constraint(lessThanOrEqualTo: emptyDataContainer.trailingAnchor, constant: -20).isActive = true
+        emptyDataLabel.centerXAnchor.constraint(equalTo: emptyDataContainer.centerXAnchor).isActive = true
+        emptyDataLabel.centerYAnchor.constraint(equalTo: emptyDataContainer.centerYAnchor).isActive = true
+        // Empty data container
+        emptyDataContainer.heightAnchor.constraint(equalToConstant: collectionViewContainerHeight).isActive = true
+        stackView.addArrangedSubview(emptyDataContainer)
     }
     
     private func setupInitialUI() {
@@ -132,6 +154,13 @@ final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitle
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.reloadData()
+        // Empty label
+        emptyDataLabel.text = viewModel.emptyDataTitle
+    }
+    
+    private func updateDataState() {
+        collectionViewContainer.isHidden = viewModel.data.isEmpty
+        emptyDataContainer.isHidden = !viewModel.data.isEmpty
     }
     
     // MARK: - CollectionView Delegate
