@@ -22,10 +22,10 @@ final class CDCharacterItemVMTests: XCTestCase {
 // MARK: - Tests
 extension CDCharacterItemVMTests {
     func test_parseModel_withCorrectJSON_returnsCorrectCharactor() {
-        guard let firstCharacterJSON = getFirstCharacterJSON(line: #line) else {
+        guard let jsonDictionary = getJSONDictionary(line: #line) else {
             return
         }
-        guard let character = sut.parseModel(from: firstCharacterJSON) else {
+        guard let character = sut.parseModel(from: jsonDictionary) else {
             XCTFail("parseModel returned nil character")
             return
         }
@@ -47,28 +47,24 @@ extension CDCharacterItemVMTests {
 
 // MARK: - Helper
 extension CDCharacterItemVMTests {
-    private func getFirstCharacterJSON(line: UInt)-> NSDictionary? {
-        guard let json = loadJSON(fileName: "CharactersListSuccess") else {
+    private func getJSONDictionary(line: UInt)-> NSDictionary? {
+        guard let json = loadJSON(fileName: "SingleCharactor") else {
             XCTFail("Precondition: Found JSON nil", line: line)
             return nil
         }
-        guard let items = JSONParser().parseListJSON(json) else {
-            XCTFail("Precondition: Incorrect JSON", line: line)
+        guard let dictionary = json as? NSDictionary else {
+            XCTFail("Incorrect JSON", line: line)
             return nil
         }
-        guard let firstItem = items.first else {
-            XCTFail("Precondition: Empty JSON", line: line)
-            return nil
-        }
-        return firstItem
+        return dictionary
     }
     
     private func getCharacter(line: UInt)-> Character? {
-        guard let firstCharacterJOSN = getFirstCharacterJSON(line: line) else {
+        guard let json = getJSONDictionary(line: line) else {
             XCTFail("Precondition: returned nil JSON for first character", line: line)
             return nil
         }
-        guard let character = Character(dict: firstCharacterJOSN) else {
+        guard let character = Character(dict: json) else {
             XCTFail("Precondition: error in parsing Character")
             return nil
         }

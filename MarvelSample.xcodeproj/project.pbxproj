@@ -71,6 +71,7 @@
 		875B68A62C68A88400D8C829 /* TestableCDCreatorItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B68A52C68A88400D8C829 /* TestableCDCreatorItemVM.swift */; };
 		875B68A82C68A8ED00D8C829 /* CDCreatorItemVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B68A72C68A8ED00D8C829 /* CDCreatorItemVMTests.swift */; };
 		875B68AA2C68AC8900D8C829 /* SingleCreator.json in Resources */ = {isa = PBXBuildFile; fileRef = 875B68A92C68AC8900D8C829 /* SingleCreator.json */; };
+		875B68AC2C68B26700D8C829 /* SingleCharactor.json in Resources */ = {isa = PBXBuildFile; fileRef = 875B68AB2C68B26700D8C829 /* SingleCharactor.json */; };
 		8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6582C40D02B000FAFEF /* TabBarController.swift */; };
 		8762B65E2C40D14B000FAFEF /* ComicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B65D2C40D14B000FAFEF /* ComicsVC.swift */; };
 		8762B6602C40D16A000FAFEF /* CharactersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B65F2C40D16A000FAFEF /* CharactersVC.swift */; };
@@ -219,6 +220,7 @@
 		875B68A52C68A88400D8C829 /* TestableCDCreatorItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCDCreatorItemVM.swift; sourceTree = "<group>"; };
 		875B68A72C68A8ED00D8C829 /* CDCreatorItemVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCreatorItemVMTests.swift; sourceTree = "<group>"; };
 		875B68A92C68AC8900D8C829 /* SingleCreator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SingleCreator.json; sourceTree = "<group>"; };
+		875B68AB2C68B26700D8C829 /* SingleCharactor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SingleCharactor.json; sourceTree = "<group>"; };
 		8762B6582C40D02B000FAFEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8762B65D2C40D14B000FAFEF /* ComicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsVC.swift; sourceTree = "<group>"; };
 		8762B65F2C40D16A000FAFEF /* CharactersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVC.swift; sourceTree = "<group>"; };
@@ -634,6 +636,7 @@
 		87CBC5202C550E8D007AB863 /* JSONs */ = {
 			isa = PBXGroup;
 			children = (
+				875B68AB2C68B26700D8C829 /* SingleCharactor.json */,
 				875B68A92C68AC8900D8C829 /* SingleCreator.json */,
 				877B481C2C5616A1001A6E5A /* NonDictionary.json */,
 				877B48122C5608F7001A6E5A /* Error.json */,
@@ -1002,6 +1005,7 @@
 				875B68AA2C68AC8900D8C829 /* SingleCreator.json in Resources */,
 				87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */,
 				877B481D2C5616A1001A6E5A /* NonDictionary.json in Resources */,
+				875B68AC2C68B26700D8C829 /* SingleCharactor.json in Resources */,
 				878246A32C5740A300A6250C /* CharactersListSuccess.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
