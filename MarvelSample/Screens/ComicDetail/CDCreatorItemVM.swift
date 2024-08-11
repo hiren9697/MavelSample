@@ -9,11 +9,14 @@ import Foundation
 
 class CDCreatorItemVM: BaseThumbnailTitleFetchableVM<Creator> {
     
-    init(modelID: String?) {
+    init(modelID: String?,
+         service: APIServiceProtocol? = nil) {
+        let errorVM = ErrorVM(title: "Couldn't fetch creator",
+                              imageName: "error")
         super.init(modelID: modelID,
                    endPoint: APIEndpoints.creators.rawValue,
-                   errorVM: ErrorVM(title: "Couldn't fetch creator",
-                                    imageName: "error"))
+                   errorVM: errorVM,
+                   service: service)
     }
     
     override func parseModel(from json: Any) -> Creator? {

@@ -68,6 +68,9 @@
 		875B68A02C687E6000D8C829 /* ComicsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872557262C4D378700373000 /* ComicsVCTests.swift */; };
 		875B68A22C687FD400D8C829 /* CDCharacterItemVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B68A12C687FD400D8C829 /* CDCharacterItemVMTests.swift */; };
 		875B68A42C688E9500D8C829 /* TestableCDCharacterItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B68A32C688E9500D8C829 /* TestableCDCharacterItemVM.swift */; };
+		875B68A62C68A88400D8C829 /* TestableCDCreatorItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B68A52C68A88400D8C829 /* TestableCDCreatorItemVM.swift */; };
+		875B68A82C68A8ED00D8C829 /* CDCreatorItemVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B68A72C68A8ED00D8C829 /* CDCreatorItemVMTests.swift */; };
+		875B68AA2C68AC8900D8C829 /* SingleCreator.json in Resources */ = {isa = PBXBuildFile; fileRef = 875B68A92C68AC8900D8C829 /* SingleCreator.json */; };
 		8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6582C40D02B000FAFEF /* TabBarController.swift */; };
 		8762B65E2C40D14B000FAFEF /* ComicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B65D2C40D14B000FAFEF /* ComicsVC.swift */; };
 		8762B6602C40D16A000FAFEF /* CharactersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B65F2C40D16A000FAFEF /* CharactersVC.swift */; };
@@ -213,6 +216,9 @@
 		875B687C2C683E5400D8C829 /* ErrorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVM.swift; sourceTree = "<group>"; };
 		875B68A12C687FD400D8C829 /* CDCharacterItemVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCharacterItemVMTests.swift; sourceTree = "<group>"; };
 		875B68A32C688E9500D8C829 /* TestableCDCharacterItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCDCharacterItemVM.swift; sourceTree = "<group>"; };
+		875B68A52C68A88400D8C829 /* TestableCDCreatorItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCDCreatorItemVM.swift; sourceTree = "<group>"; };
+		875B68A72C68A8ED00D8C829 /* CDCreatorItemVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCreatorItemVMTests.swift; sourceTree = "<group>"; };
+		875B68A92C68AC8900D8C829 /* SingleCreator.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SingleCreator.json; sourceTree = "<group>"; };
 		8762B6582C40D02B000FAFEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8762B65D2C40D14B000FAFEF /* ComicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsVC.swift; sourceTree = "<group>"; };
 		8762B65F2C40D16A000FAFEF /* CharactersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVC.swift; sourceTree = "<group>"; };
@@ -549,6 +555,8 @@
 				87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */,
 				875B68A32C688E9500D8C829 /* TestableCDCharacterItemVM.swift */,
 				875B68A12C687FD400D8C829 /* CDCharacterItemVMTests.swift */,
+				875B68A52C68A88400D8C829 /* TestableCDCreatorItemVM.swift */,
+				875B68A72C68A8ED00D8C829 /* CDCreatorItemVMTests.swift */,
 			);
 			path = ComicDetail;
 			sourceTree = "<group>";
@@ -626,6 +634,7 @@
 		87CBC5202C550E8D007AB863 /* JSONs */ = {
 			isa = PBXGroup;
 			children = (
+				875B68A92C68AC8900D8C829 /* SingleCreator.json */,
 				877B481C2C5616A1001A6E5A /* NonDictionary.json */,
 				877B48122C5608F7001A6E5A /* Error.json */,
 				877B48162C560F25001A6E5A /* WithoutDataKey.json */,
@@ -990,6 +999,7 @@
 				877B48142C5608F7001A6E5A /* Error.json in Resources */,
 				87CBC52A2C554179007AB863 /* EmptyList.json in Resources */,
 				877B48172C560F25001A6E5A /* WithoutDataKey.json in Resources */,
+				875B68AA2C68AC8900D8C829 /* SingleCreator.json in Resources */,
 				87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */,
 				877B481D2C5616A1001A6E5A /* NonDictionary.json in Resources */,
 				878246A32C5740A300A6250C /* CharactersListSuccess.json in Resources */,
@@ -1198,6 +1208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				878DD4AC2C587208006896C6 /* CharacterExtension.swift in Sources */,
+				875B68A82C68A8ED00D8C829 /* CDCreatorItemVMTests.swift in Sources */,
 				875B688A2C687E4E00D8C829 /* BaseCollectionVCTests.swift in Sources */,
 				875B68972C687E6000D8C829 /* TestableEventsVM.swift in Sources */,
 				875B689F2C687E6000D8C829 /* CharactersVCTests.swift in Sources */,
@@ -1208,6 +1219,7 @@
 				875B688D2C687E4E00D8C829 /* JSONParserTests.swift in Sources */,
 				875B687F2C6872A500D8C829 /* TestableThumbnailTitleData.swift in Sources */,
 				87DFDCB62C3E35620025C535 /* TableViewHelpers.swift in Sources */,
+				875B68A62C68A88400D8C829 /* TestableCDCreatorItemVM.swift in Sources */,
 				871F60B82C51F4D800AD6821 /* ComicExtension.swift in Sources */,
 				87DDFDD32C394B4E0040621E /* TestingAppDelegate.swift in Sources */,
 				875B689C2C687E6000D8C829 /* TestableCharactersVM.swift in Sources */,
