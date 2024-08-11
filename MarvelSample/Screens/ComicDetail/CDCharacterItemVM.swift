@@ -10,11 +10,14 @@ import Combine
 
 class CDCharacterItemVM: BaseThumbnailTitleFetchableVM<Character> {
     
-    init(modelID: String?) {
+    init(modelID: String?,
+         service: APIServiceProtocol? = nil) {
+        let errorVM = ErrorVM(title: "Couldn't fetch character",
+                              imageName: "erro")
         super.init(modelID: modelID,
                    endPoint: APIEndpoints.characters.rawValue,
-        errorVM: ErrorVM(title: "Couldn't fetch character",
-                         imageName: "error"))
+                   errorVM: errorVM,
+                   service: service)
     }
     
     override func parseModel(from json: Any) -> Character? {

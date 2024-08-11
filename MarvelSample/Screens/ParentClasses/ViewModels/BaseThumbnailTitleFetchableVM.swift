@@ -18,16 +18,18 @@ class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModel {
     // Other variables
     var endPoint: String?
     var modelID: String?
-    let service = APIService(requestGenerator: APIRequestGenerator())
+    let service: APIServiceProtocol //APIService(requestGenerator: APIRequestGenerator())
     var dataFetchTask: URLSessionDataTask?
     var model: Model?
     
     init(modelID: String?,
          endPoint: String?,
-         errorVM: ErrorVM?) {
+         errorVM: ErrorVM?,
+         service: APIServiceProtocol? = nil) {
         self.modelID = modelID
         self.endPoint = endPoint
         self.errorVM = errorVM
+        self.service = service ?? APIService(requestGenerator: APIRequestGenerator())
     }
     
     // Protocol method

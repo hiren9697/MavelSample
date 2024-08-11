@@ -66,6 +66,8 @@
 		875B689E2C687E6000D8C829 /* EventsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E38E832C5C6E6300473B5B /* EventsVCTests.swift */; };
 		875B689F2C687E6000D8C829 /* CharactersVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DD4A52C586F0D006896C6 /* CharactersVCTests.swift */; };
 		875B68A02C687E6000D8C829 /* ComicsVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872557262C4D378700373000 /* ComicsVCTests.swift */; };
+		875B68A22C687FD400D8C829 /* CDCharacterItemVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B68A12C687FD400D8C829 /* CDCharacterItemVMTests.swift */; };
+		875B68A42C688E9500D8C829 /* TestableCDCharacterItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875B68A32C688E9500D8C829 /* TestableCDCharacterItemVM.swift */; };
 		8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6582C40D02B000FAFEF /* TabBarController.swift */; };
 		8762B65E2C40D14B000FAFEF /* ComicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B65D2C40D14B000FAFEF /* ComicsVC.swift */; };
 		8762B6602C40D16A000FAFEF /* CharactersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B65F2C40D16A000FAFEF /* CharactersVC.swift */; };
@@ -209,6 +211,8 @@
 		874F8EE42C5485B500D1AA77 /* TestableAPIRequestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableAPIRequestGenerator.swift; sourceTree = "<group>"; };
 		874F8EE62C548B4800D1AA77 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		875B687C2C683E5400D8C829 /* ErrorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVM.swift; sourceTree = "<group>"; };
+		875B68A12C687FD400D8C829 /* CDCharacterItemVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCharacterItemVMTests.swift; sourceTree = "<group>"; };
+		875B68A32C688E9500D8C829 /* TestableCDCharacterItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCDCharacterItemVM.swift; sourceTree = "<group>"; };
 		8762B6582C40D02B000FAFEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8762B65D2C40D14B000FAFEF /* ComicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsVC.swift; sourceTree = "<group>"; };
 		8762B65F2C40D16A000FAFEF /* CharactersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVC.swift; sourceTree = "<group>"; };
@@ -543,6 +547,8 @@
 			children = (
 				87AEA1BF2C5E49380027C8E9 /* TestableComicDetailVC.swift */,
 				87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */,
+				875B68A32C688E9500D8C829 /* TestableCDCharacterItemVM.swift */,
+				875B68A12C687FD400D8C829 /* CDCharacterItemVMTests.swift */,
 			);
 			path = ComicDetail;
 			sourceTree = "<group>";
@@ -1227,6 +1233,8 @@
 				875B68822C687E4E00D8C829 /* BaseListVMTests.swift in Sources */,
 				871F60B62C51F4D800AD6821 /* TestableData.swift in Sources */,
 				875B689B2C687E6000D8C829 /* TestableComicsVM.swift in Sources */,
+				875B68A42C688E9500D8C829 /* TestableCDCharacterItemVM.swift in Sources */,
+				875B68A22C687FD400D8C829 /* CDCharacterItemVMTests.swift in Sources */,
 				871F60B32C51F4D800AD6821 /* MockAPIService.swift in Sources */,
 				874F8EE52C5485B500D1AA77 /* TestableAPIRequestGenerator.swift in Sources */,
 				875B68832C687E4E00D8C829 /* TestableChildCollectionVC.swift in Sources */,
