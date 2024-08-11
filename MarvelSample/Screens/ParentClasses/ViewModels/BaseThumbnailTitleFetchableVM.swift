@@ -14,6 +14,7 @@ class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModel {
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = CurrentValueSubject(.notStarted)
     var title: String?
     var thumbnailURL: URL?
+    var errorVM: ErrorVM?
     // Other variables
     var endPoint: String?
     var modelID: String?
@@ -22,9 +23,11 @@ class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModel {
     var model: Model?
     
     init(modelID: String?,
-         endPoint: String?) {
+         endPoint: String?,
+         errorVM: ErrorVM?) {
         self.modelID = modelID
         self.endPoint = endPoint
+        self.errorVM = errorVM
     }
     
     // Protocol method

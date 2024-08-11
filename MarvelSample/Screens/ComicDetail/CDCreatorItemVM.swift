@@ -11,7 +11,9 @@ class CDCreatorItemVM: BaseThumbnailTitleFetchableVM<Creator> {
     
     init(modelID: String?) {
         super.init(modelID: modelID,
-                   endPoint: APIEndpoints.creators.rawValue)
+                   endPoint: APIEndpoints.creators.rawValue,
+                   errorVM: ErrorVM(title: "Couldn't fetch creator",
+                                    imageName: "error"))
     }
     
     override func parseModel(from json: Any) -> Creator? {

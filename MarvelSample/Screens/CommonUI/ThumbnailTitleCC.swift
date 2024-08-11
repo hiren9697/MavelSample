@@ -8,6 +8,9 @@
 import UIKit
 import Combine
 
+/// Generic CollectionViewCell used to display image view and single text label
+/// This cell supports data display instantly OR lazily
+/// To load data lazily this class provides loader to display while data is loading, and error view if fetch operation finish with error
 class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
     
     // MARK: - UI Components
@@ -20,6 +23,15 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
         view.layer.borderWidth = 1
         view.layer.borderColor = AppColors.lightGray.cgColor
         return view
+    }()
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 0
+        stackView.distribution = .fill
+        stackView.alignment = .center
+        return stackView
     }()
     let loader: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView()
@@ -50,6 +62,16 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
         label.textColor = .gray
         label.numberOfLines = 2
         return label
+    }()
+    let errorContainerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let errorView: ErrorView = {
+        let view = ErrorView(viewModel: nil)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     // MARK: - Variables
@@ -83,12 +105,12 @@ extension ThumbnailTitleCC {
         containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0).isActive = true
         containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0).isActive = true
         
-        // DataContainerView
-        containerView.addSubview(dataContainerView)
-        dataContainerView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        dataContainerView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        dataContainerView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        dataContainerView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        // StackView
+        containerView.addSubview(stackView)
+        stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
         
         // ImageView
         dataContainerView.addSubview(imageView)
@@ -104,6 +126,18 @@ extension ThumbnailTitleCC {
         titleLabel.bottomAnchor.constraint(equalTo: dataContainerView.bottomAnchor, constant: -10).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 34).isActive = true
         
+        // DataContainerView
+        stackView.addArrangedSubview(dataContainerView)
+        
+        // ErrorContainer
+        errorContainerView.addSubview(errorView)
+        errorView.leadingAnchor.constraint(equalTo: errorContainerView.leadingAnchor).isActive = true
+        errorView.trailingAnchor.constraint(equalTo: errorContainerView.trailingAnchor).isActive = true
+        errorView.topAnchor.constraint(equalTo: errorContainerView.topAnchor).isActive = true
+        errorView.bottomAnchor.constraint(equalTo: errorContainerView.bottomAnchor).isActive = true
+        errorContainerView.isHidden = true
+        stackView.addArrangedSubview(errorContainerView)
+        
         // Loader
         containerView.addSubview(loader)
         loader.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
@@ -116,6 +150,7 @@ extension ThumbnailTitleCC {
         self.viewModel = viewModel
         setupBinding()
         updateUIBasedOnFetchState()
+        errorView.updateViewModel(viewModel.errorVM)
         fetchDataIfRequired()
     }
     
@@ -127,9 +162,10 @@ extension ThumbnailTitleCC {
             return
         }
         dataFetchState
-            .receive(on: DispatchQueue.main)
             .sink {[weak self] state in
-                self?.updateUIBasedOnFetchState()
+                gauranteeMainThread {[weak self] in
+                    self?.updateUIBasedOnFetchState()
+                }
             }
             .store(in: &bindings)
     }
@@ -141,15 +177,23 @@ extension ThumbnailTitleCC {
         // Helper methods
         func showLoaderAndHideUIComponents() {
             loader.startAnimating()
-            dataContainerView.isHidden = true
+            stackView.isHidden = true
         }
-        func hideLoaderAndShowUIComponents() {
+        func hideLoaderErrorContainerAndShowDataContainer() {
             loader.stopAnimating()
+            stackView.isHidden = false
+            errorContainerView.isHidden = true
             dataContainerView.isHidden = false
+        }
+        func hideLoaderDataContainerAndShowErrorContainer() {
+            loader.stopAnimating()
+            stackView.isHidden = false
+            dataContainerView.isHidden = true
+            errorContainerView.isHidden = false
         }
         func hideEverything() {
             loader.stopAnimating()
-            dataContainerView.isHidden = true
+            stackView.isHidden = true
         }
         func setData() {
             titleLabel.text = viewModel.title
@@ -169,7 +213,7 @@ extension ThumbnailTitleCC {
         self.viewModel = viewModel
         guard let loadingState = viewModel.dataFetchState else {
             setData()
-            hideLoaderAndShowUIComponents()
+            hideLoaderErrorContainerAndShowDataContainer()
             return
         }
         switch loadingState.value {
@@ -179,9 +223,9 @@ extension ThumbnailTitleCC {
             showLoaderAndHideUIComponents()
         case .loaded:
             setData()
-            hideLoaderAndShowUIComponents()
+            hideLoaderErrorContainerAndShowDataContainer()
         case .failed:
-            break
+            hideLoaderDataContainerAndShowErrorContainer()
         }
     }
     

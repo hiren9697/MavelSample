@@ -93,19 +93,24 @@ extension HorizontalThumbnailTitleGridViewTests {
     private func setUPSUTWithNonEmptyData() {
         let first = TestableThumbnailTitleVM(title: "First",
                                              thumbnailURL: nil,
-                                             dataFetchState: nil)
+                                             dataFetchState: nil,
+                                             errorVM: nil)
         let second = TestableThumbnailTitleVM(title: "Second",
                                               thumbnailURL: nil,
-                                              dataFetchState: nil)
+                                              dataFetchState: nil,
+                                              errorVM: nil)
         let third = TestableThumbnailTitleVM(title: "Third",
                                              thumbnailURL: nil,
-                                             dataFetchState: nil)
+                                             dataFetchState: nil,
+                                             errorVM: nil)
         let fourth = TestableThumbnailTitleVM(title: "Fourth",
                                               thumbnailURL: nil,
-                                              dataFetchState: nil)
+                                              dataFetchState: nil,
+                                              errorVM: nil)
         let fifth = TestableThumbnailTitleVM(title: "Fifth",
                                              thumbnailURL: nil,
-                                             dataFetchState: nil)
+                                             dataFetchState: nil,
+                                             errorVM: nil)
         let data = [first, second, third, fourth, fifth]
         viewModel = TestableHorizontalThumbnailTitleGridVM(title: "Test title",
                                                            emptyDataTitle: "Test empty title",

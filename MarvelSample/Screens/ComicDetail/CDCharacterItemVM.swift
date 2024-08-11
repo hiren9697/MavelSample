@@ -12,7 +12,9 @@ class CDCharacterItemVM: BaseThumbnailTitleFetchableVM<Character> {
     
     init(modelID: String?) {
         super.init(modelID: modelID,
-                   endPoint: APIEndpoints.characters.rawValue)
+                   endPoint: APIEndpoints.characters.rawValue,
+        errorVM: ErrorVM(title: "Couldn't fetch character",
+                         imageName: "error"))
     }
     
     override func parseModel(from json: Any) -> Character? {

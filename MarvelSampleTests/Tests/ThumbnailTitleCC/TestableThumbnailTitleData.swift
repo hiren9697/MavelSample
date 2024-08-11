@@ -10,16 +10,19 @@ import Combine
 @testable import MarvelSample
 
 class TestableThumbnailTitleVM: ThumbnailTitleItemViewModel {
-    var dataFetchState: CurrentValueSubject<MarvelSample.ListItemLoadingState, Never>?
     let title: String?
     let thumbnailURL: URL?
+    var dataFetchState: CurrentValueSubject<MarvelSample.ListItemLoadingState, Never>?
+    let errorVM: ErrorVM?
     
     init(title: String,
          thumbnailURL: URL?,
-         dataFetchState: CurrentValueSubject<MarvelSample.ListItemLoadingState, Never>?) {
+         dataFetchState: CurrentValueSubject<MarvelSample.ListItemLoadingState, Never>?,
+         errorVM: ErrorVM?) {
         self.title = title
         self.thumbnailURL = thumbnailURL
         self.dataFetchState = dataFetchState
+        self.errorVM = errorVM
     }
     
     func fetchData() {

@@ -13,6 +13,7 @@ protocol ThumbnailTitleItemViewModel {
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? { get set }
     var title: String? { get }
     var thumbnailURL: URL? { get }
+    var errorVM: ErrorVM? { get }
     
     func fetchData()
 }

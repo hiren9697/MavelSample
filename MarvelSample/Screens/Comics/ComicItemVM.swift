@@ -12,6 +12,7 @@ struct ComicItemVM: ThumbnailTitleItemViewModel {
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = nil
     let title: String?
     let thumbnailURL: URL?
+    let errorVM: ErrorVM? = nil
     
     init(comic: Comic) {
         title = comic.title
