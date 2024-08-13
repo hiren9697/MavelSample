@@ -18,7 +18,7 @@ class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModel {
     // Other variables
     var endPoint: String?
     var modelID: String?
-    let service: APIServiceProtocol //APIService(requestGenerator: APIRequestGenerator())
+    let service: APIServiceProtocol
     var dataFetchTask: URLSessionDataTask?
     var model: Model?
     
@@ -37,13 +37,27 @@ class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModel {
         guard let dataFetchState = dataFetchState else {
             return
         }
-        if model == nil && dataFetchState.value == .notStarted {
-            makeRequestToFetchData()
+        guard dataFetchState.value == .notStarted else {
+            return
         }
+        guard model == nil else {
+            return
+        }
+        guard let modelID = modelID else {
+            return
+        }
+        guard let endPoint = endPoint else {
+            return
+        }
+        guard dataFetchTask == nil else {
+            return
+        }
+        makeRequestToFetchData(modelID: modelID,
+                               endPoint: endPoint)
     }
     
     // Other methods
-    private func makeRequestToFetchData() {
+    private func makeRequestToFetchData(modelID: String, endPoint: String) {
         // Helper function
         func parseJSON(_ json: Any) {
             // Parse JSON
@@ -72,15 +86,6 @@ class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModel {
             dataFetchState?.value = .loaded
         }
         
-        guard let modelID = modelID else {
-            return
-        }
-        guard let endPoint = endPoint else {
-            return
-        }
-        guard dataFetchTask == nil else {
-            return
-        }
         // API Call
         do {
             let request = try service.requestGenerator.generateRequestWithHash(requestType: .get,
