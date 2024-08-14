@@ -58,11 +58,20 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         super.setupInitialUI()
         // Title
         title = viewModel.navigationTitle
+        // NavigationBar
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithDefaultBackground()
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.compactScrollEdgeAppearance = appearance
         // Loader
         view.bringSubviewToFront(loaderContainer)
         // Refresh Control
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        // TableView
+        tableView.contentInset = UIEdgeInsets.zero
     }
     
     func setupCollectionView() {
