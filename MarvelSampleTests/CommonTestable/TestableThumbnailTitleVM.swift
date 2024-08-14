@@ -1,8 +1,8 @@
 //
-//  TestableThumbnailTitleData.swift
+//  TestableThumbnailTitleVM.swift
 //  MarvelSampleTests
 //
-//  Created by Hirenkumar Fadadu on 04/08/24.
+//  Created by Hirenkumar Fadadu on 14/08/24.
 //
 
 import Foundation
