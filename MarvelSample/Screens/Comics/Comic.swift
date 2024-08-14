@@ -14,6 +14,8 @@ struct Comic {
     let title: String
     let modifiedDate: Date?
     let thumbnailURLString: String
+    let characterIDs: [String]
+    let creatorIDs: [String]
     
     var modifiedDateText: String {
         guard let modifiedDate = modifiedDate else {
@@ -28,6 +30,52 @@ struct Comic {
     }
     
     init?(dict: NSDictionary) {
+        // Thumbnail
+        guard let thumbnailDict = dict["thumbnail"] as? NSDictionary else {
+            return nil
+        }
+        let thumbnailPath = thumbnailDict.getStringValue(key: "path")
+        let thumbnailExtension = thumbnailDict.getStringValue(key: "extension")
+        thumbnailURLString = thumbnailPath + "." + thumbnailExtension
+        // Characters
+        guard let characterDict = dict["characters"] as? NSDictionary else {
+            return nil
+        }
+        guard let characterItems = characterDict["items"] as? [NSDictionary] else {
+            return nil
+        }
+        var newCharacterIDs: [String] = []
+        for item in characterItems {
+            let urlPath = item.getStringValue(key: "resourceURI")
+            guard let url = URL(string: urlPath) else {
+                continue
+            }
+            guard let id = url.pathComponents.last else {
+                continue
+            }
+            newCharacterIDs.append(id)
+        }
+        self.characterIDs = newCharacterIDs
+        // Creators
+        guard let creatorDict = dict["creators"] as? NSDictionary else {
+            return nil
+        }
+        guard let creatorItems = creatorDict["items"] as? [NSDictionary] else {
+            return nil
+        }
+        var newCreatorIDs: [String] = []
+        for item in creatorItems {
+            let urlPath = item.getStringValue(key: "resourceURI")
+            guard let url = URL(string: urlPath) else {
+                continue
+            }
+            guard let id = url.pathComponents.last else {
+                continue
+            }
+            newCreatorIDs.append(id)
+        }
+        self.creatorIDs = newCreatorIDs
+        // Other
         id = dict.getStringValue(key: "id")
         pages = dict.getIntValue(key: "pageCount")
         descriptionText = dict.getStringValue(key: "description")
@@ -37,14 +85,6 @@ struct Comic {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         modifiedDate = dateFormatter.date(from: dateText)
-        // Thumbnail
-        guard let thumbnailDict = dict["thumbnail"] as? NSDictionary else {
-            return nil
-        }
-        let thumbnailPath = thumbnailDict.getStringValue(key: "path")
-        let thumbnailExtension = thumbnailDict.getStringValue(key: "extension")
-        thumbnailURLString = thumbnailPath + "." + thumbnailExtension
-        
     }
 }
 
@@ -58,20 +98,9 @@ extension Comic: CustomStringConvertible {
                pages: \(pages),
                modified: \(modifiedDateText),
                thumbnail: \(thumbnailURLString)
+               characterIDs: \(characterIDs)
+               creatorIDs: \(creatorIDs)
                """
     }
-    
-//    init(id: String,
-//         pages: Int,
-//         descriptionText: String,
-//         title: String,
-//         modifiedDate: Date?,
-//         thumbnailURLString: String) {
-//        self.id = id
-//        self.pages = pages
-//        self.descriptionText = descriptionText
-//        self.title = title
-//        self.modifiedDate = modifiedDate
-//        self.thumbnailURLString = thumbnailURLString
-//    }
 }
+

@@ -32,6 +32,21 @@ func verifyMethodCalledOnce(methodName: String,
     }
 }
 
+func verifyMethodNotCalled(methodName: String,
+                           callCount: Int,
+                           describedArguments: @autoclosure ()-> String,
+                           file: StaticString,
+                           line: UInt)-> Bool {
+    if callCount > 0 {
+        XCTFail("Method: \(methodName), should not called, but called \(callCount), times",
+                file: file,
+                line: line)
+        return false
+    } else {
+        return true
+    }
+}
+
 func systemItem(for barButtonItem: UIBarButtonItem)-> UIBarButtonItem.SystemItem {
     let systemItemNumber = barButtonItem.value(forKey: "systemItem") as! Int
     return UIBarButtonItem.SystemItem(rawValue: systemItemNumber)!

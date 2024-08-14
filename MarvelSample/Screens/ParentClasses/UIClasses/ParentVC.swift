@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Base view controller with loader functionality
 class ParentVC: UIViewController {
     let loader: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .large)
@@ -31,13 +32,13 @@ class ParentVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupConstraints()
         setupInitialUI()
     }
     
     // MARK: - UI Helper
-    func setupInitialUI() {
-        view.backgroundColor = .white
-        
+    /// Adds UI components to View and setup constraints
+    func setupConstraints() {
         view.addSubview(loaderContainer)
         loaderContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loaderContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -46,7 +47,11 @@ class ParentVC: UIViewController {
         loaderContainer.addSubview(loader)
         loader.centerXAnchor.constraint(equalTo: loaderContainer.centerXAnchor).isActive = true
         loader.centerYAnchor.constraint(equalTo: loaderContainer.centerYAnchor).isActive = true
-        
+    }
+    
+    /// Configure UI components
+    func setupInitialUI() {
+        view.backgroundColor = .white
         loaderContainer.isHidden = true
         loader.stopAnimating()
     }

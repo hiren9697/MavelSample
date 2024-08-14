@@ -11,20 +11,15 @@ import Combine
 class ComicsVM: BaseListVM<Comic, ComicItemVM> {
     
     init(service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator())) {
-        super.init(endPoint: APIEndpoints.comics.rawValue,
+        super.init(navigationTitle: "Comics",
+                   endPoint: APIEndpoints.comics.rawValue,
                    service: service,
                    emptyDataTitle: "Couldn't find any comic",
                    errorTitle: "Error in fetching comics")
     }
     
     override func parseData(json: Any) {
-        guard let dict = json as? NSDictionary else {
-            return
-        }
-        guard let data = dict["data"] as? NSDictionary else {
-            return
-        }
-        guard let results = data["results"] as? [NSDictionary] else {
+        guard let results = JSONParser().parseListJSON(json) else {
             return
         }
         var newComics: [Comic] = []
@@ -33,9 +28,16 @@ class ComicsVM: BaseListVM<Comic, ComicItemVM> {
             if let comic = Comic(dict: item) {
                 newComics.append(comic)
                 newComicItems.append(ComicItemVM(comic: comic))
+                // Log.info(comic)
             }
         }
         self.data.append(contentsOf: newComics)
         listItems.value.append(contentsOf: newComicItems)
+    }
+    
+    func getComicDetailVM(for index: Int)-> ComicDetailVM {
+        let comic = data[index]
+        let viewModel = ComicDetailVM(comic: comic)
+        return viewModel
     }
 }

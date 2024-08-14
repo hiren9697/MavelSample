@@ -1,0 +1,204 @@
+//
+//  HorizontalGridView.swift
+//  MarvelSample
+//
+//  Created by Hirenkumar Fadadu on 07/08/24.
+//
+
+import UIKit
+
+/// View that displays title and horizontal grid of thumbnail title list
+/// Used in ComicDetailVC
+final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitleGridViewModel>:
+    UIView,
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout {
+    // MARK: - UI Components
+    let containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = UIColor.gray
+        label.textAlignment = .left
+        return label
+    }()
+    let titleLabelContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.estimatedItemSize = .zero
+        let collectionView = UICollectionView(frame: .zero,
+                                              collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    let collectionViewContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let emptyDataContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let emptyDataLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.textColor = .lightGray
+        return label
+    }()
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        return stackView
+    }()
+    
+    // MARK: - Variables
+    let itemSpace: CGFloat = 0
+    let lineSpace: CGFloat = 10
+    let gridHorizontalPadding: CGFloat = 20
+    let gridVerticalPadding: CGFloat = 5
+    lazy var itemSize: CGSize = {
+        let width: CGFloat = 375 / 3
+        let height = width * 1.3
+        return CGSize(width: width, height: height)
+    }()
+    lazy var collectionViewContainerHeight: CGFloat = {
+        let itemHeight = itemSize.height
+        // let collectionViewTopBottomConstraintHeight: CGFloat = 5 * 2
+        let collectionViewSectionPadding = gridVerticalPadding * 2
+        let totalHeight = itemHeight + collectionViewSectionPadding
+        return totalHeight
+    }()
+    
+    var viewModel: ViewModel
+    
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        super.init(frame: .zero)
+        setupConstraints()
+        setupInitialUI()
+        updateDataState()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        setupConstraints()
+    }
+    
+    // MARK: - UI Helper methods
+    private func setupConstraints() {
+        // Container view
+        self.addSubview(containerView)
+        containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        containerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        // Stack view
+        containerView.addSubview(stackView)
+        stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        // Title label
+        titleLabelContainer.addSubview(titleLabel)
+        titleLabel.leadingAnchor.constraint(equalTo: titleLabelContainer.leadingAnchor, constant: 20).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: titleLabelContainer.trailingAnchor, constant: -20).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: titleLabelContainer.topAnchor, constant: 5).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: titleLabelContainer.bottomAnchor, constant: -5).isActive = true
+        // CollectionView
+        collectionViewContainer.addSubview(collectionView)
+        collectionView.leadingAnchor.constraint(equalTo: collectionViewContainer.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: collectionViewContainer.trailingAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: collectionViewContainer.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: collectionViewContainer.bottomAnchor).isActive = true
+        // Title label container
+        collectionViewContainer.heightAnchor.constraint(equalToConstant: collectionViewContainerHeight).isActive = true
+        stackView.addArrangedSubview(titleLabelContainer)
+        // Collection view container
+        stackView.addArrangedSubview(collectionViewContainer)
+        // Empty data label
+        emptyDataContainer.addSubview(emptyDataLabel)
+        emptyDataLabel.leadingAnchor.constraint(greaterThanOrEqualTo: emptyDataContainer.leadingAnchor, constant: 20).isActive = true
+        emptyDataLabel.trailingAnchor.constraint(lessThanOrEqualTo: emptyDataContainer.trailingAnchor, constant: -20).isActive = true
+        emptyDataLabel.centerXAnchor.constraint(equalTo: emptyDataContainer.centerXAnchor).isActive = true
+        emptyDataLabel.centerYAnchor.constraint(equalTo: emptyDataContainer.centerYAnchor).isActive = true
+        // Empty data container
+        emptyDataContainer.heightAnchor.constraint(equalToConstant: collectionViewContainerHeight).isActive = true
+        stackView.addArrangedSubview(emptyDataContainer)
+    }
+    
+    private func setupInitialUI() {
+        // Title
+        titleLabel.text = viewModel.title
+        // CollectionView
+        collectionView.register(ThumbnailTitleCC<ViewModel.ItemViewModel>.self,
+                                forCellWithReuseIdentifier: ThumbnailTitleCC<ViewModel.ItemViewModel>.name)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.reloadData()
+        // Empty label
+        emptyDataLabel.text = viewModel.emptyDataTitle
+    }
+    
+    private func updateDataState() {
+        collectionViewContainer.isHidden = viewModel.data.isEmpty
+        emptyDataContainer.isHidden = !viewModel.data.isEmpty
+    }
+    
+    // MARK: - CollectionView Delegate
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
+    
+    // MARK: - CollectionView Datasource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<ViewModel.ItemViewModel>.name,
+                                                      for: indexPath) as! ThumbnailTitleCC<ViewModel.ItemViewModel>
+        cell.update(viewModel: viewModel.data[indexPath.row])
+        return cell
+    }
+    
+    // MARK: - CollectionView DelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        itemSpace
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        lineSpace
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        UIEdgeInsets(top: gridVerticalPadding,
+                     left: gridHorizontalPadding,
+                     bottom: gridVerticalPadding,
+                     right: gridHorizontalPadding)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return itemSize
+    }
+}

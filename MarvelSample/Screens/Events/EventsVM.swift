@@ -9,20 +9,15 @@ import Foundation
 
 class EventsVM: BaseListVM<Event, EventItemVM> {
     init(service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator())) {
-        super.init(endPoint: APIEndpoints.events.rawValue,
+        super.init(navigationTitle: "Events",
+                   endPoint: APIEndpoints.events.rawValue,
                    service: service,
                    emptyDataTitle: "Couldn't find any comic",
                    errorTitle: "Error in fetching comics")
     }
     
     override func parseData(json: Any) {
-        guard let dict = json as? NSDictionary else {
-            return
-        }
-        guard let data = dict["data"] as? NSDictionary else {
-            return
-        }
-        guard let results = data["results"] as? [NSDictionary] else {
+        guard let results = JSONParser().parseListJSON(json) else {
             return
         }
         var newEvents: [Event] = []
@@ -30,7 +25,6 @@ class EventsVM: BaseListVM<Event, EventItemVM> {
         for item in results {
             if let event = Event(dict: item) {
                 newEvents.append(event)
-                Log.info(event)
                 newEventItems.append(EventItemVM(event: event))
             }
         }

@@ -6,13 +6,20 @@
 //
 
 import Foundation
+import Combine
 
-struct CharacterItemVM {
-    let name: String
+struct CharacterItemVM: ThumbnailTitleItemViewModel {
+    var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = nil
+    let title: String?
     let thumbnailURL: URL?
+    let errorVM: ErrorVM? = nil
     
     init(character: Character) {
-        name = character.name
+        title = character.name
         thumbnailURL = character.thumbnailURL
+    }
+    
+    func fetchData() {
+        // Do nothing this class doesn't support fetch data
     }
 }

@@ -6,13 +6,20 @@
 //
 
 import UIKit
+import Combine
 
-struct ComicItemVM {
-    let title: String
+struct ComicItemVM: ThumbnailTitleItemViewModel {
+    var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = nil
+    let title: String?
     let thumbnailURL: URL?
+    let errorVM: ErrorVM? = nil
     
     init(comic: Comic) {
         title = comic.title
         thumbnailURL = comic.thumbnailURL
+    }
+    
+    func fetchData() {
+        // Do nothing, this class doesn't support fetch data
     }
 }

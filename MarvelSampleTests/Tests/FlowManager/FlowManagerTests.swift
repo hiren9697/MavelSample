@@ -49,19 +49,27 @@ extension FlowManagerTests {
         XCTAssertTrue(rootVC is WalkthroughVC, "rootViewController is not WalkthroughVC")
     }
     
-    func test_setRootViewController_withSeenWalkthrough_shouldSetTabBarControllerAsRoot() {
+    func test_setRootViewController_withSeenWalkthrough_shouldSetNavigationControllerWithTabBarControllerAsRoot() {
         XCTAssertNil(window.rootViewController, "precondition")
         sut.setSeenWalkthrough()
         sut.setRootViewController()
-        XCTAssertTrue(window.rootViewController is TabBarController, "rootViewController is not TabBarController")
+        guard let navigationController = window.rootViewController as? UINavigationController else {
+            XCTFail("Window's rootViewController is not UINavigationController")
+            return
+        }
+        XCTAssertTrue(navigationController.viewControllers.first is TabBarController, "navigationController's rootViewController is not TabBarController")
     }
     
-    func test_setRootViewController_withWalkthroughAsRoot_settingWalkthroughSeen_shouldSetTabBarControllerAsRoot() {
+    func test_setRootViewController_withWalkthroughAsRoot_settingWalkthroughSeen_shouldSetNavigationControllerWithTabBarControllerAsRoot() {
         sut.setRootViewController()
         XCTAssertTrue(window.rootViewController is WalkthroughVC, "precondition")
         sut.setSeenWalkthrough()
         sut.setRootViewController()
-        XCTAssertTrue(window.rootViewController is TabBarController, "rootViewController is not TabBarController")
+        guard let navigationController = window.rootViewController as? UINavigationController else {
+            XCTFail("Window's rootViewController is not UINavigationController")
+            return
+        }
+        XCTAssertTrue(navigationController.viewControllers.first is TabBarController, "navigationController's rootViewController is not TabBarController")
     }
     
     func test_setRootViewController_withWalkthroughAsRoot_withoutSeenWalkthrough_shouldNotChangeRoot() {
