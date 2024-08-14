@@ -61,6 +61,10 @@ extension BaseCollectionVCTests {
         XCTAssertEqual(sut.refreshControl.superview, sut.collectionView)
     }
     
+    func test_title() {
+        XCTAssertEqual(sut.title, viewModel.navigationTitle)
+    }
+    
     func test_refreshController_hasTarget() {
         var number = 0
         sut.refreshHandler = {

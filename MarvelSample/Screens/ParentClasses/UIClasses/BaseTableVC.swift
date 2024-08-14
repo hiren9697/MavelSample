@@ -44,16 +44,6 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         fetchInitialData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Navigation title
-        tabBarController?.title = viewModel.navigationTitle
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     // MARK: - UI helper methods
     override func setupConstraints() {
         super.setupConstraints()
@@ -66,11 +56,23 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
     
     override func setupInitialUI() {
         super.setupInitialUI()
+        // Title
+        title = viewModel.navigationTitle
+        // NavigationBar
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithDefaultBackground()
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.compactScrollEdgeAppearance = appearance
         // Loader
         view.bringSubviewToFront(loaderContainer)
         // Refresh Control
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        // TableView
+        tableView.contentInset = UIEdgeInsets.zero
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 0.01))
     }
     
     func setupCollectionView() {

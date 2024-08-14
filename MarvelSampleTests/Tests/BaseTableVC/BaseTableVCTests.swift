@@ -61,6 +61,10 @@ extension BaseTableVCTests {
         XCTAssertEqual(sut.refreshControl.superview, sut.tableView)
     }
     
+    func test_title() {
+        XCTAssertEqual(sut.title, viewModel.navigationTitle)
+    }
+    
     func test_refreshController_hasTarget() {
         var number = 0
         sut.refreshHandler = {
