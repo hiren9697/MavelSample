@@ -20,3 +20,11 @@ final class CreatorGridVM: HorizontalThumbnailTitleGridViewModel {
         self.data = data
     }
 }
+
+extension CreatorGridVM: Equatable {
+    static func == (lhs: CreatorGridVM, rhs: CreatorGridVM) -> Bool {
+        lhs.title == rhs.title &&
+        lhs.emptyDataTitle == rhs.emptyDataTitle &&
+        lhs.data == rhs.data
+    }
+}

@@ -54,15 +54,14 @@ extension Character: CustomStringConvertible {
                thumbnail: \(thumbnailURLString)
                """
     }
-    
-//    init(id: String,
-//         name: String,
-//         modifiedDate: Date?,
-//         thumbnailURLString: String) {
-//        self.id = id
-//        self.name = name
-//        self.modifiedDate = modifiedDate
-//        self.thumbnailURLString = thumbnailURLString
-//    }
+}
+
+extension Character: Equatable {
+    static func == (lhs: Character, rhs: Character) -> Bool {
+        lhs.id == rhs.id &&
+        lhs.name == rhs.name &&
+        lhs.modifiedDate == rhs.modifiedDate &&
+        lhs.thumbnailURLString == rhs.thumbnailURLString
+    }
 }
 
