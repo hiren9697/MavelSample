@@ -44,16 +44,6 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         fetchInitialData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Navigation title
-        tabBarController?.title = viewModel.navigationTitle
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     // MARK: - UI helper methods
     override func setupConstraints() {
         super.setupConstraints()
@@ -66,6 +56,8 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
     
     override func setupInitialUI() {
         super.setupInitialUI()
+        // Title
+        title = viewModel.navigationTitle
         // Loader
         view.bringSubviewToFront(loaderContainer)
         // Refresh Control

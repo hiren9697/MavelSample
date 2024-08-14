@@ -31,8 +31,7 @@ class FlowManager {
                 return
             }
             let tabBarController = initializeTabBarController()
-            let navigationController = UINavigationController(rootViewController: tabBarController)
-            window.rootViewController = navigationController
+            window.rootViewController = tabBarController
             window.makeKeyAndVisible()
             //*/
             //window.rootViewController = ComicDetailVC(viewModel: ComicDetailVM())
@@ -63,7 +62,10 @@ class FlowManager {
         let comicsVC = ComicsVC(viewModel: ComicsVM())
         let charactersVC = CharactersVC(viewModel: CharactersVM())
         let eventsVC = EventsVC(viewModel: EventsVM())
-        let viewControllers = [comicsVC, charactersVC, eventsVC]
+        let comicsVCNavigationController = UINavigationController(rootViewController: comicsVC)
+        let charactersVCNavigationController = UINavigationController(rootViewController: charactersVC)
+        let eventsVCNavigationController = UINavigationController(rootViewController: eventsVC)
+        let viewControllers = [comicsVCNavigationController, charactersVCNavigationController, eventsVCNavigationController]
         // Initialize TabBar
         let tabBarVM = TabBarVM(tabBarItemVMs: tabBarItemVMs)
         return TabBarController(viewModel: tabBarVM,

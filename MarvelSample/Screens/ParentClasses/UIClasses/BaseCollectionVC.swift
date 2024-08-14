@@ -56,16 +56,6 @@ where ViewModel.Data == Data,
         fetchInitialData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // Navigation title
-        tabBarController?.title = viewModel.navigationTitle
-    }
-    
     // MARK: - UI helper methods
     override func setupConstraints() {
         super.setupConstraints()
@@ -78,6 +68,8 @@ where ViewModel.Data == Data,
     
     override func setupInitialUI() {
         super.setupInitialUI()
+        // Title
+        title = viewModel.navigationTitle
         // Loader
         view.bringSubviewToFront(loaderContainer)
         // Refresh Control

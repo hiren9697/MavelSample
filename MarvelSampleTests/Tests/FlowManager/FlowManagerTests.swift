@@ -49,27 +49,19 @@ extension FlowManagerTests {
         XCTAssertTrue(rootVC is WalkthroughVC, "rootViewController is not WalkthroughVC")
     }
     
-    func test_setRootViewController_withSeenWalkthrough_shouldSetNavigationControllerWithTabBarControllerAsRoot() {
+    func test_setRootViewController_withSeenWalkthrough_shouldSetTabBarControllerAsRoot() {
         XCTAssertNil(window.rootViewController, "precondition")
         sut.setSeenWalkthrough()
         sut.setRootViewController()
-        guard let navigationController = window.rootViewController as? UINavigationController else {
-            XCTFail("Window's rootViewController is not UINavigationController")
-            return
-        }
-        XCTAssertTrue(navigationController.viewControllers.first is TabBarController, "navigationController's rootViewController is not TabBarController")
+        XCTAssertTrue(window.rootViewController is TabBarController)
     }
     
-    func test_setRootViewController_withWalkthroughAsRoot_settingWalkthroughSeen_shouldSetNavigationControllerWithTabBarControllerAsRoot() {
+    func test_setRootViewController_withWalkthroughAsRoot_settingWalkthroughSeen_shouldSetTabBarControllerAsRoot() {
         sut.setRootViewController()
         XCTAssertTrue(window.rootViewController is WalkthroughVC, "precondition")
         sut.setSeenWalkthrough()
         sut.setRootViewController()
-        guard let navigationController = window.rootViewController as? UINavigationController else {
-            XCTFail("Window's rootViewController is not UINavigationController")
-            return
-        }
-        XCTAssertTrue(navigationController.viewControllers.first is TabBarController, "navigationController's rootViewController is not TabBarController")
+        XCTAssertTrue(window.rootViewController is TabBarController)
     }
     
     func test_setRootViewController_withWalkthroughAsRoot_withoutSeenWalkthrough_shouldNotChangeRoot() {
