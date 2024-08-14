@@ -72,6 +72,7 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         // TableView
         tableView.contentInset = UIEdgeInsets.zero
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 0.01))
     }
     
     func setupCollectionView() {
