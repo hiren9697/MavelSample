@@ -9,5 +9,6 @@ Icons credit
 
 
 # Notes:
+- Diagrams are drawn in draw.io
 - Not used '.receive(on: DispatchQueue.main)' operator with subscribers, Because facing issues in unit tests, Instead used function 'gauranteeMainThread(:)'
 

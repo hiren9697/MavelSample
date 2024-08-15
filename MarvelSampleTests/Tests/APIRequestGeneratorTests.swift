@@ -8,6 +8,12 @@
 import XCTest
 @testable import MarvelSample
 
+/// Tests:
+/// 1. Request method: GET or POST
+/// 2. Host
+/// 3. Relative path
+/// 4. Query items
+// MARK: - Test Class
 final class APIRequestGeneratorTests: XCTestCase {
 
     var sut: APIRequestGenerator!
@@ -23,9 +29,8 @@ final class APIRequestGeneratorTests: XCTestCase {
     }
 }
 
-// MARK: - TestCases
+// MARK: - 1. Request method
 extension APIRequestGeneratorTests {
-   
     func test_generateRequest_withRequestTypeGet_shouldHaveGetMethod() {
         let type: RequestType = .get
         guard let request = generateRequest(requestType: type) else {
@@ -41,14 +46,20 @@ extension APIRequestGeneratorTests {
         }
         XCTAssertEqual(request.httpMethod, type.rawValue)
     }
-    
+}
+
+// MARK: - 2. Host
+extension APIRequestGeneratorTests {
     func test_generateRequest_shouldHaveCorrectHost() {
         guard let request = generateRequest(requestType: .get) else {
             return
         }
         XCTAssertEqual(request.url?.host(), APIEndpoints.base.rawValue)
     }
-    
+}
+
+// MARK: - 3. Relative Path
+extension APIRequestGeneratorTests {
     func test_generateRequest_shouldHaveCorrectRelativePath() {
         let relativePath = APIEndpoints.characters
         guard let request = generateRequest(requestType: .get,
@@ -57,7 +68,10 @@ extension APIRequestGeneratorTests {
         }
         XCTAssertEqual(request.url?.relativePath, relativePath.rawValue)
     }
-    
+}
+
+// MARK: - 4. Query Items
+extension APIRequestGeneratorTests {
     func test_generateRequest_shouldHaveDefaultURLQueryItems() {
         guard let request = generateRequest(requestType: .get) else {
             return
