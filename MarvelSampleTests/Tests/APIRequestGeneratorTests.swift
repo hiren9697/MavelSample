@@ -13,6 +13,7 @@ import XCTest
 /// 2. Host
 /// 3. Relative path
 /// 4. Query items
+/// 5. Body
 // MARK: - Test Class
 final class APIRequestGeneratorTests: XCTestCase {
 
@@ -117,6 +118,27 @@ extension APIRequestGeneratorTests {
     }
 }
 
+// MARK: - 5. Body
+extension APIRequestGeneratorTests {
+    
+    func test_generateRequest_shouldHaveSuppliedBodyParameters() {
+        let firstKey = "firstKey"
+        let firstValue = "firstValue"
+        let secondKey = "secondKey"
+        let secondValue = "secondValue"
+        let parameters: [String: String] = [firstKey: firstValue, secondKey: secondValue]
+        guard let request = generateRequest(requestType: .get,
+                                            parameters: parameters) else {
+            return
+        }
+        guard let bodyParameters = getBodyParameters(request: request) else {
+            return
+        }
+        XCTAssertEqual((bodyParameters[firstKey] as? String), firstValue)
+        XCTAssertEqual((bodyParameters[secondKey] as? String), secondValue)
+    }
+}
+
 // MARK: - Helper
 extension APIRequestGeneratorTests {
     
@@ -134,7 +156,7 @@ extension APIRequestGeneratorTests {
                                          queryParameters: queryParameters,
                                          parameters: parameters)
         } catch {
-            XCTFail("GenerateRequest failed: \(error)", line: line)
+            XCTFail("Precondition: GenerateRequest failed: \(error)", line: line)
             return nil
         }
     }
@@ -142,17 +164,32 @@ extension APIRequestGeneratorTests {
     func getQueryItems(request: URLRequest,
                        line: UInt = #line)-> [URLQueryItem]? {
         guard let url = request.url else {
-            XCTFail("Generated request has no URL", line: line)
+            XCTFail("Precondition: Generated request has no URL", line: line)
             return nil
         }
         guard let components = NSURLComponents(string: url.absoluteString) else {
-            XCTFail("Can't access components from generated URL", line: line)
+            XCTFail("Precondition: Can't access components from generated URL", line: line)
             return nil
         }
         guard let queryItems = components.queryItems else {
-            XCTFail("Can't access query items from generated URL", line: line)
+            XCTFail("Precondition: Can't access query items from generated URL", line: line)
             return nil
         }
         return queryItems
+    }
+    
+    func getBodyParameters(request: URLRequest,
+                           line: UInt = #line)-> [String: Any]? {
+        guard let httpBody = request.httpBody else {
+            XCTFail("Precondition: Generated request has no body")
+            return nil
+        }
+        do {
+            let extractedParameters = try JSONSerialization.jsonObject(with: httpBody, options: []) as? [String: Any]
+            return extractedParameters
+        } catch {
+            XCTFail("Precondition: Failed to deserialize request body, Encountered error: \(error)")
+            return nil
+        }
     }
 }
