@@ -8,8 +8,10 @@
 import XCTest
 @testable import MarvelSample
 
+/// Tests:
+/// 1. Request: Number of request and made request is correct
+/// 2. Different responses
 final class APIServiceTests: XCTestCase {
-
     var session: URLSessionSpy!
     var sut: APIService!
     
@@ -21,9 +23,8 @@ final class APIServiceTests: XCTestCase {
     }
 }
 
-// MARK: - Request Tests
+// MARK: - 1. Request Tests
 extension APIServiceTests {
-    
     func test_dataTask_makesOneRequestToSession() throws {
         let request = getRequest()
         _ = sut.dataTask(request: request) { _ in }
@@ -37,7 +38,7 @@ extension APIServiceTests {
     }
 }
 
-// MARK: - Response Tests
+// MARK: - 2. Response Tests
 extension APIServiceTests {
     func test_dataTask_withError_shoudlCompleteWithSentError() {
         let request = getRequest()
@@ -149,7 +150,6 @@ extension APIServiceTests {
 
 // MARK: - Helper
 extension APIServiceTests {
-    
     private func getRequest()-> URLRequest {
         let url = URL(string: "https://www.google.com")!
         let request = URLRequest(url: url)
