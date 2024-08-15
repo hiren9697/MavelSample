@@ -20,3 +20,11 @@ final class CharactersGridVM: HorizontalThumbnailTitleGridViewModel {
         self.data = data
     }
 }
+
+extension CharactersGridVM: Equatable {
+    static func == (lhs: CharactersGridVM, rhs: CharactersGridVM) -> Bool {
+        lhs.title == rhs.title &&
+        lhs.emptyDataTitle == rhs.emptyDataTitle &&
+        lhs.data == rhs.data
+    }
+}

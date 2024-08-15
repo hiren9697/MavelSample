@@ -39,3 +39,11 @@ extension Creator: CustomStringConvertible {
                """
     }
 }
+
+extension Creator: Equatable {
+    static func == (lhs: Creator, rhs: Creator) -> Bool {
+        lhs.id == rhs.id &&
+        lhs.fullName == rhs.fullName &&
+        lhs.thumbnailURLString == rhs.thumbnailURLString
+    }
+}

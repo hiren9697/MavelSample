@@ -33,3 +33,10 @@ class CDCreatorItemVM: BaseThumbnailTitleFetchableVM<Creator> {
         return (model.fullName, model.thumbnailURL)
     }
 }
+
+extension CDCreatorItemVM: Equatable {
+    static func == (lhs: CDCreatorItemVM, rhs: CDCreatorItemVM) -> Bool {
+        lhs.modelID == rhs.modelID &&
+        lhs.model == rhs.model
+    }
+}

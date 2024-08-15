@@ -35,3 +35,9 @@ class CDCharacterItemVM: BaseThumbnailTitleFetchableVM<Character> {
     }
 }
 
+extension CDCharacterItemVM: Equatable {
+    static func == (lhs: CDCharacterItemVM, rhs: CDCharacterItemVM) -> Bool {
+        lhs.modelID == rhs.modelID &&
+        lhs.model == rhs.model
+    }
+}
