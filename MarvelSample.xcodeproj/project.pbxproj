@@ -82,6 +82,8 @@
 		8762B6622C40D17B000FAFEF /* EventsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6612C40D17B000FAFEF /* EventsVC.swift */; };
 		8762B6642C40D569000FAFEF /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6632C40D569000FAFEF /* HelperFunctions.swift */; };
 		8762B6662C40D6E2000FAFEF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6652C40D6E2000FAFEF /* Constants.swift */; };
+		8765BFB92C6DB9AA00D4C0E9 /* TabBarTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 8765BFB72C6DB9A900D4C0E9 /* TabBarTests.drawio.png */; };
+		8765BFBA2C6DB9AA00D4C0E9 /* TabBarTests.drawio in Resources */ = {isa = PBXBuildFile; fileRef = 8765BFB82C6DB9AA00D4C0E9 /* TabBarTests.drawio */; };
 		876782DB2C5F6D78001E5AFE /* ThumbnailTitleCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876782DA2C5F6D78001E5AFE /* ThumbnailTitleCC.swift */; };
 		876A7F682C48B73E000A286D /* BaseCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A7F672C48B73E000A286D /* BaseCollectionVC.swift */; };
 		877957C72C474FC4009A8D8B /* FetchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877957C62C474FC4009A8D8B /* FetchState.swift */; };
@@ -236,6 +238,8 @@
 		8762B6612C40D17B000FAFEF /* EventsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVC.swift; sourceTree = "<group>"; };
 		8762B6632C40D569000FAFEF /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		8762B6652C40D6E2000FAFEF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8765BFB72C6DB9A900D4C0E9 /* TabBarTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarTests.drawio.png; sourceTree = "<group>"; };
+		8765BFB82C6DB9AA00D4C0E9 /* TabBarTests.drawio */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TabBarTests.drawio; sourceTree = "<group>"; };
 		876782DA2C5F6D78001E5AFE /* ThumbnailTitleCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailTitleCC.swift; sourceTree = "<group>"; };
 		876A7F672C48B73E000A286D /* BaseCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVC.swift; sourceTree = "<group>"; };
 		877957C62C474FC4009A8D8B /* FetchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchState.swift; sourceTree = "<group>"; };
@@ -511,6 +515,16 @@
 			path = Comics;
 			sourceTree = "<group>";
 		};
+		8765BFB62C6DB99000D4C0E9 /* TabBarTests */ = {
+			isa = PBXGroup;
+			children = (
+				8765BFB82C6DB9AA00D4C0E9 /* TabBarTests.drawio */,
+				8765BFB72C6DB9A900D4C0E9 /* TabBarTests.drawio.png */,
+				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
+			);
+			path = TabBarTests;
+			sourceTree = "<group>";
+		};
 		8783B3C92C5F77A900D06829 /* ThumbnailTitleCC */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,9 +548,9 @@
 			children = (
 				87DDFD912C38EDDB0040621E /* MarvelSampleTests.swift */,
 				87DDFDC72C391A5C0040621E /* APIRequestGeneratorTests.swift */,
-				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
 				877B481E2C5625C3001A6E5A /* APIServiceTests.swift */,
 				87D568092C61A3CB00D95280 /* JSONParserTests.swift */,
+				8765BFB62C6DB99000D4C0E9 /* TabBarTests */,
 				87CBC51C2C54F1AE007AB863 /* BaseListVM */,
 				87CBC51B2C54F188007AB863 /* BaseCollectionVC */,
 				8783B3C92C5F77A900D06829 /* ThumbnailTitleCC */,
@@ -1045,7 +1059,9 @@
 				877B48192C560F4D001A6E5A /* WithoutResultKey.json in Resources */,
 				877B48142C5608F7001A6E5A /* Error.json in Resources */,
 				87CBC52A2C554179007AB863 /* EmptyList.json in Resources */,
+				8765BFB92C6DB9AA00D4C0E9 /* TabBarTests.drawio.png in Resources */,
 				871F91D52C6AFC6E0026A2B2 /* SingleTestableThumbnailTitle.json in Resources */,
+				8765BFBA2C6DB9AA00D4C0E9 /* TabBarTests.drawio in Resources */,
 				877B48172C560F25001A6E5A /* WithoutDataKey.json in Resources */,
 				875B68AA2C68AC8900D8C829 /* SingleCreator.json in Resources */,
 				87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */,

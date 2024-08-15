@@ -12,6 +12,7 @@ import XCTest
 /// 1. Number of viewControllers
 /// 2. Sequence of viewControllers
 /// 3. Tab information
+/// NOTE: This class uses Testable view controllers and view models, to prevent automatic API calls
 final class TabBarTests: XCTestCase {
 
     var viewModel: TabBarVM!
