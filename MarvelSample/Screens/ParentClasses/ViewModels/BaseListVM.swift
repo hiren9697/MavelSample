@@ -43,11 +43,11 @@ class BaseListVM<Data, ListItemVM>: APIDataListable {
     
     // Protocol functions
     func itemVM(for row: Int) -> ListItemVM {
+        Log.info("--- fetchState: \(fetchState.value) ---")
         if row == listItems.value.lastIndex &&
             paginationManager.hasMore &&
             fetchDataTask == nil &&
-            (fetchState.value != .loadingNextPage ||
-             fetchState.value != .initialLoading) {
+            fetchState.value == .idle {
             fetchNextPage()
         }
         return listItems.value[row]

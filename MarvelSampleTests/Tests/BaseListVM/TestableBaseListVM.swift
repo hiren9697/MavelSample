@@ -21,4 +21,19 @@ class TestableBaseListVM: BaseListVM<TestableData,
                    emptyDataTitle: emptyDataTitle,
                    errorTitle: errorTitle)
     }
+    
+    override func parseData(json: Any) {
+        guard let results = JSONParser().parseListJSON(json) else {
+            return
+        }
+        var newData: [TestableData] = []
+        var newDataItems: [TestableDataItemVM] = []
+        for item in results {
+            let object = TestableData(dictionary: item)
+            newData.append(object)
+            newDataItems.append(TestableDataItemVM(text: object.text))
+        }
+        self.data.append(contentsOf: newData)
+        listItems.value.append(contentsOf: newDataItems)
+    }
 }

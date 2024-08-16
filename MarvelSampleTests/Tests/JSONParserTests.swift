@@ -8,6 +8,7 @@
 import XCTest
 @testable import MarvelSample
 
+/// Tests json parsing with various kind of JSONs
 final class JSONParserTests: XCTestCase {
 
     var sut: JSONParser!

@@ -9,6 +9,21 @@ import UIKit
 import XCTest
 @testable import MarvelSample
 
+func verifyMethodNotCalled(methodName: String,
+                           callCount: Int,
+                           describedArguments: @autoclosure ()-> String,
+                           file: StaticString,
+                           line: UInt)-> Bool {
+    if callCount > 0 {
+        XCTFail("Method: \(methodName), should not called, but called \(callCount), times",
+                file: file,
+                line: line)
+        return false
+    } else {
+        return true
+    }
+}
+
 func verifyMethodCalledOnce(methodName: String,
                             callCount: Int,
                             describedArguments: @autoclosure ()-> String,
@@ -32,15 +47,23 @@ func verifyMethodCalledOnce(methodName: String,
     }
 }
 
-func verifyMethodNotCalled(methodName: String,
-                           callCount: Int,
-                           describedArguments: @autoclosure ()-> String,
-                           file: StaticString,
-                           line: UInt)-> Bool {
-    if callCount > 0 {
-        XCTFail("Method: \(methodName), should not called, but called \(callCount), times",
+func verifyMethodCalledTwice(methodName: String,
+                             callCount: Int,
+                             describedArguments: @autoclosure ()-> String,
+                             file: StaticString,
+                             line: UInt)-> Bool {
+    if callCount == 0 {
+        XCTFail("Wanted to call 2 times, but not invoked: \(methodName)",
                 file: file,
                 line: line)
+        return false
+    } else if callCount != 2 {
+        let message = """
+                      Wanted 2 time but was called \(callCount) times,
+                      method: \(methodName),
+                      with: \(describedArguments())
+                      """
+        XCTFail(message, file: file, line: line)
         return false
     } else {
         return true
