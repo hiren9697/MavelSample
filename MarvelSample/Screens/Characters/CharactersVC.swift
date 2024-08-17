@@ -8,9 +8,7 @@
 import UIKit
 
 // MARK: - VC
-class CharactersVC: BaseCollectionVC<Character,
-                    CharacterItemVM,
-                    CharactersVM> {
+class CharactersVC: BaseCollectionVC<CharactersVM> {
 
     // MARK: - Variables
     let itemSpace: CGFloat = 10

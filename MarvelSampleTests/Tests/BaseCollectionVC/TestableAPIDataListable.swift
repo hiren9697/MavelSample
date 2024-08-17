@@ -9,7 +9,7 @@ import Foundation
 import Combine
 @testable import MarvelSample
 
-/// A dummy class used to fill space in TestableBaseCollectionVC and TestableBaseTableVC
+/// A dummy class used to fill space in TestableChildCollectionVC and TestableChildTableVC
 /// This class just provides must required variables and method
 /// Doesn't provide actual behaviour like fetch data and load next page when view controller accesses last list item view model
 /// Test classes have to manually change binding and other variables to perform tests

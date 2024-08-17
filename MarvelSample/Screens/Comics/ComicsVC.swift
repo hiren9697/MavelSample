@@ -8,9 +8,7 @@
 import UIKit
 import Combine
 
-class ComicsVC: BaseCollectionVC<Comic,
-         ComicItemVM,
-         ComicsVM> {
+class ComicsVC: BaseCollectionVC<ComicsVM> {
     
     // MARK: - Variables
     let itemSpace: CGFloat = 10

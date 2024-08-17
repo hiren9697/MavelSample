@@ -8,15 +8,11 @@
 import UIKit
 import Combine
 
-class BaseCollectionVC<Data,
-                       ItemVM,
-                       ViewModel: APIDataListable>:
+class BaseCollectionVC<ViewModel: APIDataListable>:
                         ParentVC,
                         UICollectionViewDelegate,
                         UICollectionViewDataSource,
-                        UICollectionViewDelegateFlowLayout
-where ViewModel.Data == Data,
-      ViewModel.ItemVM == ItemVM {
+                        UICollectionViewDelegateFlowLayout {
     
     // MARK: UI Components
     let collectionView: UICollectionView = {
