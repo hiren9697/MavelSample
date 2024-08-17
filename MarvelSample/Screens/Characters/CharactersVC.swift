@@ -28,11 +28,15 @@ class CharactersVC: BaseCollectionVC<CharactersVM> {
                                 forCellWithReuseIdentifier: ThumbnailTitleCC<CharacterItemVM>.name)
     }
     
-    override func dequeueCell(at indexPath: IndexPath) -> UICollectionViewCell {
+    override func dequeueDataCell(at indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<CharacterItemVM>.name,
                                            for: indexPath) as! ThumbnailTitleCC<CharacterItemVM>
         cell.update(viewModel: viewModel.itemVM(for: indexPath.row))
         return cell
+    }
+    
+    override func collectionViewDidSelectDataCell(indexPath: IndexPath) {
+        // Need to implement this
     }
     
     // MARK: - CollectionView FlowLayout
@@ -44,7 +48,7 @@ class CharactersVC: BaseCollectionVC<CharactersVM> {
         lineSpace
     }
     
-    override func collectionViewInsetsFor(section: Int) -> UIEdgeInsets {
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets.init(top: padding, left: padding, bottom: padding, right: padding)
     }
     

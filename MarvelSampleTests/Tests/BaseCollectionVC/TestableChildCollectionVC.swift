@@ -37,8 +37,8 @@ class TestableChildCollectionVC: BaseCollectionVC<TestableAPIDataListable> {
         .leastNonzeroMagnitude
     }
     
-    override func collectionViewInsetsFor(section: Int) -> UIEdgeInsets {
-        UIEdgeInsets.zero
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        .zero
     }
     
     override func collectionViewSizeForItem(at indexPath: IndexPath) -> CGSize {
