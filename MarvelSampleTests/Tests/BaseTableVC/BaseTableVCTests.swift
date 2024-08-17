@@ -8,7 +8,7 @@
 import XCTest
 @testable import MarvelSample
 
-/// Uses TestableAPIDataListable as view model, Need to change properties of view model manually to perform changes
+/// Uses TestableAPIDataListable as view model
 /// Uses TestableChildTableVC to fill space
 /// Tests:
 /// 1. UI components: Refresh control, TableView, Loader view
@@ -16,6 +16,13 @@ import XCTest
 /// 3. Loader visibility with different states
 /// 4. Number and types of cells dequed in different states
 /// 5. Next page loader visibility in different states
+/// 6. API calls
+/// This test excludes:
+/// 1. init?(coder:) as this is not called
+/// 2. registerTableViewDataCell() as this must be implemented by subclass and subclass's implementation will be called
+/// 3. dequeueCell(at: IndexPath)
+/// 4. tableView(_:UITableView, heightForRowAt: IndexPath) as this must be implemented by subclass and subclass's implementation will be called, sub-class test should test this
+/// 5. tableView(_:UITableView, didSelectRowAt: IndexPath)
 final class BaseTableVCTests: XCTestCase {
     
     var sut: TestableChildTableVC!
@@ -63,15 +70,6 @@ extension BaseTableVCTests {
     
     func test_title() {
         XCTAssertEqual(sut.title, viewModel.navigationTitle)
-    }
-    
-    func test_refreshController_hasTarget() {
-        var number = 0
-        sut.refreshHandler = {
-            number += 1
-        }
-        triggerRefresh(sut.refreshControl)
-        XCTAssertEqual(number, 1)
     }
 }
 
@@ -208,32 +206,27 @@ extension BaseTableVCTests {
 extension BaseTableVCTests {
     func test_fetchState_initialLoading_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .initialLoading
-        let footerHeight = footerViewHeight(in: sut.tableView)
-        XCTAssertEqual(footerHeight, .zero)
+        checkTableViewHasNilFooter(line: #line)
     }
     
     func test_fetchState_idle_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .idle
-        let footerHeight = footerViewHeight(in: sut.tableView)
-        XCTAssertEqual(footerHeight, .zero)
+        checkTableViewHasNilFooter(line: #line)
     }
     
     func test_fetchState_emptyData_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .emptyData
-        let footerHeight = footerViewHeight(in: sut.tableView)
-        XCTAssertEqual(footerHeight, .zero)
+        checkTableViewHasNilFooter(line: #line)
     }
     
     func test_fetchState_error_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .error(NetworkError.invalidURL)
-        let footerHeight = footerViewHeight(in: sut.tableView)
-        XCTAssertEqual(footerHeight, .zero)
+        checkTableViewHasNilFooter(line: #line)
     }
     
     func test_fetchState_reloading_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .reload
-        let footerHeight = footerViewHeight(in: sut.tableView)
-        XCTAssertEqual(footerHeight, .zero)
+        checkTableViewHasNilFooter(line: #line)
     }
     
     func test_fetchState_loadingNext_shouldShowNextPageLoader() {
@@ -241,13 +234,44 @@ extension BaseTableVCTests {
         viewModel.fetchState.value = .loadingNextPage
         sut.tableView.reloadData()
         let footerHeight = footerViewHeight(in: sut.tableView)
-        XCTAssertNotEqual(footerHeight, .zero)
+        XCTAssertNotEqual(footerHeight, .zero, "Height is zero")
+        let footer = footer(in: sut.tableView)
+        XCTAssertTrue(footer is TableViewNextPageLoader)
+    }
+}
+
+// MARK: - 6. API calls
+extension BaseTableVCTests {
+    func test_viewDidLoad_makesAPICallToFetchInitialDataInViewModel() {
+        // Arrange
+        /// 1. Reinitialize sut and viewModel
+        sut = nil
+        viewModel = nil
+        viewModel = TestableAPIDataListable()
+        /// 2. Configure closure
+        var number = 0
+        viewModel.fetchInitialDataHandler = {
+            number += 1
+        }
+        // Act
+        sut = TestableChildTableVC(viewModel: viewModel)
+        sut.loadViewIfNeeded()
+        // Assert
+        XCTAssertEqual(number, 1)
+    }
+    
+    func test_refreshController_makesAPICallToRefreshInViewModel() {
+        var number = 0
+        viewModel.refreshHandler = {
+            number += 1
+        }
+        triggerRefresh(sut.refreshControl)
+        XCTAssertEqual(number, 1)
     }
 }
 
 // MARK: - Helper
 extension BaseTableVCTests {
-    
     private func addListItemsWithIdleModeInViewModel() {
         viewModel.fetchState.value = .idle
         viewModel.listItems.value = [
@@ -257,5 +281,12 @@ extension BaseTableVCTests {
             TestableDataItemVM(text: "3"),
             TestableDataItemVM(text: "4")
         ]
+    }
+    
+    private func checkTableViewHasNilFooter(line: UInt) {
+        let footerHeight = footerViewHeight(in: sut.tableView)
+        XCTAssertEqual(footerHeight, .zero, "Height is not zero", line: line)
+        let footer = footer(in: sut.tableView)
+        XCTAssertNil(footer, "Footer is non-nil", line: line)
     }
 }

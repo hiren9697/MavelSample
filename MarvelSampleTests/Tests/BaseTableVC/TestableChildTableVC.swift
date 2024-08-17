@@ -13,14 +13,6 @@ import Combine
 /// This class is used to test BaseTableVC, in BaseTableVCTests
 /// As subclass of BaseTableVC must override some methods and must fill generics
 class TestableChildTableVC: BaseTableVC<TestableAPIDataListable> {
-    // MARK: - Closure Variables for tests
-    var refreshHandler: (()-> Void)?
-    
-    // MARK: - Overridden method
-    override func fetchInitialData() {
-        // Do nothing
-    }
-    
     // MARK: - Cell methods
     override func registerTableViewDataCell() {
         tableView.register(TestableTableCell.self,
@@ -34,12 +26,7 @@ class TestableChildTableVC: BaseTableVC<TestableAPIDataListable> {
         return cell
     }
     
-    override func heightForRow(at: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
-    }
-    
-    // MARK: - Overidden methods for tests
-    @objc override func handleRefresh() {
-        refreshHandler?()
     }
 }

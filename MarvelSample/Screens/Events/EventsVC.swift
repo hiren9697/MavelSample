@@ -21,7 +21,7 @@ class EventsVC: BaseTableVC<EventsVM> {
         return cell
     }
     
-    override func heightForRow(at: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
 }

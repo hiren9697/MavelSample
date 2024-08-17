@@ -8,6 +8,19 @@
 import UIKit
 import Combine
 
+/// Base class that provides common implementation for table view
+/// Designed as a abstract class, Should not be instantiated directly
+/// Some class must confirms this class and override below methods:
+/// 1. registerTableViewDataCell()
+/// 2. dequeueCell(at: IndexPath)
+/// 3. tableView(_: UITableView, heightForRowAt: IndexPath)
+/// 4. tableView(_: UITableView, didSelectRowAt: IndexPath)
+/// Provides below implementation:
+/// 1. Show list with data
+/// 2. Show empty data table view cell with empty data
+/// 3. Show error data table view cell with error
+/// 4. Reload
+/// 5. Pagination
 class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UITableViewDataSource {
     // MARK: - UI Components
     let tableView: UITableView = {
@@ -236,17 +249,12 @@ class BaseTableVC<ViewModel: APIDataListable>: ParentVC, UITableViewDelegate, UI
         }
     }
     
-    // MARK: - TableView Delegate Helper
-    func heightForRow(at: IndexPath)-> CGFloat {
+    // MARK: - TableView Delegate
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         fatalError("Sub-class must override this")
     }
     
-    // MARK: - TableView Delegate
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        heightForRow(at: indexPath)
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        fatalError("Sub-class must override this")
     }
 }
