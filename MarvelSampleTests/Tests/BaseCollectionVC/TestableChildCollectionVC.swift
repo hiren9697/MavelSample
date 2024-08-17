@@ -21,7 +21,7 @@ class TestableChildCollectionVC: BaseCollectionVC<TestableAPIDataListable> {
                                 forCellWithReuseIdentifier: TestableCollectionCell.name)
     }
     
-    override func dequeueCell(at indexPath: IndexPath) -> UICollectionViewCell {
+    override func dequeueDataCell(at indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TestableCollectionCell.name,
                                                       for: indexPath) as! TestableCollectionCell
         cell.textLabel.text = viewModel.itemVM(for: indexPath.row).text

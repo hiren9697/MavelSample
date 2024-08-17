@@ -19,14 +19,18 @@ class TestableChildTableVC: BaseTableVC<TestableAPIDataListable> {
                            forCellReuseIdentifier: TestableTableCell.name)
     }
     
-    override func dequeueCell(at indexPath: IndexPath) -> UITableViewCell {
+    override func dequeueDataCell(at indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TestableTableCell.name,
                                                  for: indexPath) as! TestableTableCell
         cell.titleLabel.text = viewModel.itemVM(for: indexPath.row).text
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableViewHeightForDataCell(at indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
+    }
+    
+    override func tableViewDidSelectDataCell(at indexPath: IndexPath) {
+        // Do nothing
     }
 }
