@@ -14,13 +14,6 @@ import Combine
 /// As subclass of BaseCollectionVC must override some methods and must fill generics
 /// Used in BaseCollectionVCTests
 class TestableChildCollectionVC: BaseCollectionVC<TestableAPIDataListable> {
-    // MARK: - Closure Variables for tests
-    var refreshHandler: (()-> Void)?
-    
-    // MARK: - Overridden method
-    override func fetchInitialData() {
-        // Do nothing
-    }
     
     // MARK: - Cell methods
     override func registerCollectionViewDataCell() {
@@ -50,10 +43,5 @@ class TestableChildCollectionVC: BaseCollectionVC<TestableAPIDataListable> {
     
     override func collectionViewSizeForItem(at indexPath: IndexPath) -> CGSize {
         CGSize(width: 100, height: 100)
-    }
-    
-    // MARK: - Overidden methods for tests
-    @objc override func handleRefresh() {
-        refreshHandler?()
     }
 }

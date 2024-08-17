@@ -15,9 +15,15 @@ import XCTest
 /// 2. Number of sections collectionView shows with different states
 /// 3. Loader visibility with different states
 /// 4. Number and types of cells dequed in different states
-/// 5. Next page loader visibility in different states
+/// 5. Next page loader visibility in different states(footer's reference size and footer's type)
+/// 6. API call
+/// This test excludes:
+/// 1. init?(coder:) as this is not called
+/// 2. registerCollectionViewDataCell() as this must be implemented by subclass and subclass's implementation will be called
+/// 3. dequeueCell(at: IndexPath) & collectionView(cellForItemAt: IndexPath) for .initialLoading fetchDataState, because in this state 0 cell will be displayed, so this method won't be called in this state, sub-class test should test this
+/// 4. collectionViewDidSelect(indexPath:) as this must be implemented by subclass and subclass's implementation will be called, sub-class test should test this
+/// 5. collectionView's flowlayout methods and helper methods, as this is UI, should be tested in snapshot tests
 final class BaseCollectionVCTests: XCTestCase {
-    
     var sut: TestableChildCollectionVC!
     var viewModel: TestableAPIDataListable!
     
@@ -38,7 +44,6 @@ final class BaseCollectionVCTests: XCTestCase {
 
 // MARK: - 1. UI Components
 extension BaseCollectionVCTests {
-    
     func test_correctViewModelObject() {
         XCTAssertTrue(sut.viewModel === viewModel, "viewModel object is different")
     }
@@ -63,15 +68,6 @@ extension BaseCollectionVCTests {
     
     func test_title() {
         XCTAssertEqual(sut.title, viewModel.navigationTitle)
-    }
-    
-    func test_refreshController_hasTarget() {
-        var number = 0
-        sut.refreshHandler = {
-            number += 1
-        }
-        triggerRefresh(sut.refreshControl)
-        XCTAssertEqual(number, 1)
     }
 }
 
@@ -210,44 +206,98 @@ extension BaseCollectionVCTests {
         viewModel.fetchState.value = .initialLoading
         let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
         XCTAssertEqual(footerReferenceSize, .zero)
+        // NOTE: Didn't test footerView's type, because InitalLoading shows 0 sections, so footerView won't be dequed as there are 0 sections
     }
     
     func test_fetchState_idle_shouldNotShowNextPageLoader() {
-        viewModel.fetchState.value = .idle
+        addListItemsWithIdleModeInViewModel()
         let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertEqual(footerReferenceSize, .zero)
+        XCTAssertEqual(footerReferenceSize, .zero, "Reference size is not zero")
+        // I don't know why but if I don't dequeue cell then I am not able to dequeue footer
+        let cell = cellForRow(in: sut.collectionView, row: 0)
+        XCTAssertTrue(cell is TestableCollectionCell, "Dequeued wrong cell")
+        let footer = footer(in: sut.collectionView)
+        XCTAssertTrue(footer is CollectionViewEmptyFooter, "Dequeued wront footer")
     }
     
     func test_fetchState_emptyData_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .emptyData
         let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertEqual(footerReferenceSize, .zero)
+        XCTAssertEqual(footerReferenceSize, .zero, "Reference size is not zero")
+        // I don't know why but if I don't dequeue cell then I am not able to dequeue footer
+        let cell = cellForRow(in: sut.collectionView, row: 0)
+        XCTAssertTrue(cell is EmptyCC, "Dequeued wrong cell")
+        let footer = footer(in: sut.collectionView)
+        XCTAssertTrue(footer is CollectionViewEmptyFooter, "Dequeued wront footer")
     }
     
     func test_fetchState_error_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .error(NetworkError.invalidURL)
         let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertEqual(footerReferenceSize, .zero)
+        XCTAssertEqual(footerReferenceSize, .zero, "Reference size is not zero")
+        // I don't know why but if I don't dequeue cell then I am not able to dequeue footer
+        let cell = cellForRow(in: sut.collectionView, row: 0)
+        XCTAssertTrue(cell is ErrorCC, "Dequeued wrong cell")
+        let footer = footer(in: sut.collectionView)
+        XCTAssertTrue(footer is CollectionViewEmptyFooter, "Dequeued wront footer")
     }
     
     func test_fetchState_reloading_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .reload
         let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertEqual(footerReferenceSize, .zero)
+        XCTAssertEqual(footerReferenceSize, .zero, "Reference size is not zero")
+        // I don't know why but if I don't dequeue cell then I am not able to dequeue footer
+        let cell = cellForRow(in: sut.collectionView, row: 0)
+        XCTAssertTrue(cell is TestableCollectionCell, "Dequeued wrong cell")
+        let footer = footer(in: sut.collectionView)
+        XCTAssertTrue(footer is CollectionViewEmptyFooter, "Dequeued wront footer")
     }
     
     func test_fetchState_loadingNext_shouldShowNextPageLoader() {
         addListItemsWithIdleModeInViewModel()
         viewModel.fetchState.value = .loadingNextPage
-        sut.collectionView.reloadData()
         let footerReferenceSize = referenceSizeForFooterView(in: sut.collectionView)
-        XCTAssertNotEqual(footerReferenceSize, .zero)
+        XCTAssertNotEqual(footerReferenceSize, .zero, "Reference size is not non-zero")
+        // I don't know why but if I don't dequeue cell then I am not able to dequeue footer
+        let cell = cellForRow(in: sut.collectionView, row: 0)
+        XCTAssertTrue(cell is TestableCollectionCell, "Dequeued wrong cell")
+        let footer = footer(in: sut.collectionView)
+        XCTAssertTrue(footer is CollectionViewNextPageLoader, "Dequeued wront footer")
+    }
+}
+
+// MARK: - 6. API calls
+extension BaseCollectionVCTests {
+    func test_viewDidLoad_makesAPICallToFetchInitialDataInViewModel() {
+        // Arrange
+        /// 1. Reinitialize sut and viewModel
+        sut = nil
+        viewModel = nil
+        viewModel = TestableAPIDataListable()
+        /// 2. Configure closure
+        var number = 0
+        viewModel.fetchInitialDataHandler = {
+            number += 1
+        }
+        // Act
+        sut = TestableChildCollectionVC(viewModel: viewModel)
+        sut.loadViewIfNeeded()
+        // Assert
+        XCTAssertEqual(number, 1)
+    }
+    
+    func test_refreshController_makesAPICallToRefreshInViewModel() {
+        var number = 0
+        viewModel.refreshHandler = {
+            number += 1
+        }
+        triggerRefresh(sut.refreshControl)
+        XCTAssertEqual(number, 1)
     }
 }
 
 // MARK: - Helper
 extension BaseCollectionVCTests {
-    
     private func addListItemsWithIdleModeInViewModel() {
         viewModel.fetchState.value = .idle
         viewModel.listItems.value = [
