@@ -9,7 +9,6 @@ import XCTest
 @testable import MarvelSample
 
 final class WalkthroughVCTests: XCTestCase {
-
     var sut: TestableWalkthroughVC!
     var viewModel: WalkthroughVM!
     

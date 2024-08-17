@@ -8,8 +8,11 @@
 import XCTest
 @testable import MarvelSample
 
+/// Tests:
+/// 1. goToNextPage with different scenarios
+/// Excludes:
+/// 1. Does not test information provided in view model, like image, and text
 final class WalkthroughVMTests: XCTestCase {
-    
     var sut: WalkthroughVM!
     
     override func setUp() {
@@ -25,7 +28,6 @@ final class WalkthroughVMTests: XCTestCase {
 
 // MARK: - TestCases
 extension WalkthroughVMTests {
-    
     func test_goToNextPage_withFirstPage_increaseCurrentPage() {
         XCTAssertEqual(sut.currentPage.value, 0, "precondition")
         sut.goToNextPage()

@@ -43,6 +43,8 @@
 		87605A942C70641300E31CE3 /* ThumbnailTitleCCTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87605A932C70641300E31CE3 /* ThumbnailTitleCCTests.drawio.png */; };
 		87605A962C7067B000E31CE3 /* BaseTableVCTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87605A952C7067B000E31CE3 /* BaseTableVCTests.drawio.png */; };
 		87605A982C70ADE600E31CE3 /* FlowManagerTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87605A972C70ADE600E31CE3 /* FlowManagerTests.drawio.png */; };
+		87605A9B2C70B13300E31CE3 /* WalkthroughVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87605A9A2C70B13300E31CE3 /* WalkthroughVMTests.drawio.png */; };
+		87605A9D2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87605A9C2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png */; };
 		8762B6592C40D02B000FAFEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B6582C40D02B000FAFEF /* TabBarController.swift */; };
 		8762B65E2C40D14B000FAFEF /* ComicsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B65D2C40D14B000FAFEF /* ComicsVC.swift */; };
 		8762B6602C40D16A000FAFEF /* CharactersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8762B65F2C40D16A000FAFEF /* CharactersVC.swift */; };
@@ -246,6 +248,8 @@
 		87605A932C70641300E31CE3 /* ThumbnailTitleCCTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThumbnailTitleCCTests.drawio.png; sourceTree = "<group>"; };
 		87605A952C7067B000E31CE3 /* BaseTableVCTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaseTableVCTests.drawio.png; sourceTree = "<group>"; };
 		87605A972C70ADE600E31CE3 /* FlowManagerTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FlowManagerTests.drawio.png; sourceTree = "<group>"; };
+		87605A9A2C70B13300E31CE3 /* WalkthroughVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WalkthroughVMTests.drawio.png; sourceTree = "<group>"; };
+		87605A9C2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WalkthroughVCTests.drawio.png; sourceTree = "<group>"; };
 		8762B6582C40D02B000FAFEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		8762B65D2C40D14B000FAFEF /* ComicsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicsVC.swift; sourceTree = "<group>"; };
 		8762B65F2C40D16A000FAFEF /* CharactersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVC.swift; sourceTree = "<group>"; };
@@ -670,8 +674,10 @@
 		87CBC5192C54F0C3007AB863 /* Walkthrough */ = {
 			isa = PBXGroup;
 			children = (
-				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
+				87605A9A2C70B13300E31CE3 /* WalkthroughVMTests.drawio.png */,
 				87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */,
+				87605A9C2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png */,
+				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
 				872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */,
 				87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */,
 			);
@@ -1100,12 +1106,14 @@
 				87605A962C7067B000E31CE3 /* BaseTableVCTests.drawio.png in Resources */,
 				875B68AA2C68AC8900D8C829 /* SingleCreator.json in Resources */,
 				87605A942C70641300E31CE3 /* ThumbnailTitleCCTests.drawio.png in Resources */,
+				87605A9D2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png in Resources */,
 				87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */,
 				877B481D2C5616A1001A6E5A /* NonDictionary.json in Resources */,
 				875B68AC2C68B26700D8C829 /* SingleCharactor.json in Resources */,
 				87605A982C70ADE600E31CE3 /* FlowManagerTests.drawio.png in Resources */,
 				871F6A292C6E367600579995 /* TestableData.json in Resources */,
 				878246A32C5740A300A6250C /* CharactersListSuccess.json in Resources */,
+				87605A9B2C70B13300E31CE3 /* WalkthroughVMTests.drawio.png in Resources */,
 				8765BFBD2C6DBF3E00D4C0E9 /* APIServiceTests.drawio.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
