@@ -265,7 +265,7 @@ class BaseCollectionVC<ViewModel: APIDataListable>:
     // MARK: - CollectionView Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch viewModel.fetchState.value {
-        case .idle:
+        case .idle, .loadingNextPage, .reload:
             collectionViewDidSelectDataCell(indexPath: indexPath)
         default: break
         }

@@ -275,7 +275,7 @@ extension BaseCollectionVCTests {
         viewModel = nil
         viewModel = TestableAPIDataListable()
         /// 2. Configure closure
-        var number = 0
+        var number: Int = 0
         viewModel.fetchInitialDataHandler = {
             number += 1
         }
@@ -287,13 +287,46 @@ extension BaseCollectionVCTests {
     }
     
     func test_refreshController_makesAPICallToRefreshInViewModel() {
-        var number = 0
+        var number: Int = 0
         viewModel.refreshHandler = {
             number += 1
         }
         triggerRefresh(sut.refreshControl)
         XCTAssertEqual(number, 1)
     }
+}
+
+// MARK: - DidSelectItem
+extension BaseCollectionVCTests {
+    func test_didSelectItem_withIdleState_shouldPassMethodCall() {
+        addListItemsWithIdleModeInViewModel()
+        // No need to set fetchState to .idld, addListItemsWithIdleModeInViewModel() method did that
+        checkSUTIsPassingItemSelectionMethodCall()
+    }
+    
+    func test_didSelectItem_withReloadingState_shouldPassMethodCall() {
+        addListItemsWithIdleModeInViewModel()
+        viewModel.fetchState.value = .reload
+        checkSUTIsPassingItemSelectionMethodCall()
+    }
+    
+    func test_didSelectItem_withLoadingNextPageState_shouldPassMethodCall() {
+        addListItemsWithIdleModeInViewModel()
+        viewModel.fetchState.value = .reload
+        checkSUTIsPassingItemSelectionMethodCall()
+    }
+    
+    func test_didSelectItem_withEmptyDataState_shouldNotPassMethodCall() {
+        viewModel.fetchState.value = .emptyData
+        checkSUTIsNotPassingItemSelectionMethodCall()
+    }
+    
+    func test_didSelectItem_withErrorState_shouldNotPassMethodCall() {
+        viewModel.fetchState.value = .error(DummyNetworkError.somethingWentWrong)
+        checkSUTIsNotPassingItemSelectionMethodCall()
+    }
+    
+    // No need to test ItemSelectionMethodPassing behaviour in initialLoading state, because in that state there will be no item to select
 }
 
 // MARK: - Helper
@@ -307,5 +340,29 @@ extension BaseCollectionVCTests {
             TestableDataItemVM(text: "3"),
             TestableDataItemVM(text: "4")
         ]
+    }
+    
+    private func checkSUTIsPassingItemSelectionMethodCall() {
+        // Arrange
+        var number: Int = 0
+        sut.itemSelectionHandler = {
+            number += 1
+        }
+        // Act
+        sut.collectionView.delegate?.collectionView?(sut.collectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
+        // Assert
+        XCTAssertEqual(number, 1)
+    }
+    
+    private func checkSUTIsNotPassingItemSelectionMethodCall() {
+        // Arrange
+        var number: Int = 0
+        sut.itemSelectionHandler = {
+            number += 1
+        }
+        // Act
+        sut.collectionView.delegate?.collectionView?(sut.collectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
+        // Assert
+        XCTAssertEqual(number, 0)
     }
 }

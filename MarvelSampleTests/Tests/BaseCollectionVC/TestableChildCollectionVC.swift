@@ -15,6 +15,9 @@ import Combine
 /// Used in BaseCollectionVCTests
 class TestableChildCollectionVC: BaseCollectionVC<TestableAPIDataListable> {
     
+    // MARK: - TestHelperClosure
+    var itemSelectionHandler: (()-> Void)?
+    
     // MARK: - Cell methods
     override func registerCollectionViewDataCell() {
         collectionView.register(TestableCollectionCell.self,
@@ -26,6 +29,11 @@ class TestableChildCollectionVC: BaseCollectionVC<TestableAPIDataListable> {
                                                       for: indexPath) as! TestableCollectionCell
         cell.textLabel.text = viewModel.itemVM(for: indexPath.row).text
         return cell
+    }
+    
+    // MARK: - CollectionView Delegate
+    override func collectionViewDidSelectDataCell(indexPath: IndexPath) {
+        itemSelectionHandler?()
     }
     
     // MARK: - CollectionView FlowLayout
