@@ -45,6 +45,18 @@ class FlowManager {
         }
     }
     
+    func initializeComicsVC()-> ComicsVC {
+        ComicsVC(viewModel: ComicsVM())
+    }
+    
+    func initializeCharactersVC()-> CharactersVC {
+        CharactersVC(viewModel: CharactersVM())
+    }
+    
+    func initializeEventsVC()-> EventsVC {
+        EventsVC(viewModel: EventsVM())
+    }
+    
     func initializeTabBarController()-> TabBarController {
         // Initialize TabBar Item ViewModels
         let tabBarItemVMs = [
@@ -59,9 +71,9 @@ class FlowManager {
                          selectedImage: UIImage(systemName: "person.3.sequence.fill")!),
         ]
         // Initialize ViewControllers
-        let comicsVC = ComicsVC(viewModel: ComicsVM())
-        let charactersVC = CharactersVC(viewModel: CharactersVM())
-        let eventsVC = EventsVC(viewModel: EventsVM())
+        let comicsVC = initializeComicsVC()
+        let charactersVC = initializeCharactersVC()
+        let eventsVC = initializeEventsVC()
         let comicsVCNavigationController = UINavigationController(rootViewController: comicsVC)
         let charactersVCNavigationController = UINavigationController(rootViewController: charactersVC)
         let eventsVCNavigationController = UINavigationController(rootViewController: eventsVC)
