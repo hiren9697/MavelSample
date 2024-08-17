@@ -201,6 +201,8 @@ extension BaseCollectionVCTests {
 }
 
 // MARK: - 5. Next page loader
+/// Q. Why did I not make helper method to check collection view has nil footer similar to BaseTableViewTests ?
+/// A. Because I am also testing kind of cell collection view dequeues in below tests
 extension BaseCollectionVCTests {
     func test_fetchState_initialLoading_shouldNotShowNextPageLoader() {
         viewModel.fetchState.value = .initialLoading

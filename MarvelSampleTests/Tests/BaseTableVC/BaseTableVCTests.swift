@@ -276,29 +276,29 @@ extension BaseTableVCTests {
     func test_didSelectItem_withIdleState_shouldPassMethodCall() {
         addListItemsWithIdleModeInViewModel()
         // No need to set fetchState to .idld, addListItemsWithIdleModeInViewModel() method did that
-        checkSUTIsPassingItemSelectionMethodCall()
+        checkSUTIsPassingItemSelectionMethodCall(line: #line)
     }
     
     func test_didSelectItem_withReloadingState_shouldPassMethodCall() {
         addListItemsWithIdleModeInViewModel()
         viewModel.fetchState.value = .reload
-        checkSUTIsPassingItemSelectionMethodCall()
+        checkSUTIsPassingItemSelectionMethodCall(line: #line)
     }
     
     func test_didSelectItem_withLoadingNextPageState_shouldPassMethodCall() {
         addListItemsWithIdleModeInViewModel()
         viewModel.fetchState.value = .reload
-        checkSUTIsPassingItemSelectionMethodCall()
+        checkSUTIsPassingItemSelectionMethodCall(line: #line)
     }
     
     func test_didSelectItem_withEmptyDataState_shouldNotPassMethodCall() {
         viewModel.fetchState.value = .emptyData
-        checkSUTIsNotPassingItemSelectionMethodCall()
+        checkSUTIsNotPassingItemSelectionMethodCall(line: #line)
     }
     
     func test_didSelectItem_withErrorState_shouldNotPassMethodCall() {
         viewModel.fetchState.value = .error(DummyNetworkError.somethingWentWrong)
-        checkSUTIsNotPassingItemSelectionMethodCall()
+        checkSUTIsNotPassingItemSelectionMethodCall(line: #line)
     }
     
     // No need to test ItemSelectionMethodPassing behaviour in initialLoading state, because in that state there will be no item to select
@@ -324,7 +324,7 @@ extension BaseTableVCTests {
         XCTAssertNil(footer, "Footer is non-nil", line: line)
     }
     
-    private func checkSUTIsPassingItemSelectionMethodCall() {
+    private func checkSUTIsPassingItemSelectionMethodCall(line: UInt) {
         // Arrange
         var number: Int = 0
         sut.itemSelectionHandler = {
@@ -333,10 +333,10 @@ extension BaseTableVCTests {
         // Act
         sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
         // Assert
-        XCTAssertEqual(number, 1)
+        XCTAssertEqual(number, 1, line: line)
     }
     
-    private func checkSUTIsNotPassingItemSelectionMethodCall() {
+    private func checkSUTIsNotPassingItemSelectionMethodCall(line: UInt) {
         // Arrange
         var number: Int = 0
         sut.itemSelectionHandler = {
@@ -345,6 +345,6 @@ extension BaseTableVCTests {
         // Act
         sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
         // Assert
-        XCTAssertEqual(number, 0)
+        XCTAssertEqual(number, 0, line: line)
     }
 }
