@@ -76,7 +76,7 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
     
     // MARK: - Variables
     var viewModel: ViewModel?
-    private var bindings = Set<AnyCancellable>()
+    var bindings = Set<AnyCancellable>()
     
     // MARK: - Life cycle
     override init(frame: CGRect) {
@@ -142,8 +142,6 @@ extension ThumbnailTitleCC {
         containerView.addSubview(loader)
         loader.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         loader.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        
-        // contentView.backgroundColor = .lightGray
     }
     
     func update(viewModel: ViewModel) {

@@ -9,6 +9,10 @@ import XCTest
 import Combine
 @testable import MarvelSample
 
+/// Tests:
+/// 1. UI components
+/// 2. Data updates with viewModel and fetchState
+/// 3. PrepareForReuse
 final class ThumbnailTitleCCTests: XCTestCase {
     var sut: ThumbnailTitleCC<TestableThumbnailTitleVM>!
     var viewModel: TestableThumbnailTitleVM!
@@ -27,7 +31,7 @@ final class ThumbnailTitleCCTests: XCTestCase {
     }
 }
 
-// MARK: - UI Tests
+// MARK: - 1. UI Tests
 extension ThumbnailTitleCCTests {
     func test_containerView_isInViewHierarchy() {
         XCTAssertEqual(sut.containerView.superview, sut.contentView, "containerView is not in view heirarchy")
@@ -62,7 +66,7 @@ extension ThumbnailTitleCCTests {
     }
 }
 
-// MARK: - Data Update Tests
+// MARK: - 2. Data Update Tests
 extension ThumbnailTitleCCTests {
     func test_cellUpdatesUI_fromViewModel() {
         sut.update(viewModel: viewModel)
@@ -116,6 +120,16 @@ extension ThumbnailTitleCCTests {
     }
 }
 
+// MARK: - 3. PrepareForReuse
+extension ThumbnailTitleCCTests {
+    func test_prepareForReuse_shouleRemoveAllBindings() {
+        XCTAssertTrue(sut.bindings.isEmpty, "Precondition")
+        setViewModelWithFetchState(.notStarted)
+        XCTAssertFalse(sut.bindings.isEmpty, "Precondition")
+        sut.prepareForReuse()
+        XCTAssertTrue(sut.bindings.isEmpty)
+    }
+}
 
 // MARK: - Test Helper
 /// These methods are helper methods used by test methods,
