@@ -22,7 +22,7 @@
 		8728486F2C42587B008C1ED0 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8728486E2C42587B008C1ED0 /* FlowManager.swift */; };
 		872848712C42594E008C1ED0 /* UserDefaultProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848702C42594E008C1ED0 /* UserDefaultProtocol.swift */; };
 		873EE20C2C532C3100E3E74D /* APIRequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873EE20B2C532C3100E3E74D /* APIRequestGenerator.swift */; };
-		8741593D2C6C27700036E67D /* TestableBaseListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871F60AF2C51D44C00AD6821 /* TestableBaseListVM.swift */; };
+		8741593D2C6C27700036E67D /* TestableChildListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871F60AF2C51D44C00AD6821 /* TestableChildListVM.swift */; };
 		874159442C6C27700036E67D /* BaseListVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871F60B12C51D79400AD6821 /* BaseListVMTests.swift */; };
 		8741595F2C6C2B7E0036E67D /* TestableThumbnailTitleVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8741595E2C6C2B7E0036E67D /* TestableThumbnailTitleVM.swift */; };
 		874340CD2C3B8DFA0050FDCE /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874340CC2C3B8DFA0050FDCE /* AppColors.swift */; };
@@ -199,7 +199,7 @@
 		8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableDataItemVM.swift; sourceTree = "<group>"; };
 		8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableAPIDataListable.swift; sourceTree = "<group>"; };
 		8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCollectionCell.swift; sourceTree = "<group>"; };
-		871F60AF2C51D44C00AD6821 /* TestableBaseListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableBaseListVM.swift; sourceTree = "<group>"; };
+		871F60AF2C51D44C00AD6821 /* TestableChildListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableChildListVM.swift; sourceTree = "<group>"; };
 		871F60B12C51D79400AD6821 /* BaseListVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListVMTests.swift; sourceTree = "<group>"; };
 		871F6A262C6E33F300579995 /* TestAPIEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPIEndPoints.swift; sourceTree = "<group>"; };
 		871F6A282C6E367600579995 /* TestableData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestableData.json; sourceTree = "<group>"; };
@@ -661,6 +661,7 @@
 		87CBC5192C54F0C3007AB863 /* Walkthrough */ = {
 			isa = PBXGroup;
 			children = (
+				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
 				87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */,
 				872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */,
 				87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */,
@@ -682,7 +683,6 @@
 			children = (
 				8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */,
 				8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */,
-				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
 				8717F23F2C4B7B7D007FC501 /* TestableChildCollectionVC.swift */,
 				8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */,
 			);
@@ -693,7 +693,7 @@
 			isa = PBXGroup;
 			children = (
 				8765BFC02C6DC64800D4C0E9 /* BaseListVMTests.drawio.png */,
-				871F60AF2C51D44C00AD6821 /* TestableBaseListVM.swift */,
+				871F60AF2C51D44C00AD6821 /* TestableChildListVM.swift */,
 				871F60B12C51D79400AD6821 /* BaseListVMTests.swift */,
 			);
 			path = BaseListVM;
@@ -1322,7 +1322,7 @@
 				87CB6CB82C6EF3C300B96CFE /* TestableWalkthroughVC.swift in Sources */,
 				87CB6CC42C6EF3CC00B96CFE /* CharactersVCTests.swift in Sources */,
 				87CB6CBA2C6EF3C300B96CFE /* TestableComicsVM.swift in Sources */,
-				8741593D2C6C27700036E67D /* TestableBaseListVM.swift in Sources */,
+				8741593D2C6C27700036E67D /* TestableChildListVM.swift in Sources */,
 				87CB6CBF2C6EF3C300B96CFE /* HorizontalThumbnailTitleGridViewTests.swift in Sources */,
 				87CB6CC32C6EF3C300B96CFE /* WalkthroughVMTests.swift in Sources */,
 				87CB6CC12C6EF3C300B96CFE /* TestableChildThumbnailTitleFetchableVM.swift in Sources */,

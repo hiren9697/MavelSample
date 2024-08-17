@@ -18,7 +18,7 @@ import XCTest
 /// - Uses TestableAPIRequestGenerator, see description of 'TestableAPIRequestGenerator', to know why this class exist
 // MARK: - Test Class
 final class BaseListVMTests: XCTestCase {
-    var sut: TestableBaseListVM!
+    var sut: TestableChildListVM!
     var service: MockAPIService!
     var apiRequestGenerator: TestableAPIRequestGenerator!
     lazy var timestampDate: Date = Date()
@@ -30,10 +30,10 @@ final class BaseListVMTests: XCTestCase {
         super.setUp()
         apiRequestGenerator = TestableAPIRequestGenerator()
         service = MockAPIService(requestGenerator: apiRequestGenerator)
-        sut = TestableBaseListVM(endpoint: TestAPIEndpoints.common.rawValue,
-                                 emptyDataTitle: "Test empty data title",
-                                 errorTitle: "Test error title",
-                                 service: service)
+        sut = TestableChildListVM(endpoint: TestAPIEndpoints.common.rawValue,
+                                  emptyDataTitle: "Test empty data title",
+                                  errorTitle: "Test error title",
+                                  service: service)
     }
     
     override func tearDown() {
@@ -191,10 +191,10 @@ extension BaseListVMTests {
 extension BaseListVMTests {
     func test_fetchData_finishWithInvalidURLError_shouldHandleInvalidURL() {
         // Arange
-        sut = TestableBaseListVM(endpoint: "invalid endpoint",
-                                 emptyDataTitle: "-",
-                                 errorTitle: "-",
-                                 service: MockAPIService(requestGenerator: APIRequestGenerator()))
+        sut = TestableChildListVM(endpoint: "invalid endpoint",
+                                  emptyDataTitle: "-",
+                                  errorTitle: "-",
+                                  service: MockAPIService(requestGenerator: APIRequestGenerator()))
         // Act
         sut.fetchData()
         // Assert
