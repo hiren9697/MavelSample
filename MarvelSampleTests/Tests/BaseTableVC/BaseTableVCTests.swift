@@ -17,6 +17,7 @@ import XCTest
 /// 4. Number and types of cells dequed in different states
 /// 5. Next page loader visibility in different states
 /// 6. API calls
+/// 7. Row selection in different state
 /// This test excludes:
 /// 1. init?(coder:) as this is not called
 /// 2. registerTableViewDataCell() as this must be implemented by subclass and subclass's implementation will be called
@@ -270,6 +271,39 @@ extension BaseTableVCTests {
     }
 }
 
+// MARK: - 7. DidSelectItem
+extension BaseTableVCTests {
+    func test_didSelectItem_withIdleState_shouldPassMethodCall() {
+        addListItemsWithIdleModeInViewModel()
+        // No need to set fetchState to .idld, addListItemsWithIdleModeInViewModel() method did that
+        checkSUTIsPassingItemSelectionMethodCall()
+    }
+    
+    func test_didSelectItem_withReloadingState_shouldPassMethodCall() {
+        addListItemsWithIdleModeInViewModel()
+        viewModel.fetchState.value = .reload
+        checkSUTIsPassingItemSelectionMethodCall()
+    }
+    
+    func test_didSelectItem_withLoadingNextPageState_shouldPassMethodCall() {
+        addListItemsWithIdleModeInViewModel()
+        viewModel.fetchState.value = .reload
+        checkSUTIsPassingItemSelectionMethodCall()
+    }
+    
+    func test_didSelectItem_withEmptyDataState_shouldNotPassMethodCall() {
+        viewModel.fetchState.value = .emptyData
+        checkSUTIsNotPassingItemSelectionMethodCall()
+    }
+    
+    func test_didSelectItem_withErrorState_shouldNotPassMethodCall() {
+        viewModel.fetchState.value = .error(DummyNetworkError.somethingWentWrong)
+        checkSUTIsNotPassingItemSelectionMethodCall()
+    }
+    
+    // No need to test ItemSelectionMethodPassing behaviour in initialLoading state, because in that state there will be no item to select
+}
+
 // MARK: - Helper
 extension BaseTableVCTests {
     private func addListItemsWithIdleModeInViewModel() {
@@ -288,5 +322,29 @@ extension BaseTableVCTests {
         XCTAssertEqual(footerHeight, .zero, "Height is not zero", line: line)
         let footer = footer(in: sut.tableView)
         XCTAssertNil(footer, "Footer is non-nil", line: line)
+    }
+    
+    private func checkSUTIsPassingItemSelectionMethodCall() {
+        // Arrange
+        var number: Int = 0
+        sut.itemSelectionHandler = {
+            number += 1
+        }
+        // Act
+        sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        // Assert
+        XCTAssertEqual(number, 1)
+    }
+    
+    private func checkSUTIsNotPassingItemSelectionMethodCall() {
+        // Arrange
+        var number: Int = 0
+        sut.itemSelectionHandler = {
+            number += 1
+        }
+        // Act
+        sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        // Assert
+        XCTAssertEqual(number, 0)
     }
 }

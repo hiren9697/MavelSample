@@ -296,7 +296,7 @@ extension BaseCollectionVCTests {
     }
 }
 
-// MARK: - DidSelectItem
+// MARK: - 7. DidSelectItem
 extension BaseCollectionVCTests {
     func test_didSelectItem_withIdleState_shouldPassMethodCall() {
         addListItemsWithIdleModeInViewModel()

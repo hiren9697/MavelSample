@@ -13,6 +13,9 @@ import Combine
 /// This class is used to test BaseTableVC, in BaseTableVCTests
 /// As subclass of BaseTableVC must override some methods and must fill generics
 class TestableChildTableVC: BaseTableVC<TestableAPIDataListable> {
+    // MARK: - TestHelperClosure
+    var itemSelectionHandler: (()-> Void)?
+    
     // MARK: - Cell methods
     override func registerTableViewDataCell() {
         tableView.register(TestableTableCell.self,
@@ -31,6 +34,6 @@ class TestableChildTableVC: BaseTableVC<TestableAPIDataListable> {
     }
     
     override func tableViewDidSelectDataCell(at indexPath: IndexPath) {
-        // Do nothing
+        itemSelectionHandler?()
     }
 }
