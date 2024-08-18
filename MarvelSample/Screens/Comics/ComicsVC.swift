@@ -9,7 +9,6 @@ import UIKit
 import Combine
 
 class ComicsVC: BaseCollectionVC<ComicsVM> {
-    
     // MARK: - Variables
     let itemSpace: CGFloat = 10
     let lineSpace: CGFloat = 10
