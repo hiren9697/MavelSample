@@ -146,6 +146,7 @@
 		87DBB5942C71F85D00539D37 /* ComicDetailTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5932C71F85D00539D37 /* ComicDetailTests.drawio.png */; };
 		87DBB5962C71F99300539D37 /* CDCreatorItemVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5952C71F99300539D37 /* CDCreatorItemVMTests.drawio.png */; };
 		87DBB5982C71FA1000539D37 /* CDCharacterItemVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5972C71FA1000539D37 /* CDCharacterItemVMTests.drawio.png */; };
+		87DBB59A2C71FFD700539D37 /* CharactersVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5992C71FFD700539D37 /* CharactersVMTests.drawio.png */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
 		87DDFD842C38EDDB0040621E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFD832C38EDDB0040621E /* Assets.xcassets */; };
@@ -333,6 +334,7 @@
 		87DBB5932C71F85D00539D37 /* ComicDetailTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ComicDetailTests.drawio.png; sourceTree = "<group>"; };
 		87DBB5952C71F99300539D37 /* CDCreatorItemVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CDCreatorItemVMTests.drawio.png; sourceTree = "<group>"; };
 		87DBB5972C71FA1000539D37 /* CDCharacterItemVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CDCharacterItemVMTests.drawio.png; sourceTree = "<group>"; };
+		87DBB5992C71FFD700539D37 /* CharactersVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharactersVMTests.drawio.png; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -636,10 +638,11 @@
 		878DD4A42C586EFA006896C6 /* Character */ = {
 			isa = PBXGroup;
 			children = (
-				878DD4A52C586F0D006896C6 /* CharactersVCTests.swift */,
+				87DBB5992C71FFD700539D37 /* CharactersVMTests.drawio.png */,
+				878DD4AD2C587B5A006896C6 /* CharacterVMTests.swift */,
 				878DD4A72C586F94006896C6 /* TestableCharactersVC.swift */,
 				878DD4A92C586FDE006896C6 /* TestableCharactersVM.swift */,
-				878DD4AD2C587B5A006896C6 /* CharacterVMTests.swift */,
+				878DD4A52C586F0D006896C6 /* CharactersVCTests.swift */,
 			);
 			path = Character;
 			sourceTree = "<group>";
@@ -1142,6 +1145,7 @@
 				878246A32C5740A300A6250C /* CharactersListSuccess.json in Resources */,
 				87FFF0E12C71734D0065230C /* ComicsVMTests.drawio.png in Resources */,
 				87605A9B2C70B13300E31CE3 /* WalkthroughVMTests.drawio.png in Resources */,
+				87DBB59A2C71FFD700539D37 /* CharactersVMTests.drawio.png in Resources */,
 				8765BFBD2C6DBF3E00D4C0E9 /* APIServiceTests.drawio.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

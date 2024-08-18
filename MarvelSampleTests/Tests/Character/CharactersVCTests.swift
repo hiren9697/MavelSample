@@ -8,9 +8,11 @@
 import XCTest
 @testable import MarvelSample
 
-// Notes:
-// - This class doesn't test navigation title, as it changes tabBarController's title in viewWillAppear, I couldn't feagure out how to test this
-
+/// Tests:
+/// 1. Dequeues correct type of cell
+/// 2. Updates / fills correct data to collectionView cell
+/// Notes:
+/// - This class doesn't test navigation title, as it changes tabBarController's title in viewWillAppear, I couldn't feagure out how to test this
 final class CharactersVCTests: XCTestCase {
     var sut: TestableCharactersVC!
     var viewModel: TestableCharactersVM!
