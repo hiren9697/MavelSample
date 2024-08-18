@@ -70,6 +70,11 @@ extension HorizontalThumbnailTitleGridViewTests {
         XCTAssertFalse(sut.emptyDataContainer.isHidden, "emptyDataContainer is not visible")
     } 
     
+    func test_withNonEmptyData_collectionViewContainerIsShownAndEmptyDataContainerIsHidden() {
+        XCTAssertFalse(sut.collectionViewContainer.isHidden, "collectionViewContainer is not shown")
+        XCTAssertTrue(sut.emptyDataContainer.isHidden, "emptyDataContainer is not hidden")
+    }
+    
     func test_collectionView_shouldShowCells_withNonEmptyViewModelData() {
         XCTAssertEqual(numberOfRows(in: sut.collectionView),
                        viewModel.data.count)
