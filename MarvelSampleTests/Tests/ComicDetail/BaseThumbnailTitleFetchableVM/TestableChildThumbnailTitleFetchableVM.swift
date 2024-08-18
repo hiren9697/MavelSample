@@ -8,6 +8,7 @@
 import Foundation
 @testable import MarvelSample
 
+/// A class used to fill the space in tesing BaseThumbnailTitleFetchableVM
 class TestableChildThumbnailTitleFetchableVM: BaseThumbnailTitleFetchableVM<TestableThumbnailTitleData> {
     
     init(modelID: String?,
