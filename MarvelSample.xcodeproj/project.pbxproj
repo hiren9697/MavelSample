@@ -151,6 +151,8 @@
 		87DBB59E2C7204D200539D37 /* EventsVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBB59D2C7204D200539D37 /* EventsVMTests.swift */; };
 		87DBB5A02C72075100539D37 /* EventsListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB59F2C72075100539D37 /* EventsListSuccess.json */; };
 		87DBB5A22C720DE400539D37 /* EventsVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5A12C720DE400539D37 /* EventsVMTests.drawio.png */; };
+		87DBB5A42C720F1B00539D37 /* EventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBB5A32C720F1B00539D37 /* EventExtension.swift */; };
+		87DBB5A62C72130700539D37 /* EventsVCTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5A52C72130600539D37 /* EventsVCTests.drawio.png */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
 		87DDFD842C38EDDB0040621E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFD832C38EDDB0040621E /* Assets.xcassets */; };
@@ -343,6 +345,8 @@
 		87DBB59D2C7204D200539D37 /* EventsVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVMTests.swift; sourceTree = "<group>"; };
 		87DBB59F2C72075100539D37 /* EventsListSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EventsListSuccess.json; sourceTree = "<group>"; };
 		87DBB5A12C720DE400539D37 /* EventsVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventsVMTests.drawio.png; sourceTree = "<group>"; };
+		87DBB5A32C720F1B00539D37 /* EventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventExtension.swift; sourceTree = "<group>"; };
+		87DBB5A52C72130600539D37 /* EventsVCTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventsVCTests.drawio.png; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -698,6 +702,7 @@
 			children = (
 				8725572A2C4D49CC00373000 /* ComicExtension.swift */,
 				878DD4AB2C587208006896C6 /* CharacterExtension.swift */,
+				87DBB5A32C720F1B00539D37 /* EventExtension.swift */,
 			);
 			path = ProductionExtension;
 			sourceTree = "<group>";
@@ -994,6 +999,7 @@
 			children = (
 				87DBB5A12C720DE400539D37 /* EventsVMTests.drawio.png */,
 				87DBB59D2C7204D200539D37 /* EventsVMTests.swift */,
+				87DBB5A52C72130600539D37 /* EventsVCTests.drawio.png */,
 				87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */,
 				87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */,
 				87E38E832C5C6E6300473B5B /* EventsVCTests.swift */,
@@ -1149,6 +1155,7 @@
 				87DBB5902C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png in Resources */,
 				875B68AA2C68AC8900D8C829 /* SingleCreator.json in Resources */,
 				87605A942C70641300E31CE3 /* ThumbnailTitleCCTests.drawio.png in Resources */,
+				87DBB5A62C72130700539D37 /* EventsVCTests.drawio.png in Resources */,
 				87605A9D2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png in Resources */,
 				87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */,
 				87DBB5A02C72075100539D37 /* EventsListSuccess.json in Resources */,
@@ -1402,6 +1409,7 @@
 				8728486A2C423870008C1ED0 /* Helpers.swift in Sources */,
 				87CB6CBE2C6EF3C300B96CFE /* TestableFlowManager.swift in Sources */,
 				87CB6CC52C6EF3CC00B96CFE /* EventsVCTests.swift in Sources */,
+				87DBB5A42C720F1B00539D37 /* EventExtension.swift in Sources */,
 				87CB6CB32C6EF3C300B96CFE /* CDCreatorItemVMTests.swift in Sources */,
 				874F8EE72C548B4800D1AA77 /* URLHelper.swift in Sources */,
 				87DFDCB92C3E35920025C535 /* CollectionViewHelper.swift in Sources */,
