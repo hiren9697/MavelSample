@@ -9,7 +9,6 @@ import UIKit
 import Combine
 
 class WalkthroughVM {
-    
     let items: [WalkthroughItemVM] = [
         WalkthroughItemVM(imageName: "first", text: "Sample app with Marvel's open APIs"),
         WalkthroughItemVM(imageName: "second", text: "Sample app with unit tests implemented"),
@@ -40,7 +39,6 @@ class WalkthroughVM {
 
 // MARK: - Helpers
 extension WalkthroughVM {
-    
     func goToNextPage() {
         
         guard currentPage.value < (items.count - 1) else {

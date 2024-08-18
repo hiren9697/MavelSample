@@ -9,7 +9,6 @@ import UIKit
 import Combine
 
 class ComicsVM: BaseListVM<Comic, ComicItemVM> {
-    
     init(service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator())) {
         super.init(navigationTitle: "Comics",
                    endPoint: APIEndpoints.comics.rawValue,
