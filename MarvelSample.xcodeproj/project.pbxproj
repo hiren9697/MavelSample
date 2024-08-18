@@ -148,6 +148,9 @@
 		87DBB5982C71FA1000539D37 /* CDCharacterItemVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5972C71FA1000539D37 /* CDCharacterItemVMTests.drawio.png */; };
 		87DBB59A2C71FFD700539D37 /* CharactersVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5992C71FFD700539D37 /* CharactersVMTests.drawio.png */; };
 		87DBB59C2C72003E00539D37 /* CharactersVCTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB59B2C72003E00539D37 /* CharactersVCTests.drawio.png */; };
+		87DBB59E2C7204D200539D37 /* EventsVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBB59D2C7204D200539D37 /* EventsVMTests.swift */; };
+		87DBB5A02C72075100539D37 /* EventsListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB59F2C72075100539D37 /* EventsListSuccess.json */; };
+		87DBB5A22C720DE400539D37 /* EventsVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5A12C720DE400539D37 /* EventsVMTests.drawio.png */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
 		87DDFD842C38EDDB0040621E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFD832C38EDDB0040621E /* Assets.xcassets */; };
@@ -337,6 +340,9 @@
 		87DBB5972C71FA1000539D37 /* CDCharacterItemVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CDCharacterItemVMTests.drawio.png; sourceTree = "<group>"; };
 		87DBB5992C71FFD700539D37 /* CharactersVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharactersVMTests.drawio.png; sourceTree = "<group>"; };
 		87DBB59B2C72003E00539D37 /* CharactersVCTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharactersVCTests.drawio.png; sourceTree = "<group>"; };
+		87DBB59D2C7204D200539D37 /* EventsVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVMTests.swift; sourceTree = "<group>"; };
+		87DBB59F2C72075100539D37 /* EventsListSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EventsListSuccess.json; sourceTree = "<group>"; };
+		87DBB5A12C720DE400539D37 /* EventsVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventsVMTests.drawio.png; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -767,6 +773,7 @@
 				87CBC5292C554179007AB863 /* EmptyList.json */,
 				878246A22C5740A300A6250C /* CharactersListSuccess.json */,
 				87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */,
+				87DBB59F2C72075100539D37 /* EventsListSuccess.json */,
 			);
 			path = JSONs;
 			sourceTree = "<group>";
@@ -985,9 +992,11 @@
 		87E38E822C5C6DE100473B5B /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				87E38E832C5C6E6300473B5B /* EventsVCTests.swift */,
+				87DBB5A12C720DE400539D37 /* EventsVMTests.drawio.png */,
+				87DBB59D2C7204D200539D37 /* EventsVMTests.swift */,
 				87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */,
 				87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */,
+				87E38E832C5C6E6300473B5B /* EventsVCTests.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -1131,6 +1140,7 @@
 				87605A922C702F1E00E31CE3 /* BaseCollectionVCTests.drawio.png in Resources */,
 				8765BFB92C6DB9AA00D4C0E9 /* TabBarTests.drawio.png in Resources */,
 				871F91D52C6AFC6E0026A2B2 /* SingleTestableThumbnailTitle.json in Resources */,
+				87DBB5A22C720DE400539D37 /* EventsVMTests.drawio.png in Resources */,
 				87DBB5942C71F85D00539D37 /* ComicDetailTests.drawio.png in Resources */,
 				87DBB5962C71F99300539D37 /* CDCreatorItemVMTests.drawio.png in Resources */,
 				8765BFBA2C6DB9AA00D4C0E9 /* TabBarTests.drawio in Resources */,
@@ -1141,6 +1151,7 @@
 				87605A942C70641300E31CE3 /* ThumbnailTitleCCTests.drawio.png in Resources */,
 				87605A9D2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png in Resources */,
 				87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */,
+				87DBB5A02C72075100539D37 /* EventsListSuccess.json in Resources */,
 				877B481D2C5616A1001A6E5A /* NonDictionary.json in Resources */,
 				875B68AC2C68B26700D8C829 /* SingleCharactor.json in Resources */,
 				87605A982C70ADE600E31CE3 /* FlowManagerTests.drawio.png in Resources */,
@@ -1358,6 +1369,7 @@
 				87CB6CAD2C6EF3C300B96CFE /* BaseThumbnailTitleFetchableVMTests.swift in Sources */,
 				87CB6CB52C6EF3C300B96CFE /* ThumbnailTitleCCTests.swift in Sources */,
 				87CB6CC22C6EF3C300B96CFE /* TestableTableCell.swift in Sources */,
+				87DBB59E2C7204D200539D37 /* EventsVMTests.swift in Sources */,
 				87CB6CAE2C6EF3C300B96CFE /* TestableComicDetailVC.swift in Sources */,
 				8741595F2C6C2B7E0036E67D /* TestableThumbnailTitleVM.swift in Sources */,
 				87CB6CA62C6EF3A900B96CFE /* BaseCollectionVCTests.swift in Sources */,
