@@ -144,6 +144,7 @@
 		87DBB5902C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB58F2C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png */; };
 		87DBB5922C71F50D00539D37 /* BaseThumbnailTitleFetchableVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5912C71F50D00539D37 /* BaseThumbnailTitleFetchableVMTests.drawio.png */; };
 		87DBB5942C71F85D00539D37 /* ComicDetailTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5932C71F85D00539D37 /* ComicDetailTests.drawio.png */; };
+		87DBB5962C71F99300539D37 /* CDCreatorItemVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5952C71F99300539D37 /* CDCreatorItemVMTests.drawio.png */; };
 		87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */; };
 		87DDFD7D2C38EDDA0040621E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */; };
 		87DDFD842C38EDDB0040621E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DDFD832C38EDDB0040621E /* Assets.xcassets */; };
@@ -329,6 +330,7 @@
 		87DBB58F2C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HorizontalThumbnailTitleGridViewTests.drawio.png; sourceTree = "<group>"; };
 		87DBB5912C71F50D00539D37 /* BaseThumbnailTitleFetchableVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaseThumbnailTitleFetchableVMTests.drawio.png; sourceTree = "<group>"; };
 		87DBB5932C71F85D00539D37 /* ComicDetailTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ComicDetailTests.drawio.png; sourceTree = "<group>"; };
+		87DBB5952C71F99300539D37 /* CDCreatorItemVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CDCreatorItemVMTests.drawio.png; sourceTree = "<group>"; };
 		87DDFD772C38EDDA0040621E /* MarvelSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DDFD7A2C38EDDA0040621E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DDFD7C2C38EDDA0040621E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 		875B68B02C68B71400D8C829 /* CDCreatorItemVM */ = {
 			isa = PBXGroup;
 			children = (
+				87DBB5952C71F99300539D37 /* CDCreatorItemVMTests.drawio.png */,
 				875B68A52C68A88400D8C829 /* TestableCDCreatorItemVM.swift */,
 				875B68A72C68A8ED00D8C829 /* CDCreatorItemVMTests.swift */,
 			);
@@ -1119,6 +1122,7 @@
 				8765BFB92C6DB9AA00D4C0E9 /* TabBarTests.drawio.png in Resources */,
 				871F91D52C6AFC6E0026A2B2 /* SingleTestableThumbnailTitle.json in Resources */,
 				87DBB5942C71F85D00539D37 /* ComicDetailTests.drawio.png in Resources */,
+				87DBB5962C71F99300539D37 /* CDCreatorItemVMTests.drawio.png in Resources */,
 				8765BFBA2C6DB9AA00D4C0E9 /* TabBarTests.drawio in Resources */,
 				877B48172C560F25001A6E5A /* WithoutDataKey.json in Resources */,
 				87605A962C7067B000E31CE3 /* BaseTableVCTests.drawio.png in Resources */,

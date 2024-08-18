@@ -8,6 +8,9 @@
 import XCTest
 @testable import MarvelSample
 
+/// Tests:
+/// 1. Parse model correctly
+/// 2. Extracts title and thumbnail correctly from model
 final class CDCreatorItemVMTests: XCTestCase {
     var sut: TestableCDCreatorItemVM!
     var mockService: MockAPIService!
