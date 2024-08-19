@@ -35,10 +35,16 @@ class APIService: APIServiceProtocol {
         return session
             .dataTask(with: request) { data, response, error in
                 if let error = error {
-                    Log.error("Error in API call: \(error)")
-                    logErrorJSON(data: data)
-                    completion(.failure(error))
-                    return
+                    if let nsError = error as? NSError,
+                       nsError.code == NSURLErrorCancelled {
+                        // Do nothing, request is cancelled and mostprobabely new request will be made
+                        return
+                    } else {
+                        Log.error("Error in API call: \(error)")
+                        logErrorJSON(data: data)
+                        completion(.failure(error))
+                        return
+                    }
                 }
                 guard let response = response as? HTTPURLResponse else {
                     Log.error("Couldn't receive HTTPURLResponse")
