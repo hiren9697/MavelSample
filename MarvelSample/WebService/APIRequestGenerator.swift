@@ -8,7 +8,6 @@
 import Foundation
 
 class APIRequestGenerator {
-    
     /// Generates URLRequest with given components
     /// - Parameters:
     ///   - requestType: HTTP method type

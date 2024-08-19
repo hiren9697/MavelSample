@@ -8,7 +8,6 @@
 import UIKit
 
 enum Log {
-
     enum Level {
         case info
         case apiRequest
@@ -71,7 +70,6 @@ enum Log {
 
 // MARK: - Print method(s)
 extension Log {
-    
     public static func info(
         _ content: Any...,
         shouldLogContext: Bool = true,

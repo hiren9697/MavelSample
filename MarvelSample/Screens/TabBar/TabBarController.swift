@@ -8,6 +8,9 @@
 import UIKit
 
 // MARK: - VC
+/// TabBarController does not initialize view controllers or decides sequece of view controllers
+/// FlowManager supplies initialized view controllers
+/// This class just add supplied view controller, and add tab information(title, image and selected image) to view controller from view model
 class TabBarController: UITabBarController {
     let viewModel: TabBarVM
     let arrViewController: [UIViewController]

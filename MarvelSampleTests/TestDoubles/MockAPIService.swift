@@ -12,7 +12,6 @@ import XCTest
 /// This class is used to mock API calling behaviour
 /// It stores URLRequest in array called 'dataTaskArgsRequest' and clauser in array named 'completionArgs'
 class MockAPIService: APIServiceProtocol {
-    
     var dataTaskArgsRequest: [URLRequest] = []
     var completionArgs: [MarvelSample.APICallHandler] = []
     var dataTaskCallCount: Int {
@@ -33,6 +32,18 @@ class MockAPIService: APIServiceProtocol {
 
 // MARK: - Helper
 extension MockAPIService {
+    /// Compares count of dataTaskArgsRequest, It fais if count != 1
+    /// - Parameters:
+    ///   - file: File from which this method is called
+    ///   - line: Line from which this method is called
+    /// - Returns: True if only one request call was made, false otherwise
+    func dataTaskWasNotCalled(file: StaticString, line: UInt)-> Bool {
+        verifyMethodNotCalled(methodName: "dataTask(with:completionHandler",
+                              callCount: dataTaskCallCount,
+                              describedArguments: "request: \(dataTaskArgsRequest)",
+                              file: file,
+                              line: line)
+    }
     
     /// Compares count of dataTaskArgsRequest, It fais if count != 1
     /// - Parameters:
@@ -52,13 +63,15 @@ extension MockAPIService {
     ///   - file: File from which this method is called
     ///   - line: Line from which this method is called
     /// - Returns: True if only one request call was made, false otherwise
-    func dataTaskWasNotCalled(file: StaticString, line: UInt)-> Bool {
-        verifyMethodNotCalled(methodName: "dataTask(with:completionHandler",
-                              callCount: dataTaskCallCount,
-                              describedArguments: "request: \(dataTaskArgsRequest)",
-                              file: file,
-                              line: line)
+    func dataTaskWasCalledTwice(file: StaticString, line: UInt)-> Bool {
+        verifyMethodCalledTwice(methodName: "dataTask(with:completionHandler",
+                                callCount: dataTaskCallCount,
+                                describedArguments: "request: \(dataTaskArgsRequest)",
+                                file: file,
+                                line: line)
     }
+    
+    
     
     /// This method compares given request is identical to last request added in dataTaskArgsRequest
     /// This method compares request's url, http method, http header, http body

@@ -8,8 +8,10 @@
 import XCTest
 @testable import MarvelSample
 
+/// Tests:
+/// 1. Parsing with success response
+/// 2. Error handling with different kind of failure response
 final class ComicsVMTests: XCTestCase {
-
     var sut: ComicsVM!
     var service: MockAPIService!
     
@@ -26,7 +28,7 @@ final class ComicsVMTests: XCTestCase {
     }
 }
 
-// MARK: - Test cases
+// MARK: - Parsing with success response
 extension ComicsVMTests {
     func test_parseJSON_withSuccessResponse_shouldSetExactNumberOfObject() {
         guard let json = loadJSON(fileName: "ComicsListSuccess") else {
@@ -72,7 +74,10 @@ extension ComicsVMTests {
         XCTAssertEqual(firstData.title, "Marvel Previews (2017)", "title")
         XCTAssertEqual(firstData.thumbnailURL, URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"), "thumbnailURL")
     }
-    
+}
+
+// MARK: - Error handling with different kinds of failure responses
+extension ComicsVMTests {
     func test_parseJSON_withEmptyResponse_shouldHanldeEmptyData() {
         guard let json = loadJSON(fileName: "EmptyList") else {
             XCTFail("Found JSON nil")

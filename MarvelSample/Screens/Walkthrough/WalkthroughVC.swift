@@ -9,8 +9,8 @@ import UIKit
 import Combine
 
 // MARK: - VC
+/// ViewController for walkthrough screen
 class WalkthroughVC: UIViewController {
-    
     /*
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -79,7 +79,6 @@ class WalkthroughVC: UIViewController {
 
 // MARK: - Bindings
 extension WalkthroughVC {
-    
     private func setupBindings() {
         viewModel
             .currentPage
@@ -106,7 +105,6 @@ extension WalkthroughVC {
 
 // MARK: - UI
 extension WalkthroughVC {
-    
     private func configureUI() {
         view.backgroundColor = .black
         collectionView.backgroundColor = .black
@@ -144,7 +142,6 @@ extension WalkthroughVC {
 
 // MARK: - Actions
 extension WalkthroughVC {
-    
     @objc func continueTap(_ button: UIButton) {
         viewModel.goToNextPage()
     }
@@ -152,7 +149,6 @@ extension WalkthroughVC {
 
 // MARK: - Collection Delegate
 extension WalkthroughVC: UICollectionViewDelegate {
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let currentItem = currentItem,
            currentItem != viewModel.currentPage.value {
@@ -164,7 +160,6 @@ extension WalkthroughVC: UICollectionViewDelegate {
 
 // MARK: - Collection Datasource
 extension WalkthroughVC: UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         viewModel.items.count
     }
@@ -180,7 +175,6 @@ extension WalkthroughVC: UICollectionViewDataSource {
 
 // MARK: - Collection DelegateFlowLayout
 extension WalkthroughVC: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         .leastNonzeroMagnitude
     }

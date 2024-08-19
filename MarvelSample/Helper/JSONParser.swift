@@ -9,7 +9,6 @@ import Foundation
 
 /// Class used to parse common JSONs, like list
 class JSONParser {
-    
     func parseListJSON(_ json: Any)-> [NSDictionary]? {
         guard let dict = json as? NSDictionary else {
             return nil

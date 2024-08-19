@@ -8,7 +8,6 @@
 import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         Log.info("APP DELEGATE: Launching from production")
         for sceneSession in application.openSessions {

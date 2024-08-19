@@ -12,7 +12,6 @@ import Combine
 /// This cell supports data display instantly OR lazily
 /// To load data lazily this class provides loader to display while data is loading, and error view if fetch operation finish with error
 class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
-    
     // MARK: - UI Components
     /// Main view child of contentView
     /// Holds all UI components
@@ -76,7 +75,7 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
     
     // MARK: - Variables
     var viewModel: ViewModel?
-    private var bindings = Set<AnyCancellable>()
+    var bindings = Set<AnyCancellable>()
     
     // MARK: - Life cycle
     override init(frame: CGRect) {
@@ -96,7 +95,6 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
 
 // MARK: - UI Helper
 extension ThumbnailTitleCC {
-    
     private func setupUIInitial() {
         // ContainerView
         contentView.addSubview(containerView)
@@ -142,8 +140,6 @@ extension ThumbnailTitleCC {
         containerView.addSubview(loader)
         loader.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         loader.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        
-        // contentView.backgroundColor = .lightGray
     }
     
     func update(viewModel: ViewModel) {

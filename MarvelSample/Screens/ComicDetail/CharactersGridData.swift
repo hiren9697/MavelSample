@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// ViewModel for characters list displayed in comic detail screen(ComicDetailVC)
 final class CharactersGridVM: HorizontalThumbnailTitleGridViewModel {
     let title: String
     let emptyDataTitle: String

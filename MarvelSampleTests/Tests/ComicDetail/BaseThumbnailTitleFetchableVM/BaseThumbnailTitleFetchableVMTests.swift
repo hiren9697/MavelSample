@@ -15,7 +15,6 @@ import XCTest
 
 /// NOTE: By default variables: dataFetchState, modelID, encPoint are set non-nil(dataFetchState = .notStarted), Test methods can update them manually before testing
 final class BaseThumbnailTitleFetchableVMTests: XCTestCase {
-
     var sut: TestableChildThumbnailTitleFetchableVM!
     var service: MockAPIService!
     var apiRequestGenerator: TestableAPIRequestGenerator!
@@ -42,38 +41,38 @@ final class BaseThumbnailTitleFetchableVMTests: XCTestCase {
 /// The way two methods are written, I can test 'makeRequestToFetchData' separately, But I am not able to test 'fetchData' separately
 /// So to test in which scenarios they make API call and in which scenarios they don't make API call below methods are written and tested both methods together
 extension BaseThumbnailTitleFetchableVMTests {
-    func test_fetchData_shouldNotMakeAPICall_whithNilFetchStateNonNilModelIDAndNonNilEndPoint() {
+    func test_fetchData_whithNilFetchStateNonNilModelIDAndNonNilEndPoint_shouldNotMakeAPICall() {
         sut.dataFetchState = nil
         sut.fetchData()
         _ = service.dataTaskWasNotCalled(file: #file, line: #line)
     }
     
-    func test_fetchData_shouldNotMakeAPICall_withNonNilFetchStateNilModelIDAdnNonNilEndPoint() {
+    func test_fetchData_withNonNilFetchStateNilModelIDAdnNonNilEndPoint_shouldNotMakeAPICall() {
         sut.modelID = nil
         _ = service.dataTaskWasNotCalled(file: #file, line: #line)
     }
     
-    func test_fetchData_shouldNotMakeAPICall_withNonNilFetchStateNonNilModelIDAndNilEndPoint() {
+    func test_fetchData_withNonNilFetchStateNonNilModelIDAndNilEndPoint_shouldNotMakeAPICall() {
         sut.endPoint = nil
         _ = service.dataTaskWasNotCalled(file: #file, line: #line)
     }
     
-    func test_fetchData_shouldNotMakeAPICall_withLoadingFetchStateNonNilModelIDAndNilEndPoint() {
+    func test_fetchData_withLoadingFetchStateNonNilModelIDAndNilEndPoint_shouldNotMakeAPICall() {
         sut.dataFetchState?.value = .loading
         _ = service.dataTaskWasNotCalled(file: #file, line: #line)
     }
     
-    func test_fetchData_shouldNotMakeAPICall_withLoadedFetchStateNonNilModelIDAndNilEndPoint() {
+    func test_fetchData_withLoadedFetchStateNonNilModelIDAndNilEndPoint_shouldNotMakeAPICall() {
         sut.dataFetchState?.value = .loaded
         _ = service.dataTaskWasNotCalled(file: #file, line: #line)
     }
     
-    func test_fetchData_shouldNotMakeAPICall_withFailedFetchStateNonNilModelIDAndNilEndPoint() {
+    func test_fetchData_withFailedFetchStateNonNilModelIDAndNilEndPoint_shouldNotMakeAPICall() {
         sut.dataFetchState?.value = .failed
         _ = service.dataTaskWasNotCalled(file: #file, line: #line)
     }
     
-    func test_fetchData_shouldCallOnceWithCorrectRequest_withNotStartedFetchStateNonNilModelIDAndNonNilEndPoint() throws {
+    func test_fetchData_withNotStartedFetchStateNonNilModelIDAndNonNilEndPoint_shouldCallOnceWithCorrectRequest() throws {
         let relativePath = APIEndpoints.creators.rawValue + "/0"
         let request = try service
             .requestGenerator

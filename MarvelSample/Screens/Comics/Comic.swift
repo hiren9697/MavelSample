@@ -89,7 +89,6 @@ struct Comic {
 }
 
 extension Comic: CustomStringConvertible {
-    
     var description: String {
         return """
                id: \(id),

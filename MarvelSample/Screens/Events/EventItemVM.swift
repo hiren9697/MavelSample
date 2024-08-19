@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// ViewModel for single item of events
+/// Used in EventsVC and EventsVM
 struct EventItemVM {
     let title: String
     let descriptionText: String

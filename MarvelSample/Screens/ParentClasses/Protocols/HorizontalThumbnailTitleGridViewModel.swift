@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+/// Data needed to display horizontal grid,
+/// Horizontal grids are displayed in detail screens
 protocol HorizontalThumbnailTitleGridViewModel {
     associatedtype ItemViewModel: ThumbnailTitleItemViewModel
     var title: String { get }

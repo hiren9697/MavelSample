@@ -9,7 +9,6 @@ import Foundation
 @testable import MarvelSample
 
 class TestableCDCharacterItemVM: CDCharacterItemVM {
-    
     /// Injected MockAPIService to prevent API call in tests
     init() {
         super.init(modelID: "testableModelID",

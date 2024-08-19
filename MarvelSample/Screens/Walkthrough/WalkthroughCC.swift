@@ -8,8 +8,8 @@
 import UIKit
 
 // MARK: - CC
+/// CollectionView Cell displayed in walkthrough screen
 class WalkthroughCC: ParentCC {
-    
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

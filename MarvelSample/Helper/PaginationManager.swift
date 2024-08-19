@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Classes used to manage things related of pagination
 class PaginationManager {
     let limit: Int
     var offset: Int = 0

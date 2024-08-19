@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 
+/// ViewModel for single item of comic list
 struct ComicItemVM: ThumbnailTitleItemViewModel {
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = nil
     let title: String?

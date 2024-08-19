@@ -45,7 +45,6 @@ struct Character {
 }
 
 extension Character: CustomStringConvertible {
-    
     var description: String {
         return """
                id: \(id),

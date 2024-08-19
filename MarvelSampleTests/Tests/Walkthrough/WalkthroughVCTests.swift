@@ -9,7 +9,6 @@ import XCTest
 @testable import MarvelSample
 
 final class WalkthroughVCTests: XCTestCase {
-
     var sut: TestableWalkthroughVC!
     var viewModel: WalkthroughVM!
     
@@ -30,7 +29,6 @@ final class WalkthroughVCTests: XCTestCase {
 
 // MARK: - Outlets and Actions
 extension WalkthroughVCTests {
-    
     func test_outlets_shouldBeConnected() {
         XCTAssertNotNil(sut.collectionView, "collectionView")
         XCTAssertNotNil(sut.pageControl, "pageControl")
@@ -49,7 +47,6 @@ extension WalkthroughVCTests {
 
 // MARK: - Collection View
 extension WalkthroughVCTests {
-    
     func test_collectionViewDelegates_shouldBeConnected() {
         XCTAssertNotNil(sut.collectionView.delegate, "collectionView Delegate")
         XCTAssertNotNil(sut.collectionView.dataSource, "collectionView Datasource")
@@ -104,7 +101,6 @@ extension WalkthroughVCTests {
 
 // MARK: - Binding Tests
 extension WalkthroughVCTests {
-    
     func test_pageControl_binding() {
         XCTAssertEqual(sut.pageControl.currentPage, 0, "precondition")
         viewModel.currentPage.value = 1

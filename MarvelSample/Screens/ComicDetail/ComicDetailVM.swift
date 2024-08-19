@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// ViewModel for comic detail screen(ComicDetailVC)
 class ComicDetailVM {
     let title: String
     let description: String

@@ -8,8 +8,8 @@
 import UIKit
 
 // MARK: - CC
+/// CollectionView cell displayed when no data found
 class EmptyCC: ParentCC {
-    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,6 @@ class EmptyCC: ParentCC {
 
 // MARK: - UI Helper
 extension EmptyCC {
-    
     private func setupInitialUI() {
         contentView.addSubview(imageView)
         contentView.addSubview(titleLabel)

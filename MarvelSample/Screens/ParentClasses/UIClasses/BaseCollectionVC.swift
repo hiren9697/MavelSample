@@ -8,16 +8,26 @@
 import UIKit
 import Combine
 
-class BaseCollectionVC<Data,
-                       ItemVM,
-                       ViewModel: APIDataListable>:
+/// Base class that provides common implementation for collection view
+/// Designed as a abstract class, Should not be instantiated directly
+/// Some class must confirms this class and override below methods:
+/// 1. registerCollectionViewDataCell()
+/// 2. dequeueDataCell(at: IndexPath)
+/// 3. collectionViewDidSelectDataCell(indexPath: IndexPath)
+/// 4. collectionViewMinimumInterItemSpacingFor(section: Int)-> CGFloat
+/// 5. collectionViewMinimumLineSpacingFor(section: Int)-> CGFloat
+/// 6. collectionViewSizeForItem(at indexPath: IndexPath) -> CGSize
+/// Provides below implementation:
+/// 1. Show list with data
+/// 2. Show empty data table view cell with empty data
+/// 3. Show error data table view cell with error
+/// 4. Reload
+/// 5. Pagination
+class BaseCollectionVC<ViewModel: APIDataListable>:
                         ParentVC,
                         UICollectionViewDelegate,
                         UICollectionViewDataSource,
-                        UICollectionViewDelegateFlowLayout
-where ViewModel.Data == Data,
-      ViewModel.ItemVM == ItemVM {
-    
+                        UICollectionViewDelegateFlowLayout {
     // MARK: UI Components
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -160,7 +170,7 @@ where ViewModel.Data == Data,
     }
     
     // MARK: - Datasource Helper
-    func dequeueCell(at indexPath: IndexPath)-> UICollectionViewCell {
+    func dequeueDataCell(at indexPath: IndexPath)-> UICollectionViewCell {
         preconditionFailure("Subclass must override this method")
     }
     
@@ -218,7 +228,7 @@ where ViewModel.Data == Data,
         case .initialLoading:
             return UICollectionViewCell()
         case .loadingNextPage, .idle, .reload:
-            let cell = dequeueCell(at: indexPath)
+            let cell = dequeueDataCell(at: indexPath)
             return cell
         case .error(_):
             return dequeueErrorCell(at: indexPath)
@@ -247,28 +257,37 @@ where ViewModel.Data == Data,
     }
     
     // MARK: - Delegate helper
-    func collectionViewDidSelect(indexPath: IndexPath) {
+    func collectionViewDidSelectDataCell(indexPath: IndexPath) {
        fatalError("Subclass must override this method")
     }
     
     // MARK: - CollectionView Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       collectionViewDidSelect(indexPath: indexPath)
+        switch viewModel.fetchState.value {
+        case .idle, .loadingNextPage, .reload:
+            collectionViewDidSelectDataCell(indexPath: indexPath)
+        default: break
+        }
     }
     
     // MARK: - FlowLayout Helper
+    /// Horizontal spacing between items shown in loadingNextPage, idle, and reload fetchState
+    /// - Parameter section: section, which is mostly 0
+    /// - Returns: item space in CGFloat
     func collectionViewMinimumInterItemSpacingFor(section: Int)-> CGFloat {
         preconditionFailure("Subclass must override this method")
     }
     
+    /// Vertical spacing between lines shown in loadingNextPage, idle, and reload fetchState
+    /// - Parameter section: section, which is mostly 0
+    /// - Returns: line space in CGFloat
     func collectionViewMinimumLineSpacingFor(section: Int)-> CGFloat {
         preconditionFailure("Subclass must override this method")
     }
     
-    func collectionViewInsetsFor(section: Int)-> UIEdgeInsets {
-        preconditionFailure("Subclass must override this method")
-    }
-    
+    /// Size of item shown in loadingNextPage, idle, and reload fetchState
+    /// - Parameter indexPath: indexPath of item
+    /// - Returns: CGSize
     func collectionViewSizeForItem(at indexPath: IndexPath) -> CGSize {
         preconditionFailure("Subclass must override this method")
     }
@@ -293,7 +312,7 @@ where ViewModel.Data == Data,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        collectionViewInsetsFor(section: section)
+        preconditionFailure("Subclass must override this method")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

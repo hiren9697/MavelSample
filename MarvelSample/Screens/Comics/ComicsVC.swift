@@ -8,10 +8,8 @@
 import UIKit
 import Combine
 
-class ComicsVC: BaseCollectionVC<Comic,
-         ComicItemVM,
-         ComicsVM> {
-    
+/// ViewController for comic list screen
+class ComicsVC: BaseCollectionVC<ComicsVM> {
     // MARK: - Variables
     let itemSpace: CGFloat = 10
     let lineSpace: CGFloat = 10
@@ -30,7 +28,7 @@ class ComicsVC: BaseCollectionVC<Comic,
                                 forCellWithReuseIdentifier: ThumbnailTitleCC<ComicItemVM>.name)
     }
     
-    override func dequeueCell(at indexPath: IndexPath) -> UICollectionViewCell {
+    override func dequeueDataCell(at indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ThumbnailTitleCC<ComicItemVM>.name,
                                            for: indexPath) as! ThumbnailTitleCC<ComicItemVM>
         cell.update(viewModel: viewModel.itemVM(for: indexPath.row))
@@ -38,7 +36,7 @@ class ComicsVC: BaseCollectionVC<Comic,
     }
     
     // MARK: - Delegate method
-    override func collectionViewDidSelect(indexPath: IndexPath) {
+    override func collectionViewDidSelectDataCell(indexPath: IndexPath) {
         let comicDetailVM = viewModel.getComicDetailVM(for: indexPath.row)
         navigationController?.pushViewController(ComicDetailVC(viewModel: comicDetailVM),
                                                  animated: true)
@@ -53,7 +51,7 @@ class ComicsVC: BaseCollectionVC<Comic,
         lineSpace
     }
     
-    override func collectionViewInsetsFor(section: Int) -> UIEdgeInsets {
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets.init(top: padding, left: padding, bottom: padding, right: padding)
     }
     

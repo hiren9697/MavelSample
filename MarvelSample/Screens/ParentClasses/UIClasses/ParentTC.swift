@@ -8,7 +8,6 @@
 import UIKit
 
 class ParentTC: UITableViewCell {
-    
     static var name: String {
         String(describing: self)
     }

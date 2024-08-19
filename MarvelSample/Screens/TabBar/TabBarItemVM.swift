@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// ViewModel for single tab bar item displayed with view controller in Tab bar controller
 struct TabBarItemVM {
     let title: String
     let image: UIImage

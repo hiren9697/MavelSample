@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 
+/// ViewController for comic detail screen
 class ComicDetailVC: ParentVC {
     // MARK: - UI Components
     let scrollView: UIScrollView = {

@@ -8,9 +8,9 @@
 import XCTest
 @testable import MarvelSample
 
-// Notes:
-// - This class doesn't test navigation title, as it changes tabBarController's title in viewWillAppear, I couldn't feagure out how to test this
-
+/// Tests:
+/// 1. Dequeues correct type of cell
+/// 2. Updates / fills correct data to collectionView cell
 final class CharactersVCTests: XCTestCase {
     var sut: TestableCharactersVC!
     var viewModel: TestableCharactersVM!
@@ -31,7 +31,6 @@ final class CharactersVCTests: XCTestCase {
 
 // MARK: - CollectionView Cell
 extension CharactersVCTests {
-    
     func test_cellForRow_withFilledData_dequesCorrectTypeOfCell() {
         addListItemsWithIdleModeInViewModel()
         let zerothCell = cellForRow(in: sut.collectionView, row: 0)

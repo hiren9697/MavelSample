@@ -11,7 +11,6 @@ import UIKit
 /// 'testableScrolledIndexPath' contains last indexPath on which scrollToItem was called and I use it to test
 /// Used in TestableWalkthroughVC
 class TestableCollectionView: UICollectionView {
-    
     var testableScrolledIndexPath: IndexPath?
     
     override func scrollToItem(at indexPath: IndexPath,

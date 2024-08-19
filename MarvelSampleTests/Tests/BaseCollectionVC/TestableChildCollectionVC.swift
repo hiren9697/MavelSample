@@ -13,16 +13,9 @@ import Combine
 /// This class is used to test BaseCollectionVC
 /// As subclass of BaseCollectionVC must override some methods and must fill generics
 /// Used in BaseCollectionVCTests
-class TestableChildCollectionVC: BaseCollectionVC<TestableData,
-                                 TestableDataItemVM,
-                                 TestableAPIDataListable> {
-    // MARK: - Closure Variables for tests
-    var refreshHandler: (()-> Void)?
-    
-    // MARK: - Overridden method
-    override func fetchInitialData() {
-        // Do nothing
-    }
+class TestableChildCollectionVC: BaseCollectionVC<TestableAPIDataListable> {
+    // MARK: - TestHelperClosure
+    var itemSelectionHandler: (()-> Void)?
     
     // MARK: - Cell methods
     override func registerCollectionViewDataCell() {
@@ -30,11 +23,16 @@ class TestableChildCollectionVC: BaseCollectionVC<TestableData,
                                 forCellWithReuseIdentifier: TestableCollectionCell.name)
     }
     
-    override func dequeueCell(at indexPath: IndexPath) -> UICollectionViewCell {
+    override func dequeueDataCell(at indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TestableCollectionCell.name,
                                                       for: indexPath) as! TestableCollectionCell
         cell.textLabel.text = viewModel.itemVM(for: indexPath.row).text
         return cell
+    }
+    
+    // MARK: - CollectionView Delegate
+    override func collectionViewDidSelectDataCell(indexPath: IndexPath) {
+        itemSelectionHandler?()
     }
     
     // MARK: - CollectionView FlowLayout
@@ -46,16 +44,11 @@ class TestableChildCollectionVC: BaseCollectionVC<TestableData,
         .leastNonzeroMagnitude
     }
     
-    override func collectionViewInsetsFor(section: Int) -> UIEdgeInsets {
-        UIEdgeInsets.zero
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        .zero
     }
     
     override func collectionViewSizeForItem(at indexPath: IndexPath) -> CGSize {
         CGSize(width: 100, height: 100)
-    }
-    
-    // MARK: - Overidden methods for tests
-    @objc override func handleRefresh() {
-        refreshHandler?()
     }
 }

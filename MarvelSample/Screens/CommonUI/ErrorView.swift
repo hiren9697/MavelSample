@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// View that displayed when received error from web service
+/// Used in ThumbnailTitleCC with lazy loading
 class ErrorView: UIView {
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -51,7 +53,6 @@ class ErrorView: UIView {
 
 // MARK: - Helper
 extension ErrorView {
-    
     private func setupConstraints() {
         self.translatesAutoresizingMaskIntoConstraints = false
         // StackView

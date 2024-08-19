@@ -8,6 +8,8 @@
 import XCTest
 @testable import MarvelSample
 
+/// Tests:
+/// 1. Parses JSON in various kind of JSONs
 final class CharactersVMTests: XCTestCase {
     var sut: CharactersVM!
     var service: MockAPIService!

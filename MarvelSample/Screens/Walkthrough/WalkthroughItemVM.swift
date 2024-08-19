@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// ViewModel for single item of walkthrough
 struct WalkthroughItemVM {
     let imageName: String
     let text: String

@@ -8,8 +8,8 @@
 import XCTest
 @testable import MarvelSample
 
+/// Tests json parsing with various kind of JSONs
 final class JSONParserTests: XCTestCase {
-
     var sut: JSONParser!
     
     override func setUp() {
@@ -25,7 +25,6 @@ final class JSONParserTests: XCTestCase {
 
 // MARK: - Tests
 extension JSONParserTests {
-    
     func test_parseJSON_withNonDictionaryJSON_shouldReturnNil() {
         guard let json = loadJSON(fileName: "NonDictionary") else {
             XCTFail("Found JSON nil")

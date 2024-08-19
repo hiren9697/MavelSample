@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// State of fetch operation in lazy loading list item
 enum ListItemLoadingState {
     case notStarted
     case loading

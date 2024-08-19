@@ -8,8 +8,8 @@
 import UIKit
 
 // MARK: - CC
+/// CollectionView cell that displayed when error encountered from web service
 class ErrorCC: ParentCC {
-    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,6 @@ class ErrorCC: ParentCC {
 
 // MARK: - UI Helper
 extension ErrorCC {
-    
     private func setupInitialUI() {
         contentView.addSubview(imageView)
         contentView.addSubview(titleLabel)

@@ -30,7 +30,6 @@ struct Creator {
 }
 
 extension Creator: CustomStringConvertible {
-    
     var description: String {
         return """
                id: \(id),

@@ -7,8 +7,8 @@
 
 import Foundation
 
+/// ViewModel for characters list screen(CharactersVC)
 class CharactersVM: BaseListVM<Character, CharacterItemVM> {
-    
     init(service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator())) {
         super.init(navigationTitle: "Characters",
                    endPoint: APIEndpoints.characters.rawValue,

@@ -8,8 +8,8 @@
 import Foundation
 @testable import MarvelSample
 
+/// A class used to fill the space in tesing BaseThumbnailTitleFetchableVM
 class TestableChildThumbnailTitleFetchableVM: BaseThumbnailTitleFetchableVM<TestableThumbnailTitleData> {
-    
     init(modelID: String?,
          service: APIServiceProtocol? = nil) {
         let errorVM = ErrorVM(title: "Couldn't fetch TestableChildThumbnailTitleData",

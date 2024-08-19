@@ -8,8 +8,8 @@
 import UIKit
 import Kingfisher
 
+/// TableViewCell displayed in event list screen(EventsVC
 class EventItemTC: ParentTC {
-    
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false

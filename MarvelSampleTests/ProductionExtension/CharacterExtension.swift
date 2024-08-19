@@ -9,7 +9,6 @@ import Foundation
 @testable import MarvelSample
 
 extension Character {
-    
     init?(name: String) {
         let dictionary: [String: Any] = [
             "id": "1",

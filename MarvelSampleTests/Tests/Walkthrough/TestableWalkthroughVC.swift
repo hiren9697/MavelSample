@@ -11,7 +11,6 @@ import UIKit
 /// I wrote this class to test button's click using continueButtonClosure
 /// Used in WalkthroughVCTests
 class TestableWalkthroughVC: WalkthroughVC {
-    
     var continueButtonClosure: (() -> Void)?
     
     @objc override func continueTap(_ button: UIButton) {

@@ -8,8 +8,8 @@
 import UIKit
 
 // MARK: - CC
+/// TableView cell that displayed when error is encountered from web service
 class ErrorTC: ParentTC {
-    
     let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,6 @@ class ErrorTC: ParentTC {
 
 // MARK: - UI Helper
 extension ErrorTC {
-    
     private func setupInitialUI() {
         contentView.addSubview(iconImageView)
         contentView.addSubview(titleLabel)

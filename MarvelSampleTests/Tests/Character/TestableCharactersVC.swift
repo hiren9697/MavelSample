@@ -12,7 +12,6 @@ import UIKit
 /// This class is used in unit tests whereever a CharactersVC expected
 /// If we uses actual CharactersVC, actual API call will be called every-time a object of CharactersVC created
 class TestableCharactersVC: CharactersVC {
-    
     override func fetchInitialData() {
         // Do nothing
     }

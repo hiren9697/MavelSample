@@ -12,7 +12,6 @@ import Foundation
 /// This class is used in unit tests whereever a EventsVC expected
 /// If we uses actual EventsVC, actual API call will be called every-time a object of EventsVC created
 class TestableEventsVC: EventsVC {
-    
     override func fetchInitialData() {
         // Do nothing
     }

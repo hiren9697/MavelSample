@@ -7,8 +7,8 @@
 
 import UIKit
 
+/// TableView footer that displayed while loading next page
 class TableViewNextPageLoader: UITableViewHeaderFooterView {
-    
     let activity: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView()
         activity.color = AppColors.red
