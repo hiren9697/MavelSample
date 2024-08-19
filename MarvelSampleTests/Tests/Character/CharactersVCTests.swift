@@ -31,7 +31,6 @@ final class CharactersVCTests: XCTestCase {
 
 // MARK: - CollectionView Cell
 extension CharactersVCTests {
-    
     func test_cellForRow_withFilledData_dequesCorrectTypeOfCell() {
         addListItemsWithIdleModeInViewModel()
         let zerothCell = cellForRow(in: sut.collectionView, row: 0)

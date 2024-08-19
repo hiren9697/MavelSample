@@ -14,7 +14,6 @@ import XCTest
 /// 3. Tab information
 /// NOTE: This class uses Testable view controllers and view models, to prevent automatic API calls
 final class TabBarTests: XCTestCase {
-
     var viewModel: TabBarVM!
     var sut: TabBarController!
     
@@ -32,7 +31,6 @@ final class TabBarTests: XCTestCase {
 
 // MARK: - Setup Helper
 extension TabBarTests {
-    
     private func setupThreeViewController() {
         // TabBar Item VMs
         let tabBarItemVMs = [
@@ -120,7 +118,6 @@ extension TabBarTests {
 
 // MARK: - Helper
 extension TabBarTests {
-    
     private func compareTabItemInformation(viewController vc: UIViewController,
                                            tabBarItemVM vm: TabBarItemVM) {
         XCTAssertEqual(vc.tabBarItem.title, vm.title)

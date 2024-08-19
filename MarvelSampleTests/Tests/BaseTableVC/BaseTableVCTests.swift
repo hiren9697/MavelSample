@@ -25,7 +25,6 @@ import XCTest
 /// 4. tableView(_:UITableView, heightForRowAt: IndexPath) as this must be implemented by subclass and subclass's implementation will be called, sub-class test should test this
 /// 5. tableView(_:UITableView, didSelectRowAt: IndexPath)
 final class BaseTableVCTests: XCTestCase {
-    
     var sut: TestableChildTableVC!
     var viewModel: TestableAPIDataListable!
     
@@ -46,7 +45,6 @@ final class BaseTableVCTests: XCTestCase {
 
 // MARK: - 1. UI Components
 extension BaseTableVCTests {
-    
     func test_correctViewModelObject() {
         XCTAssertTrue(sut.viewModel === viewModel, "viewModel object is different")
     }

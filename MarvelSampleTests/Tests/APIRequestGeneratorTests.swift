@@ -16,7 +16,6 @@ import XCTest
 /// 5. Body
 // MARK: - Test Class
 final class APIRequestGeneratorTests: XCTestCase {
-
     var sut: APIRequestGenerator!
     
     override func setUp() {
@@ -120,7 +119,6 @@ extension APIRequestGeneratorTests {
 
 // MARK: - 5. Body
 extension APIRequestGeneratorTests {
-    
     func test_generateRequest_shouldHaveSuppliedBodyParameters() {
         let firstKey = "firstKey"
         let firstValue = "firstValue"
@@ -141,7 +139,6 @@ extension APIRequestGeneratorTests {
 
 // MARK: - Helper
 extension APIRequestGeneratorTests {
-    
     func generateRequest(requestType: RequestType,
                          relativePath: String = "",
                          headers: [String: String]? = nil,

@@ -11,7 +11,6 @@ import Foundation
 /// Sub-class of BaseLisVM, Written to fill generics, as BaseListVM is designed as abstract class
 class TestableChildListVM: BaseListVM<TestableData,
                           TestableDataItemVM> {
-    
     init(endpoint: String,
          emptyDataTitle: String,
          errorTitle: String,

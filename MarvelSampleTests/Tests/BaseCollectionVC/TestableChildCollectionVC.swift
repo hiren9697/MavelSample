@@ -14,7 +14,6 @@ import Combine
 /// As subclass of BaseCollectionVC must override some methods and must fill generics
 /// Used in BaseCollectionVCTests
 class TestableChildCollectionVC: BaseCollectionVC<TestableAPIDataListable> {
-    
     // MARK: - TestHelperClosure
     var itemSelectionHandler: (()-> Void)?
     
