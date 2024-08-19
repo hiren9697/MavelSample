@@ -28,7 +28,6 @@ class BaseCollectionVC<ViewModel: APIDataListable>:
                         UICollectionViewDelegate,
                         UICollectionViewDataSource,
                         UICollectionViewDelegateFlowLayout {
-    
     // MARK: UI Components
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

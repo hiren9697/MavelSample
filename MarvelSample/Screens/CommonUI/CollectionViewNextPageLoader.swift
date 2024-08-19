@@ -8,7 +8,6 @@
 import UIKit
 
 class CollectionViewNextPageLoader: UICollectionReusableView {
-    
     let activity: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView()
         activity.color = AppColors.red

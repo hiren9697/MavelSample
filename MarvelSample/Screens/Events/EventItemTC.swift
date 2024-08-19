@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class EventItemTC: ParentTC {
-    
     let containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false

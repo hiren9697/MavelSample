@@ -9,7 +9,6 @@ import UIKit
 
 // MARK: - CC
 class WalkthroughCC: ParentCC {
-    
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

@@ -8,7 +8,6 @@
 import UIKit
 
 class ParentCC: UICollectionViewCell {
-    
     override var reuseIdentifier: String? {
         Self.name
     }

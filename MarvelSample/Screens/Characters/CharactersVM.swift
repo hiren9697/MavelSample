@@ -8,7 +8,6 @@
 import Foundation
 
 class CharactersVM: BaseListVM<Character, CharacterItemVM> {
-    
     init(service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator())) {
         super.init(navigationTitle: "Characters",
                    endPoint: APIEndpoints.characters.rawValue,

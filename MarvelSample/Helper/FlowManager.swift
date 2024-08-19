@@ -8,7 +8,6 @@
 import UIKit
 
 class FlowManager {
-    
     private let window: UIWindow
     private let userDefaults: UserDefaultsProtocol
     var hasSeenWalkthrough: Bool {

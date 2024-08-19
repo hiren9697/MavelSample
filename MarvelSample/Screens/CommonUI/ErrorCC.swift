@@ -9,7 +9,6 @@ import UIKit
 
 // MARK: - CC
 class ErrorCC: ParentCC {
-    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +34,6 @@ class ErrorCC: ParentCC {
 
 // MARK: - UI Helper
 extension ErrorCC {
-    
     private func setupInitialUI() {
         contentView.addSubview(imageView)
         contentView.addSubview(titleLabel)

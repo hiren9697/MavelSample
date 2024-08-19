@@ -47,7 +47,6 @@ struct Event {
 }
 
 extension Event: CustomStringConvertible {
-    
     var description: String {
         return """
                id: \(id),

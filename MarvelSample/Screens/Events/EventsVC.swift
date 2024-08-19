@@ -8,7 +8,6 @@
 import UIKit
 
 class EventsVC: BaseTableVC<EventsVM> {
-    
     // MARK: - Cell methods
     override func registerTableViewDataCell() {
         tableView.register(EventItemTC.self, forCellReuseIdentifier: EventItemTC.name)

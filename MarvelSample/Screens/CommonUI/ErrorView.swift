@@ -51,7 +51,6 @@ class ErrorView: UIView {
 
 // MARK: - Helper
 extension ErrorView {
-    
     private func setupConstraints() {
         self.translatesAutoresizingMaskIntoConstraints = false
         // StackView

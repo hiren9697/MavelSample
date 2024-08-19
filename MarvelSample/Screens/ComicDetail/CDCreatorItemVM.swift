@@ -8,7 +8,6 @@
 import Foundation
 
 class CDCreatorItemVM: BaseThumbnailTitleFetchableVM<Creator> {
-    
     init(modelID: String?,
          service: APIServiceProtocol? = nil) {
         let errorVM = ErrorVM(title: "Couldn't fetch creator",

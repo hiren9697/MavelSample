@@ -8,7 +8,6 @@
 import UIKit
 
 class TableViewNextPageLoader: UITableViewHeaderFooterView {
-    
     let activity: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView()
         activity.color = AppColors.red

@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 class CDCharacterItemVM: BaseThumbnailTitleFetchableVM<Character> {
-    
     init(modelID: String?,
          service: APIServiceProtocol? = nil) {
         let errorVM = ErrorVM(title: "Couldn't fetch character",
