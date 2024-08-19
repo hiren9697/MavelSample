@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+/// ViewModel for single list item of characters
+/// Used in CharactersVC and CharactersVM
 struct CharacterItemVM: ThumbnailTitleItemViewModel {
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? = nil
     let title: String?

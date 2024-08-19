@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 
+/// ViewController for comic list screen
 class ComicsVC: BaseCollectionVC<ComicsVM> {
     // MARK: - Variables
     let itemSpace: CGFloat = 10

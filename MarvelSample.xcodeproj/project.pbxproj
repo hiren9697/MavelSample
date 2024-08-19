@@ -561,7 +561,6 @@
 				8787F7072C43DA680022C518 /* ComicItemVM.swift */,
 				8787F6FD2C43A8CD0022C518 /* ComicsVM.swift */,
 				8762B65D2C40D14B000FAFEF /* ComicsVC.swift */,
-				874595832C6708FE00A29444 /* Creator.swift */,
 			);
 			path = Comics;
 			sourceTree = "<group>";
@@ -660,6 +659,7 @@
 		87AEA1BB2C5DE1B70027C8E9 /* ComicDetail */ = {
 			isa = PBXGroup;
 			children = (
+				874595832C6708FE00A29444 /* Creator.swift */,
 				87AEA1BC2C5DE1CB0027C8E9 /* ComicDetailVC.swift */,
 				8704F8FF2C5E6012004862D5 /* ComicDetailVM.swift */,
 				8783B3CE2C5F95C600D06829 /* CDCharacterItemVM.swift */,

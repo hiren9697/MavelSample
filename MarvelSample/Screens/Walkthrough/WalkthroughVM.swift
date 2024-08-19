@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 
+/// ViewModel for walkthrough screen
 class WalkthroughVM {
     let items: [WalkthroughItemVM] = [
         WalkthroughItemVM(imageName: "first", text: "Sample app with Marvel's open APIs"),

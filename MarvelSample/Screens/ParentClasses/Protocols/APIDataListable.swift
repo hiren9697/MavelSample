@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+/// Requirements for ViewModel that displayes list data from web service
 protocol APIDataListable {
     associatedtype Data // Data
     associatedtype ItemVM // ListItem

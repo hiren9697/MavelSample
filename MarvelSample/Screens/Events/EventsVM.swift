@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// ViewModel for events list screen(EventsVC)
 class EventsVM: BaseListVM<Event, EventItemVM> {
     init(service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator())) {
         super.init(navigationTitle: "Events",

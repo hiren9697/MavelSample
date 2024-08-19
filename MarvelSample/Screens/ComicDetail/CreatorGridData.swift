@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// ViewModel for creator list displayed in comic detail screen(ComicDetailVC)
 final class CreatorGridVM: HorizontalThumbnailTitleGridViewModel {
     let title: String
     let emptyDataTitle: String

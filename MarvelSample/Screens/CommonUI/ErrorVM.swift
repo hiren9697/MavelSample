@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Contains data for ErrorView
+/// Used in BaseThumbnailTitleFetchableVM
 struct ErrorVM {
     let title: String
     let imageName: String

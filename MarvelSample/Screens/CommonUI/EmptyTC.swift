@@ -8,6 +8,7 @@
 import UIKit
 
 // MARK: - CC
+/// TableView cell that displayed when received empty data from web service
 class EmptyTC: ParentTC {
     let iconImageView: UIImageView = {
         let imageView = UIImageView()

@@ -8,6 +8,7 @@
 import UIKit
 import Combine
 
+/// ViewModel for comics list screen(ComicsVC)
 class ComicsVM: BaseListVM<Comic, ComicItemVM> {
     init(service: APIServiceProtocol = APIService(requestGenerator: APIRequestGenerator())) {
         super.init(navigationTitle: "Comics",

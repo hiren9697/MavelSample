@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Sate of fetch operation in list screen
 public enum DataFetchState {
     case initialLoading
     case loadingNextPage

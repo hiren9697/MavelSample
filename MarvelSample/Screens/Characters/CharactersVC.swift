@@ -8,6 +8,7 @@
 import UIKit
 
 // MARK: - VC
+/// ViewControlelr for characters list screen
 class CharactersVC: BaseCollectionVC<CharactersVM> {
     // MARK: - Variables
     let itemSpace: CGFloat = 10

@@ -9,6 +9,7 @@ import UIKit
 import Combine
 
 // MARK: - VC
+/// ViewController for walkthrough screen
 class WalkthroughVC: UIViewController {
     /*
     let collectionView: UICollectionView = {

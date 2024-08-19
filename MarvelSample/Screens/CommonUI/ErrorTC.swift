@@ -8,6 +8,7 @@
 import UIKit
 
 // MARK: - CC
+/// TableView cell that displayed when error is encountered from web service
 class ErrorTC: ParentTC {
     let iconImageView: UIImageView = {
         let imageView = UIImageView()

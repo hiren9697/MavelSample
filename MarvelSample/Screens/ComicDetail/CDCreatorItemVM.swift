@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// ComicDetailCreatorItemVM
+/// ViewModel for single list item of creator in comic detail
 class CDCreatorItemVM: BaseThumbnailTitleFetchableVM<Creator> {
     init(modelID: String?,
          service: APIServiceProtocol? = nil) {

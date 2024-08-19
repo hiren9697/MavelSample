@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// Helper class that used to set or update view hierarchy
+/// Sets view hierarchy on app start and updates after seeing walkthrough screen
 class FlowManager {
     private let window: UIWindow
     private let userDefaults: UserDefaultsProtocol

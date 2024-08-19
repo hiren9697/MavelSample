@@ -8,6 +8,7 @@
 import UIKit
 
 // MARK: - CC
+/// CollectionView cell displayed when no data found
 class EmptyCC: ParentCC {
     let imageView: UIImageView = {
         let imageView = UIImageView()

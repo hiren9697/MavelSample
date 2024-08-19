@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 
+/// ComicDetailCharacterItemVM
+/// ViewModel for single list item of character in comic detail
 class CDCharacterItemVM: BaseThumbnailTitleFetchableVM<Character> {
     init(modelID: String?,
          service: APIServiceProtocol? = nil) {

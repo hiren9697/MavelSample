@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// ViewModel for TabBarController
 struct TabBarVM {
     let tabBarItemVMs: [TabBarItemVM]
     

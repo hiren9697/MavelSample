@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Footerview displayed in collectionView while loading next page
 class CollectionViewNextPageLoader: UICollectionReusableView {
     let activity: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView()

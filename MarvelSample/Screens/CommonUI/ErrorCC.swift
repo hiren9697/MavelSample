@@ -8,6 +8,7 @@
 import UIKit
 
 // MARK: - CC
+/// CollectionView cell that displayed when error encountered from web service
 class ErrorCC: ParentCC {
     let imageView: UIImageView = {
         let imageView = UIImageView()

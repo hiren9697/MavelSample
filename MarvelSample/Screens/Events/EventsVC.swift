@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// ViewController for events screen
 class EventsVC: BaseTableVC<EventsVM> {
     // MARK: - Cell methods
     override func registerTableViewDataCell() {
