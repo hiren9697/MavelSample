@@ -47,8 +47,10 @@ extension HorizontalThumbnailTitleGridViewTests {
         XCTAssertEqual(sut.collectionViewContainer.superview, sut.stackView, "collectionViewContainer is not in view hierarchy")
     }
     
-    func test_emptyDataTitleAndEmptyDataContainer_isInViewHierarchy() {
-        XCTAssertEqual(sut.emptyDataLabel.superview, sut.emptyDataContainer, "emptyDataLabel is not in view hierarchy")
+    func test_emptyDataUIComponents_areInViewHierarchy() {
+        XCTAssertEqual(sut.emptyDataLabel.superview, sut.emptyDataStackView, "emptyDataLabel is not subView of emptyDataStackView")
+        XCTAssertEqual(sut.emptyDataImageView.superview, sut.emptyDataStackView, "emptyDataImageView is not subView of emptyDataStackView")
+        XCTAssertEqual(sut.emptyDataStackView.superview, sut.emptyDataContainer, "emptyDataStack is not subView of emptyDataContainer")
         XCTAssertEqual(sut.emptyDataContainer.superview, sut.stackView, "emptyDataContainer is not in view hierarchy")
     }
 }

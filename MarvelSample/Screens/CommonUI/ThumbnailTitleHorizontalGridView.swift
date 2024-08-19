@@ -52,12 +52,28 @@ final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitle
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    let emptyDataImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "empty")!
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     let emptyDataLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.systemFont(ofSize: 13)
         label.textColor = .lightGray
         return label
+    }()
+    let emptyDataStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.spacing = 5
+        return stackView
     }()
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -136,12 +152,20 @@ final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitle
         stackView.addArrangedSubview(titleLabelContainer)
         // Collection view container
         stackView.addArrangedSubview(collectionViewContainer)
-        // Empty data label
-        emptyDataContainer.addSubview(emptyDataLabel)
-        emptyDataLabel.leadingAnchor.constraint(greaterThanOrEqualTo: emptyDataContainer.leadingAnchor, constant: 20).isActive = true
-        emptyDataLabel.trailingAnchor.constraint(lessThanOrEqualTo: emptyDataContainer.trailingAnchor, constant: -20).isActive = true
-        emptyDataLabel.centerXAnchor.constraint(equalTo: emptyDataContainer.centerXAnchor).isActive = true
-        emptyDataLabel.centerYAnchor.constraint(equalTo: emptyDataContainer.centerYAnchor).isActive = true
+        // EmptyDataImageView
+        emptyDataImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        emptyDataImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        emptyDataStackView.addArrangedSubview(emptyDataImageView)
+        // EmptyDataLabel
+        emptyDataStackView.addArrangedSubview(emptyDataLabel)
+        // EmptyDataStackView
+        emptyDataContainer.addSubview(emptyDataStackView)
+        emptyDataStackView.topAnchor.constraint(greaterThanOrEqualTo: emptyDataContainer.topAnchor, constant: 0).isActive = true
+        emptyDataStackView.bottomAnchor.constraint(lessThanOrEqualTo: emptyDataContainer.bottomAnchor, constant: 0).isActive = true
+        emptyDataStackView.leadingAnchor.constraint(equalTo: emptyDataContainer.leadingAnchor, constant: 20).isActive = true
+        emptyDataStackView.trailingAnchor.constraint(equalTo: emptyDataContainer.trailingAnchor, constant: -20).isActive = true
+        // emptyDataStackView.centerXAnchor.constraint(equalTo: emptyDataContainer.centerXAnchor).isActive = true
+        emptyDataStackView.centerYAnchor.constraint(equalTo: emptyDataContainer.centerYAnchor).isActive = true
         // Empty data container
         emptyDataContainer.heightAnchor.constraint(equalToConstant: collectionViewContainerHeight).isActive = true
         stackView.addArrangedSubview(emptyDataContainer)
