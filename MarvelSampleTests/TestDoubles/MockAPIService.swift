@@ -12,7 +12,6 @@ import XCTest
 /// This class is used to mock API calling behaviour
 /// It stores URLRequest in array called 'dataTaskArgsRequest' and clauser in array named 'completionArgs'
 class MockAPIService: APIServiceProtocol {
-    
     var dataTaskArgsRequest: [URLRequest] = []
     var completionArgs: [MarvelSample.APICallHandler] = []
     var dataTaskCallCount: Int {
@@ -33,7 +32,6 @@ class MockAPIService: APIServiceProtocol {
 
 // MARK: - Helper
 extension MockAPIService {
-    
     /// Compares count of dataTaskArgsRequest, It fais if count != 1
     /// - Parameters:
     ///   - file: File from which this method is called

@@ -10,7 +10,6 @@ import UIKit
 
 /// Class used to mimic user default behaviour
 class FakeUserDefaults: UserDefaultsProtocol {
-    
     var values: [String: Any] = [:]
     
     func set(_ value: Bool, forKey defaultName: String) {

@@ -13,7 +13,6 @@ import Foundation
 /// So to solve that issue object of this class uses single timestamp date for every request generated through that object
 /// Variable 'staticTimestampDate' is used every time to generate hash instead of timestamp received from method parameter
 class TestableAPIRequestGenerator: APIRequestGenerator {
-    
     /// Passed everytime to generate request, instead of timestamp received from method parameter
     lazy var staticTimestampDate: Date = Date()
     

@@ -9,7 +9,6 @@ import Foundation
 @testable import MarvelSample
 
 extension Comic {
-    
     init?(title: String,
           descriptionText: String) {
         let dictionary: [String: Any] = [
