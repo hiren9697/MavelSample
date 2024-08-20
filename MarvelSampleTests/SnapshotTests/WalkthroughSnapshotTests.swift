@@ -17,6 +17,8 @@ final class WalkthroughSnapshotTests: XCTestCase {
         super.setUp()
         viewModel = WalkthroughVM()
         sut = WalkthroughVC(viewModel: viewModel)
+        sut.loadViewIfNeeded()
+        putInViewHeirarchy(sut)
     }
     
     override func tearDown() {
@@ -28,7 +30,17 @@ final class WalkthroughSnapshotTests: XCTestCase {
 
 // MARK: - Tests
 extension WalkthroughSnapshotTests {
-    func test_sample() {
-        // assertSnapshots(matching: <#T##Value#>, as: <#T##[String : Snapshotting<Value, Format>]#>)
+    func test_withFirstPage() {
+        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_withFirstPage")
     }
+    
+    func test_withSecondPage() {
+        // viewModel.currentPage.value = 1
+        sut.collectionView.scrollToItem(at: IndexPath(item: 1, section: 0), at: .centeredHorizontally, animated: false)
+        sut.collectionView.layoutIfNeeded()
+        executeRunLoop()
+        assertSnapshot(matching: sut, as: .image, record: true, testName: "test_withSecondPage")
+    }
+    
+    
 }

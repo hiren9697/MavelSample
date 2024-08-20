@@ -14,7 +14,6 @@ class TestingSceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         Log.info("SCENE DELEGATE: Launching from testing")
         guard let _ = (scene as? UIWindowScene) else { return }
-        
     }
 }
 
