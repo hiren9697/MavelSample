@@ -29,6 +29,7 @@ class WalkthroughCC: ParentCC {
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.white
+        label.numberOfLines = 3
         return label
     }()
     

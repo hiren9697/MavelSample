@@ -10,15 +10,7 @@ import Combine
 
 /// ViewModel for walkthrough screen
 class WalkthroughVM {
-    let items: [WalkthroughItemVM] = [
-        WalkthroughItemVM(imageName: "first", text: "Sample app with Marvel's open APIs"),
-        WalkthroughItemVM(imageName: "second", text: "Sample app with unit tests implemented"),
-        WalkthroughItemVM(imageName: "third", text: "Sample app with CI / CD implemented"),
-        WalkthroughItemVM(imageName: "fourth", text: "Sample app with MVVM"),
-        WalkthroughItemVM(imageName: "fifth", text: ""),
-        WalkthroughItemVM(imageName: "sixth", text: ""),
-    ]
-    
+    let items: [WalkthroughItemVM]
     var currentPage: CurrentValueSubject<Int, Never> = CurrentValueSubject(0)
     var buttonTitle: String {
         Log.info("Button title, currnetPage: \(currentPage)")
@@ -29,7 +21,18 @@ class WalkthroughVM {
         }
     }
     
-    init() {
+    /// Q. Why am I initializing items through initializer intstead of implicit assignment?
+    /// A. Because I am using this initializer in snapshot tesitng, to test UI behaviour with various texts
+    /// - Parameter items: WalkthroughItemVM to be displayed horizontally in walkthrough
+    init(items: [WalkthroughItemVM] = [
+        WalkthroughItemVM(imageName: "first", text: "Sample app with Marvel's open APIs"),
+        WalkthroughItemVM(imageName: "second", text: "Sample app with unit tests implemented"),
+        WalkthroughItemVM(imageName: "third", text: "Sample app with CI / CD implemented"),
+        WalkthroughItemVM(imageName: "fourth", text: "Sample app with MVVM"),
+        WalkthroughItemVM(imageName: "fifth", text: ""),
+        WalkthroughItemVM(imageName: "sixth", text: ""),
+    ]) {
+        self.items = items
         Log.create("Initialized: \(String(describing: self))")
     }
     

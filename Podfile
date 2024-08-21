@@ -11,11 +11,15 @@ target 'MarvelSample' do
   target 'MarvelSampleTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'SnapshotTesting'
   end
   
   target 'MarvelSampleUITests' do
     # Pods for testing
   end
   
+  target 'MarvelSampleSnapshotTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'SnapshotTesting'
+  end
 end

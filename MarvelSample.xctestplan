@@ -17,6 +17,7 @@
   },
   "testTargets" : [
     {
+      "enabled" : false,
       "parallelizable" : true,
       "target" : {
         "containerPath" : "container:MarvelSample.xcodeproj",
@@ -31,6 +32,14 @@
         "containerPath" : "container:MarvelSample.xcodeproj",
         "identifier" : "87DDFD962C38EDDB0040621E",
         "name" : "MarvelSampleUITests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MarvelSample.xcodeproj",
+        "identifier" : "875911A02C756BC900784A44",
+        "name" : "MarvelSampleSnapshotTests"
       }
     }
   ],
