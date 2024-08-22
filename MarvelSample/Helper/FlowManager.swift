@@ -62,7 +62,7 @@ class FlowManager {
         // Initialize TabBar Item ViewModels
         let tabBarItemVMs = [
             TabBarItemVM(title: "Comics",
-                         image: UIImage(systemName: "book")!,
+                         image: UIImage(systemName: "book")!.withRenderingMode(.alwaysTemplate),
                          selectedImage: UIImage(systemName: "book.fill")!),
             TabBarItemVM(title: "Characters",
                          image: UIImage(systemName: "person")!,

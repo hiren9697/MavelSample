@@ -14,7 +14,6 @@ import SnapshotTesting
 /// NOTE: method 'setup()' not initializing SUT, test methods need to call appropriate method before asserting
 final class WalkthroughSnapshotTests: XCTestCase {
     var sut: WalkthroughVC!
-    var viewModel: WalkthroughVM!
     
     override func setUp() {
         super.setUp()
@@ -22,7 +21,6 @@ final class WalkthroughSnapshotTests: XCTestCase {
     
     override func tearDown() {
         sut = nil
-        viewModel = nil
         super.tearDown()
     }
 }
@@ -53,25 +51,25 @@ extension WalkthroughSnapshotTests {
 // MARK: - Helper
 extension WalkthroughSnapshotTests {
     func setupWithEmptyTextInViewModel() {
-        viewModel = WalkthroughVM(items: [WalkthroughItemVM(imageName: "first",
+        let viewModel = WalkthroughVM(items: [WalkthroughItemVM(imageName: "first",
                                                             text: "")])
         sut = WalkthroughVC(viewModel: viewModel)
     }
     
     func setupWithNormalLengthTextInViewModel() {
-        viewModel = WalkthroughVM(items: [WalkthroughItemVM(imageName: "first",
+        let viewModel = WalkthroughVM(items: [WalkthroughItemVM(imageName: "first",
                                                             text: "This is normal length text, Yes this is")])
         sut = WalkthroughVC(viewModel: viewModel)
     }
     
     func setupWithLongLengthTextInViewModel() {
-        viewModel = WalkthroughVM(items: [WalkthroughItemVM(imageName: "first",
+        let viewModel = WalkthroughVM(items: [WalkthroughItemVM(imageName: "first",
                                                             text: "This is long length text, This is long length text, This is long length text, This is long length text, This is long length text,")])
         sut = WalkthroughVC(viewModel: viewModel)
     }
     
     func setupWithExtraLongLengthTextInViewModel() {
-        viewModel = WalkthroughVM(items: [WalkthroughItemVM(imageName: "first",
+        let viewModel = WalkthroughVM(items: [WalkthroughItemVM(imageName: "first",
                                                             text: "This is long length text, This is long length text, This is long length text, This is long length text, This is long length text, This is long length text, This is long length text, This is long length text, This is long length text, This is long length text,")])
         sut = WalkthroughVC(viewModel: viewModel)
     }
