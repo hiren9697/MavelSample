@@ -13,6 +13,7 @@ import Combine
 /// 1. UI components
 /// 2. Data updates with viewModel and fetchState
 /// 3. PrepareForReuse
+/// NOTE: Uses TestableThumbnailTitleCC as SUT to prevent image loading from web
 final class ThumbnailTitleCCTests: XCTestCase {
     var sut: TestableThumbnailTitleCC<TestableThumbnailTitleVM>!
     var viewModel: TestableThumbnailTitleVM!

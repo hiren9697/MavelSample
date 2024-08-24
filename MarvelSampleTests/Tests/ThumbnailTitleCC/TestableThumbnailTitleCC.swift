@@ -12,6 +12,6 @@ import UIKit
 class TestableThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ThumbnailTitleCC<ViewModel> {
     
     override func loadImage() {
-        imageView.image = UIImage(named: "placeholder")
+        imageView.image = UIImage(named: "dummy")
     }
 }
