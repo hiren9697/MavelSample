@@ -23,6 +23,8 @@ class TestableAPIDataListable: APIDataListable {
     var fetchState: CurrentValueSubject<DataFetchState, Never> = CurrentValueSubject(.idle)
     var data: Array<TestableData> = []
     var listItems: CurrentValueSubject<Array<TestableDataItemVM>, Never> = CurrentValueSubject([])
+    var emptyDataTitle: String = "Test empty data title"
+    var errorTitle: String = "Test error title"
     
     func fetchInitialData() {
         fetchInitialDataHandler?()
