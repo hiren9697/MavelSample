@@ -36,6 +36,7 @@
 		874595902C6709A900A29444 /* CreatorGridData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8745958F2C6709A900A29444 /* CreatorGridData.swift */; };
 		874595BD2C67AF9E00A29444 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874595BC2C67AF9E00A29444 /* ErrorView.swift */; };
 		874CE91A2C7AECCC00AD3FDB /* TestableEventItemTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874CE9192C7AECCC00AD3FDB /* TestableEventItemTC.swift */; };
+		874CE91C2C7AEEB400AD3FDB /* EventsVCSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874CE91B2C7AEEB400AD3FDB /* EventsVCSnapshotTests.swift */; };
 		874F8EE52C5485B500D1AA77 /* TestableAPIRequestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874F8EE42C5485B500D1AA77 /* TestableAPIRequestGenerator.swift */; };
 		874F8EE72C548B4800D1AA77 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874F8EE62C548B4800D1AA77 /* URLHelper.swift */; };
 		875911AF2C75906C00784A44 /* WalkthroughSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877000AE2C743C70004D2E2F /* WalkthroughSnapshotTests.swift */; };
@@ -258,6 +259,7 @@
 		874595982C6733B400A29444 /* TestableHorizontalThumbnailTitleGridVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableHorizontalThumbnailTitleGridVM.swift; sourceTree = "<group>"; };
 		874595BC2C67AF9E00A29444 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		874CE9192C7AECCC00AD3FDB /* TestableEventItemTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEventItemTC.swift; sourceTree = "<group>"; };
+		874CE91B2C7AEEB400AD3FDB /* EventsVCSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVCSnapshotTests.swift; sourceTree = "<group>"; };
 		874F8EE42C5485B500D1AA77 /* TestableAPIRequestGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableAPIRequestGenerator.swift; sourceTree = "<group>"; };
 		874F8EE62C548B4800D1AA77 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		875B687C2C683E5400D8C829 /* ErrorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorVM.swift; sourceTree = "<group>"; };
@@ -1026,6 +1028,7 @@
 				87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */,
 				87E38E832C5C6E6300473B5B /* EventsVCTests.swift */,
 				874CE9192C7AECCC00AD3FDB /* TestableEventItemTC.swift */,
+				874CE91B2C7AEEB400AD3FDB /* EventsVCSnapshotTests.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -1419,6 +1422,7 @@
 				87CB6CC22C6EF3C300B96CFE /* TestableTableCell.swift in Sources */,
 				877D00B52C7591DF0034695C /* TabBarSnapshotTests.swift in Sources */,
 				87DBB59E2C7204D200539D37 /* EventsVMTests.swift in Sources */,
+				874CE91C2C7AEEB400AD3FDB /* EventsVCSnapshotTests.swift in Sources */,
 				87CB6CAE2C6EF3C300B96CFE /* TestableComicDetailVC.swift in Sources */,
 				8741595F2C6C2B7E0036E67D /* TestableThumbnailTitleVM.swift in Sources */,
 				87CB6CA62C6EF3A900B96CFE /* BaseCollectionVCTests.swift in Sources */,

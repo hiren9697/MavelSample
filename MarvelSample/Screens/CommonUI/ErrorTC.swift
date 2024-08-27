@@ -14,7 +14,8 @@ class ErrorTC: ParentTC {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "error")!
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
         return imageView
     }()
     let titleLabel: UILabel = {
@@ -27,9 +28,13 @@ class ErrorTC: ParentTC {
         return label
     }()
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupInitialUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -41,7 +46,10 @@ extension ErrorTC {
         iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
         iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20).isActive = true
         iconImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 30).isActive = true
+        /// If I don't decrease priority of title label top constraint,
+        let titleLabelTopConstraint = titleLabel.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 30)
+        titleLabelTopConstraint.priority = UILayoutPriority(999)
+        titleLabelTopConstraint.isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: iconImageView.leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: iconImageView.trailingAnchor).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
