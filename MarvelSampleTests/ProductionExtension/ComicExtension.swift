@@ -10,7 +10,9 @@ import Foundation
 
 extension Comic {
     init?(title: String,
-          descriptionText: String) {
+          descriptionText: String,
+          characterIDs: [String] = [],
+          creatorIDs: [String] = []) {
         let dictionary: [String: Any] = [
             "id": "1",
             "pageCount": 123,
@@ -20,16 +22,16 @@ extension Comic {
             "thumbnail": ["path":"http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
                           "extension":"jpg"],
             "characters" : [
-              "returned" : 0,
-              "collectionURI" : "http://gateway.marvel.com/v1/public/comics/82967/characters",
-              "items" : [],
-              "available" : 0
+                "returned" : characterIDs.count,
+                "collectionURI" : "http://gateway.marvel.com/v1/public/comics/82967/characters",
+                "items" : characterIDs.map { NSDictionary(dictionary: ["resourceURI": "http://gateway.marvel.com/v1/public/characters/\($0)"]) },
+                "available" : characterIDs.count
             ],
             "creators" : [
-              "returned" : 1,
-              "collectionURI" : "http://gateway.marvel.com/v1/public/comics/82967/creators",
-              "items" : [],
-              "available" : 0
+                "returned" : creatorIDs.count,
+                "collectionURI" : "http://gateway.marvel.com/v1/public/comics/82967/creators",
+                "items" : characterIDs.map { NSDictionary(dictionary: ["resourceURI": "http://gateway.marvel.com/v1/public/creators/\($0)"]) },
+                "available" : creatorIDs.count
             ],
         ]
         let nsDictinary = dictionary as NSDictionary
