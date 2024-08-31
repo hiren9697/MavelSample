@@ -92,6 +92,8 @@
 		8787F7152C44D3840022C518 /* CollectionViewEmptyFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8787F7142C44D3840022C518 /* CollectionViewEmptyFooter.swift */; };
 		878D15E32C8324BB00DCC254 /* APIRequestGeneratorTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 878D15E22C8324BB00DCC254 /* APIRequestGeneratorTests.drawio.png */; };
 		878D15E52C83254F00DCC254 /* JSONParserTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 878D15E42C83254F00DCC254 /* JSONParserTests.drawio.png */; };
+		878D15E72C83283800DCC254 /* WalkthroughSnapshotTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 878D15E62C83283800DCC254 /* WalkthroughSnapshotTests.drawio.png */; };
+		878D15E92C83286E00DCC254 /* TabBarSnapshotTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 878D15E82C83286E00DCC254 /* TabBarSnapshotTests.drawio.png */; };
 		878DD4AC2C587208006896C6 /* CharacterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DD4AB2C587208006896C6 /* CharacterExtension.swift */; };
 		878DD4B02C588D1E006896C6 /* EventsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DD4AF2C588D1E006896C6 /* EventsVM.swift */; };
 		878DD4B22C588E04006896C6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878DD4B12C588E04006896C6 /* Event.swift */; };
@@ -148,6 +150,12 @@
 		87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5212C550F1B007AB863 /* ComicsListSuccess.json */; };
 		87CBC52A2C554179007AB863 /* EmptyList.json in Resources */ = {isa = PBXBuildFile; fileRef = 87CBC5292C554179007AB863 /* EmptyList.json */; };
 		87D568082C61A2F400D95280 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D568072C61A2F400D95280 /* JSONParser.swift */; };
+		87D7D6132C832CC500338752 /* HorizontalThumbnailTitleGridViewSnapshotTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D7D6122C832CC500338752 /* HorizontalThumbnailTitleGridViewSnapshotTests.drawio.png */; };
+		87D7D6152C832D1D00338752 /* ThumbnailTitleCCSnapshotTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D7D6142C832D1D00338752 /* ThumbnailTitleCCSnapshotTests.drawio.png */; };
+		87D7D6172C832DA900338752 /* ComicsVCSnapshotTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D7D6162C832DA900338752 /* ComicsVCSnapshotTests.drawio.png */; };
+		87D7D6192C832DF800338752 /* ComicDetailVCSnapshotTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D7D6182C832DF800338752 /* ComicDetailVCSnapshotTests.drawio.png */; };
+		87D7D61D2C832EA400338752 /* EventsVCSnapshotTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D7D61C2C832EA400338752 /* EventsVCSnapshotTests.drawio.png */; };
+		87D7D61F2C832EE200338752 /* CharactersVCSnapshotTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D7D61E2C832EE200338752 /* CharactersVCSnapshotTests.drawio.png */; };
 		87DBB5902C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB58F2C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png */; };
 		87DBB5922C71F50D00539D37 /* BaseThumbnailTitleFetchableVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5912C71F50D00539D37 /* BaseThumbnailTitleFetchableVMTests.drawio.png */; };
 		87DBB5942C71F85D00539D37 /* ComicDetailTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5932C71F85D00539D37 /* ComicDetailTests.drawio.png */; };
@@ -327,6 +335,8 @@
 		8787F7142C44D3840022C518 /* CollectionViewEmptyFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewEmptyFooter.swift; sourceTree = "<group>"; };
 		878D15E22C8324BB00DCC254 /* APIRequestGeneratorTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = APIRequestGeneratorTests.drawio.png; sourceTree = "<group>"; };
 		878D15E42C83254F00DCC254 /* JSONParserTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JSONParserTests.drawio.png; sourceTree = "<group>"; };
+		878D15E62C83283800DCC254 /* WalkthroughSnapshotTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WalkthroughSnapshotTests.drawio.png; sourceTree = "<group>"; };
+		878D15E82C83286E00DCC254 /* TabBarSnapshotTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarSnapshotTests.drawio.png; sourceTree = "<group>"; };
 		878DD4A52C586F0D006896C6 /* CharactersVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVCTests.swift; sourceTree = "<group>"; };
 		878DD4A72C586F94006896C6 /* TestableCharactersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCharactersVC.swift; sourceTree = "<group>"; };
 		878DD4A92C586FDE006896C6 /* TestableCharactersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableCharactersVM.swift; sourceTree = "<group>"; };
@@ -356,6 +366,12 @@
 		87CBC5292C554179007AB863 /* EmptyList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmptyList.json; sourceTree = "<group>"; };
 		87D568072C61A2F400D95280 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		87D568092C61A3CB00D95280 /* JSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParserTests.swift; sourceTree = "<group>"; };
+		87D7D6122C832CC500338752 /* HorizontalThumbnailTitleGridViewSnapshotTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HorizontalThumbnailTitleGridViewSnapshotTests.drawio.png; sourceTree = "<group>"; };
+		87D7D6142C832D1D00338752 /* ThumbnailTitleCCSnapshotTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThumbnailTitleCCSnapshotTests.drawio.png; sourceTree = "<group>"; };
+		87D7D6162C832DA900338752 /* ComicsVCSnapshotTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ComicsVCSnapshotTests.drawio.png; sourceTree = "<group>"; };
+		87D7D6182C832DF800338752 /* ComicDetailVCSnapshotTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ComicDetailVCSnapshotTests.drawio.png; sourceTree = "<group>"; };
+		87D7D61C2C832EA400338752 /* EventsVCSnapshotTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventsVCSnapshotTests.drawio.png; sourceTree = "<group>"; };
+		87D7D61E2C832EE200338752 /* CharactersVCSnapshotTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CharactersVCSnapshotTests.drawio.png; sourceTree = "<group>"; };
 		87DBB58F2C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HorizontalThumbnailTitleGridViewTests.drawio.png; sourceTree = "<group>"; };
 		87DBB5912C71F50D00539D37 /* BaseThumbnailTitleFetchableVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BaseThumbnailTitleFetchableVMTests.drawio.png; sourceTree = "<group>"; };
 		87DBB5932C71F85D00539D37 /* ComicDetailTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ComicDetailTests.drawio.png; sourceTree = "<group>"; };
@@ -514,6 +530,7 @@
 			children = (
 				87DBB58F2C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png */,
 				874595962C672E9B00A29444 /* HorizontalThumbnailTitleGridViewTests.swift */,
+				87D7D6122C832CC500338752 /* HorizontalThumbnailTitleGridViewSnapshotTests.drawio.png */,
 				876D13D02C7E041E007ED872 /* HorizontalThumbnailTitleGridSnapshotTests.swift */,
 			);
 			path = HorizontalThumbnailTitleGridView;
@@ -542,6 +559,7 @@
 			children = (
 				87DBB5932C71F85D00539D37 /* ComicDetailTests.drawio.png */,
 				87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */,
+				87D7D6182C832DF800338752 /* ComicDetailVCSnapshotTests.drawio.png */,
 				876D13D22C7E0C10007ED872 /* ComicDetailVCSnapshotTests.swift */,
 			);
 			path = ComicDetail;
@@ -595,6 +613,7 @@
 			children = (
 				872600EE2C72F0880054CEA6 /* TabBarTests.drawio.png */,
 				8787F6FB2C439D770022C518 /* TabBarTests.swift */,
+				878D15E82C83286E00DCC254 /* TabBarSnapshotTests.drawio.png */,
 				877D00B42C7591DF0034695C /* TabBarSnapshotTests.swift */,
 			);
 			path = TabBarTests;
@@ -614,6 +633,7 @@
 			children = (
 				87FCCDFC2C7990210021738F /* ThumbnailTitleCCTests.drawio.png */,
 				8783B3CA2C5F77C300D06829 /* ThumbnailTitleCCTests.swift */,
+				87D7D6142C832D1D00338752 /* ThumbnailTitleCCSnapshotTests.drawio.png */,
 				87EF01EA2C78213C00A84B53 /* ThumbnailTitleCCSnapshotTests.swift */,
 			);
 			path = ThumbnailTitleCC;
@@ -695,6 +715,7 @@
 				878DD4AD2C587B5A006896C6 /* CharacterVMTests.swift */,
 				87DBB59B2C72003E00539D37 /* CharactersVCTests.drawio.png */,
 				878DD4A52C586F0D006896C6 /* CharactersVCTests.swift */,
+				87D7D61E2C832EE200338752 /* CharactersVCSnapshotTests.drawio.png */,
 				877E0E1B2C79BCF500783799 /* CharactersVCSnapshotTests.swift */,
 			);
 			path = Character;
@@ -777,6 +798,7 @@
 				87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */,
 				87605A9C2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png */,
 				87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */,
+				878D15E62C83283800DCC254 /* WalkthroughSnapshotTests.drawio.png */,
 				877000AE2C743C70004D2E2F /* WalkthroughSnapshotTests.swift */,
 			);
 			path = Walkthrough;
@@ -816,6 +838,7 @@
 				87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */,
 				87FCCDFE2C79911F0021738F /* ComicsVCTests.drawio.png */,
 				872557262C4D378700373000 /* ComicsVCTests.swift */,
+				87D7D6162C832DA900338752 /* ComicsVCSnapshotTests.drawio.png */,
 				87EF01EC2C78302400A84B53 /* ComicsVCSnapshotTests.swift */,
 			);
 			path = Comic;
@@ -1056,6 +1079,7 @@
 				87DBB59D2C7204D200539D37 /* EventsVMTests.swift */,
 				87DBB5A52C72130600539D37 /* EventsVCTests.drawio.png */,
 				87E38E832C5C6E6300473B5B /* EventsVCTests.swift */,
+				87D7D61C2C832EA400338752 /* EventsVCSnapshotTests.drawio.png */,
 				874CE91B2C7AEEB400AD3FDB /* EventsVCSnapshotTests.swift */,
 			);
 			path = Event;
@@ -1198,6 +1222,8 @@
 				87DBB5982C71FA1000539D37 /* CDCharacterItemVMTests.drawio.png in Resources */,
 				877B48142C5608F7001A6E5A /* Error.json in Resources */,
 				87CBC52A2C554179007AB863 /* EmptyList.json in Resources */,
+				87D7D6192C832DF800338752 /* ComicDetailVCSnapshotTests.drawio.png in Resources */,
+				87D7D61D2C832EA400338752 /* EventsVCSnapshotTests.drawio.png in Resources */,
 				87605A922C702F1E00E31CE3 /* BaseCollectionVCTests.drawio.png in Resources */,
 				871F91D52C6AFC6E0026A2B2 /* SingleTestableThumbnailTitle.json in Resources */,
 				87DBB5A22C720DE400539D37 /* EventsVMTests.drawio.png in Resources */,
@@ -1208,15 +1234,20 @@
 				877B48172C560F25001A6E5A /* WithoutDataKey.json in Resources */,
 				87605A962C7067B000E31CE3 /* BaseTableVCTests.drawio.png in Resources */,
 				87DBB5902C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png in Resources */,
+				878D15E72C83283800DCC254 /* WalkthroughSnapshotTests.drawio.png in Resources */,
 				875B68AA2C68AC8900D8C829 /* SingleCreator.json in Resources */,
+				87D7D6152C832D1D00338752 /* ThumbnailTitleCCSnapshotTests.drawio.png in Resources */,
 				87DBB5A62C72130700539D37 /* EventsVCTests.drawio.png in Resources */,
 				87605A9D2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png in Resources */,
 				87CBC5222C550F1B007AB863 /* ComicsListSuccess.json in Resources */,
 				87DBB5A02C72075100539D37 /* EventsListSuccess.json in Resources */,
 				877B481D2C5616A1001A6E5A /* NonDictionary.json in Resources */,
 				875B68AC2C68B26700D8C829 /* SingleCharactor.json in Resources */,
+				87D7D61F2C832EE200338752 /* CharactersVCSnapshotTests.drawio.png in Resources */,
+				878D15E92C83286E00DCC254 /* TabBarSnapshotTests.drawio.png in Resources */,
 				87605A982C70ADE600E31CE3 /* FlowManagerTests.drawio.png in Resources */,
 				871F6A292C6E367600579995 /* TestableData.json in Resources */,
+				87D7D6172C832DA900338752 /* ComicsVCSnapshotTests.drawio.png in Resources */,
 				878246A32C5740A300A6250C /* CharactersListSuccess.json in Resources */,
 				87FFF0E12C71734D0065230C /* ComicsVMTests.drawio.png in Resources */,
 				87605A9B2C70B13300E31CE3 /* WalkthroughVMTests.drawio.png in Resources */,
@@ -1224,6 +1255,7 @@
 				87DBB59C2C72003E00539D37 /* CharactersVCTests.drawio.png in Resources */,
 				87DBB59A2C71FFD700539D37 /* CharactersVMTests.drawio.png in Resources */,
 				878D15E32C8324BB00DCC254 /* APIRequestGeneratorTests.drawio.png in Resources */,
+				87D7D6132C832CC500338752 /* HorizontalThumbnailTitleGridViewSnapshotTests.drawio.png in Resources */,
 				8765BFBD2C6DBF3E00D4C0E9 /* APIServiceTests.drawio.png in Resources */,
 				878D15E52C83254F00DCC254 /* JSONParserTests.drawio.png in Resources */,
 			);

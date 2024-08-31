@@ -15,7 +15,6 @@ import SnapshotTesting
 /// 3. All empty data(Description, characters and creators)
 final class ComicDetailVCSnapshotTests: XCTestCase {
     var sut: ComicDetailVC!
-    // var viewModel: ComicDetailVM!
     
     override func setUp() {
         super.setUp()
