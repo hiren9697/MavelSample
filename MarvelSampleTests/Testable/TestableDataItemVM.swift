@@ -7,7 +7,13 @@
 
 import Foundation
 
-/// A dummy class written to fill space in TestableAPIDataListable, TestableBaseListVM and TestableChildCollectionVC
+/// A dummy class written to fill space
+/// Used in:
+/// 1. TestableDataItemVM
+/// 2. TestableChildListVM
+/// 3. TestableAPIDataListable
+/// 4. BaseCollectionVCTests
+/// 5. BaseTableVCTests
 class TestableDataItemVM {
     let text: String
     

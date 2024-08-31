@@ -9,6 +9,13 @@ import Foundation
 import Combine
 @testable import MarvelSample
 
+/// Dummy class used to fill the space
+/// Used in:
+/// 1. TestableHorizontalThumbnailTitleGridVM
+/// 2. ThumbnailTitleCCTests
+/// 3. ThumbnailTitleCCSnapshotTests
+/// 4. HorizontalThumbnailTitleGridViewTests
+/// 5. HorizontalThumbnailTitleGridViewSnapshotTests
 class TestableThumbnailTitleVM: ThumbnailTitleItemViewModel {
     let title: String?
     let thumbnailURL: URL?

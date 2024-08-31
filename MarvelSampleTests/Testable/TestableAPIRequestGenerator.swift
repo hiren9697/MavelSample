@@ -12,6 +12,11 @@ import Foundation
 /// In unit test when we compare two requests, due to different timestamp used in both requests, they don't match
 /// So to solve that issue object of this class uses single timestamp date for every request generated through that object
 /// Variable 'staticTimestampDate' is used every time to generate hash instead of timestamp received from method parameter
+/// Used in:
+/// 1. TestableCDCharacterItemVM
+/// 2. TestableCDCreatorItemVM
+/// 3. BaseListVMTests
+/// 4. BaseThumbnailTitleFetchalbeVMTests
 class TestableAPIRequestGenerator: APIRequestGenerator {
     /// Passed everytime to generate request, instead of timestamp received from method parameter
     lazy var staticTimestampDate: Date = Date()

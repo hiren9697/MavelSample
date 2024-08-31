@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// Dummy endpoints used in tests
+/// Used in:
+/// 1. BaseListVMTests
 enum TestAPIEndpoints: String {
     case base = "https://www.google.com"
     case common = "/v1/public/test"

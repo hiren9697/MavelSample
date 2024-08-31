@@ -9,7 +9,11 @@ import Foundation
 @testable import MarvelSample
 
 /// A dummy data class used to fill space
-/// Used in TestableBaseCollectionVc, TestableDataItemVM, TestableAPIDataListable, TestableBaseLisVM...
+/// Used in:
+/// 1. TestableBaseCollectionVc
+/// 2. TestableDataItemVM
+/// 3. TestableAPIDataListable
+/// 4. TestableBaseLisVM...
 class TestableData {
     let id: String
     let text: String

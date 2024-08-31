@@ -510,7 +510,6 @@
 			children = (
 				87DBB58F2C71F0D100539D37 /* HorizontalThumbnailTitleGridViewTests.drawio.png */,
 				874595962C672E9B00A29444 /* HorizontalThumbnailTitleGridViewTests.swift */,
-				874595982C6733B400A29444 /* TestableHorizontalThumbnailTitleGridVM.swift */,
 				876D13D02C7E041E007ED872 /* HorizontalThumbnailTitleGridSnapshotTests.swift */,
 			);
 			path = HorizontalThumbnailTitleGridView;
@@ -520,7 +519,6 @@
 			isa = PBXGroup;
 			children = (
 				87DBB5972C71FA1000539D37 /* CDCharacterItemVMTests.drawio.png */,
-				875B68A32C688E9500D8C829 /* TestableCDCharacterItemVM.swift */,
 				875B68A12C687FD400D8C829 /* CDCharacterItemVMTests.swift */,
 			);
 			path = CDCharacterItemVM;
@@ -530,7 +528,6 @@
 			isa = PBXGroup;
 			children = (
 				87DBB5952C71F99300539D37 /* CDCreatorItemVMTests.drawio.png */,
-				875B68A52C68A88400D8C829 /* TestableCDCreatorItemVM.swift */,
 				875B68A72C68A8ED00D8C829 /* CDCreatorItemVMTests.swift */,
 			);
 			path = CDCreatorItemVM;
@@ -540,7 +537,6 @@
 			isa = PBXGroup;
 			children = (
 				87DBB5932C71F85D00539D37 /* ComicDetailTests.drawio.png */,
-				87AEA1BF2C5E49380027C8E9 /* TestableComicDetailVC.swift */,
 				87AEA1C12C5E497D0027C8E9 /* ComicDetailVCTests.swift */,
 				876D13D22C7E0C10007ED872 /* ComicDetailVCSnapshotTests.swift */,
 			);
@@ -551,8 +547,6 @@
 			isa = PBXGroup;
 			children = (
 				87DBB5912C71F50D00539D37 /* BaseThumbnailTitleFetchableVMTests.drawio.png */,
-				875B68B32C68B7F100D8C829 /* TestableChildThumbnailTitleFetchableVM.swift */,
-				871F91D22C6ADD3F0026A2B2 /* TestableThumbnailTitleData.swift */,
 				875B68AD2C68B6F400D8C829 /* BaseThumbnailTitleFetchableVMTests.swift */,
 			);
 			path = BaseThumbnailTitleFetchableVM;
@@ -617,7 +611,6 @@
 				87FCCDFC2C7990210021738F /* ThumbnailTitleCCTests.drawio.png */,
 				8783B3CA2C5F77C300D06829 /* ThumbnailTitleCCTests.swift */,
 				87EF01EA2C78213C00A84B53 /* ThumbnailTitleCCSnapshotTests.swift */,
-				87FCCDFA2C798A6B0021738F /* TestableThumbnailTitleCC.swift */,
 			);
 			path = ThumbnailTitleCC;
 			sourceTree = "<group>";
@@ -679,8 +672,6 @@
 				87DBB5992C71FFD700539D37 /* CharactersVMTests.drawio.png */,
 				878DD4AD2C587B5A006896C6 /* CharacterVMTests.swift */,
 				87DBB59B2C72003E00539D37 /* CharactersVCTests.drawio.png */,
-				878DD4A72C586F94006896C6 /* TestableCharactersVC.swift */,
-				878DD4A92C586FDE006896C6 /* TestableCharactersVM.swift */,
 				878DD4A52C586F0D006896C6 /* CharactersVCTests.swift */,
 				877E0E1B2C79BCF500783799 /* CharactersVCSnapshotTests.swift */,
 			);
@@ -712,17 +703,39 @@
 			path = ComicDetail;
 			sourceTree = "<group>";
 		};
-		87CBC5172C54E9C8007AB863 /* CommonTestable */ = {
+		87CBC5172C54E9C8007AB863 /* Testable */ = {
 			isa = PBXGroup;
 			children = (
+				874F8EE42C5485B500D1AA77 /* TestableAPIRequestGenerator.swift */,
+				871F6A262C6E33F300579995 /* TestAPIEndPoints.swift */,
+				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
+				872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */,
+				87C43EE82C509650000B32AE /* TestableFlowManager.swift */,
 				8717F2412C4B9CD8007FC501 /* TestableData.swift */,
 				8717F2432C4B9CEE007FC501 /* TestableDataItemVM.swift */,
-				87BFD3302C4F45D70071CC21 /* TestableComicsVC.swift */,
-				874F8EE42C5485B500D1AA77 /* TestableAPIRequestGenerator.swift */,
 				8741595E2C6C2B7E0036E67D /* TestableThumbnailTitleVM.swift */,
-				871F6A262C6E33F300579995 /* TestAPIEndPoints.swift */,
+				871F60AF2C51D44C00AD6821 /* TestableChildListVM.swift */,
+				8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */,
+				8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */,
+				8717F23F2C4B7B7D007FC501 /* TestableChildCollectionVC.swift */,
+				87FCCDFA2C798A6B0021738F /* TestableThumbnailTitleCC.swift */,
+				87BFD3302C4F45D70071CC21 /* TestableComicsVC.swift */,
+				87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */,
+				874595982C6733B400A29444 /* TestableHorizontalThumbnailTitleGridVM.swift */,
+				875B68B32C68B7F100D8C829 /* TestableChildThumbnailTitleFetchableVM.swift */,
+				871F91D22C6ADD3F0026A2B2 /* TestableThumbnailTitleData.swift */,
+				87AEA1BF2C5E49380027C8E9 /* TestableComicDetailVC.swift */,
+				875B68A32C688E9500D8C829 /* TestableCDCharacterItemVM.swift */,
+				875B68A52C68A88400D8C829 /* TestableCDCreatorItemVM.swift */,
+				878DD4A72C586F94006896C6 /* TestableCharactersVC.swift */,
+				878DD4A92C586FDE006896C6 /* TestableCharactersVM.swift */,
+				87E38E892C5C7F7700473B5B /* TestableTableCell.swift */,
+				87E38E8B2C5C824400473B5B /* TestableChildTableVC.swift */,
+				87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */,
+				87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */,
+				874CE9192C7AECCC00AD3FDB /* TestableEventItemTC.swift */,
 			);
-			path = CommonTestable;
+			path = Testable;
 			sourceTree = "<group>";
 		};
 		87CBC5182C54E9FF007AB863 /* ProductionExtension */ = {
@@ -741,8 +754,6 @@
 				87605A9A2C70B13300E31CE3 /* WalkthroughVMTests.drawio.png */,
 				87B09B302C3F7DD30004F606 /* WalkthroughVMTests.swift */,
 				87605A9C2C70B2D000E31CE3 /* WalkthroughVCTests.drawio.png */,
-				8728486B2C423A18008C1ED0 /* TestableCollectionView.swift */,
-				872848672C42370E008C1ED0 /* TestableWalkthroughVC.swift */,
 				87DFDCB12C3E2F9F0025C535 /* WalkthroughVCTests.swift */,
 				877000AE2C743C70004D2E2F /* WalkthroughSnapshotTests.swift */,
 			);
@@ -753,7 +764,6 @@
 			isa = PBXGroup;
 			children = (
 				87605A972C70ADE600E31CE3 /* FlowManagerTests.drawio.png */,
-				87C43EE82C509650000B32AE /* TestableFlowManager.swift */,
 				872848722C425D72008C1ED0 /* FlowManagerTests.swift */,
 			);
 			path = FlowManager;
@@ -763,9 +773,6 @@
 			isa = PBXGroup;
 			children = (
 				87605A912C702F1E00E31CE3 /* BaseCollectionVCTests.drawio.png */,
-				8717F2452C4B9D01007FC501 /* TestableAPIDataListable.swift */,
-				8717F2472C4B9D21007FC501 /* TestableCollectionCell.swift */,
-				8717F23F2C4B7B7D007FC501 /* TestableChildCollectionVC.swift */,
 				8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */,
 			);
 			path = BaseCollectionVC;
@@ -775,7 +782,6 @@
 			isa = PBXGroup;
 			children = (
 				8765BFC02C6DC64800D4C0E9 /* BaseListVMTests.drawio.png */,
-				871F60AF2C51D44C00AD6821 /* TestableChildListVM.swift */,
 				871F60B12C51D79400AD6821 /* BaseListVMTests.swift */,
 			);
 			path = BaseListVM;
@@ -787,7 +793,6 @@
 				87FFF0E02C71734D0065230C /* ComicsVMTests.drawio.png */,
 				87CBC51E2C54FEB5007AB863 /* ComicVMTests.swift */,
 				87FCCDFE2C79911F0021738F /* ComicsVCTests.drawio.png */,
-				87BFD3332C4F4DC50071CC21 /* TestableComicsVM.swift */,
 				872557262C4D378700373000 /* ComicsVCTests.swift */,
 				87EF01EC2C78302400A84B53 /* ComicsVCSnapshotTests.swift */,
 			);
@@ -857,7 +862,7 @@
 			children = (
 				87CBC5202C550E8D007AB863 /* JSONs */,
 				87CBC5182C54E9FF007AB863 /* ProductionExtension */,
-				87CBC5172C54E9C8007AB863 /* CommonTestable */,
+				87CBC5172C54E9C8007AB863 /* Testable */,
 				87DFDCB72C3E356A0025C535 /* Helpers */,
 				87DFDCB02C3E2C9D0025C535 /* TestDoubles */,
 				87DDFDD12C394B250040621E /* Main */,
@@ -1017,8 +1022,6 @@
 			isa = PBXGroup;
 			children = (
 				87605A952C7067B000E31CE3 /* BaseTableVCTests.drawio.png */,
-				87E38E892C5C7F7700473B5B /* TestableTableCell.swift */,
-				87E38E8B2C5C824400473B5B /* TestableChildTableVC.swift */,
 				87E38E7F2C5C6DAA00473B5B /* BaseTableVCTests.swift */,
 			);
 			path = BaseTableVC;
@@ -1030,10 +1033,7 @@
 				87DBB5A12C720DE400539D37 /* EventsVMTests.drawio.png */,
 				87DBB59D2C7204D200539D37 /* EventsVMTests.swift */,
 				87DBB5A52C72130600539D37 /* EventsVCTests.drawio.png */,
-				87E38E852C5C6E9400473B5B /* TestableEventsVC.swift */,
-				87E38E872C5C6EF000473B5B /* TestableEventsVM.swift */,
 				87E38E832C5C6E6300473B5B /* EventsVCTests.swift */,
-				874CE9192C7AECCC00AD3FDB /* TestableEventItemTC.swift */,
 				874CE91B2C7AEEB400AD3FDB /* EventsVCSnapshotTests.swift */,
 			);
 			path = Event;

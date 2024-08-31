@@ -11,6 +11,11 @@ import UIKit
 /// A subclass of ComicsVC written to prevent API call automatically when view loads, and prevent image loading from web
 /// This class is used in unit tests whereever a ComicsVC expected
 /// If we uses actual ComicsVC, actual API call will be called every-time a object of ComicsVC created and image loading will be attempted on updating collectionView cell's data
+/// Used in:
+/// 1. TestableFlowManager
+/// 2. TabBarTests
+/// 3. ComicVCTests
+/// 4. ComicsVCSnapshotTests
 class TestableComicsVC: ComicsVC {
     override func fetchInitialData() {
         // Do nothing

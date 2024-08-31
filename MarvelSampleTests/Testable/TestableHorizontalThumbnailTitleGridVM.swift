@@ -7,7 +7,10 @@
 
 import Foundation
 @testable import MarvelSample
-
+/// Confirms to HorizontalThumbnailTitleGridViewModel, as HorizontalThumbnailTitleGridViewModel can not be instantiated, used to fill the space
+/// Used in:
+/// 1. HorizontalThumbnailTitleGridViewTests
+/// 2. HorizontalThumbnailTitleGridSnapshotTests
 class TestableHorizontalThumbnailTitleGridVM: HorizontalThumbnailTitleGridViewModel {
     let title: String
     let emptyDataTitle: String

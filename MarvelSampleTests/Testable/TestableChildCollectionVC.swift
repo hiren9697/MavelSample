@@ -12,7 +12,8 @@ import Combine
 /// Subclass of 'BaseCollectionVC' with filled generics
 /// This class is used to test BaseCollectionVC
 /// As subclass of BaseCollectionVC must override some methods and must fill generics
-/// Used in BaseCollectionVCTests
+/// Used in:
+/// 1. BaseCollectionVCTests
 class TestableChildCollectionVC: BaseCollectionVC<TestableAPIDataListable> {
     // MARK: - TestHelperClosure
     var itemSelectionHandler: (()-> Void)?

@@ -10,6 +10,9 @@ import UIKit
 
 /// Sub-class of FlowManager which uses testable sub-classes of view controller and view models instead of production classes
 /// Production classes makes API call on loading view of view controller, which we don't want to happen in testing
+/// Used in:
+/// 1. TabBarSnapshotTests
+/// 2. FlowManagerTests
 class TestableFlowManager: FlowManager {
     override func initializeComicsVC() -> ComicsVC {
         TestableComicsVC(viewModel: TestableComicsVM())

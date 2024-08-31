@@ -13,6 +13,10 @@ import Combine
 /// This class just provides must required variables and method
 /// Doesn't provide actual behaviour like fetch data and load next page when view controller accesses last list item view model
 /// Test classes have to manually change binding and other variables to perform tests
+/// Used in:
+/// 1. TestableChildCollectionVC
+/// 2. TestableChildTableVC
+/// 3. BaseTableVCTests
 class TestableAPIDataListable: APIDataListable {
     // Helper variables for test
     var fetchInitialDataHandler: (()-> Void)?

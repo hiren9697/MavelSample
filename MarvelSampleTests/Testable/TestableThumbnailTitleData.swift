@@ -9,6 +9,10 @@ import Foundation
 import Combine
 @testable import MarvelSample
 
+/// Dummy class used to fill the space
+/// Used in:
+/// 1. TestableChildThumbnailTitleFetchableVM
+/// 2. BaseThumbnailTitleFetchableVMTests
 struct TestableThumbnailTitleData {
     let id: String
     let title: String
