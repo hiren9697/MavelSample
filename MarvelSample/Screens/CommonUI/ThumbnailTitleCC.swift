@@ -91,10 +91,9 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
         super.prepareForReuse()
         bindings.removeAll()
     }
-}
-
-// MARK: - UI Helper
-extension ThumbnailTitleCC {
+    
+    
+    // MARK: - UI Helper
     private func setupUIInitial() {
         // ContainerView
         contentView.addSubview(containerView)
@@ -166,6 +165,23 @@ extension ThumbnailTitleCC {
             .store(in: &bindings)
     }
     
+    public func loadImage() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        imageView.contentMode = .scaleAspectFit
+        imageView.kf.setImage(with: viewModel.thumbnailURL,
+                              placeholder: UIImage(systemName: "photo"),
+                              completionHandler: {[weak self] result in
+            switch result {
+            case .success(_):
+                self?.imageView.contentMode = .scaleAspectFill
+            case .failure(_):
+                break
+            }
+        })
+    }
+    
     private func updateUIBasedOnFetchState() {
         guard let viewModel = viewModel else {
             return
@@ -193,17 +209,7 @@ extension ThumbnailTitleCC {
         }
         func setData() {
             titleLabel.text = viewModel.title
-            imageView.contentMode = .scaleAspectFit
-            imageView.kf.setImage(with: viewModel.thumbnailURL,
-                                  placeholder: UIImage(systemName: "photo"),
-                                  completionHandler: {[weak self] result in
-                switch result {
-                case .success(_):
-                    self?.imageView.contentMode = .scaleAspectFill
-                case .failure(_):
-                    break
-                }
-            })
+            loadImage()
         }
         // Logic
         self.viewModel = viewModel

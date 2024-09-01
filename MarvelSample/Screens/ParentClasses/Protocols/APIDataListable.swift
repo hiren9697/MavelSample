@@ -16,6 +16,8 @@ protocol APIDataListable {
     var fetchState: CurrentValueSubject<DataFetchState, Never> { get set }
     var data: Array<Data> { get set }
     var listItems: CurrentValueSubject<Array<ItemVM>, Never> { get set }
+    var emptyDataTitle: String { get }
+    var errorTitle: String { get }
     
     func fetchInitialData()
     func reloadData()

@@ -177,14 +177,14 @@ class BaseCollectionVC<ViewModel: APIDataListable>:
     func dequeueEmptyDataCell(at indexPath: IndexPath)-> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyCC.name,
                                                       for: indexPath) as! EmptyCC
-        cell.titleLabel.text = "Couldn't find any Comic"
+        cell.titleLabel.text = viewModel.emptyDataTitle
         return cell
     }
     
     func dequeueErrorCell(at indexPath: IndexPath)-> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ErrorCC.name,
                                                       for: indexPath) as! ErrorCC
-        cell.titleLabel.text = "Error in fetching Comics"
+        cell.titleLabel.text = viewModel.errorTitle
         return cell
     }
     

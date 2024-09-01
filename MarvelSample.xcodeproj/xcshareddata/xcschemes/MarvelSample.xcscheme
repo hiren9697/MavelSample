@@ -56,6 +56,17 @@
                ReferencedContainer = "container:MarvelSample.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "875911A02C756BC900784A44"
+               BuildableName = "MarvelSampleSnapshotTests.xctest"
+               BlueprintName = "MarvelSampleSnapshotTests"
+               ReferencedContainer = "container:MarvelSample.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

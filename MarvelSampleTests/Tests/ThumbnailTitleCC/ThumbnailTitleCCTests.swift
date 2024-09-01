@@ -13,8 +13,9 @@ import Combine
 /// 1. UI components
 /// 2. Data updates with viewModel and fetchState
 /// 3. PrepareForReuse
+/// NOTE: Uses TestableThumbnailTitleCC as SUT to prevent image loading from web
 final class ThumbnailTitleCCTests: XCTestCase {
-    var sut: ThumbnailTitleCC<TestableThumbnailTitleVM>!
+    var sut: TestableThumbnailTitleCC<TestableThumbnailTitleVM>!
     var viewModel: TestableThumbnailTitleVM!
     
     override func setUp() {
@@ -173,7 +174,7 @@ extension ThumbnailTitleCCTests {
                                              thumbnailURL: URL(string: "https://www.google.com"),
                                              dataFetchState: nil,
                                              errorVM: nil)
-        sut = ThumbnailTitleCC()
+        sut = TestableThumbnailTitleCC()
         sut.update(viewModel: viewModel)
     }
     
@@ -184,7 +185,7 @@ extension ThumbnailTitleCCTests {
                                              thumbnailURL: URL(string: "https://www.google.com"),
                                              dataFetchState: CurrentValueSubject<MarvelSample.ListItemLoadingState, Never>(state),
                                              errorVM: nil)
-        sut = ThumbnailTitleCC()
+        sut = TestableThumbnailTitleCC()
         sut.update(viewModel: viewModel)
     }
 }

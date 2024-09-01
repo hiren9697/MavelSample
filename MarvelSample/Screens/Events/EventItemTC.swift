@@ -92,9 +92,23 @@ class EventItemTC: ParentTC {
         labelsStackView.bottomAnchor.constraint(lessThanOrEqualTo: containerView.bottomAnchor, constant: -10).isActive = true
     }
     
+    public func loadImage(viewModel: EventItemVM) {
+        iconImageView.contentMode = .scaleAspectFit
+        iconImageView.kf.setImage(with: viewModel.thumbnailURL,
+                              placeholder: UIImage(systemName: "photo"),
+                              completionHandler: {[weak self] result in
+            switch result {
+            case .success(_):
+                self?.iconImageView.contentMode = .scaleAspectFill
+            case .failure(_):
+                break
+            }
+        })
+    }
+    
     internal func updateUI(viewModel: EventItemVM) {
-        iconImageView.kf.setImage(with: viewModel.thumbnailURL)
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.descriptionText
+        loadImage(viewModel: viewModel)
     }
 }
