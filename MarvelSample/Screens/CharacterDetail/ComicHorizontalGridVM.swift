@@ -7,22 +7,22 @@
 
 import Foundation
 /// ViewModel for characters list displayed in comic detail screen(ComicDetailVC)
-final class CRDComicsGridVM: HorizontalThumbnailTitleGridViewModel {
+final class ComicHorizontalGridVM: HorizontalThumbnailTitleGridViewModel {
     let title: String
     let emptyDataTitle: String
-    var data: [CRDComicItemVM]
+    var data: [ComicHorizontalGridItemVM]
     
     init(title: String = "Comics",
          emptyDataTitle: String = "Couln't found any Comic",
-         data: [CRDComicItemVM]) {
+         data: [ComicHorizontalGridItemVM]) {
         self.title = title
         self.emptyDataTitle = emptyDataTitle
         self.data = data
     }
 }
 
-extension CRDComicsGridVM: Equatable {
-    static func == (lhs: CRDComicsGridVM, rhs: CRDComicsGridVM) -> Bool {
+extension ComicHorizontalGridVM: Equatable {
+    static func == (lhs: ComicHorizontalGridVM, rhs: ComicHorizontalGridVM) -> Bool {
         lhs.title == rhs.title &&
         lhs.emptyDataTitle == rhs.emptyDataTitle &&
         lhs.data == rhs.data

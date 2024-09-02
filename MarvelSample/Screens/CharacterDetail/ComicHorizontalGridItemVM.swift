@@ -8,7 +8,7 @@
 import Foundation
 /// CharacterDetailComicItemVM
 /// ViewModel for single list item of character in comic detail
-class CRDComicItemVM: BaseThumbnailTitleFetchableVM<Comic> {
+class ComicHorizontalGridItemVM: BaseThumbnailTitleFetchableVM<Comic> {
     init(modelID: String?,
          service: APIServiceProtocol? = nil) {
         let errorVM = ErrorVM(title: "Couldn't fetch character",
@@ -34,8 +34,8 @@ class CRDComicItemVM: BaseThumbnailTitleFetchableVM<Comic> {
     }
 }
 
-extension CRDComicItemVM: Equatable {
-    static func == (lhs: CRDComicItemVM, rhs: CRDComicItemVM) -> Bool {
+extension ComicHorizontalGridItemVM: Equatable {
+    static func == (lhs: ComicHorizontalGridItemVM, rhs: ComicHorizontalGridItemVM) -> Bool {
         lhs.modelID == rhs.modelID &&
         lhs.model == rhs.model
     }
