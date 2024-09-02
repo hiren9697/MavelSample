@@ -70,6 +70,9 @@
 		87809FA02C853FB90069E29A /* CharacterDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87809F9F2C853FB90069E29A /* CharacterDetailVM.swift */; };
 		87809FA22C8545580069E29A /* CRDComicItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87809FA12C8545580069E29A /* CRDComicItemVM.swift */; };
 		87809FA42C8553140069E29A /* CRDComicsGridVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87809FA32C8553140069E29A /* CRDComicsGridVM.swift */; };
+		87809FA62C8556C10069E29A /* SeriesHorizontalGridVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87809FA52C8556C10069E29A /* SeriesHorizontalGridVM.swift */; };
+		87809FA82C8556E40069E29A /* SeriesHorizontalGridItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87809FA72C8556E40069E29A /* SeriesHorizontalGridItemVM.swift */; };
+		87809FAA2C8557EF0069E29A /* Series.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87809FA92C8557EF0069E29A /* Series.swift */; };
 		8782469B2C57362C00A6250C /* CharactersVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782469A2C57362C00A6250C /* CharactersVM.swift */; };
 		8782469D2C57368300A6250C /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782469C2C57368300A6250C /* Character.swift */; };
 		8782469F2C5736A600A6250C /* CharacterItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782469E2C5736A600A6250C /* CharacterItemVM.swift */; };
@@ -315,6 +318,9 @@
 		87809F9F2C853FB90069E29A /* CharacterDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailVM.swift; sourceTree = "<group>"; };
 		87809FA12C8545580069E29A /* CRDComicItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRDComicItemVM.swift; sourceTree = "<group>"; };
 		87809FA32C8553140069E29A /* CRDComicsGridVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRDComicsGridVM.swift; sourceTree = "<group>"; };
+		87809FA52C8556C10069E29A /* SeriesHorizontalGridVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesHorizontalGridVM.swift; sourceTree = "<group>"; };
+		87809FA72C8556E40069E29A /* SeriesHorizontalGridItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesHorizontalGridItemVM.swift; sourceTree = "<group>"; };
+		87809FA92C8557EF0069E29A /* Series.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Series.swift; sourceTree = "<group>"; };
 		8782469A2C57362C00A6250C /* CharactersVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersVM.swift; sourceTree = "<group>"; };
 		8782469C2C57368300A6250C /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		8782469E2C5736A600A6250C /* CharacterItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterItemVM.swift; sourceTree = "<group>"; };
@@ -643,6 +649,9 @@
 				87809F9F2C853FB90069E29A /* CharacterDetailVM.swift */,
 				87809FA12C8545580069E29A /* CRDComicItemVM.swift */,
 				87809FA32C8553140069E29A /* CRDComicsGridVM.swift */,
+				87809FA92C8557EF0069E29A /* Series.swift */,
+				87809FA52C8556C10069E29A /* SeriesHorizontalGridVM.swift */,
+				87809FA72C8556E40069E29A /* SeriesHorizontalGridItemVM.swift */,
 			);
 			path = CharacterDetail;
 			sourceTree = "<group>";
@@ -1418,8 +1427,10 @@
 				876A7F682C48B73E000A286D /* BaseCollectionVC.swift in Sources */,
 				878FC0902C59E50900779669 /* UITableViewHeaderFooterView.swift in Sources */,
 				87DDFDCE2C393B080040621E /* APIServiceProtocol.swift in Sources */,
+				87809FA62C8556C10069E29A /* SeriesHorizontalGridVM.swift in Sources */,
 				8745958E2C67099C00A29444 /* CharactersGridData.swift in Sources */,
 				8787F7042C43C6CE0022C518 /* Comic.swift in Sources */,
+				87809FAA2C8557EF0069E29A /* Series.swift in Sources */,
 				87DDFDE52C396BF70040621E /* WalkthroughItemVM.swift in Sources */,
 				87AEA1BD2C5DE1CB0027C8E9 /* ComicDetailVC.swift in Sources */,
 				87DDFDD72C394C420040621E /* main.swift in Sources */,
@@ -1462,6 +1473,7 @@
 				877957C92C474FF0009A8D8B /* PaginationManager.swift in Sources */,
 				87DDFD7B2C38EDDA0040621E /* AppDelegate.swift in Sources */,
 				87DDFDE32C3962BE0040621E /* ParentTC.swift in Sources */,
+				87809FA82C8556E40069E29A /* SeriesHorizontalGridItemVM.swift in Sources */,
 				87DDFDBB2C3900CC0040621E /* APIService.swift in Sources */,
 				876782DB2C5F6D78001E5AFE /* ThumbnailTitleCC.swift in Sources */,
 				877B48232C562995001A6E5A /* URLSessionProtocol.swift in Sources */,

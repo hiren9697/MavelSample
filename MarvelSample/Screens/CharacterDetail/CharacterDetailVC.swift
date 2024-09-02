@@ -47,6 +47,9 @@ class CharacterDetailVC: ParentVC {
     lazy var comicCollectionView: ThumbnailTitleHorizontalGridView =  {
         ThumbnailTitleHorizontalGridView(viewModel: CRDComicsGridVM(data: viewModel.comicIDs.map { CRDComicItemVM(modelID: $0) }))
     }()
+    lazy var seriesCollectionView: ThumbnailTitleHorizontalGridView =  {
+        ThumbnailTitleHorizontalGridView(viewModel: SeriesHorizontalGridVM(data: viewModel.comicIDs.map { SeriesHorizontalGridItemVM(modelID: $0) }))
+    }()
    let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -124,6 +127,9 @@ class CharacterDetailVC: ParentVC {
         // Comic collection view
         comicCollectionView.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(comicCollectionView)
+        // Series collection view
+        seriesCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(seriesCollectionView)
         // StackView
         scrollView.addSubview(stackView)
         stackView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor).isActive = true
