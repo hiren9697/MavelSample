@@ -88,6 +88,14 @@ struct Comic {
     }
 }
 
+// MARK: - Equatable
+extension Comic: Equatable {
+    static func ==(_ lhs: Comic,_ rhs: Comic)-> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
+// MARK: - CustomStringConvertible
 extension Comic: CustomStringConvertible {
     var description: String {
         return """
