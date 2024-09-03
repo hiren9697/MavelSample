@@ -6,8 +6,7 @@
 //
 
 import Foundation
-/// CharacterDetailComicItemVM
-/// ViewModel for single list item of character in comic detail
+/// ViewModel for single list item of comic in horizontal grid
 class ComicHorizontalGridItemVM: BaseThumbnailTitleFetchableVM<Comic> {
     init(modelID: String?,
          service: APIServiceProtocol? = nil) {

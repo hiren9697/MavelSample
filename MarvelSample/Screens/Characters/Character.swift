@@ -14,7 +14,6 @@ struct Character {
     let thumbnailURLString: String
     let comicIDs: [String]
     let seriesIDs: [String]
-    let storyIDs: [String]
     
     var modifiedDateText: String {
         guard let modifiedDate = modifiedDate else {
@@ -81,25 +80,6 @@ struct Character {
             newSeriesIDs.append(id)
         }
         self.seriesIDs = newSeriesIDs
-        // Stories
-        guard let storiesDict = dict["stories"] as? NSDictionary else {
-            return nil
-        }
-        guard let storyItems = storiesDict["items"] as? [NSDictionary] else {
-            return nil
-        }
-        var newStoryIDs: [String] = []
-        for item in storyItems {
-            let urlPath = item.getStringValue(key: "resourceURI")
-            guard let url = URL(string: urlPath) else {
-                continue
-            }
-            guard let id = url.pathComponents.last else {
-                continue
-            }
-            newStoryIDs.append(id)
-        }
-        self.storyIDs = newStoryIDs
     }
 }
 
