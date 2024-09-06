@@ -11,18 +11,17 @@ import XCTest
 /// Tests:
 /// 1. Parse model correctly
 /// 2. Extracts title and thimbnail from model correctly
-final class CDCharacterItemVMTests: XCTestCase {
-    var sut: TestableCDCharacterItemVM!
-    var mockService: MockAPIService!
+final class CharacterHorizontalGridItemVMTests: XCTestCase {
+    var sut: TestableCharacterHorizontalGridItemVM!
     
     override func setUp() {
         super.setUp()
-        sut = TestableCDCharacterItemVM()
+        sut = TestableCharacterHorizontalGridItemVM()
     }
 }
 
 // MARK: - Tests
-extension CDCharacterItemVMTests {
+extension CharacterHorizontalGridItemVMTests {
     func test_parseModel_withCorrectJSON_returnsCorrectCharactor() {
         guard let jsonDictionary = getJSONDictionary(line: #line) else {
             return
@@ -48,7 +47,7 @@ extension CDCharacterItemVMTests {
 }
 
 // MARK: - Helper
-extension CDCharacterItemVMTests {
+extension CharacterHorizontalGridItemVMTests {
     private func getJSONDictionary(line: UInt)-> NSDictionary? {
         guard let json = loadJSON(fileName: "SingleCharactor") else {
             XCTFail("Precondition: Found JSON nil", line: line)

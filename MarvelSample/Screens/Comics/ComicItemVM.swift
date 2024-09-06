@@ -24,3 +24,11 @@ struct ComicItemVM: ThumbnailTitleItemViewModel {
         // Do nothing, this class doesn't support fetch data
     }
 }
+
+extension ComicItemVM: Equatable {
+    static func == (lhs: ComicItemVM, rhs: ComicItemVM) -> Bool {
+        lhs.title == rhs.title &&
+        lhs.thumbnailURL == rhs.thumbnailURL &&
+        lhs.errorVM == rhs.errorVM
+    }
+}

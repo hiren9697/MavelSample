@@ -9,7 +9,7 @@ import UIKit
 
 /// View that displays title and horizontal grid of thumbnail title list
 /// Used in ComicDetailVC
-final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitleGridViewModel>:
+final class ThumbnailTitleHorizontalGridView<ViewModel: HorizontalThumbnailTitleGridViewModelProtocol>:
     UIView,
     UICollectionViewDelegate,
     UICollectionViewDataSource,

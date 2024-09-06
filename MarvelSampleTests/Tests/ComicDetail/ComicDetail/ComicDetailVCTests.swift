@@ -16,8 +16,8 @@ import XCTest
 /// 2. Fill data from viewModel
 /// NOTE: By default this class initialize SUT with non-empty description text, But test method can call 'initializeSUTWithEmptyDescriptionText' method to initialize SUT with empty description text
 final class ComicDetailVCTests: XCTestCase {
-    var sut: ComicDetailVC!
-    var viewModel: ComicDetailVM!
+    var sut: TestableComicDetailVC!
+    var viewModel: TestableComicDetailVM!
     
     override func setUp() {
         super.setUp()
@@ -78,13 +78,11 @@ extension ComicDetailVCTests {
     }
     
     func test_characterCollectionView_hasCorrectViewModel() {
-        let characterGridVM = CharactersGridVM(data: viewModel.characterIDs.map { CDCharacterItemVM(modelID: $0) })
-        XCTAssertEqual(sut.characterCollectionView.viewModel, characterGridVM)
+        XCTAssertEqual(sut.characterCollectionView.viewModel, viewModel.charactersHorizontalGridVM)
     }
     
     func test_creatorCollectionView_hasCorrectViewModel() {
-        let creatorGridVM = CreatorGridVM(data: viewModel.creatorIDs.map { CDCreatorItemVM(modelID: $0) })
-        XCTAssertEqual(sut.creatorCollectionView.viewModel, creatorGridVM)
+        XCTAssertEqual(sut.creatorCollectionView.viewModel, viewModel.creatorsHorizontalGridVM)
     }
 }
 
@@ -93,16 +91,16 @@ extension ComicDetailVCTests {
     func initializeSUTWithNonEmptyDescriptionText() {
         let comic = Comic(title: "This is comic title",
                           descriptionText: "This is comic description")!
-        viewModel = ComicDetailVM(comic: comic)
-        sut = ComicDetailVC(viewModel: viewModel)
+        viewModel = TestableComicDetailVM(comic: comic)
+        sut = TestableComicDetailVC(viewModel: viewModel)
         sut.loadViewIfNeeded()
     }
     
     func initializeSUTWithEmptyDescriptionText() {
         let comic = Comic(title: "This is comic title",
                           descriptionText: "")!
-        viewModel = ComicDetailVM(comic: comic)
-        sut = ComicDetailVC(viewModel: viewModel)
+        viewModel = TestableComicDetailVM(comic: comic)
+        sut = TestableComicDetailVC(viewModel: viewModel)
         sut.loadViewIfNeeded()
     }
 }

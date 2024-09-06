@@ -123,3 +123,11 @@ class BaseThumbnailTitleFetchableVM<Model>: ThumbnailTitleItemViewModel {
         fatalError("Sub class needs to override this")
     }
 }
+
+extension BaseThumbnailTitleFetchableVM: Equatable {
+    static func ==(_ lhs: BaseThumbnailTitleFetchableVM, _ rhs: BaseThumbnailTitleFetchableVM)-> Bool {
+        return lhs.title == rhs.title &&
+        lhs.thumbnailURL == rhs.thumbnailURL &&
+        lhs.errorVM == rhs.errorVM
+    }
+}

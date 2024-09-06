@@ -14,7 +14,7 @@ import SnapshotTesting
 /// 2. Empty description and non empty creator and characters
 /// 3. All empty data(Description, characters and creators)
 final class ComicDetailVCSnapshotTests: XCTestCase {
-    var sut: ComicDetailVC!
+    var sut: TestableComicDetailVC!
     
     override func setUp() {
         super.setUp()
@@ -51,9 +51,8 @@ extension ComicDetailVCSnapshotTests {
                           descriptionText: "This is comic description",
                           characterIDs: ["character_id_0", "character_id_1", "character_id_2", "character_id_3", "character_id_4"],
                           creatorIDs: ["creator_id_0", "creator_id_1", "creator_id_2", "creator_id_3", "creator_id_4"])!
-        let viewModel = ComicDetailVM(comic: comic)
-        sut = ComicDetailVC(viewModel: viewModel)
-        
+        let viewModel = TestableComicDetailVM(comic: comic)
+        sut = TestableComicDetailVC(viewModel: viewModel)
     }
     
     func initializeSUTWithEmptyDescriptionAndNonEmptyCharactersAndCreators() {
@@ -61,14 +60,14 @@ extension ComicDetailVCSnapshotTests {
                           descriptionText: "",
                           characterIDs: ["character_id_0", "character_id_1", "character_id_2", "character_id_3", "character_id_4"],
                           creatorIDs: ["creator_id_0", "creator_id_1", "creator_id_2", "creator_id_3", "creator_id_4"])!
-        let viewModel = ComicDetailVM(comic: comic)
-        sut = ComicDetailVC(viewModel: viewModel)
+        let viewModel = TestableComicDetailVM(comic: comic)
+        sut = TestableComicDetailVC(viewModel: viewModel)
     }
     
     func initializeSUTWithAllEmptyData() {
         let comic = Comic(title: "This is comic title",
                           descriptionText: "")!
-        let viewModel = ComicDetailVM(comic: comic)
-        sut = ComicDetailVC(viewModel: viewModel)
+        let viewModel = TestableComicDetailVM(comic: comic)
+        sut = TestableComicDetailVC(viewModel: viewModel)
     }
 }

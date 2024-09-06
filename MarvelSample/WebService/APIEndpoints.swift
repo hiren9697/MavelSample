@@ -13,4 +13,5 @@ enum APIEndpoints: String {
     case comics = "/v1/public/comics"
     case events = "/v1/public/events"
     case creators = "/v1/public/creators"
+    case series = "/v1/public/series"
 }

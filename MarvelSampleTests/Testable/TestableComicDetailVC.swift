@@ -8,4 +8,9 @@
 import UIKit
 @testable import MarvelSample
 
-class TestableComicDetailVC: ComicDetailVC {}
+/// Testable sub-class of ComicDetailVC that loads dummy image instead of making api call to load image
+class TestableComicDetailVC: ComicDetailVC {
+    override func loadImage() {
+        imageView.image = UIImage(named: "dummy")
+    }
+}
