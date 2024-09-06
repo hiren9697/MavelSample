@@ -30,6 +30,7 @@ final class ComicsVCTests: XCTestCase {
     override func tearDown() {
         sut = nil
         viewModel = nil
+        navigationController = nil
         super.tearDown()
     }
 }
