@@ -66,6 +66,8 @@ class EventItemTC: ParentTC {
     }
     
     private func setupUIInitial() {
+        // Selection style
+        self.selectionStyle = .none
         // ContainerView
         contentView.addSubview(containerView)
         containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
