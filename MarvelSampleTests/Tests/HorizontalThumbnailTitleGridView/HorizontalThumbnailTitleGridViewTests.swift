@@ -14,8 +14,8 @@ import XCTest
 /// Excludes:
 /// 1. CollectionView layout methods, Because those should be covered in snapshot tests
 final class HorizontalThumbnailTitleGridViewTests: XCTestCase {
-    var sut: ThumbnailTitleHorizontalGridView<TestableHorizontalThumbnailTitleGridVM>!
-    var viewModel: TestableHorizontalThumbnailTitleGridVM!
+    var sut: ThumbnailTitleHorizontalGridView<GenericHorizontalThumbnailTitleGridViewModel<TestableThumbnailTitleVM>>!
+    var viewModel: GenericHorizontalThumbnailTitleGridViewModel<TestableThumbnailTitleVM>!
     
     override func setUp() {
         super.setUp()
@@ -94,9 +94,14 @@ extension HorizontalThumbnailTitleGridViewTests {
 // MARK: - Helper
 extension HorizontalThumbnailTitleGridViewTests {
     private func setUpSUTWithEmptyData() {
+        /*
         viewModel = TestableHorizontalThumbnailTitleGridVM(title: "Test title",
                                                            emptyDataTitle: "Test empty title",
                                                            data: [])
+         */
+        viewModel = GenericHorizontalThumbnailTitleGridViewModel<TestableThumbnailTitleVM>(title: "Test title",
+                                                                                           emptyDataTitle: "Test empty title",
+                                                                                           data: [])
         sut = ThumbnailTitleHorizontalGridView(viewModel: viewModel)
     }
     
@@ -122,9 +127,14 @@ extension HorizontalThumbnailTitleGridViewTests {
                                              dataFetchState: nil,
                                              errorVM: nil)
         let data = [first, second, third, fourth, fifth]
+        /*
         viewModel = TestableHorizontalThumbnailTitleGridVM(title: "Test title",
                                                            emptyDataTitle: "Test empty title",
                                                            data: data)
+         */
+        viewModel = GenericHorizontalThumbnailTitleGridViewModel<TestableThumbnailTitleVM>(title: "Test title",
+                                                                                           emptyDataTitle: "Test empty title",
+                                                                                           data: data)
         sut = ThumbnailTitleHorizontalGridView(viewModel: viewModel)
     }
 }

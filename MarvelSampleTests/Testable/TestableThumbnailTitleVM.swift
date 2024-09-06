@@ -35,3 +35,13 @@ class TestableThumbnailTitleVM: ThumbnailTitleItemViewModel {
     func fetchData() {
     }
 }
+
+extension TestableThumbnailTitleVM: Equatable {
+    static func == (lhs: TestableThumbnailTitleVM, rhs: TestableThumbnailTitleVM) -> Bool {
+        lhs.title == rhs.title &&
+        lhs.thumbnailURL == rhs.thumbnailURL &&
+        lhs.errorVM == rhs.errorVM
+    }
+    
+    
+}

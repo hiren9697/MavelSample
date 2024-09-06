@@ -12,19 +12,20 @@ import XCTest
 /// 1. UI components is in view hierarchy
 /// 2. Fill data from viewModel
 final class CharacterDetailVCTests: XCTestCase {
-    var sut: CharacterDetailVC!
-    var viewModel: CharacterDetailVM!
+    var sut: TestableCharacterDetailVC!
+    var viewModel: TestableCharacterDetailVM!
     
     override func setUp() {
         super.setUp()
         let character = Character(name: "This is character name")!
-        viewModel = CharacterDetailVM(character: character)
-        sut = CharacterDetailVC(viewModel: viewModel)
+        viewModel = TestableCharacterDetailVM(character: character)
+        sut = TestableCharacterDetailVC(viewModel: viewModel)
         sut.loadViewIfNeeded()
     }
     
     override func tearDown() {
         sut = nil
+        viewModel = nil
         super.tearDown()
     }
 }
@@ -62,12 +63,10 @@ extension CharacterDetailVCTests {
     }
     
     func test_comicCollectionView_hasCorrectViewModel() {
-        let comicGridVM = ComicHorizontalGridVM(data: viewModel.comicIDs.map { ComicHorizontalGridItemVM(modelID: $0) })
-        XCTAssertEqual(sut.comicCollectionView.viewModel, comicGridVM)
+        XCTAssertEqual(sut.comicCollectionView.viewModel, viewModel.comicsHorizontalGridVM)
     }
     
     func test_creatorCollectionView_hasCorrectViewModel() {
-        let serisGridVM = SeriesHorizontalGridVM(data: viewModel.seriesIDs.map { SeriesHorizontalGridItemVM(modelID: $0) })
-        XCTAssertEqual(sut.seriesCollectionView.viewModel, serisGridVM)
+        XCTAssertEqual(sut.seriesCollectionView.viewModel, viewModel.seriesHorizontalGridVM)
     }
 }

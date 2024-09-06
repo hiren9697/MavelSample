@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 /// Data need to be provided to ThumbnailTitleCC
-protocol ThumbnailTitleItemViewModel {
+protocol ThumbnailTitleItemViewModel: Equatable {
     var dataFetchState: CurrentValueSubject<ListItemLoadingState, Never>? { get set }
     var title: String? { get }
     var thumbnailURL: URL? { get }

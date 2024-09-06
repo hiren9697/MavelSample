@@ -34,9 +34,9 @@ class SeriesHorizontalGridItemVM: BaseThumbnailTitleFetchableVM<Series> {
     }
 }
 
-extension SeriesHorizontalGridItemVM: Equatable {
-    static func == (lhs: SeriesHorizontalGridItemVM, rhs: SeriesHorizontalGridItemVM) -> Bool {
-        lhs.modelID == rhs.modelID &&
-        lhs.model == rhs.model
-    }
-}
+//extension SeriesHorizontalGridItemVM: Equatable {
+//    static func == (lhs: SeriesHorizontalGridItemVM, rhs: SeriesHorizontalGridItemVM) -> Bool {
+//        lhs.modelID == rhs.modelID &&
+//        lhs.model == rhs.model
+//    }
+//}

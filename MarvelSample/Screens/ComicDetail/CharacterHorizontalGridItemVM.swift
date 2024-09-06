@@ -10,7 +10,7 @@ import Combine
 
 /// ComicDetailCharacterItemVM
 /// ViewModel for single list item of character in comic detail
-class CDCharacterItemVM: BaseThumbnailTitleFetchableVM<Character> {
+class CharacterHorizontalGridItemVM: BaseThumbnailTitleFetchableVM<Character> {
     init(modelID: String?,
          service: APIServiceProtocol? = nil) {
         let errorVM = ErrorVM(title: "Couldn't fetch character",
@@ -36,9 +36,9 @@ class CDCharacterItemVM: BaseThumbnailTitleFetchableVM<Character> {
     }
 }
 
-extension CDCharacterItemVM: Equatable {
-    static func == (lhs: CDCharacterItemVM, rhs: CDCharacterItemVM) -> Bool {
-        lhs.modelID == rhs.modelID &&
-        lhs.model == rhs.model
-    }
-}
+//extension CharacterHorizontalGridItemVM: Equatable {
+//    static func == (lhs: CharacterHorizontalGridItemVM, rhs: CharacterHorizontalGridItemVM) -> Bool {
+//        lhs.modelID == rhs.modelID &&
+//        lhs.model == rhs.model
+//    }
+//}

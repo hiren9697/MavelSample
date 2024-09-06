@@ -10,9 +10,11 @@ import Combine
 
 /// Data needed to display horizontal grid,
 /// Horizontal grids are displayed in detail screens
-protocol HorizontalThumbnailTitleGridViewModel {
+protocol HorizontalThumbnailTitleGridViewModelProtocol {
     associatedtype ItemViewModel: ThumbnailTitleItemViewModel
     var title: String { get }
     var emptyDataTitle: String { get }
     var data: Array<ItemViewModel> { get set }
 }
+
+

@@ -11,16 +11,16 @@ import Foundation
 /// Used in:
 /// 1. HorizontalThumbnailTitleGridViewTests
 /// 2. HorizontalThumbnailTitleGridSnapshotTests
-class TestableHorizontalThumbnailTitleGridVM: HorizontalThumbnailTitleGridViewModel {
-    let title: String
-    let emptyDataTitle: String
-    var data: Array<TestableThumbnailTitleVM>
-    
-    init(title: String,
-         emptyDataTitle: String,
-         data: Array<TestableThumbnailTitleVM>) {
-        self.title = title
-        self.emptyDataTitle = emptyDataTitle
-        self.data = data
-    }
-}
+//class TestableHorizontalThumbnailTitleGridVM: HorizontalThumbnailTitleGridViewModel {
+//    let title: String
+//    let emptyDataTitle: String
+//    var data: Array<TestableThumbnailTitleVM>
+//    
+//    init(title: String,
+//         emptyDataTitle: String,
+//         data: Array<TestableThumbnailTitleVM>) {
+//        self.title = title
+//        self.emptyDataTitle = emptyDataTitle
+//        self.data = data
+//    }
+//}

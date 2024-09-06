@@ -14,20 +14,52 @@ class ComicDetailVM {
     let thumbnailURL: URL?
     let characterIDs: [String]
     let creatorIDs: [String]
+    let charactersHorizontalGridVM: GenericHorizontalThumbnailTitleGridViewModel<CharacterHorizontalGridItemVM>
+    let creatorsHorizontalGridVM: GenericHorizontalThumbnailTitleGridViewModel<CreatorHorizontalGridItemVM>
     
-    init(comic: Comic) {
-        title = comic.title
-        description = comic.descriptionText
-        thumbnailURL = comic.thumbnailURL
-        characterIDs = comic.characterIDs
-        creatorIDs = comic.creatorIDs
+    init(title: String,
+         description: String,
+         thumbnailURL: URL?,
+         characterIDs: [String],
+         creatorIDs: [String],
+         charactersHorizontalGridVM: GenericHorizontalThumbnailTitleGridViewModel<CharacterHorizontalGridItemVM>,
+         creatorsHorizontalGridVM: GenericHorizontalThumbnailTitleGridViewModel<CreatorHorizontalGridItemVM>) {
+        self.title = title
+        self.description = description
+        self.thumbnailURL = thumbnailURL
+        self.characterIDs = characterIDs
+        self.creatorIDs = creatorIDs
+        self.charactersHorizontalGridVM = charactersHorizontalGridVM
+        self.creatorsHorizontalGridVM = creatorsHorizontalGridVM
     }
     
-    init() {
-        title = "Hello there, this is a title"
-        description = "Hello there, this is just a description"
-        thumbnailURL = URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/c/80/5e3d7536c8ada.jpg")!
-        characterIDs = []
-        creatorIDs = []
+    convenience init(comic: Comic) {
+        self.init(title: comic.title,
+                  description: comic.descriptionText,
+                  thumbnailURL: comic.thumbnailURL,
+                  characterIDs: comic.characterIDs,
+                  creatorIDs: comic.creatorIDs,
+                  charactersHorizontalGridVM: GenericHorizontalThumbnailTitleGridViewModel(title: "Characters",
+                                                                                           emptyDataTitle: "No character",
+                                                                                           data: comic.characterIDs.map { CharacterHorizontalGridItemVM(modelID: $0) }),
+                  creatorsHorizontalGridVM: GenericHorizontalThumbnailTitleGridViewModel(title: "Creators",
+                                                                                         emptyDataTitle: "No creator",
+                                                                                         data: comic.characterIDs.map { CreatorHorizontalGridItemVM(modelID: $0) }))
     }
+    
+    convenience init() {
+        self.init(title: "Hello there, this is a title",
+                  description: "Hello there, this is just a description",
+                  thumbnailURL: URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/c/80/5e3d7536c8ada.jpg")!,
+                  characterIDs: [],
+                  creatorIDs: [],
+                  charactersHorizontalGridVM: GenericHorizontalThumbnailTitleGridViewModel(title: "Characters",
+                                                                                           emptyDataTitle: "No character",
+                                                                                           data: []),
+                  creatorsHorizontalGridVM: GenericHorizontalThumbnailTitleGridViewModel(title: "Creators",
+                                                                                         emptyDataTitle: "No creator",
+                                                                                         data: []))
+        }
 }
+
+

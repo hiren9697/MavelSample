@@ -45,10 +45,10 @@ class CharacterDetailVC: ParentVC {
         return view
     }()
     lazy var comicCollectionView: ThumbnailTitleHorizontalGridView =  {
-        ThumbnailTitleHorizontalGridView(viewModel: ComicHorizontalGridVM(data: viewModel.comicIDs.map { ComicHorizontalGridItemVM(modelID: $0) }))
+        ThumbnailTitleHorizontalGridView(viewModel: viewModel.comicsHorizontalGridVM)
     }()
     lazy var seriesCollectionView: ThumbnailTitleHorizontalGridView =  {
-        ThumbnailTitleHorizontalGridView(viewModel: SeriesHorizontalGridVM(data: viewModel.comicIDs.map { SeriesHorizontalGridItemVM(modelID: $0) }))
+        ThumbnailTitleHorizontalGridView(viewModel: viewModel.seriesHorizontalGridVM)
     }()
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -147,8 +147,12 @@ class CharacterDetailVC: ParentVC {
     }
     
     // MARK: - Helper
-    private func fillData() {
+    func loadImage() {
         imageView.kf.setImage(with: viewModel.thumbnailURL)
+    }
+    
+    private func fillData() {
+        loadImage()
         titleLabel.text = viewModel.name
     }
 }
