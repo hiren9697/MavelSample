@@ -62,10 +62,10 @@ extension EventsVCSnapshotTests {
     private func addListItemsWithIdleModeInViewModel() {
         viewModel.fetchState.value = .idle
         viewModel.listItems.value = [
-            EventItemVM(event: Event(title: "Zeroth event title", description: "Zeroth event description")!),
-            EventItemVM(event: Event(title: "First event title", description: "First event description")!),
-            EventItemVM(event: Event(title: "Second event title", description: "Second event description")!),
-            EventItemVM(event: Event(title: "Third event title", description: "Third event description")!),
+            EventItemVM(event: Event(title: "Zeroth event title", descriptionText: "Zeroth event description")!),
+            EventItemVM(event: Event(title: "First event title", descriptionText: "First event description")!),
+            EventItemVM(event: Event(title: "Second event title", descriptionText: "Second event description")!),
+            EventItemVM(event: Event(title: "Third event title", descriptionText: "Third event description")!),
             ]
     }
 }

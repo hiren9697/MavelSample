@@ -10,14 +10,14 @@ import Foundation
 
 extension Event {
     init?(title: String,
-          description: String,
+          descriptionText: String,
           characterIDs: [String] = [],
           creatorIDs: [String] = [],
           comicIDs: [String] = []) {
         let dictionary: [String: Any] = [
             "id": "1",
             "title": title,
-            "description": description,
+            "description": descriptionText,
             "modified": "2001-01-01T08:46:15-0500",
             "thumbnail": ["path":"http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available",
                           "extension":"jpg"],

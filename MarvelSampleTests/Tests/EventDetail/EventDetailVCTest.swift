@@ -96,7 +96,7 @@ extension EventDetailVCTests {
 extension EventDetailVCTests {
     func initializeSUTWithNonEmptyDescriptionText() {
         let event = Event(title: "This is event title",
-                          description: "This is event description")!
+                          descriptionText: "This is event description")!
         viewModel = TestableEventDetailVM(event: event)
         sut = TestableEventDetailVC(viewModel: viewModel)
         sut.loadViewIfNeeded()
@@ -104,7 +104,7 @@ extension EventDetailVCTests {
     
     func initializeSUTWithEmptyDescriptionText() {
         let event = Event(title: "This is event title",
-                          description: "")!
+                          descriptionText: "")!
         viewModel = TestableEventDetailVM(event: event)
         sut = TestableEventDetailVC(viewModel: viewModel)
         sut.loadViewIfNeeded()

@@ -186,6 +186,8 @@
 		87D9F2C52C8BF64B0009B2DC /* TestableEventDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D9F2C42C8BF64B0009B2DC /* TestableEventDetailVM.swift */; };
 		87D9F2C72C8BF6D20009B2DC /* TestableEventDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D9F2C62C8BF6D20009B2DC /* TestableEventDetailVC.swift */; };
 		87D9F2C92C8BFC790009B2DC /* EventDetailVCTest.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D9F2C82C8BFC790009B2DC /* EventDetailVCTest.drawio.png */; };
+		87D9F2CB2C8BFCC80009B2DC /* EventDetailVCSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D9F2CA2C8BFCC80009B2DC /* EventDetailVCSnapshotTests.swift */; };
+		87D9F2CD2C8C10520009B2DC /* EventDetailVCSnapshotTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D9F2CC2C8C10520009B2DC /* EventDetailVCSnapshotTests.drawio.png */; };
 		87DBB59E2C7204D200539D37 /* EventsVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DBB59D2C7204D200539D37 /* EventsVMTests.swift */; };
 		87DBB5A02C72075100539D37 /* EventsListSuccess.json in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB59F2C72075100539D37 /* EventsListSuccess.json */; };
 		87DBB5A22C720DE400539D37 /* EventsVMTests.drawio.png in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB5A12C720DE400539D37 /* EventsVMTests.drawio.png */; };
@@ -434,6 +436,8 @@
 		87D9F2C42C8BF64B0009B2DC /* TestableEventDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEventDetailVM.swift; sourceTree = "<group>"; };
 		87D9F2C62C8BF6D20009B2DC /* TestableEventDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableEventDetailVC.swift; sourceTree = "<group>"; };
 		87D9F2C82C8BFC790009B2DC /* EventDetailVCTest.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetailVCTest.drawio.png; sourceTree = "<group>"; };
+		87D9F2CA2C8BFCC80009B2DC /* EventDetailVCSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailVCSnapshotTests.swift; sourceTree = "<group>"; };
+		87D9F2CC2C8C10520009B2DC /* EventDetailVCSnapshotTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventDetailVCSnapshotTests.drawio.png; sourceTree = "<group>"; };
 		87DBB59D2C7204D200539D37 /* EventsVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsVMTests.swift; sourceTree = "<group>"; };
 		87DBB59F2C72075100539D37 /* EventsListSuccess.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EventsListSuccess.json; sourceTree = "<group>"; };
 		87DBB5A12C720DE400539D37 /* EventsVMTests.drawio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EventsVMTests.drawio.png; sourceTree = "<group>"; };
@@ -1001,6 +1005,8 @@
 			children = (
 				87D9F2C82C8BFC790009B2DC /* EventDetailVCTest.drawio.png */,
 				87D9F2C22C8BF4ED0009B2DC /* EventDetailVCTest.swift */,
+				87D9F2CC2C8C10520009B2DC /* EventDetailVCSnapshotTests.drawio.png */,
+				87D9F2CA2C8BFCC80009B2DC /* EventDetailVCSnapshotTests.swift */,
 			);
 			path = EventDetail;
 			sourceTree = "<group>";
@@ -1379,6 +1385,7 @@
 				87EEB9262C8A96410072AF0B /* SingleComic.json in Resources */,
 				87CBC52A2C554179007AB863 /* EmptyList.json in Resources */,
 				87C8D8ED2C840E3D008A5E8A /* FlowManagerTests.drawio.png in Resources */,
+				87D9F2CD2C8C10520009B2DC /* EventDetailVCSnapshotTests.drawio.png in Resources */,
 				87C8D8F12C841054008A5E8A /* ComicsVCSnapshotTests.drawio.png in Resources */,
 				87C8D9092C844A17008A5E8A /* EventsVCSnapshotTests.drawio.png in Resources */,
 				87D9F2C92C8BFC790009B2DC /* EventDetailVCTest.drawio.png in Resources */,
@@ -1697,6 +1704,7 @@
 				87CB6CC12C6EF3C300B96CFE /* TestableChildThumbnailTitleFetchableVM.swift in Sources */,
 				87AA7D0C2C894B1F0098F54B /* TestableCharacterDetailVM.swift in Sources */,
 				871F60BB2C51F4D800AD6821 /* TestableDataItemVM.swift in Sources */,
+				87D9F2CB2C8BFCC80009B2DC /* EventDetailVCSnapshotTests.swift in Sources */,
 				8728486A2C423870008C1ED0 /* Helpers.swift in Sources */,
 				87EEB9222C8A8F250072AF0B /* TestableSeriesHorizontalGridItemVM.swift in Sources */,
 				87CB6CBE2C6EF3C300B96CFE /* TestableFlowManager.swift in Sources */,

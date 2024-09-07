@@ -109,10 +109,10 @@ extension EventsVCTests {
     private func addListItemsWithIdleModeInViewModel() {
         viewModel.fetchState.value = .idle
         viewModel.data = [
-            Event(title: "Zeroth event title", description: "Zeroth event description")!,
-            Event(title: "First event title", description: "First event description")!,
-            Event(title: "Second event title", description: "Second event description")!,
-            Event(title: "Third event title", description: "Third event description")!
+            Event(title: "Zeroth event title", descriptionText: "Zeroth event description")!,
+            Event(title: "First event title", descriptionText: "First event description")!,
+            Event(title: "Second event title", descriptionText: "Second event description")!,
+            Event(title: "Third event title", descriptionText: "Third event description")!
         ]
         viewModel.listItems.value = viewModel.data.map { EventItemVM(event: $0) }
     }
