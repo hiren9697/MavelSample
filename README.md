@@ -6,6 +6,7 @@ You can check design here: https://www.figma.com/community/file/1218121517690628
 Icons credit
 
 1. Empty box: Ghozi Muhtarom - Flaticon - https://www.flaticon.com/free-icons/empty
+2. Network error: ADI_ICONS - Flaticon - https://www.flaticon.com/free-icon/file_17597096?term=cloud+error&page=1&position=2&origin=search&related_id=17597096
 
 
 # Notes:
