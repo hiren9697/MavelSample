@@ -36,7 +36,6 @@ class CharactersVC: BaseCollectionVC<CharactersVM> {
     }
     
     override func collectionViewDidSelectDataCell(indexPath: IndexPath) {
-        // Need to implement this
         let character = viewModel.data[indexPath.row]
         let characterDetailVC = CharacterDetailVC(viewModel: CharacterDetailVM(character: character))
         navigationController?.pushViewController(characterDetailVC, animated: true)

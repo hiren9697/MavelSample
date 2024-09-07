@@ -8,6 +8,7 @@
 import Foundation
 @testable import MarvelSample
 
+/// Testable sub-class of CharacterDetailVM to inject MockAPIService in horizontal grid view models
 class TestableCharacterDetailVM: CharacterDetailVM {
     convenience init(character: Character) {
         self.init(name: character.name,

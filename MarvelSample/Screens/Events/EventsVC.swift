@@ -26,6 +26,8 @@ class EventsVC: BaseTableVC<EventsVM> {
     }
     
     override func tableViewDidSelectDataCell(at indexPath: IndexPath) {
-        // Need to implement this
+        let event = viewModel.data[indexPath.row]
+        let eventDetailVC = EventDetailVC(viewModel: EventDetailVM(event: event))
+        navigationController?.pushViewController(eventDetailVC, animated: true)
     }
 }

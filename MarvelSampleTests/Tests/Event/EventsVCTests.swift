@@ -12,6 +12,7 @@ import XCTest
 /// 1. Dequeues correct type of cell
 /// 2. Updates / fills correct data to collectionView cell
 final class EventsVCTests: XCTestCase {
+    var navigationController: UINavigationController!
     var sut: TestableEventsVC!
     var viewModel: TestableEventsVM!
     
@@ -19,12 +20,14 @@ final class EventsVCTests: XCTestCase {
         super.setUp()
         viewModel = TestableEventsVM()
         sut = TestableEventsVC(viewModel: viewModel)
+        navigationController = UINavigationController(rootViewController: sut)
         sut.loadViewIfNeeded()
     }
     
     override func tearDown() {
         sut = nil
         viewModel = nil
+        navigationController = nil
         super.tearDown()
     }
 }
@@ -64,15 +67,58 @@ extension EventsVCTests {
     }
 }
 
+// MARK: - Item selection
+extension EventsVCTests {
+    func test_itemSelection_withIdleState_navigatesToEventDetail() {
+        // Arrange
+        addListItemsWithIdleModeInViewModel()
+        // Act
+        checkFirstVCInNavigationStackIsEventsVC()
+        sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        executeRunLoop()
+        // Assert
+        XCTAssertEqual(navigationController.viewControllers.count, 2, "After selecting item, There should be 2 viewControllers in navigation stack")
+        XCTAssertTrue(navigationController.viewControllers.first is EventsVC, "First VC in navigation stack should be EventsVC")
+        XCTAssertTrue(navigationController.viewControllers[1] is EventDetailVC, "Second VC in navigation stack should be EventDetailVC")
+    }
+    
+    func test_afterItemSelection_addedEventDetail_shouldHaveCorrectViewModel() {
+        // Arrange
+        addListItemsWithIdleModeInViewModel()
+        // Act
+        checkFirstVCInNavigationStackIsEventsVC()
+        sut.tableView.delegate?.tableView?(sut.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        executeRunLoop()
+        // Assert
+        guard let eventDetailVC = navigationController.viewControllers.last as? EventDetailVC else {
+            XCTFail("last view controller in navigation controller is not EventDetailVC")
+            return
+        }
+        let eventDetailVM = eventDetailVC.viewModel
+        let event = viewModel.data.first!
+        XCTAssertEqual(eventDetailVM.title, event.title, "Event title is incorrect")
+        XCTAssertEqual(eventDetailVM.thumbnailURL, event.thumbnailURL, "Thumbnail URL is incorrect")
+        XCTAssertEqual(eventDetailVM.characterIDs, event.characterIDs, "Character IDs are incorrect")
+        XCTAssertEqual(eventDetailVM.creatorIDs, event.creatorIDs, "Creator IDs are incorrect")
+        XCTAssertEqual(eventDetailVM.comicIDs, event.comicIDs, "Comics IDs are incorrect")
+    }
+}
+
 // MARK: - Helper
 extension EventsVCTests {
     private func addListItemsWithIdleModeInViewModel() {
         viewModel.fetchState.value = .idle
-        viewModel.listItems.value = [
-            EventItemVM(event: Event(title: "Zeroth event title", description: "Zeroth event description")!),
-            EventItemVM(event: Event(title: "First event title", description: "First event description")!),
-            EventItemVM(event: Event(title: "Second event title", description: "Second event description")!),
-            EventItemVM(event: Event(title: "Third event title", description: "Third event description")!),
-            ]
+        viewModel.data = [
+            Event(title: "Zeroth event title", descriptionText: "Zeroth event description")!,
+            Event(title: "First event title", descriptionText: "First event description")!,
+            Event(title: "Second event title", descriptionText: "Second event description")!,
+            Event(title: "Third event title", descriptionText: "Third event description")!
+        ]
+        viewModel.listItems.value = viewModel.data.map { EventItemVM(event: $0) }
+    }
+    
+    private func checkFirstVCInNavigationStackIsEventsVC() {
+        XCTAssertEqual(navigationController.viewControllers.count, 1, "Precondition")
+        XCTAssertTrue(navigationController.viewControllers.first is EventsVC, "Precondition")
     }
 }
