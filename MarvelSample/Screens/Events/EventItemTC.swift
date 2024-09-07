@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-/// TableViewCell displayed in event list screen(EventsVC
+/// TableViewCell displayed in event list screen(EventsVC)
 class EventItemTC: ParentTC {
     let containerView: UIView = {
         let view = UIView()

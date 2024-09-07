@@ -13,6 +13,9 @@ struct Event {
     let descriptionText: String
     let modifiedDate: Date?
     let thumbnailURLString: String
+    let characterIDs: [String]
+    let creatorIDs: [String]
+    let comicIDs: [String]
     
     var modifiedDateText: String {
         guard let modifiedDate = modifiedDate else {
@@ -42,7 +45,63 @@ struct Event {
         let thumbnailPath = thumbnailDict.getStringValue(key: "path")
         let thumbnailExtension = thumbnailDict.getStringValue(key: "extension")
         thumbnailURLString = thumbnailPath + "." + thumbnailExtension
-        
+        // Characters
+        guard let characterDict = dict["characters"] as? NSDictionary else {
+            return nil
+        }
+        guard let characterItems = characterDict["items"] as? [NSDictionary] else {
+            return nil
+        }
+        var newCharacterIDs: [String] = []
+        for item in characterItems {
+            let urlPath = item.getStringValue(key: "resourceURI")
+            guard let url = URL(string: urlPath) else {
+                continue
+            }
+            guard let id = url.pathComponents.last else {
+                continue
+            }
+            newCharacterIDs.append(id)
+        }
+        self.characterIDs = newCharacterIDs
+        // Creators
+        guard let creatorDict = dict["creators"] as? NSDictionary else {
+            return nil
+        }
+        guard let creatorItems = creatorDict["items"] as? [NSDictionary] else {
+            return nil
+        }
+        var newCreatorIDs: [String] = []
+        for item in creatorItems {
+            let urlPath = item.getStringValue(key: "resourceURI")
+            guard let url = URL(string: urlPath) else {
+                continue
+            }
+            guard let id = url.pathComponents.last else {
+                continue
+            }
+            newCreatorIDs.append(id)
+        }
+        self.creatorIDs = newCreatorIDs
+        // Comics
+        guard let comicDict = dict["comics"] as? NSDictionary else {
+            return nil
+        }
+        guard let comicItems = comicDict["items"] as? [NSDictionary] else {
+            return nil
+        }
+        var newComicIDs: [String] = []
+        for item in comicItems {
+            let urlPath = item.getStringValue(key: "resourceURI")
+            guard let url = URL(string: urlPath) else {
+                continue
+            }
+            guard let id = url.pathComponents.last else {
+                continue
+            }
+            newComicIDs.append(id)
+        }
+        self.comicIDs = newComicIDs
     }
 }
 
@@ -53,7 +112,10 @@ extension Event: CustomStringConvertible {
                title: \(title),
                description: \(descriptionText),
                modified: \(modifiedDateText),
-               thumbnail: \(thumbnailURLString)
+               thumbnail: \(thumbnailURLString),
+               creatorIDs: \(creatorIDs),
+               characterIDs: \(characterIDs),
+               comicIDs: \(comicIDs)
                """
     }
 }
