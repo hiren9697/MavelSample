@@ -34,16 +34,24 @@ final class TabBarSnapshotTests: XCTestCase {
     
     func test_tabBarController_withFirstTabSelected() {
         // No need to select first tab, as it is by default selected
-        assertSnapshot(matching: sut, as: .image, named: "test_tabBarController_initializedFromFlowManagerAndWithFirstTabSelected", record: false)
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       named: "test_tabBarController_initializedFromFlowManagerAndWithFirstTabSelected",
+                       record: SnapshotTestConfiguration.isRecordingEnabled)
     }
     
     func test_tabBarController_withSecondTabSelected() {
         sut.selectedIndex = 1
-        assertSnapshot(matching: sut, as: .image, named: "test_tabBarController_initializedFromFlowManagerAndWithSecondTabSelected", record: false)
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       named: "test_tabBarController_initializedFromFlowManagerAndWithSecondTabSelected",
+                       record: SnapshotTestConfiguration.isRecordingEnabled)
     }
     
     func test_tabBarController_withThirdTabSelected() {
         sut.selectedIndex = 2
-        assertSnapshot(matching: sut, as: .image, named: "test_tabBarController_initializedFromFlowManagerAndWithThirdTabSelected", record: false)
+        assertSnapshot(matching: sut,
+                       as: .image, named: "test_tabBarController_initializedFromFlowManagerAndWithThirdTabSelected",
+                       record: SnapshotTestConfiguration.isRecordingEnabled)
     }
 }
