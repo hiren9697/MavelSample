@@ -32,12 +32,18 @@ final class HorizontalThumbnailTitleGridSnapshotTests: XCTestCase {
 extension HorizontalThumbnailTitleGridSnapshotTests {
     func testUI_withData_empty() {
         setUpSUTWithEmptyData()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_horizontalThumbnailTitleGrid_withEmpty_data")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_horizontalThumbnailTitleGrid_withEmpty_data")
     }
     
     func testUI_withData_nonEmpty() {
         setUPSUTWithNonEmptyData()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_horizontalThumbnailTitleGrid_withNonEmpty_data")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_horizontalThumbnailTitleGrid_withNonEmpty_data")
     }
 }
 
