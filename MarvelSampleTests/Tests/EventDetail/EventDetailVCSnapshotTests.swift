@@ -30,17 +30,26 @@ final class EventDetailVCSnapshotTests: XCTestCase {
 extension EventDetailVCSnapshotTests {
     func test_UI_withAllDataNonEmpty() {
         initializeSUTWithAllNonEmptyData()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_evnetDetailVC_withAllDataNonEmpty")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_evnetDetailVC_withAllDataNonEmpty")
     }
     
     func test_UI_withEmptyDescriptionAndNonEmptyCreatorsCharactersAndComics() {
         initializeSUTWithEmptyDescriptionAndNonEmptyCharactersAndCreators()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_eventDetailVC_withEmptyDescriptionAndNonEmptyCreatorsCharactersAndComics")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_eventDetailVC_withEmptyDescriptionAndNonEmptyCreatorsCharactersAndComics")
     }
     
     func test_UI_withAllDataEmpty() {
         initializeSUTWithAllEmptyData()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_eventDetailVC_withAllDataEmpty")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_eventDetailVC_withAllDataEmpty")
     }
 }
 
