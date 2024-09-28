@@ -30,17 +30,26 @@ final class ComicDetailVCSnapshotTests: XCTestCase {
 extension ComicDetailVCSnapshotTests {
     func test_UI_withAllDataNonEmpty() {
         initializeSUTWithAllNonEmptyData()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_comicDetailVC_withAllDataNonEmpty")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_comicDetailVC_withAllDataNonEmpty")
     }
     
     func test_UI_withEmptyDescriptionAndNonEmptyCreatorsAndCharacters() {
         initializeSUTWithEmptyDescriptionAndNonEmptyCharactersAndCreators()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_comicDetailVC_withEmptyDescriptionAndNonEmptyCreatorsAndCharacters")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_comicDetailVC_withEmptyDescriptionAndNonEmptyCreatorsAndCharacters")
     }
     
     func test_UI_withAllDataEmpty() {
         initializeSUTWithAllEmptyData()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_comicDetailVC_withAllDataEmpty")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_comicDetailVC_withAllDataEmpty")
     }
 }
 
