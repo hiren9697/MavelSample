@@ -31,22 +31,34 @@ final class ThumbnailTitleCCSnapshotTests: XCTestCase {
 // MARK: - Tests
 extension ThumbnailTitleCCSnapshotTests {
     func testUI_withFetchState_nil() {
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_thumbnailTitleCC_withFetchState_nil")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_thumbnailTitleCC_withFetchState_nil")
     }
     
     func testUI_withFetchState_notStarted() {
         setViewModelWithFetchState(.notStarted)
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_thumbnailTitleCC_withFetchState_notStarted")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_thumbnailTitleCC_withFetchState_notStarted")
     }
     
     func testUI_withFetchState_loading() {
         setViewModelWithFetchState(.loading)
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_thumbnailTitleCC_withFetchState_loading")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_thumbnailTitleCC_withFetchState_loading")
     }
     
     func testUI_withFetchState_loaded() {
         setViewModelWithFetchState(.loaded)
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_thumbnailTitleCC_withFetchState_loaded")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_thumbnailTitleCC_withFetchState_loaded")
     }
 }
 
