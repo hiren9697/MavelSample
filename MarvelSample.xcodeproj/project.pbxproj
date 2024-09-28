@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		096E184F947C682C421B1E54 /* Pods_MarvelSampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC679DD7A94402DCC877E44 /* Pods_MarvelSampleTests.framework */; };
 		8704F9002C5E6012004862D5 /* ComicDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8704F8FF2C5E6012004862D5 /* ComicDetailVM.swift */; };
+		8706DE952CA7E68900D0EE75 /* SnapshotTestConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8706DE942CA7E68900D0EE75 /* SnapshotTestConfiguration.swift */; };
 		871F60B32C51F4D800AD6821 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DDFDCF2C39412F0040621E /* MockAPIService.swift */; };
 		871F60B52C51F4D800AD6821 /* FakeUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872848742C425DC1008C1ED0 /* FakeUserDefaults.swift */; };
 		871F60B62C51F4D800AD6821 /* TestableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8717F2412C4B9CD8007FC501 /* TestableData.swift */; };
@@ -269,6 +270,7 @@
 		57EB12B184176C749841DAEC /* Pods-MarvelSampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelSampleTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelSampleTests/Pods-MarvelSampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B6D083E181A39060F459EFE /* Pods_MarvelSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8704F8FF2C5E6012004862D5 /* ComicDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailVM.swift; sourceTree = "<group>"; };
+		8706DE942CA7E68900D0EE75 /* SnapshotTestConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotTestConfiguration.swift; sourceTree = "<group>"; };
 		8717F23D2C4B785C007FC501 /* BaseCollectionVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionVCTests.swift; sourceTree = "<group>"; };
 		8717F23F2C4B7B7D007FC501 /* TestableChildCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableChildCollectionVC.swift; sourceTree = "<group>"; };
 		8717F2412C4B9CD8007FC501 /* TestableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestableData.swift; sourceTree = "<group>"; };
@@ -739,6 +741,7 @@
 			isa = PBXGroup;
 			children = (
 				87DDFD912C38EDDB0040621E /* MarvelSampleTests.swift */,
+				8706DE942CA7E68900D0EE75 /* SnapshotTestConfiguration.swift */,
 				878D15E02C83243700DCC254 /* APIRequestGeneratorTests */,
 				878D15E12C83244400DCC254 /* JSONParserTests */,
 				8765BFBB2C6DBF2800D4C0E9 /* APIService */,
@@ -1658,6 +1661,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8706DE952CA7E68900D0EE75 /* SnapshotTestConfiguration.swift in Sources */,
 				876D13D12C7E041E007ED872 /* HorizontalThumbnailTitleGridSnapshotTests.swift in Sources */,
 				87CB6CAD2C6EF3C300B96CFE /* BaseThumbnailTitleFetchableVMTests.swift in Sources */,
 				87CB6CB52C6EF3C300B96CFE /* ThumbnailTitleCCTests.swift in Sources */,

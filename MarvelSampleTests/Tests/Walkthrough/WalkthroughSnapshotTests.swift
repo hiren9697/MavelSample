@@ -29,22 +29,34 @@ final class WalkthroughSnapshotTests: XCTestCase {
 extension WalkthroughSnapshotTests {
     func test_withEmptyText() {
         setupWithEmptyTextInViewModel()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_withEmptyText")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_withEmptyText")
     }
     
     func test_withNoramalLengthText() {
         setupWithNormalLengthTextInViewModel()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_withNormalLengthText")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_withNormalLengthText")
     }
     
     func test_withLongLengthText() {
         setupWithLongLengthTextInViewModel()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_withLongLengthText")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_withLongLengthText")
     }
     
     func test_withExtraLongLengthText() {
         setupWithExtraLongLengthTextInViewModel()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_withExtraLongLengthText")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_withExtraLongLengthText")
     }
 }
 
