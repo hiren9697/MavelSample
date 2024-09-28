@@ -32,22 +32,34 @@ final class EventsVCSnapshotTests: XCTestCase {
 extension EventsVCSnapshotTests {
     func test_UIWithFetchState_initialLoading() {
         viewModel.fetchState.value = .initialLoading
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_eventsVC_withFetchState_initialLoading")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_eventsVC_withFetchState_initialLoading")
     }
     
     func test_UIWithFetchState_emptyData() {
         viewModel.fetchState.value = .emptyData
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_eventsVC_withFetchState_emptyData")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_eventsVC_withFetchState_emptyData")
     }
     
     func test_UIWithFetchState_error() {
         viewModel.fetchState.value = .error(DummyNetworkError.somethingWentWrong)
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_eventsVC_withFetchState_error")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_eventsVC_withFetchState_error")
     }
     
     func test_UIWithFetchState_idle() {
         addListItemsWithIdleModeInViewModel()
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_eventsVC_withFetchState_idle")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_eventsVC_withFetchState_idle")
     }
     
     func test_UIWithFetchState_nextPageLoading() {
