@@ -35,7 +35,7 @@ extension ComicsVCSnapshotTests {
     func test_UIWithFetchState_initialLoading() {
         viewModel.fetchState.value = .initialLoading
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_comicsVC_withFetchState_initialLoading")
     }
@@ -43,7 +43,7 @@ extension ComicsVCSnapshotTests {
     func test_UIWithFetchState_emptyData() {
         viewModel.fetchState.value = .emptyData
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_comicsVC_withFetchState_emptyData")
     }
@@ -51,7 +51,7 @@ extension ComicsVCSnapshotTests {
     func test_UIWithFetchState_error() {
         viewModel.fetchState.value = .error(DummyNetworkError.somethingWentWrong)
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_comicsVC_withFetchState_error")
     }
@@ -59,7 +59,7 @@ extension ComicsVCSnapshotTests {
     func test_UIWithFetchState_idle() {
         addListItemsWithIdleModeInViewModel()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_comicsVC_withFetchState_idle")
     }
@@ -68,7 +68,7 @@ extension ComicsVCSnapshotTests {
         addListItemsWithIdleModeInViewModel()
         viewModel.fetchState.value = .loadingNextPage
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_comicsVC_withFetchState_loadingNextPage")
     }

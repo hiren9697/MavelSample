@@ -11,6 +11,8 @@ import SnapshotTesting
 
 /// Tests HorizontalThumbnailTitleGrid UI with empty and not empty data
 final class HorizontalThumbnailTitleGridSnapshotTests: XCTestCase {
+    let sutSize: CGSize = CGSize(width: 375, height: 202)
+    lazy var sutSnapshotting: Snapshotting<UIView, UIImage> = SnapshotTestConfiguration.snapshottingForView(size: sutSize)
     var sut: ThumbnailTitleHorizontalGridView<GenericHorizontalThumbnailTitleGridViewModel<TestableThumbnailTitleVM>>!
     var viewModel: GenericHorizontalThumbnailTitleGridViewModel<TestableThumbnailTitleVM>!
     
@@ -33,7 +35,7 @@ extension HorizontalThumbnailTitleGridSnapshotTests {
     func testUI_withData_empty() {
         setUpSUTWithEmptyData()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: sutSnapshotting,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_horizontalThumbnailTitleGrid_withEmpty_data")
     }
@@ -41,7 +43,7 @@ extension HorizontalThumbnailTitleGridSnapshotTests {
     func testUI_withData_nonEmpty() {
         setUPSUTWithNonEmptyData()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: sutSnapshotting,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_horizontalThumbnailTitleGrid_withNonEmpty_data")
     }
@@ -54,7 +56,7 @@ extension HorizontalThumbnailTitleGridSnapshotTests {
                                                                  emptyDataTitle: "Test empty title",
                                                                  data: [])
         sut = ThumbnailTitleHorizontalGridView(viewModel: viewModel)
-        sut.frame = CGRect(x: 0, y: 0, width: 375, height: 200)
+        sut.frame = CGRect(origin: .zero, size: sutSize)
     }
     
     private func setUPSUTWithNonEmptyData() {
@@ -83,6 +85,6 @@ extension HorizontalThumbnailTitleGridSnapshotTests {
                                                                                            emptyDataTitle: "Test empty title",
                                                                                            data: data)
         sut = ThumbnailTitleHorizontalGridView(viewModel: viewModel)
-        sut.frame = CGRect(x: 0, y: 0, width: 375, height: 200)
+        sut.frame = CGRect(origin: .zero, size: sutSize)
     }
 }

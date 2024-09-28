@@ -32,7 +32,7 @@ extension CharactersVCSnapshotTests {
     func test_UIWithFetchState_initialLoading() {
         viewModel.fetchState.value = .initialLoading
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_charactersVC_withFetchState_initialLoading")
     }
@@ -40,7 +40,7 @@ extension CharactersVCSnapshotTests {
     func test_UIWithFetchState_emptyData() {
         viewModel.fetchState.value = .emptyData
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_charactersVC_withFetchState_emptyData")
     }
@@ -48,7 +48,7 @@ extension CharactersVCSnapshotTests {
     func test_UIWithFetchState_error() {
         viewModel.fetchState.value = .error(DummyNetworkError.somethingWentWrong)
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_charactersVC_withFetchState_error")
     }
@@ -56,7 +56,7 @@ extension CharactersVCSnapshotTests {
     func test_UIWithFetchState_idle() {
         addListItemsWithIdleModeInViewModel()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_charactersVC_withFetchState_idle")
     }
@@ -65,7 +65,7 @@ extension CharactersVCSnapshotTests {
         addListItemsWithIdleModeInViewModel()
         viewModel.fetchState.value = .loadingNextPage
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_charactersVC_withFetchState_loadingNextPage")
     }

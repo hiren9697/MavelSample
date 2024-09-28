@@ -30,7 +30,7 @@ extension CharacterDetailVCSnapshotTests {
     func test_UI_withAllDataNonEmpty() {
         initializeSUTWithAllNonEmptyData()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_characterDetailVC_withAllDataNonEmpty")
     }
@@ -38,7 +38,7 @@ extension CharacterDetailVCSnapshotTests {
     func test_UI_withAllDataEmpty() {
         initializeSUTWithAllEmptyData()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_characterDetailVC_withAllDataEmpty")
     }

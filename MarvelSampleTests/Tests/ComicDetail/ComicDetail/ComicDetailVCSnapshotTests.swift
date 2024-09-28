@@ -31,7 +31,7 @@ extension ComicDetailVCSnapshotTests {
     func test_UI_withAllDataNonEmpty() {
         initializeSUTWithAllNonEmptyData()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_comicDetailVC_withAllDataNonEmpty")
     }
@@ -39,7 +39,7 @@ extension ComicDetailVCSnapshotTests {
     func test_UI_withEmptyDescriptionAndNonEmptyCreatorsAndCharacters() {
         initializeSUTWithEmptyDescriptionAndNonEmptyCharactersAndCreators()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_comicDetailVC_withEmptyDescriptionAndNonEmptyCreatorsAndCharacters")
     }
@@ -47,7 +47,7 @@ extension ComicDetailVCSnapshotTests {
     func test_UI_withAllDataEmpty() {
         initializeSUTWithAllEmptyData()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_comicDetailVC_withAllDataEmpty")
     }
