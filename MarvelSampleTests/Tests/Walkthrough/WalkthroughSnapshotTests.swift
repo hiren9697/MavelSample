@@ -30,7 +30,7 @@ extension WalkthroughSnapshotTests {
     func test_withEmptyText() {
         setupWithEmptyTextInViewModel()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_withEmptyText")
     }
@@ -38,7 +38,7 @@ extension WalkthroughSnapshotTests {
     func test_withNoramalLengthText() {
         setupWithNormalLengthTextInViewModel()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_withNormalLengthText")
     }
@@ -46,7 +46,7 @@ extension WalkthroughSnapshotTests {
     func test_withLongLengthText() {
         setupWithLongLengthTextInViewModel()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_withLongLengthText")
     }
@@ -54,7 +54,7 @@ extension WalkthroughSnapshotTests {
     func test_withExtraLongLengthText() {
         setupWithExtraLongLengthTextInViewModel()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_withExtraLongLengthText")
     }

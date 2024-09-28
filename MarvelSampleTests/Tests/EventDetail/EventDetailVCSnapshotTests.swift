@@ -31,7 +31,7 @@ extension EventDetailVCSnapshotTests {
     func test_UI_withAllDataNonEmpty() {
         initializeSUTWithAllNonEmptyData()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_evnetDetailVC_withAllDataNonEmpty")
     }
@@ -39,7 +39,7 @@ extension EventDetailVCSnapshotTests {
     func test_UI_withEmptyDescriptionAndNonEmptyCreatorsCharactersAndComics() {
         initializeSUTWithEmptyDescriptionAndNonEmptyCharactersAndCreators()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_eventDetailVC_withEmptyDescriptionAndNonEmptyCreatorsCharactersAndComics")
     }
@@ -47,7 +47,7 @@ extension EventDetailVCSnapshotTests {
     func test_UI_withAllDataEmpty() {
         initializeSUTWithAllEmptyData()
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: SnapshotTestConfiguration.snapshottingForViewController,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_eventDetailVC_withAllDataEmpty")
     }

@@ -11,6 +11,8 @@ import Combine
 @testable import MarvelSample
 
 final class ThumbnailTitleCCSnapshotTests: XCTestCase {
+    let sutSize: CGSize = CGSize(width: 162.5, height: 227.5)
+    lazy var sutSnapshotting: Snapshotting<UIView, UIImage> = SnapshotTestConfiguration.snapshottingForView(size: sutSize)
     var sut: ThumbnailTitleCC<TestableThumbnailTitleVM>!
     var viewModel: TestableThumbnailTitleVM!
     
@@ -32,7 +34,7 @@ final class ThumbnailTitleCCSnapshotTests: XCTestCase {
 extension ThumbnailTitleCCSnapshotTests {
     func testUI_withFetchState_nil() {
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: sutSnapshotting,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_thumbnailTitleCC_withFetchState_nil")
     }
@@ -48,7 +50,7 @@ extension ThumbnailTitleCCSnapshotTests {
     func testUI_withFetchState_loading() {
         setViewModelWithFetchState(.loading)
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: sutSnapshotting,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_thumbnailTitleCC_withFetchState_loading")
     }
@@ -56,7 +58,7 @@ extension ThumbnailTitleCCSnapshotTests {
     func testUI_withFetchState_loaded() {
         setViewModelWithFetchState(.loaded)
         assertSnapshot(matching: sut,
-                       as: .image,
+                       as: sutSnapshotting,
                        record: SnapshotTestConfiguration.isRecordingEnabled,
                        testName: "test_thumbnailTitleCC_withFetchState_loaded")
     }
@@ -73,7 +75,7 @@ extension ThumbnailTitleCCSnapshotTests {
                                              errorVM: nil)
         sut = ThumbnailTitleCC()
         sut.update(viewModel: viewModel)
-        sut.frame = CGRect(x: 0, y: 0, width: 300, height: 200)
+        sut.frame = CGRect(origin: .zero, size: sutSize)
     }
     
     func setViewModelWithFetchState(_ state: ListItemLoadingState) {
@@ -85,6 +87,6 @@ extension ThumbnailTitleCCSnapshotTests {
                                              errorVM: nil)
         sut = ThumbnailTitleCC()
         sut.update(viewModel: viewModel)
-        sut.frame = CGRect(x: 0, y: 0, width: 300, height: 200)
+        sut.frame = CGRect(origin: .zero, size: sutSize)
     }
 }
