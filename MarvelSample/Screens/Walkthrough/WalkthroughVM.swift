@@ -26,9 +26,9 @@ class WalkthroughVM {
     /// - Parameter items: WalkthroughItemVM to be displayed horizontally in walkthrough
     init(items: [WalkthroughItemVM] = [
         WalkthroughItemVM(imageName: "first", text: "Sample app with Marvel's open APIs"),
-        WalkthroughItemVM(imageName: "second", text: "Sample app with unit tests implemented"),
-        WalkthroughItemVM(imageName: "third", text: "Sample app with CI / CD implemented"),
-        WalkthroughItemVM(imageName: "fourth", text: "Sample app with MVVM"),
+        WalkthroughItemVM(imageName: "second", text: "Sample app with unit and snapshot tests"),
+        WalkthroughItemVM(imageName: "third", text: "Sample app with MVVM"),
+        WalkthroughItemVM(imageName: "fourth", text: ""),
         WalkthroughItemVM(imageName: "fifth", text: ""),
         WalkthroughItemVM(imageName: "sixth", text: ""),
     ]) {
