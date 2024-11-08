@@ -29,7 +29,7 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
         stackView.axis = .vertical
         stackView.spacing = 0
         stackView.distribution = .fill
-        stackView.alignment = .center
+        stackView.alignment = .fill
         return stackView
     }()
     let loader: UIActivityIndicatorView = {
@@ -89,6 +89,8 @@ class ThumbnailTitleCC<ViewModel: ThumbnailTitleItemViewModel>: ParentCC {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        imageView.image = nil
+        imageView.layoutIfNeeded()
         bindings.removeAll()
     }
     
