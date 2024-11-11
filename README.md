@@ -3,10 +3,13 @@
 - iOS app built to learn automated test cases, I have written unit and snapshot tests
 - This app uses marvel's free APIs: https://developer.marvel.com
 
+![video](/Media/MarvelSampleAppTour.gif)
+
 # Credits:
 
 UI / Design credit goes to designer: https://www.figma.com/@moses_m
 You can check design here: https://www.figma.com/community/file/1218121517690628123
+Video to GIF conversion: https://www.onlineconverter.com/video-to-gif
 
 Icons credit
 1. Empty box: Ghozi Muhtarom - Flaticon - https://www.flaticon.com/free-icons/empty
