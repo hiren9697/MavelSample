@@ -36,10 +36,10 @@ Icons credit
 - TabBarVM is view model file
 - TabBarItemVM is view model file for tab bar items
 
-## Common
-- ParentVC is view controller file with functionality of show / hide loader implemented, Other view controller files confirm this class to have loader functionality
-
 ## List helper / Parent classes
+### ParentVC
+- ParentVC is view controller class with functionality of show / hide loader implemented
+- Other view controller files confirm this class to have loader functionality
 ### APIDataListable
 - Protocol defines properties and methods for view model class with list functionality with associated types Data(model class for list item) and ItemVM(view model class for list item)
 ### ThumbnailTitleItemViewModel
