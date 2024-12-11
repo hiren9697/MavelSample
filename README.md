@@ -5,6 +5,12 @@
 
 ![video](/Media/MarvelSampleAppTour.gif)
 
+# How to run the project:
+1. Install pods
+2. Generate marvel's keys from here: https://developer.marvel.com
+   Then replace generated keys in file: Configuration/Keys.swift  
+   ![image](/Media/MarvelKeys.jpeg)
+
 # Credits:
 
 UI / Design credit goes to designer: https://www.figma.com/@moses_m
