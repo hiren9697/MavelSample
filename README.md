@@ -6,11 +6,18 @@
 ![video](/Media/MarvelSampleAppTour.gif)
 
 # How to run the project:
-1. Install pods
+1. Install pods.
 2. Generate marvel's keys from here: https://developer.marvel.com
    Then replace generated keys in file: Configuration/Keys.swift  
    ![image](/Media/MarvelKeys.jpeg)
+3. Run project.
 
+# How to run unit tests
+1. Install Pods (if not already installed).
+2. Generate Marvel API keys and set them up as instructed if not done yet.
+3. Snapshot tests can be fragile. To verify this, first enable the flag 'isRecordingEnabled' in SnapshotTestConfiguration and run the unit tests using Command + U. You will observe that the snapshot tests fail. Next, disable the flag and run the unit tests again with Command + U to confirm they pass.
+   ![image](/Media/SnapshotTestConfiguration.jpeg)
+   
 # Credits:
 
 UI / Design credit goes to designer: https://www.figma.com/@moses_m
