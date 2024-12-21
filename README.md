@@ -21,6 +21,7 @@
 # Credits:
 
 UI / Design credit goes to designer: https://www.figma.com/@moses_m
+Design is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 You can check design here: https://www.figma.com/community/file/1218121517690628123
 Video to GIF conversion: https://www.onlineconverter.com/video-to-gif
 
