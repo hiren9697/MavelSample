@@ -65,7 +65,10 @@ extension EventsVCSnapshotTests {
     func test_UIWithFetchState_nextPageLoading() {
         addListItemsWithIdleModeInViewModel()
         viewModel.fetchState.value = .loadingNextPage
-        assertSnapshot(matching: sut, as: .image, record: false, testName: "test_eventsVC_withFetchState_loadingNextPage")
+        assertSnapshot(matching: sut,
+                       as: .image,
+                       record: SnapshotTestConfiguration.isRecordingEnabled,
+                       testName: "test_eventsVC_withFetchState_loadingNextPage")
     }
 }
 
