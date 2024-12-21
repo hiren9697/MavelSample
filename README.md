@@ -20,14 +20,10 @@
    
 # Credits:
 
-UI / Design credit goes to [designer](https://www.figma.com/@moses_m)
-Design is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-You can check design [here](https://www.figma.com/community/file/1218121517690628123)
-[Video to GIF conversion](https://www.onlineconverter.com/video-to-gif)
-
-Icons credit
-1. Empty box: Ghozi Muhtarom - [Check here](https://www.flaticon.com/free-icons/empty)
-2. Network error: ADI_ICONS - [Check here](https://www.flaticon.com/free-icon/file_17597096?term=cloud+error&page=1&position=2&origin=search&related_id=17597096)
+1. UI / Design credit goes to [designer](https://www.figma.com/@moses_m), You can check design [here](https://www.figma.com/community/file/1218121517690628123), Design is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+2. [Video to GIF conversion](https://www.onlineconverter.com/video-to-gif)
+3. Empty box icon: Ghozi Muhtarom - [Check here](https://www.flaticon.com/free-icons/empty)
+4. Network error icon: ADI_ICONS - [Check here](https://www.flaticon.com/free-icon/file_17597096?term=cloud+error&page=1&position=2&origin=search&related_id=17597096)
 
 
 # Functionalities:
