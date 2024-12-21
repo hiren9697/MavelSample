@@ -1,7 +1,7 @@
 # Sample app build with Marvel's API 
 
 - iOS app built to learn automated test cases, I have written unit and snapshot tests
-- This app uses marvel's free APIs: https://developer.marvel.com
+- This app uses marvel's free comics APIs: https://developer.marvel.com
 
 ![video](/Media/MarvelSampleAppTour.gif)
 
